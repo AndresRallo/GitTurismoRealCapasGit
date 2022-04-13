@@ -94,8 +94,8 @@ namespace CapaPresentacion
 
         private void btnAtras_Click_1(object sender, EventArgs e)
         {
-            MenuPrincipal menuPrincipal = new MenuPrincipal();
-            menuPrincipal.Show();
+            MantenedorEmpleados mantenedorEmpleados = new MantenedorEmpleados();
+            mantenedorEmpleados.Show();
             this.Close();
         }
 

@@ -29,8 +29,8 @@ namespace CapaPresentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormEmpleados formEmpleados = new FormEmpleados();
-            formEmpleados.Show();
+            MantenedorEmpleados mantenedorEmpleados = new MantenedorEmpleados();
+            mantenedorEmpleados.Show();
             this.Close();
         }
     }
