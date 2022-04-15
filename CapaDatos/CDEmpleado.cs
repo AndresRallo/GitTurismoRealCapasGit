@@ -7,140 +7,212 @@ using System.Data.OracleClient;
 using System.Windows.Forms;
 using CapaEntidad;
 using System.Data;
+using System.Configuration;
+
 
 namespace CapaDatos
 {
     public class CDEmpleado
     {
-        string cadenaConexion = "DATA SOURCE=localhost:1521/XEPDB1 ; PASSWORD=123456; USER ID=TURISMOADMIN;";
-
+        string conexion = ConfigurationManager.AppSettings["conn"];
+        
         public void PruebaConexion()
         {
-            OracleConnection oracleConnection = new OracleConnection(cadenaConexion);
+            OracleConnection conn = new OracleConnection(conexion);
 
             try
             {
-                oracleConnection.Open();
+                conn.Open();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No conecta a la BD" + ex.Message);
                 return;
             }
-            oracleConnection.Close();
+            conn.Close();
             MessageBox.Show("Conectado :)");
         }
 
 
-        public void InsertarEmpleado(CEEmpleado cE)
+        public void AgregarEmpleado(CEEmpleado cE)
         {
-            OracleConnection oracleConnection = new OracleConnection(cadenaConexion);
-            oracleConnection.Open();
+            OracleConnection conn = new OracleConnection(conexion);
+            
 
             try
             {
+                conn.Open();
+                OracleCommand command = new OracleCommand("agregarEmpleado", conn);
                 
-                string query = @"INSERT INTO empleado (
-                                        
-                                        EM_RUT,
-                                        EM_DV,
-                                        EM_NOMBRE,
-                                        EM_APATERNO,
-                                        EM_AMATERNO,
-                                        EM_EMAIL,
-                                        EM_CONTRASEÑA,
-                                        IDEMPRESA,
-                                        ID_TIPOEMPLEADO,
-                                        IDESTADO,
-                                        ID_DIRECCION) VALUES (" + cE.em_rut + ",'" + cE.em_dv + "','" + cE.em_nombre + "','" + cE.em_apaterno +"'," +
-                                        "'"+ cE.emp_amaterno +"','"+ cE.em_mail +"','"+ cE.em_contrasena +"'," + cE.idEmpresa +","+ cE.idTipoEmleado + "," + cE.idEstado + "," + cE.idDireccion + ")";
-
-                OracleCommand oracleCommand = new OracleCommand(query, oracleConnection);
-                //OracleCommand command = new OracleCommand(query, oracleConnection);
-                oracleCommand.ExecuteNonQuery();
-                oracleConnection.Close();
-                MessageBox.Show("Bien venido ");
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add("rutEmp", OracleType.Number).Value = Convert.ToInt32(cE.em_rut);      
+                command.Parameters.Add("dvEmp", OracleType.Char).Value = cE.em_dv;
+                command.Parameters.Add("nomEmp", OracleType.NVarChar).Value = cE.em_nombre;
+                command.Parameters.Add("aPaternoEmp", OracleType.NVarChar).Value = cE.em_apaterno;
+                command.Parameters.Add("aMaternoEmp", OracleType.NVarChar).Value = cE.emp_amaterno;
+                command.Parameters.Add("emailEmp", OracleType.NVarChar).Value = cE.em_mail;
+                command.Parameters.Add("contraseniaEmp", OracleType.NVarChar).Value = cE.em_contrasena;
+                command.Parameters.Add("idEmpresaEmp", OracleType.Number).Value = Convert.ToInt32(cE.idEmpresa);
+                command.Parameters.Add("idTipoEmp", OracleType.Number).Value = Convert.ToInt32(cE.idTipoEmleado);
+                command.Parameters.Add("idEstadoEmp", OracleType.Number).Value = Convert.ToInt32(cE.idEstado);
+                command.Parameters.Add("idDireccionEmp", OracleType.Number).Value = Convert.ToInt32(cE.idDireccion);
+                command.ExecuteNonQuery();
+                #region procedimiento almacenado
+                /*
+                create or replace procedure agregarEmpleado(rutEmp in number, dvEmp in char, nomEmp in nvarchar2, aPaternoEmp in nvarchar2, aMaternoEmp in nvarchar2, emailEmp in nvarchar2, 
+                contraseniaEmp in nvarchar2,
+                idEmpresaEmp in number, idTipoEmp in number, idEstadoEmp in number, idDireccionEmp in number)
+                as
+                  Begin
+                    insert into empleado (em_rut,em_dv,em_nombre,em_apaterno,em_amaterno,em_email,em_contraseña,idempresa,id_tipoempleado,idestado,id_direccion) 
+                    values(rutEmp,dvEmp,nomEmp,aPaternoEmp,aMaternoEmp,emailEmp,contraseniaEmp,idEmpresaEmp,idTipoEmp,idEstadoEmp,idDireccionEmp);
+                end;
+                */
+                #endregion
             }
             catch (Exception ex)
             {
-                oracleConnection.Close();
-                MessageBox.Show("No conectado");
                 
-            }
+                MessageBox.Show("No conectado" + ex.Message);
 
+            }
+            conn.Close();
+            MessageBox.Show("Empleado Agregado");
         }
 
-        public DataSet Listar()
+        public DataTable Listar()
         {
-            OracleConnection oracleConnection = new OracleConnection(cadenaConexion);
-            oracleConnection.Open();
-            string query = "SELECT * FROM EMPLEADO";
-            OracleDataAdapter Adaptador;
-            DataSet dataSet = new DataSet();
+            OracleConnection conn = new OracleConnection(conexion);
+            OracleDataReader mostrarTabla;
+            DataTable tablaEmpleado = new DataTable();
 
-            Adaptador = new OracleDataAdapter(query, oracleConnection);
-            Adaptador.Fill(dataSet, "tbl");
+            try
+            {
+                conn.Open();
+                OracleCommand command = new OracleCommand("seleccionarEmpleados", conn);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+                mostrarTabla = command.ExecuteReader();
+                mostrarTabla.Read();
+                OracleDataAdapter adaptador = new OracleDataAdapter();
+                adaptador.SelectCommand = command;
+                adaptador.Fill(tablaEmpleado);
+                
+            }
+            catch (Exception ex)
+            {
 
-            return dataSet;
-
+                MessageBox.Show("No conectado" + ex.Message);
+            }
+            
+            conn.Close();
+            return tablaEmpleado;
         }
 
 
         public void EditarEmpleado(CEEmpleado cE)
         {
-            OracleConnection oracleConnection = new OracleConnection(cadenaConexion);
-            oracleConnection.Open();
+            OracleConnection conn = new OracleConnection(conexion);
 
             try
             {
-                
-                string query = @"SET
-                        a = b
-                    WHERE
-                            idempleado = " + cE.idempleado + " AND em_rut = " + cE.em_rut + "AND em_dv = '" + cE.em_dv + "' AND em_nombre = '" + cE.em_nombre + "'AND em_apaterno = :v4 '" + cE.em_apaterno + "' AND em_amaterno = '" + cE.emp_amaterno + "' AND em_email = '" + cE.em_mail + "' AND EM_CONTRASEÑA = '" + cE.em_contrasena + "' AND idempresa = " + cE.idEmpresa + " AND id_tipoempleado = " + cE.idTipoEmleado + "AND idestado = " + cE.idEstado + "AND id_direccion = " + cE.idDireccion + ";)";
-
-
-
-                OracleCommand oracleCommand = new OracleCommand(query, oracleConnection);
-                //OracleCommand command = new OracleCommand(query, oracleConnection);
-                oracleCommand.ExecuteNonQuery();
-                oracleConnection.Close();
-                MessageBox.Show("Registro Actualizado");
+                conn.Open();
+                OracleCommand command = new OracleCommand("actualizarEmpleado", conn);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add("idEmpleado", OracleType.Number).Value = Convert.ToInt32(cE.idempleado);
+                command.Parameters.Add("rutEmp", OracleType.Number).Value = Convert.ToInt32(cE.em_rut);
+                command.Parameters.Add("dvEmp", OracleType.Char).Value = cE.em_dv;
+                command.Parameters.Add("nomEmp", OracleType.NVarChar).Value = cE.em_nombre;
+                command.Parameters.Add("aPaternoEmp", OracleType.NVarChar).Value = cE.em_apaterno;
+                command.Parameters.Add("aMaternoEmp", OracleType.NVarChar).Value = cE.emp_amaterno;
+                command.Parameters.Add("emailEmp", OracleType.NVarChar).Value = cE.em_mail;
+                command.Parameters.Add("contraseniaEmp", OracleType.NVarChar).Value = cE.em_contrasena;
+                command.Parameters.Add("idEmpresaEmp", OracleType.Number).Value = Convert.ToInt32(cE.idEmpresa);
+                command.Parameters.Add("idTipoEmp", OracleType.Number).Value = Convert.ToInt32(cE.idTipoEmleado);
+                command.Parameters.Add("idEstadoEmp", OracleType.Number).Value = Convert.ToInt32(cE.idEstado);
+                command.Parameters.Add("idDireccionEmp", OracleType.Number).Value = Convert.ToInt32(cE.idDireccion);
+                command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                oracleConnection.Close();
+                
                 MessageBox.Show("No conectado");
 
             }
-
+            conn.Close();
+            MessageBox.Show("Empleado Actualizado");
+            #region procedimiento almacenado
+            /*
+             create or replace PROCEDURE actualizarEmpleado(idEmpleado in Number, rutEmp in number, dvEmp in char, nomEmp in nvarchar2, aPaternoEmp in nvarchar2, aMaternoEmp in nvarchar2, emailEmp in nvarchar2, 
+             contraseniaEmp in nvarchar2,
+                idEmpresaEmp in number, idTipoEmp in number, idEstadoEmp in number, idDireccionEmp in number)
+                as
+                    vid NUMBER := idEmpleado;
+                    vrut NUMBER := rutEmp;
+                    vdv char := dvEmp;
+                    vnom nvarchar2(50) := nomEmp;
+                    vaPaterno nvarchar2(50) := aPaternoEmp;
+                    vaMaterno nvarchar2(50) := aMaternoEmp;
+                    vEmail nvarchar2(50) := emailEmp;
+                    vContrasenia nvarchar2(50) := contraseniaEmp;
+                    vIdEmpresa NUMBER := idEmpresaEmp;
+                    vIdTipo NUMBER := idTipoEmp;
+                    vIdEstado NUMBER := idEstadoEmp;
+                    vIdDireccion NUMBER := idDireccionEmp;
+                begin
+                    update empleado set EM_RUT = vrut, EM_DV = vdv, em_nombre = vnom,
+                    em_apaterno=vaPaterno, em_amaterno=vaMaterno, em_email=vEmail,
+                    EM_CONTRASEÑA=vContrasenia, idempresa=vIdEmpresa, id_tipoempleado=vIdTipo,
+                    idestado=vIdEstado, id_direccion=vIdDireccion
+                WHERE        idempleado = vid;
+                Exception
+                    when NO_DATA_FOUND then
+                    null;
+                    When others then
+                    raise;
+                END actualizarEmpleado;
+             */
+            #endregion
         }
 
         public void EliminarEmpleado(CEEmpleado cE) 
         {
-            OracleConnection oracleConnection = new OracleConnection(cadenaConexion);
-            oracleConnection.Open();
-
+            OracleConnection conn = new OracleConnection(conexion);
             try
             {
-
-                string query = @"delete from empleado WHERE em_rut = " + cE.em_rut +";)";
-
-
-
-                OracleCommand oracleCommand = new OracleCommand(query, oracleConnection);
-                //OracleCommand command = new OracleCommand(query, oracleConnection);
-                oracleCommand.ExecuteNonQuery();
-                oracleConnection.Close();
-                MessageBox.Show("Registro Eliminado");
+                DialogResult result;
+                result = MessageBox.Show("¿Esta seguro de eliminar este empleado?", "Eliminar Empleado", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("eliminarEmpleado", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("idEmpleado", OracleType.Number).Value = Convert.ToInt32(cE.idempleado);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Empleado Eliminado");
+                }
+                else
+                {
+                    return;
+                }
             }
             catch (Exception ex)
             {
-                oracleConnection.Close();
-                MessageBox.Show("No Eliminado");
 
+                MessageBox.Show("Error" + ex);
             }
 
+            conn.Close();
+            #region procedimiento almacenado
+            /* Procedimiento almacenado 
+             Create or replace procedure eliminarEmpleado (idEmpleado in NUMBER)
+             as
+                vid number := idEmpleado;
+             begin
+                delete from empleado where idempleado = vid;
+             END;
+             */
+            #endregion
         }
     }
 }

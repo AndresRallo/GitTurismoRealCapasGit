@@ -1,0 +1,67 @@
+﻿using CapaEntidad;
+using CapaNegocio;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Data.OracleClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CapaPresentacion
+{
+    public partial class AgregarEmpleado : Form
+    {
+        CNEmpleado cNEmpleado = new CNEmpleado();
+        CEEmpleado cEEmpleado = new CEEmpleado();
+        
+        public AgregarEmpleado()
+        {
+            InitializeComponent();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            MantenedorEmpleados mantenedorEmpleados = new MantenedorEmpleados();
+            mantenedorEmpleados.Show();
+            this.Close();
+        }
+
+        private void btnAgregarEmpleado_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                CEEmpleado empleado = new CEEmpleado();
+                empleado.em_rut = txtRut.Text;
+                empleado.em_dv = txtDV.Text;
+                empleado.em_nombre = txtNom.Text;
+                empleado.em_apaterno = txtAPaterno.Text;
+                empleado.emp_amaterno = txtAMaterno.Text;
+                empleado.em_mail = txtEmail.Text;
+                empleado.em_contrasena = txtContrasenia.Text;
+                empleado.idEmpresa = Convert.ToInt32(txtIDEmpresa.Text);
+                empleado.idTipoEmleado = Convert.ToInt32(txtIDTipo.Text);
+                empleado.idEstado = Convert.ToInt32(txtIDEstado.Text);
+                empleado.idDireccion = Convert.ToInt32(txtDireccion.Text);
+                
+                cNEmpleado.CrearEmpleado(empleado);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Empleado No Agregado "+ ex);
+            }
+                
+        }
+
+        private void btnProbarConexion_Click(object sender, EventArgs e)
+        {
+            cNEmpleado.PruebaOracle();
+        }
+    }
+}

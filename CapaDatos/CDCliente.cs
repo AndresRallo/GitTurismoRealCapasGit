@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 using System.Data.OracleClient;
 using CapaEntidad;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace CapaDatos
 {
     public class CDCliente
     {
-        string cadenaConexion = "DATA SOURCE=localhost:1521/XEPDB1 ; PASSWORD=123456; USER ID=TURISMOADMIN;";
+        string conexion = ConfigurationManager.AppSettings["conn"];
 
         public void PruebaConexion()
         {
-            OracleConnection oracleConnection = new OracleConnection(cadenaConexion);
+            OracleConnection oracleConnection = new OracleConnection(conexion);
 
             try
             {
@@ -32,7 +33,7 @@ namespace CapaDatos
 
         public void Crear(CECliente cE)
         {
-            OracleConnection oracleConnection = new OracleConnection(cadenaConexion);
+            OracleConnection oracleConnection = new OracleConnection(conexion);
             oracleConnection.Open();
 
 

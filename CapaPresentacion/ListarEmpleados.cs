@@ -1,6 +1,9 @@
-﻿using System;
+﻿using CapaEntidad;
+using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.OracleClient;
 using System.Drawing;
@@ -13,7 +16,10 @@ namespace CapaPresentacion
 {
     public partial class ListarEmpleados : Form
     {
-        OracleConnection conn = new OracleConnection("DATA SOURCE = localhost:1521 / XEPDB1 ; PASSWORD=123456; USER ID = TURISMOADMIN;");
+        CNEmpleado cNEmpleado = new CNEmpleado();
+        CEEmpleado cEEmpleado = new CEEmpleado();
+        
+
         public ListarEmpleados()
         {
             InitializeComponent();
@@ -26,19 +32,34 @@ namespace CapaPresentacion
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-           
-                conn.Open();
-                OracleCommand command = new OracleCommand("seleccionarEmpleados", conn);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = command;
-                DataTable tablaEmpleado = new DataTable();
-                adaptador.Fill(tablaEmpleado);
-                dataGridViewEmpleados.DataSource = tablaEmpleado;
+            try
+            {
+                CNEmpleado lista = new CNEmpleado();
+                dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
+                
 
-                conn.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("error " + ex);
+            }
+
+            /*
+              conn.Open();
+              OracleCommand command = new OracleCommand("seleccionarEmpleados", conn);
+              command.CommandType = System.Data.CommandType.StoredProcedure;
+              command.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+              OracleDataAdapter adaptador = new OracleDataAdapter();
+              adaptador.SelectCommand = command;
+              DataTable tablaEmpleado = new DataTable();
+              adaptador.Fill(tablaEmpleado);
+              dataGridViewEmpleados.DataSource = tablaEmpleado;
+
+              conn.Close();
+              */
 
             /**Procedimiento almacenado
                Create or replace procedure seleccionarEmpleados (registros out SYS_REFCURSOR)
@@ -48,15 +69,14 @@ namespace CapaPresentacion
                End;
             **/
 
-
-
+            /*
+            
+            */
         }
 
         private void btnProbarConexion_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            MessageBox.Show("Conectado");
-            conn.Close();
+            cNEmpleado.PruebaOracle();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

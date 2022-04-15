@@ -84,7 +84,7 @@ namespace CapaNegocio
 
         public void CrearEmpleado(CEEmpleado cE)
         {
-            cDEmpleado.InsertarEmpleado(cE);
+            cDEmpleado.AgregarEmpleado(cE);
         }
 
         public void EditarEmpleado(CEEmpleado cE) 
@@ -98,9 +98,11 @@ namespace CapaNegocio
         }
 
 
-        public DataSet ObtenerDatos()
+        public DataTable ObtenerDatos()
         {
-            return cDEmpleado.Listar();
+            DataTable lista = new DataTable();
+            lista = cDEmpleado.Listar();
+            return lista;
         }
     }
 }

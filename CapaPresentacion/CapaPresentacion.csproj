@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarEmpleado.Designer.cs">
+      <DependentUpon>AgregarEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditarEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,12 +65,6 @@
     </Compile>
     <Compile Include="EliminarEmpleado.Designer.cs">
       <DependentUpon>EliminarEmpleado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormEmpleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEmpleados.Designer.cs">
-      <DependentUpon>FormEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="frCliente.cs">
       <SubType>Form</SubType>
@@ -91,14 +92,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgregarEmpleado.resx">
+      <DependentUpon>AgregarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditarEmpleado.resx">
       <DependentUpon>EditarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EliminarEmpleado.resx">
       <DependentUpon>EliminarEmpleado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEmpleados.resx">
-      <DependentUpon>FormEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frCliente.resx">
       <DependentUpon>frCliente.cs</DependentUpon>

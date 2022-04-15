@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace CapaPresentacion
 {
     public partial class MantenedorEmpleados : Form
     {
+        CNEmpleado cNEmpleado = new CNEmpleado();
         public MantenedorEmpleados()
         {
             InitializeComponent();
@@ -31,8 +33,8 @@ namespace CapaPresentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FormEmpleados formEmpleados = new FormEmpleados();
-            formEmpleados.Show();
+            AgregarEmpleado agregarEmpleado = new AgregarEmpleado();
+            agregarEmpleado.Show();
             this.Close();
         }
 
@@ -55,6 +57,11 @@ namespace CapaPresentacion
             EditarEmpleado editarEmpleado = new EditarEmpleado();
             editarEmpleado.Show();
             this.Close();
+        }
+
+        private void btnConexion_Click(object sender, EventArgs e)
+        {
+            cNEmpleado.PruebaOracle();
         }
     }
 }

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using CapaEntidad;
+using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.OracleClient;
 using System.Drawing;
@@ -13,6 +16,9 @@ namespace CapaPresentacion
 {
     public partial class EditarEmpleado : Form
     {
+        CNEmpleado cNEmpleado = new CNEmpleado();
+        CEEmpleado cEEmpleado = new CEEmpleado();
+        string conexion = ConfigurationManager.AppSettings["conn"];
         OracleConnection conn = new OracleConnection("DATA SOURCE = localhost:1521 / XEPDB1 ; PASSWORD=123456; USER ID = TURISMOADMIN;");
         public EditarEmpleado()
         {
@@ -21,9 +27,7 @@ namespace CapaPresentacion
 
         private void btnProbarConexion_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            MessageBox.Show("Conectado");
-            conn.Close();
+            cNEmpleado.PruebaOracle();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -59,54 +63,36 @@ namespace CapaPresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            OracleCommand command = new OracleCommand("actualizarEmpleado", conn);
-            command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.Parameters.Add("idEmpleado",OracleType.Number).Value =Convert.ToInt32(txtIDEmpleado.Text);
-            command.Parameters.Add("rutEmp",OracleType.Number).Value = Convert.ToInt32(txtRut.Text);
-            command.Parameters.Add("dvEmp",OracleType.Char).Value = txtDV.Text;
-            command.Parameters.Add("nomEmp",OracleType.NVarChar).Value = txtNom.Text;
-            command.Parameters.Add("aPaternoEmp",OracleType.NVarChar).Value = txtAPaterno.Text;
-            command.Parameters.Add("aMaternoEmp",OracleType.NVarChar).Value = txtAMaterno.Text;
-            command.Parameters.Add("emailEmp",OracleType.NVarChar).Value = txtEmail.Text;
-            command.Parameters.Add("contraseniaEmp",OracleType.NVarChar).Value = txtContrasenia.Text;
-            command.Parameters.Add("idEmpresaEmp", OracleType.Number).Value = Convert.ToInt32(txtIDEmpresa.Text);
-            command.Parameters.Add("idTipoEmp", OracleType.Number).Value = Convert.ToInt32(txtIDTipo.Text);
-            command.Parameters.Add("idEstadoEmp", OracleType.Number).Value = Convert.ToInt32(txtIDEstado.Text);
-            command.Parameters.Add("idDireccionEmp", OracleType.Number).Value = Convert.ToInt32(txtIDDireccion.Text);
-            command.ExecuteNonQuery();
-            MessageBox.Show("Empleado Actualizado");
-            conn.Close();
-            /*
-             create or replace PROCEDURE actualizarEmpleado(idEmpleado in Number, rutEmp in number, dvEmp in char, nomEmp in nvarchar2, aPaternoEmp in nvarchar2, aMaternoEmp in nvarchar2, emailEmp in nvarchar2, 
-             contraseniaEmp in nvarchar2,
-                idEmpresaEmp in number, idTipoEmp in number, idEstadoEmp in number, idDireccionEmp in number)
-                as
-                    vid NUMBER := idEmpleado;
-                    vrut NUMBER := rutEmp;
-                    vdv char := dvEmp;
-                    vnom nvarchar2(50) := nomEmp;
-                    vaPaterno nvarchar2(50) := aPaternoEmp;
-                    vaMaterno nvarchar2(50) := aMaternoEmp;
-                    vEmail nvarchar2(50) := emailEmp;
-                    vContrasenia nvarchar2(50) := contraseniaEmp;
-                    vIdEmpresa NUMBER := idEmpresaEmp;
-                    vIdTipo NUMBER := idTipoEmp;
-                    vIdEstado NUMBER := idEstadoEmp;
-                    vIdDireccion NUMBER := idDireccionEmp;
-                begin
-                    update empleado set EM_RUT = vrut, EM_DV = vdv, em_nombre = vnom,
-                    em_apaterno=vaPaterno, em_amaterno=vaMaterno, em_email=vEmail,
-                    EM_CONTRASEÑA=vContrasenia, idempresa=vIdEmpresa, id_tipoempleado=vIdTipo,
-                    idestado=vIdEstado, id_direccion=vIdDireccion
-                WHERE        idempleado = vid;
-                Exception
-                    when NO_DATA_FOUND then
-                    null;
-                    When others then
-                    raise;
-                END actualizarEmpleado;
-             */
+            try
+            {
+                CEEmpleado empleado = new CEEmpleado();
+                empleado.idempleado = Convert.ToInt32(txtIDEmpleado.Text);
+                empleado.em_rut = txtRut.Text;
+                empleado.em_dv = txtDV.Text;
+                empleado.em_nombre = txtNom.Text;
+                empleado.em_apaterno = txtAPaterno.Text;
+                empleado.emp_amaterno = txtAMaterno.Text;
+                empleado.em_mail = txtEmail.Text;
+                empleado.em_contrasena = txtContrasenia.Text;
+                empleado.idEmpresa = Convert.ToInt32(txtIDEmpresa.Text);
+                empleado.idTipoEmleado = Convert.ToInt32(txtIDTipo.Text);
+                empleado.idEstado = Convert.ToInt32(txtIDEstado.Text);
+                empleado.idDireccion = Convert.ToInt32(txtIDDireccion.Text);
+
+                cNEmpleado.EditarEmpleado(empleado);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Empleado No Editato" + ex);
+            }
+            
+            
+        }
+
+        private void txtNom_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

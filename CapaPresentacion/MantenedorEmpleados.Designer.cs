@@ -35,6 +35,7 @@ namespace CapaPresentacion
             this.btnListar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.btnConexion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMantenedorEmpleado
@@ -98,11 +99,22 @@ namespace CapaPresentacion
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // btnConexion
+            // 
+            this.btnConexion.Location = new System.Drawing.Point(227, 348);
+            this.btnConexion.Name = "btnConexion";
+            this.btnConexion.Size = new System.Drawing.Size(75, 23);
+            this.btnConexion.TabIndex = 6;
+            this.btnConexion.Text = "Conexion";
+            this.btnConexion.UseVisualStyleBackColor = true;
+            this.btnConexion.Click += new System.EventHandler(this.btnConexion_Click);
+            // 
             // MantenedorEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnConexion);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnListar);
@@ -124,5 +136,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btnConexion;
     }
 }
