@@ -29,9 +29,9 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtMail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
             this.lblPass = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -39,12 +39,12 @@ namespace CapaPresentacion
             this.btnNext = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtEmail
+            // txtMail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(119, 101);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(138, 20);
-            this.txtEmail.TabIndex = 0;
+            this.txtMail.Location = new System.Drawing.Point(119, 101);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(138, 20);
+            this.txtMail.TabIndex = 0;
             // 
             // lblEmail
             // 
@@ -55,12 +55,12 @@ namespace CapaPresentacion
             this.lblEmail.TabIndex = 1;
             this.lblEmail.Text = "Email";
             // 
-            // txtPassword
+            // txtPass
             // 
-            this.txtPassword.Location = new System.Drawing.Point(119, 155);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(138, 20);
-            this.txtPassword.TabIndex = 2;
+            this.txtPass.Location = new System.Drawing.Point(119, 155);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(138, 20);
+            this.txtPass.TabIndex = 2;
             // 
             // lblPass
             // 
@@ -121,9 +121,9 @@ namespace CapaPresentacion
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPass);
-            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtPass);
             this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtMail);
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -133,9 +133,9 @@ namespace CapaPresentacion
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogin;
