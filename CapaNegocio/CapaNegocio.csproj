@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CNCliente.cs" />
+    <Compile Include="CNDepartamento.cs" />
     <Compile Include="CNEmpleado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

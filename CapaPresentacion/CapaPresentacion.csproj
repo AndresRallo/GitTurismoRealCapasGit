@@ -66,17 +66,23 @@
     <Compile Include="EliminarEmpleado.Designer.cs">
       <DependentUpon>EliminarEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="frCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frCliente.Designer.cs">
-      <DependentUpon>frCliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="ListarEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListarEmpleados.Designer.cs">
       <DependentUpon>ListarEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantenedorDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenedorDepartamento.Designer.cs">
+      <DependentUpon>MantenedorDepartamento.cs</DependentUpon>
     </Compile>
     <Compile Include="MantenedorEmpleados.cs">
       <SubType>Form</SubType>
@@ -101,11 +107,14 @@
     <EmbeddedResource Include="EliminarEmpleado.resx">
       <DependentUpon>EliminarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frCliente.resx">
-      <DependentUpon>frCliente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ListarEmpleados.resx">
       <DependentUpon>ListarEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenedorDepartamento.resx">
+      <DependentUpon>MantenedorDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenedorEmpleados.resx">
       <DependentUpon>MantenedorEmpleados.cs</DependentUpon>

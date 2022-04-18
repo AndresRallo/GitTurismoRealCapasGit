@@ -33,5 +33,12 @@ namespace CapaPresentacion
             mantenedorEmpleados.Show();
             this.Close();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MantenedorDepartamento mantenedorDepartamento = new MantenedorDepartamento();
+            mantenedorDepartamento.Show();
+            this.Close();
+        }
     }
 }

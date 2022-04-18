@@ -17,7 +17,7 @@ namespace CapaPresentacion
     public partial class ListarEmpleados : Form
     {
         CNEmpleado cNEmpleado = new CNEmpleado();
-        CEEmpleado cEEmpleado = new CEEmpleado();
+        
         
 
         public ListarEmpleados()
