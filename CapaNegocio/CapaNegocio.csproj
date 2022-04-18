@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="CNDepartamento.cs" />
     <Compile Include="CNEmpleado.cs" />
+    <Compile Include="CNLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
