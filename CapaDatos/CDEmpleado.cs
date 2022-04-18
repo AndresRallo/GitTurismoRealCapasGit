@@ -15,7 +15,63 @@ namespace CapaDatos
     public class CDEmpleado
     {
         string conexion = ConfigurationManager.AppSettings["conn"];
-        
+
+        public void ValidarDatos(CEEmpleado cE)
+        {
+            OracleConnection conn = new OracleConnection(conexion);
+            
+            
+            try
+            {
+                conn.Open();
+                OracleCommand command = new OracleCommand();
+                command.CommandText = "select * from empleado where (em_email=@user and em_contraseña=@pass) or (Email=@user and password=@pass)";
+                command.Parameters.AddWithValue("@user", OracleType.NVarChar).Value = cE.em_mail;
+                command.Parameters.AddWithValue("@pass", OracleType.NVarChar).Value = cE.em_contrasena;
+                OracleDataReader leerLogin = command.ExecuteReader();
+                if(leerLogin.Read())
+                {
+                    MessageBox.Show("Bienvenido a Turismo Real");
+                }else
+                {
+                    MessageBox.Show("Credenciales Incorrectas");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("error "+ ex);
+            }
+            
+            conn.Close();
+           
+            /*
+            try
+            {
+                conn.Open();
+                OracleCommand command = new OracleCommand();
+
+                command.CommandText = "select * from empleado where (em_email=@user and em_contraseña=@pass) or (Email=@user and password=@pass)";
+                command.Parameters.AddWithValue("@user", em_email);
+                command.Parameters.AddWithValue("@pass", em_contraseña);
+                command.CommandType = CommandType.Text;
+                leerLogin = command.ExecuteReader();
+                if (leerLogin.HasRows)
+                {
+                    while (leerLogin.Read()) 
+                    {
+                        Console.WriteLine()
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            */
+        }
         public void PruebaConexion()
         {
             OracleConnection conn = new OracleConnection(conexion);

@@ -31,8 +31,8 @@ namespace CapaPresentacion
         {
             this.btnCerrarAplicacion = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnMantenedorEmpleados = new System.Windows.Forms.Button();
+            this.btnMantenedorDepartamento = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,26 +59,27 @@ namespace CapaPresentacion
             this.button1.Text = "Controlador\r\nPropiedades";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnMantenedorEmpleados
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(595, 232);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 52);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Controlador\rEmpleados";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnMantenedorEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMantenedorEmpleados.Location = new System.Drawing.Point(595, 232);
+            this.btnMantenedorEmpleados.Name = "btnMantenedorEmpleados";
+            this.btnMantenedorEmpleados.Size = new System.Drawing.Size(107, 52);
+            this.btnMantenedorEmpleados.TabIndex = 2;
+            this.btnMantenedorEmpleados.Text = "Mantenedor Empleados";
+            this.btnMantenedorEmpleados.UseVisualStyleBackColor = true;
+            this.btnMantenedorEmpleados.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnMantenedorDepartamento
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(402, 232);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 52);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Controlador\r\nClientes";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnMantenedorDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMantenedorDepartamento.Location = new System.Drawing.Point(402, 232);
+            this.btnMantenedorDepartamento.Name = "btnMantenedorDepartamento";
+            this.btnMantenedorDepartamento.Size = new System.Drawing.Size(107, 52);
+            this.btnMantenedorDepartamento.TabIndex = 3;
+            this.btnMantenedorDepartamento.Text = "Mantenedor Departamento";
+            this.btnMantenedorDepartamento.UseVisualStyleBackColor = true;
+            this.btnMantenedorDepartamento.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -96,8 +97,8 @@ namespace CapaPresentacion
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnCerrarAplicacion);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnMantenedorEmpleados);
+            this.groupBox1.Controls.Add(this.btnMantenedorDepartamento);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Location = new System.Drawing.Point(44, 50);
             this.groupBox1.Name = "groupBox1";
@@ -112,9 +113,9 @@ namespace CapaPresentacion
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(131, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(445, 55);
+            this.label1.Size = new System.Drawing.Size(451, 55);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Elija un Controlador";
+            this.label1.Text = "Elija un mantenedor";
             // 
             // MenuPrincipal
             // 
@@ -134,8 +135,8 @@ namespace CapaPresentacion
 
         private System.Windows.Forms.Button btnCerrarAplicacion;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnMantenedorEmpleados;
+        private System.Windows.Forms.Button btnMantenedorDepartamento;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;

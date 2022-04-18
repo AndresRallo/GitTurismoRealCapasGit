@@ -44,8 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CDCliente.cs" />
+    <Compile Include="CDDepartamento.cs" />
     <Compile Include="CDEmpleado.cs" />
+    <Compile Include="CDLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
