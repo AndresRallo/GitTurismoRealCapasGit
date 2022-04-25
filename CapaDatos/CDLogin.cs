@@ -37,5 +37,17 @@ namespace CapaDatos
             //OracleDataReader lector = cmd.ExecuteReader(); 
             return dt;
         }
+
+        public DataTable D_mail(CEEmpleado em)
+        {
+            OracleCommand cmd = new OracleCommand("SELECT * FROM EMPLEADO WHERE EM_EMAIL = :mail", cn);
+
+            cmd.Parameters.Add(":mail", OracleType.NVarChar).Value = em.em_mail;
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
     }
 }

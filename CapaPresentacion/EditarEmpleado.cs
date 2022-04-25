@@ -17,9 +17,9 @@ namespace CapaPresentacion
     public partial class EditarEmpleado : Form
     {
         CNEmpleado cNEmpleado = new CNEmpleado();
-        CEEmpleado cEEmpleado = new CEEmpleado();
-        string conexion = ConfigurationManager.AppSettings["conn"];
-        OracleConnection conn = new OracleConnection("DATA SOURCE = localhost:1521 / XEPDB1 ; PASSWORD=123456; USER ID = TURISMOADMIN;");
+        
+        
+        
         public EditarEmpleado()
         {
             InitializeComponent();
@@ -39,18 +39,18 @@ namespace CapaPresentacion
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            OracleCommand command = new OracleCommand("seleccionarEmpleados", conn);
-            command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+            try
+            {
+                CNEmpleado lista = new CNEmpleado();
+                dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
 
-            OracleDataAdapter adaptador = new OracleDataAdapter();
-            adaptador.SelectCommand = command;
-            DataTable tablaEmpleado = new DataTable();
-            adaptador.Fill(tablaEmpleado);
-            dataGridViewEmpleados.DataSource = tablaEmpleado;
 
-            conn.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("error " + ex);
+            }
 
             /**Procedimiento almacenado
                Create or replace procedure seleccionarEmpleados (registros out SYS_REFCURSOR)

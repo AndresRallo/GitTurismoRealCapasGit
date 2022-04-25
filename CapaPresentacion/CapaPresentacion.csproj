@@ -54,11 +54,23 @@
     <Compile Include="AgregarEmpleado.Designer.cs">
       <DependentUpon>AgregarEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgregarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarUsuario.Designer.cs">
+      <DependentUpon>AgregarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditarEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditarEmpleado.Designer.cs">
       <DependentUpon>EditarEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarUsuario.Designer.cs">
+      <DependentUpon>EditarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="EliminarEmpleado.cs">
       <SubType>Form</SubType>
@@ -66,11 +78,23 @@
     <Compile Include="EliminarEmpleado.Designer.cs">
       <DependentUpon>EliminarEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="EliminarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminarUsuario.Designer.cs">
+      <DependentUpon>EliminarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListarEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListarEmpleados.Designer.cs">
       <DependentUpon>ListarEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListarUsuario.Designer.cs">
+      <DependentUpon>ListarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -90,6 +114,12 @@
     <Compile Include="MantenedorEmpleados.Designer.cs">
       <DependentUpon>MantenedorEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="MantenedorUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenedorUsuario.Designer.cs">
+      <DependentUpon>MantenedorUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,14 +131,26 @@
     <EmbeddedResource Include="AgregarEmpleado.resx">
       <DependentUpon>AgregarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AgregarUsuario.resx">
+      <DependentUpon>AgregarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditarEmpleado.resx">
       <DependentUpon>EditarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarUsuario.resx">
+      <DependentUpon>EditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EliminarEmpleado.resx">
       <DependentUpon>EliminarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EliminarUsuario.resx">
+      <DependentUpon>EliminarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListarEmpleados.resx">
       <DependentUpon>ListarEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListarUsuario.resx">
+      <DependentUpon>ListarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -118,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MantenedorEmpleados.resx">
       <DependentUpon>MantenedorEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenedorUsuario.resx">
+      <DependentUpon>MantenedorUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
@@ -146,11 +191,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
-      <Project>{7e554079-9d59-4326-b772-4b61d5e37994}</Project>
+      <Project>{7E554079-9D59-4326-B772-4B61D5E37994}</Project>
       <Name>CapaEntidad</Name>
     </ProjectReference>
     <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
-      <Project>{4d0c2fc2-c80d-428a-b0ab-fbac30816e36}</Project>
+      <Project>{4D0C2FC2-C80D-428A-B0AB-FBAC30816E36}</Project>
       <Name>CapaNegocio</Name>
     </ProjectReference>
   </ItemGroup>

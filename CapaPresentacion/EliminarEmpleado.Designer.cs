@@ -49,6 +49,7 @@ namespace CapaPresentacion
             this.lblEliminarEmpleado.Size = new System.Drawing.Size(355, 46);
             this.lblEliminarEmpleado.TabIndex = 0;
             this.lblEliminarEmpleado.Text = "Eliminar Empleado";
+            this.lblEliminarEmpleado.Click += new System.EventHandler(this.lblEliminarEmpleado_Click);
             // 
             // lblIngresarID
             // 
@@ -58,6 +59,7 @@ namespace CapaPresentacion
             this.lblIngresarID.Size = new System.Drawing.Size(267, 13);
             this.lblIngresarID.TabIndex = 1;
             this.lblIngresarID.Text = "* Para eliminar empleado ingrese su ID correspondiente";
+            this.lblIngresarID.Click += new System.EventHandler(this.lblIngresarID_Click);
             // 
             // txtIDEmpleado
             // 
@@ -65,6 +67,7 @@ namespace CapaPresentacion
             this.txtIDEmpleado.Name = "txtIDEmpleado";
             this.txtIDEmpleado.Size = new System.Drawing.Size(100, 20);
             this.txtIDEmpleado.TabIndex = 2;
+            this.txtIDEmpleado.TextChanged += new System.EventHandler(this.txtIDEmpleado_TextChanged);
             // 
             // btnEliminar
             // 
@@ -83,6 +86,7 @@ namespace CapaPresentacion
             this.dataGridViewEmpleados.Name = "dataGridViewEmpleados";
             this.dataGridViewEmpleados.Size = new System.Drawing.Size(764, 329);
             this.dataGridViewEmpleados.TabIndex = 4;
+            this.dataGridViewEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmpleados_CellContentClick);
             // 
             // btnListarEmpleados
             // 

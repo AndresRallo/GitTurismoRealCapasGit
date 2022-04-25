@@ -17,7 +17,21 @@ namespace CapaNegocio
             DataTable dt = new DataTable();
             CDLogin objd = new CDLogin();
 
+
+
+
+
             return objd.D_user(obje);
+
+
+        }
+        //para validar la existencia del correo electrónico en la BD
+        public DataTable N_user_mail(CEEmpleado em)
+        {
+            DataTable dt = new DataTable();
+            CDLogin cDL = new CDLogin();
+
+            return cDL.D_mail(em);
         }
     }
 }

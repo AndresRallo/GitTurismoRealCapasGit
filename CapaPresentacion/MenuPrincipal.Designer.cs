@@ -33,7 +33,7 @@ namespace CapaPresentacion
             this.button1 = new System.Windows.Forms.Button();
             this.btnMantenedorEmpleados = new System.Windows.Forms.Button();
             this.btnMantenedorDepartamento = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnMantenedorUsuario = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -81,16 +81,16 @@ namespace CapaPresentacion
             this.btnMantenedorDepartamento.UseVisualStyleBackColor = true;
             this.btnMantenedorDepartamento.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btnMantenedorUsuario
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(209, 232);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(107, 52);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Controlador\r\nInventario";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnMantenedorUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMantenedorUsuario.Location = new System.Drawing.Point(209, 232);
+            this.btnMantenedorUsuario.Name = "btnMantenedorUsuario";
+            this.btnMantenedorUsuario.Size = new System.Drawing.Size(107, 52);
+            this.btnMantenedorUsuario.TabIndex = 4;
+            this.btnMantenedorUsuario.Text = "Mantenedor Usuario";
+            this.btnMantenedorUsuario.UseVisualStyleBackColor = true;
+            this.btnMantenedorUsuario.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupBox1
             // 
@@ -99,7 +99,7 @@ namespace CapaPresentacion
             this.groupBox1.Controls.Add(this.btnCerrarAplicacion);
             this.groupBox1.Controls.Add(this.btnMantenedorEmpleados);
             this.groupBox1.Controls.Add(this.btnMantenedorDepartamento);
-            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.btnMantenedorUsuario);
             this.groupBox1.Location = new System.Drawing.Point(44, 50);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(721, 364);
@@ -137,7 +137,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnMantenedorEmpleados;
         private System.Windows.Forms.Button btnMantenedorDepartamento;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnMantenedorUsuario;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
     }

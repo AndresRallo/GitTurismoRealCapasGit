@@ -75,5 +75,25 @@ namespace CapaPresentacion
             */
             
         }
+
+        private void dataGridViewEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtIDEmpleado_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblIngresarID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEliminarEmpleado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

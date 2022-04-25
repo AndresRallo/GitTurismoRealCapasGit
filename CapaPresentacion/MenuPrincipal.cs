@@ -24,7 +24,9 @@ namespace CapaPresentacion
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            MantenedorUsuario mantenedorUsuario = new MantenedorUsuario();
+            mantenedorUsuario.Show();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)

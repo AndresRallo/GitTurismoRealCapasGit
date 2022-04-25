@@ -163,6 +163,15 @@ namespace CapaDatos
             
             conn.Close();
             return tablaEmpleado;
+            #region procedimiento almacenado
+            /*
+             create or replace procedure seleccionarEmpleados (registros out SYS_REFCURSOR)
+                as
+                Begin
+                    open registros for select * from empleado;
+                End;
+             */
+            #endregion
         }
 
 

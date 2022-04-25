@@ -85,5 +85,15 @@ namespace CapaPresentacion
             mantenedorEmpleados.Show();
             this.Close();
         }
+
+        private void dataGridViewEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -46,6 +46,7 @@ namespace CapaPresentacion
             this.label1.Size = new System.Drawing.Size(370, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lista de Empleados";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnVolver
             // 
@@ -64,6 +65,7 @@ namespace CapaPresentacion
             this.dataGridViewEmpleados.Name = "dataGridViewEmpleados";
             this.dataGridViewEmpleados.Size = new System.Drawing.Size(717, 308);
             this.dataGridViewEmpleados.TabIndex = 2;
+            this.dataGridViewEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmpleados_CellContentClick);
             // 
             // btnListar
             // 
