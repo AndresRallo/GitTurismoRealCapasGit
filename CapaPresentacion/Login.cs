@@ -11,12 +11,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio.Library;
 
+
 namespace CapaPresentacion
 {
     public partial class Login : Form
     {
         Librarys librarys = new Librarys();
         CNEmpleado cNEmpleado = new CNEmpleado();
+
+        public string contrasenaEncriptada;
+
+        
+
         public Login()
         {
             InitializeComponent();
@@ -53,7 +59,9 @@ namespace CapaPresentacion
 
             DataTable dt = new DataTable();
             objEuser.em_mail = txtMail.Text;
-            objEuser.em_contrasena = txtPass.Text;
+            string ePass = Encrypt.GetSHA256(txtPass.Text);
+            objEuser.em_contrasena = ePass;
+            //objEuser.em_contrasena = txtPass.Text;
 
             dt = objNuser.N_user(objEuser);
 
@@ -84,9 +92,12 @@ namespace CapaPresentacion
                 {
                     lblPass.Text = "Insertar Contraseña";
                 }
-                else
+                else //if (!Crypter.CheckPassword(contrasenaEncriptada, txtPass.Text))
                 {
-                    lblPass.Text = "Contraseña incorrecta";
+                    
+                        lblPass.Text ="contraseña incorrecta";
+
+                    // lblPass.Text = "Contraseña incorrecta";
                 }
 
             }
@@ -102,7 +113,7 @@ namespace CapaPresentacion
             if (txtMail.Text.Equals(""))
             {
                 lblEmail.Text = "Email es Obligatorio";
-                lblEmail.TextAlign = ContentAlignment.TopCenter;
+                //lblEmail.TextAlign = ContentAlignment.TopCenter;
             }
             else if (librarys.textBoxEvent.ComprobarFormatoEmail(txtMail.Text))
             {

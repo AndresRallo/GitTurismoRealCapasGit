@@ -49,5 +49,22 @@ namespace CapaDatos
             da.Fill(dt);
             return dt;
         }
+
+
+        public DataTable D_pass(CEEmpleado obje)
+        {
+
+            OracleCommand cmd = new OracleCommand("SELECT * FROM EMPLEADO WHERE EM_EMAIL = :mail AND EM_CONTRASEÑA = :contra", cn);
+
+            cmd.Parameters.Add(":mail", OracleType.NVarChar).Value = obje.em_mail;
+            cmd.Parameters.Add(":contra", OracleType.NVarChar).Value = obje.em_contrasena;
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            //OracleDataReader lector = cmd.ExecuteReader(); 
+            return dt;
+        }
     }
 }
