@@ -109,5 +109,12 @@ namespace CapaNegocio
             lista = cDEmpleado.Listar();
             return lista;
         }
+
+        public List<CEComuna> ObtenerComunas()
+        {
+            List<CEComuna> listaDireccion = new List<CEComuna>();
+            listaDireccion = cDEmpleado.Comunas();
+            return listaDireccion;
+        }
     }
 }

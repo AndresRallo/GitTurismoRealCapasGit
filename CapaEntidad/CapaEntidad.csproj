@@ -41,9 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CEComuna.cs" />
     <Compile Include="CEDepartamento.cs" />
+    <Compile Include="CEDireccion.cs" />
     <Compile Include="CEEmpleado.cs" />
     <Compile Include="CEUsuario.cs" />
+    <Compile Include="CEVehiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

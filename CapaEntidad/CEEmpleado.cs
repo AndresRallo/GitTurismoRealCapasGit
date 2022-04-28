@@ -20,11 +20,9 @@ namespace CapaEntidad
         public int idTipoEmleado { get; set; }
         public int idEstado { get; set; }
         public int idDireccion { get; set; }
+        public CEDireccion direccion { get; set; }
 
-        public CEEmpleado()
-        {
-
-        }
+        public CEEmpleado() { }
 
     }
 

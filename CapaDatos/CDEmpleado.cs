@@ -89,6 +89,37 @@ namespace CapaDatos
             MessageBox.Show("Conectado :)");
         }
 
+        public List<CEComuna> Comunas()
+        {
+            OracleConnection conn = new OracleConnection(conexion);
+            OracleDataReader mostrarTabla;
+            List<CEComuna> listaDireccion = new List<CEComuna>();
+
+            try
+            {
+                conn.Open();
+                OracleCommand command = new OracleCommand("SP_GET_COMUNA_BY_IDCOMUNA", conn);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                mostrarTabla = command.ExecuteReader();
+                while (mostrarTabla.Read())
+                {
+                    listaDireccion.Add(new CEComuna
+                    {
+                        id_comuna = Convert.ToInt32(mostrarTabla["IDCOMUNA"]),
+                        c_descripcion = Convert.ToString(mostrarTabla["C_DESCRIPCION"].ToString())
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("No conectado" + ex.Message);
+            }
+            conn.Close();
+            return listaDireccion;
+        }
 
         public void AgregarEmpleado(CEEmpleado cE)
         {

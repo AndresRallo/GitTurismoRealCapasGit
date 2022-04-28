@@ -46,7 +46,6 @@ namespace CapaPresentacion
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblContrasenia = new System.Windows.Forms.Label();
             this.txtIDEmpresa = new System.Windows.Forms.TextBox();
-            this.txtIDTipo = new System.Windows.Forms.TextBox();
             this.txtIDEstado = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lblIDEmpresa = new System.Windows.Forms.Label();
@@ -56,6 +55,19 @@ namespace CapaPresentacion
             this.btnAgregarEmpleado = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnProbarConexion = new System.Windows.Forms.Button();
+            this.cbIDTipo = new System.Windows.Forms.ComboBox();
+            this.groupBoxVehiculo = new System.Windows.Forms.GroupBox();
+            this.txtAnioVe = new System.Windows.Forms.TextBox();
+            this.lblAnioVe = new System.Windows.Forms.Label();
+            this.txtMarcaVe = new System.Windows.Forms.TextBox();
+            this.lblMarcaVe = new System.Windows.Forms.Label();
+            this.txtPatenteVe = new System.Windows.Forms.TextBox();
+            this.lblPatenteVe = new System.Windows.Forms.Label();
+            this.lblNumComuna = new System.Windows.Forms.Label();
+            this.txtNumDireccion = new System.Windows.Forms.TextBox();
+            this.lblComuna = new System.Windows.Forms.Label();
+            this.cbComuna = new System.Windows.Forms.ComboBox();
+            this.groupBoxVehiculo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAgregarEmpleado
@@ -80,7 +92,7 @@ namespace CapaPresentacion
             // lblDV
             // 
             this.lblDV.AutoSize = true;
-            this.lblDV.Location = new System.Drawing.Point(217, 82);
+            this.lblDV.Location = new System.Drawing.Point(227, 82);
             this.lblDV.Name = "lblDV";
             this.lblDV.Size = new System.Drawing.Size(10, 13);
             this.lblDV.TabIndex = 2;
@@ -97,21 +109,21 @@ namespace CapaPresentacion
             // 
             // txtRut
             // 
-            this.txtRut.Location = new System.Drawing.Point(111, 79);
+            this.txtRut.Location = new System.Drawing.Point(121, 79);
             this.txtRut.Name = "txtRut";
             this.txtRut.Size = new System.Drawing.Size(100, 20);
             this.txtRut.TabIndex = 4;
             // 
             // txtDV
             // 
-            this.txtDV.Location = new System.Drawing.Point(233, 79);
+            this.txtDV.Location = new System.Drawing.Point(243, 79);
             this.txtDV.Name = "txtDV";
             this.txtDV.Size = new System.Drawing.Size(24, 20);
             this.txtDV.TabIndex = 5;
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(111, 105);
+            this.txtNom.Location = new System.Drawing.Point(121, 105);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(100, 20);
             this.txtNom.TabIndex = 6;
@@ -136,28 +148,28 @@ namespace CapaPresentacion
             // 
             // txtAPaterno
             // 
-            this.txtAPaterno.Location = new System.Drawing.Point(111, 131);
+            this.txtAPaterno.Location = new System.Drawing.Point(121, 131);
             this.txtAPaterno.Name = "txtAPaterno";
             this.txtAPaterno.Size = new System.Drawing.Size(100, 20);
             this.txtAPaterno.TabIndex = 9;
             // 
             // txtAMaterno
             // 
-            this.txtAMaterno.Location = new System.Drawing.Point(111, 157);
+            this.txtAMaterno.Location = new System.Drawing.Point(121, 157);
             this.txtAMaterno.Name = "txtAMaterno";
             this.txtAMaterno.Size = new System.Drawing.Size(100, 20);
             this.txtAMaterno.TabIndex = 10;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(111, 183);
+            this.txtEmail.Location = new System.Drawing.Point(121, 183);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 11;
             // 
             // txtContrasenia
             // 
-            this.txtContrasenia.Location = new System.Drawing.Point(111, 209);
+            this.txtContrasenia.Location = new System.Drawing.Point(121, 209);
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(100, 20);
             this.txtContrasenia.TabIndex = 12;
@@ -191,28 +203,21 @@ namespace CapaPresentacion
             // 
             // txtIDEmpresa
             // 
-            this.txtIDEmpresa.Location = new System.Drawing.Point(111, 235);
+            this.txtIDEmpresa.Location = new System.Drawing.Point(121, 235);
             this.txtIDEmpresa.Name = "txtIDEmpresa";
             this.txtIDEmpresa.Size = new System.Drawing.Size(100, 20);
             this.txtIDEmpresa.TabIndex = 16;
             // 
-            // txtIDTipo
-            // 
-            this.txtIDTipo.Location = new System.Drawing.Point(111, 261);
-            this.txtIDTipo.Name = "txtIDTipo";
-            this.txtIDTipo.Size = new System.Drawing.Size(100, 20);
-            this.txtIDTipo.TabIndex = 17;
-            // 
             // txtIDEstado
             // 
-            this.txtIDEstado.Location = new System.Drawing.Point(111, 287);
+            this.txtIDEstado.Location = new System.Drawing.Point(121, 261);
             this.txtIDEstado.Name = "txtIDEstado";
             this.txtIDEstado.Size = new System.Drawing.Size(100, 20);
             this.txtIDEstado.TabIndex = 18;
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(111, 313);
+            this.txtDireccion.Location = new System.Drawing.Point(121, 287);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(100, 20);
             this.txtDireccion.TabIndex = 19;
@@ -229,7 +234,7 @@ namespace CapaPresentacion
             // lblIDTipo
             // 
             this.lblIDTipo.AutoSize = true;
-            this.lblIDTipo.Location = new System.Drawing.Point(21, 264);
+            this.lblIDTipo.Location = new System.Drawing.Point(21, 376);
             this.lblIDTipo.Name = "lblIDTipo";
             this.lblIDTipo.Size = new System.Drawing.Size(42, 13);
             this.lblIDTipo.TabIndex = 21;
@@ -238,7 +243,7 @@ namespace CapaPresentacion
             // lblIDEstado
             // 
             this.lblIDEstado.AutoSize = true;
-            this.lblIDEstado.Location = new System.Drawing.Point(21, 290);
+            this.lblIDEstado.Location = new System.Drawing.Point(21, 264);
             this.lblIDEstado.Name = "lblIDEstado";
             this.lblIDEstado.Size = new System.Drawing.Size(54, 13);
             this.lblIDEstado.TabIndex = 22;
@@ -247,11 +252,11 @@ namespace CapaPresentacion
             // lblIDDireccion
             // 
             this.lblIDDireccion.AutoSize = true;
-            this.lblIDDireccion.Location = new System.Drawing.Point(21, 316);
+            this.lblIDDireccion.Location = new System.Drawing.Point(21, 290);
             this.lblIDDireccion.Name = "lblIDDireccion";
-            this.lblIDDireccion.Size = new System.Drawing.Size(66, 13);
+            this.lblIDDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblIDDireccion.TabIndex = 23;
-            this.lblIDDireccion.Text = "ID Direccion";
+            this.lblIDDireccion.Text = "Direccion";
             // 
             // btnAgregarEmpleado
             // 
@@ -283,11 +288,143 @@ namespace CapaPresentacion
             this.btnProbarConexion.UseVisualStyleBackColor = true;
             this.btnProbarConexion.Click += new System.EventHandler(this.btnProbarConexion_Click);
             // 
+            // cbIDTipo
+            // 
+            this.cbIDTipo.AutoCompleteCustomSource.AddRange(new string[] {
+            "",
+            "1. Administrador",
+            "2. Recepcionista",
+            "3. Chofer",
+            "4. Guia Turistico"});
+            this.cbIDTipo.FormattingEnabled = true;
+            this.cbIDTipo.Items.AddRange(new object[] {
+            "1. Administrador",
+            "2. Recepcionista",
+            "3. Chofer",
+            "4. Guia Turistico"});
+            this.cbIDTipo.Location = new System.Drawing.Point(121, 373);
+            this.cbIDTipo.Name = "cbIDTipo";
+            this.cbIDTipo.Size = new System.Drawing.Size(121, 21);
+            this.cbIDTipo.TabIndex = 27;
+            this.cbIDTipo.SelectedIndexChanged += new System.EventHandler(this.cbIDTipo_SelectedIndexChanged);
+            // 
+            // groupBoxVehiculo
+            // 
+            this.groupBoxVehiculo.Controls.Add(this.txtAnioVe);
+            this.groupBoxVehiculo.Controls.Add(this.lblAnioVe);
+            this.groupBoxVehiculo.Controls.Add(this.txtMarcaVe);
+            this.groupBoxVehiculo.Controls.Add(this.lblMarcaVe);
+            this.groupBoxVehiculo.Controls.Add(this.txtPatenteVe);
+            this.groupBoxVehiculo.Controls.Add(this.lblPatenteVe);
+            this.groupBoxVehiculo.Enabled = false;
+            this.groupBoxVehiculo.Location = new System.Drawing.Point(511, 82);
+            this.groupBoxVehiculo.Name = "groupBoxVehiculo";
+            this.groupBoxVehiculo.Size = new System.Drawing.Size(222, 132);
+            this.groupBoxVehiculo.TabIndex = 28;
+            this.groupBoxVehiculo.TabStop = false;
+            this.groupBoxVehiculo.Text = "Ingresar Vehículo";
+            this.groupBoxVehiculo.Visible = false;
+            // 
+            // txtAnioVe
+            // 
+            this.txtAnioVe.Location = new System.Drawing.Point(102, 82);
+            this.txtAnioVe.Name = "txtAnioVe";
+            this.txtAnioVe.Size = new System.Drawing.Size(100, 20);
+            this.txtAnioVe.TabIndex = 33;
+            // 
+            // lblAnioVe
+            // 
+            this.lblAnioVe.AutoSize = true;
+            this.lblAnioVe.Location = new System.Drawing.Point(6, 85);
+            this.lblAnioVe.Name = "lblAnioVe";
+            this.lblAnioVe.Size = new System.Drawing.Size(72, 13);
+            this.lblAnioVe.TabIndex = 32;
+            this.lblAnioVe.Text = "Año Vehículo";
+            // 
+            // txtMarcaVe
+            // 
+            this.txtMarcaVe.Location = new System.Drawing.Point(102, 56);
+            this.txtMarcaVe.Name = "txtMarcaVe";
+            this.txtMarcaVe.Size = new System.Drawing.Size(100, 20);
+            this.txtMarcaVe.TabIndex = 31;
+            // 
+            // lblMarcaVe
+            // 
+            this.lblMarcaVe.AutoSize = true;
+            this.lblMarcaVe.Location = new System.Drawing.Point(6, 59);
+            this.lblMarcaVe.Name = "lblMarcaVe";
+            this.lblMarcaVe.Size = new System.Drawing.Size(83, 13);
+            this.lblMarcaVe.TabIndex = 30;
+            this.lblMarcaVe.Text = "Marca Vehículo";
+            // 
+            // txtPatenteVe
+            // 
+            this.txtPatenteVe.Location = new System.Drawing.Point(102, 27);
+            this.txtPatenteVe.Name = "txtPatenteVe";
+            this.txtPatenteVe.Size = new System.Drawing.Size(100, 20);
+            this.txtPatenteVe.TabIndex = 29;
+            // 
+            // lblPatenteVe
+            // 
+            this.lblPatenteVe.AutoSize = true;
+            this.lblPatenteVe.Location = new System.Drawing.Point(6, 30);
+            this.lblPatenteVe.Name = "lblPatenteVe";
+            this.lblPatenteVe.Size = new System.Drawing.Size(90, 13);
+            this.lblPatenteVe.TabIndex = 29;
+            this.lblPatenteVe.Text = "Patente Vehículo";
+            // 
+            // lblNumComuna
+            // 
+            this.lblNumComuna.AutoSize = true;
+            this.lblNumComuna.Location = new System.Drawing.Point(21, 317);
+            this.lblNumComuna.Name = "lblNumComuna";
+            this.lblNumComuna.Size = new System.Drawing.Size(92, 13);
+            this.lblNumComuna.TabIndex = 29;
+            this.lblNumComuna.Text = "Número Dirección";
+            // 
+            // txtNumDireccion
+            // 
+            this.txtNumDireccion.Location = new System.Drawing.Point(121, 314);
+            this.txtNumDireccion.Name = "txtNumDireccion";
+            this.txtNumDireccion.Size = new System.Drawing.Size(100, 20);
+            this.txtNumDireccion.TabIndex = 30;
+            this.txtNumDireccion.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // lblComuna
+            // 
+            this.lblComuna.AutoSize = true;
+            this.lblComuna.Location = new System.Drawing.Point(21, 346);
+            this.lblComuna.Name = "lblComuna";
+            this.lblComuna.Size = new System.Drawing.Size(46, 13);
+            this.lblComuna.TabIndex = 31;
+            this.lblComuna.Text = "Comuna";
+            // 
+            // cbComuna
+            // 
+            this.cbComuna.AutoCompleteCustomSource.AddRange(new string[] {
+            "Seleccione Tipo de Empleado",
+            "1. Administrador",
+            "2. Recepcionista",
+            "3. Chofer",
+            "4. Guia Turistico"});
+            this.cbComuna.FormattingEnabled = true;
+            this.cbComuna.Location = new System.Drawing.Point(121, 343);
+            this.cbComuna.Name = "cbComuna";
+            this.cbComuna.Size = new System.Drawing.Size(121, 21);
+            this.cbComuna.TabIndex = 32;
+            this.cbComuna.SelectedIndexChanged += new System.EventHandler(this.cbComuna_SelectedIndexChanged);
+            // 
             // AgregarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbComuna);
+            this.Controls.Add(this.lblComuna);
+            this.Controls.Add(this.txtNumDireccion);
+            this.Controls.Add(this.lblNumComuna);
+            this.Controls.Add(this.groupBoxVehiculo);
+            this.Controls.Add(this.cbIDTipo);
             this.Controls.Add(this.btnProbarConexion);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAgregarEmpleado);
@@ -297,7 +434,6 @@ namespace CapaPresentacion
             this.Controls.Add(this.lblIDEmpresa);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtIDEstado);
-            this.Controls.Add(this.txtIDTipo);
             this.Controls.Add(this.txtIDEmpresa);
             this.Controls.Add(this.lblContrasenia);
             this.Controls.Add(this.lblEmail);
@@ -317,6 +453,9 @@ namespace CapaPresentacion
             this.Controls.Add(this.lblAgregarEmpleado);
             this.Name = "AgregarEmpleado";
             this.Text = "AgregarEmpleado";
+            this.Load += new System.EventHandler(this.AgregarEmpleado_Load);
+            this.groupBoxVehiculo.ResumeLayout(false);
+            this.groupBoxVehiculo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,7 +480,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblContrasenia;
         private System.Windows.Forms.TextBox txtIDEmpresa;
-        private System.Windows.Forms.TextBox txtIDTipo;
         private System.Windows.Forms.TextBox txtIDEstado;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label lblIDEmpresa;
@@ -351,5 +489,17 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnAgregarEmpleado;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnProbarConexion;
+        private System.Windows.Forms.ComboBox cbIDTipo;
+        private System.Windows.Forms.GroupBox groupBoxVehiculo;
+        private System.Windows.Forms.TextBox txtAnioVe;
+        private System.Windows.Forms.Label lblAnioVe;
+        private System.Windows.Forms.TextBox txtMarcaVe;
+        private System.Windows.Forms.Label lblMarcaVe;
+        private System.Windows.Forms.TextBox txtPatenteVe;
+        private System.Windows.Forms.Label lblPatenteVe;
+        private System.Windows.Forms.Label lblNumComuna;
+        private System.Windows.Forms.TextBox txtNumDireccion;
+        private System.Windows.Forms.Label lblComuna;
+        private System.Windows.Forms.ComboBox cbComuna;
     }
 }

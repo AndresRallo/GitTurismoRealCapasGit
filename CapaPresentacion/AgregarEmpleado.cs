@@ -45,9 +45,16 @@ namespace CapaPresentacion
                 empleado.em_mail = txtEmail.Text;
                 empleado.em_contrasena = txtContrasenia.Text;
                 empleado.idEmpresa = Convert.ToInt32(txtIDEmpresa.Text);
-                empleado.idTipoEmleado = Convert.ToInt32(txtIDTipo.Text);
+                empleado.idTipoEmleado = cbIDTipo.SelectedIndex;
                 empleado.idEstado = Convert.ToInt32(txtIDEstado.Text);
                 empleado.idDireccion = Convert.ToInt32(txtDireccion.Text);
+                if (empleado.idTipoEmleado == 3)
+                {
+                    CEVehiculo vehiculo = new CEVehiculo();
+                    vehiculo.marca_ve = txtMarcaVe.Text;
+                    vehiculo.patente_ve = txtPatenteVe.Text;
+                    vehiculo.anio_ve = Convert.ToInt32(txtAnioVe.Text);
+                }
                 
                 cNEmpleado.CrearEmpleado(empleado);
             }
@@ -62,6 +69,51 @@ namespace CapaPresentacion
         private void btnProbarConexion_Click(object sender, EventArgs e)
         {
             cNEmpleado.PruebaOracle();
+        }
+
+        private void cbIDTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if(cbIDTipo.SelectedIndex == 2)
+            {
+                groupBoxVehiculo.Visible = true;
+                groupBoxVehiculo.Enabled = true;
+            }
+            else
+            {
+                groupBoxVehiculo.Visible = false;
+                groupBoxVehiculo.Enabled = false;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbComuna_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                CNEmpleado lista = new CNEmpleado();
+                
+                cbComuna.DataSource = lista.ObtenerComunas();
+                cbComuna.SelectedIndex = Convert.ToInt32(lista);
+                cbComuna.ValueMember = "IDCOMUNA";
+                cbComuna.DisplayMember = "C_DESCRIPCION";
+                
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("error " + ex);
+            }
+        }
+
+        private void AgregarEmpleado_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
