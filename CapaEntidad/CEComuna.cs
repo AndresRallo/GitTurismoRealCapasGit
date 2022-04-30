@@ -8,7 +8,7 @@ namespace CapaEntidad
 {
     public class CEComuna
     {
-        public int id_comuna { get; set; }
+        public int idcomuna { get; set; }
         public string c_descripcion { get; set; }
         public CEComuna() { }
     }

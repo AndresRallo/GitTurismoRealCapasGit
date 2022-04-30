@@ -45,15 +45,18 @@ namespace CapaPresentacion
                 empleado.em_mail = txtEmail.Text;
                 empleado.em_contrasena = txtContrasenia.Text;
                 empleado.idEmpresa = Convert.ToInt32(txtIDEmpresa.Text);
-                empleado.idTipoEmleado = cbIDTipo.SelectedIndex;
+                empleado.idTipoEmleado = Convert.ToInt32(cbIDTipo.SelectedIndex);
                 empleado.idEstado = Convert.ToInt32(txtIDEstado.Text);
                 empleado.idDireccion = Convert.ToInt32(txtDireccion.Text);
-                if (empleado.idTipoEmleado == 3)
+                if (cbIDTipo.SelectedIndex == 3)
                 {
+
                     CEVehiculo vehiculo = new CEVehiculo();
                     vehiculo.marca_ve = txtMarcaVe.Text;
                     vehiculo.patente_ve = txtPatenteVe.Text;
                     vehiculo.anio_ve = Convert.ToInt32(txtAnioVe.Text);
+                    cNEmpleado.CrearVehiculo(vehiculo);
+
                 }
                 
                 cNEmpleado.CrearEmpleado(empleado);
@@ -83,6 +86,9 @@ namespace CapaPresentacion
             {
                 groupBoxVehiculo.Visible = false;
                 groupBoxVehiculo.Enabled = false;
+                txtMarcaVe.Clear();
+                txtPatenteVe.Clear();
+                txtAnioVe.Clear();
             }
         }
 
@@ -93,14 +99,13 @@ namespace CapaPresentacion
 
         private void cbComuna_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*
             try
             {
-                CNEmpleado lista = new CNEmpleado();
+                  
+                cbComuna.SelectedItem = cNEmpleado.ObtenerComunas();
                 
-                cbComuna.DataSource = lista.ObtenerComunas();
-                cbComuna.SelectedIndex = Convert.ToInt32(lista);
-                cbComuna.ValueMember = "IDCOMUNA";
-                cbComuna.DisplayMember = "C_DESCRIPCION";
+                
                 
 
             }
@@ -108,12 +113,25 @@ namespace CapaPresentacion
             {
 
                 MessageBox.Show("error " + ex);
-            }
+            }*/
         }
 
         private void AgregarEmpleado_Load(object sender, EventArgs e)
         {
+            /*
+            try
+            {
+                cbComuna.DataSource = cNEmpleado.ObtenerComunas();
+                cbComuna.ValueMember = "IDCOMUNA";
+                cbComuna.DisplayMember = "C_DESCRIPCION";
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("error " + ex);
+            }*/
 
         }
     }
-}
+    }

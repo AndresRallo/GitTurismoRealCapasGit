@@ -92,6 +92,10 @@ namespace CapaNegocio
             cDEmpleado.AgregarEmpleado(cE);
         }
 
+        public void CrearVehiculo(CEVehiculo cV)
+        {
+            cDEmpleado.agregarVehiculo(cV);
+        }
         public void EditarEmpleado(CEEmpleado cE) 
         {
             cDEmpleado.EditarEmpleado(cE);
@@ -110,11 +114,11 @@ namespace CapaNegocio
             return lista;
         }
 
-        public List<CEComuna> ObtenerComunas()
+      /*  public List<CEComuna> ObtenerComunas()
         {
             List<CEComuna> listaDireccion = new List<CEComuna>();
             listaDireccion = cDEmpleado.Comunas();
             return listaDireccion;
-        }
+        } */
     }
 }

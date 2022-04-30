@@ -254,9 +254,9 @@ namespace CapaPresentacion
             this.lblIDDireccion.AutoSize = true;
             this.lblIDDireccion.Location = new System.Drawing.Point(21, 290);
             this.lblIDDireccion.Name = "lblIDDireccion";
-            this.lblIDDireccion.Size = new System.Drawing.Size(52, 13);
+            this.lblIDDireccion.Size = new System.Drawing.Size(66, 13);
             this.lblIDDireccion.TabIndex = 23;
-            this.lblIDDireccion.Text = "Direccion";
+            this.lblIDDireccion.Text = "ID Direccion";
             // 
             // btnAgregarEmpleado
             // 
@@ -376,6 +376,7 @@ namespace CapaPresentacion
             // lblNumComuna
             // 
             this.lblNumComuna.AutoSize = true;
+            this.lblNumComuna.Enabled = false;
             this.lblNumComuna.Location = new System.Drawing.Point(21, 317);
             this.lblNumComuna.Name = "lblNumComuna";
             this.lblNumComuna.Size = new System.Drawing.Size(92, 13);
@@ -384,6 +385,7 @@ namespace CapaPresentacion
             // 
             // txtNumDireccion
             // 
+            this.txtNumDireccion.Enabled = false;
             this.txtNumDireccion.Location = new System.Drawing.Point(121, 314);
             this.txtNumDireccion.Name = "txtNumDireccion";
             this.txtNumDireccion.Size = new System.Drawing.Size(100, 20);
@@ -393,6 +395,7 @@ namespace CapaPresentacion
             // lblComuna
             // 
             this.lblComuna.AutoSize = true;
+            this.lblComuna.Enabled = false;
             this.lblComuna.Location = new System.Drawing.Point(21, 346);
             this.lblComuna.Name = "lblComuna";
             this.lblComuna.Size = new System.Drawing.Size(46, 13);
@@ -407,6 +410,7 @@ namespace CapaPresentacion
             "2. Recepcionista",
             "3. Chofer",
             "4. Guia Turistico"});
+            this.cbComuna.Enabled = false;
             this.cbComuna.FormattingEnabled = true;
             this.cbComuna.Location = new System.Drawing.Point(121, 343);
             this.cbComuna.Name = "cbComuna";

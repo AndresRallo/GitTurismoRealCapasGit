@@ -34,6 +34,7 @@ namespace CapaPresentacion
             this.dataGridViewEmpleados = new System.Windows.Forms.DataGridView();
             this.btnListar = new System.Windows.Forms.Button();
             this.btnProbarConexion = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,6 +88,10 @@ namespace CapaPresentacion
             this.btnProbarConexion.UseVisualStyleBackColor = true;
             this.btnProbarConexion.Click += new System.EventHandler(this.btnProbarConexion_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // ListarEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,5 +117,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridView dataGridViewEmpleados;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnProbarConexion;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

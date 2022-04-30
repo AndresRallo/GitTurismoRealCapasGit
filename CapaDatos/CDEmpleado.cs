@@ -88,7 +88,7 @@ namespace CapaDatos
             conn.Close();
             MessageBox.Show("Conectado :)");
         }
-
+        /*
         public List<CEComuna> Comunas()
         {
             OracleConnection conn = new OracleConnection(conexion);
@@ -106,7 +106,7 @@ namespace CapaDatos
                 {
                     listaDireccion.Add(new CEComuna
                     {
-                        id_comuna = Convert.ToInt32(mostrarTabla["IDCOMUNA"]),
+                        idcomuna = Convert.ToInt32(mostrarTabla["IDCOMUNA"]),
                         c_descripcion = Convert.ToString(mostrarTabla["C_DESCRIPCION"].ToString())
                     });
                 }
@@ -119,7 +119,7 @@ namespace CapaDatos
             }
             conn.Close();
             return listaDireccion;
-        }
+        } */
 
         public void AgregarEmpleado(CEEmpleado cE)
         {
@@ -143,6 +143,9 @@ namespace CapaDatos
                 command.Parameters.Add("idTipoEmp", OracleType.Number).Value = Convert.ToInt32(cE.idTipoEmleado);
                 command.Parameters.Add("idEstadoEmp", OracleType.Number).Value = Convert.ToInt32(cE.idEstado);
                 command.Parameters.Add("idDireccionEmp", OracleType.Number).Value = Convert.ToInt32(cE.idDireccion);
+               /* command.Parameters.Add("MARCA", OracleType.NVarChar).Value = cV.marca_ve;
+                command.Parameters.Add("ANIO", OracleType.Number).Value = Convert.ToInt32(cV.anio_ve);
+                command.Parameters.Add("PATENTE", OracleType.NVarChar).Value = cV.patente_ve; */
                 command.ExecuteNonQuery();
                 #region procedimiento almacenado
                 /*
@@ -165,6 +168,28 @@ namespace CapaDatos
             }
             conn.Close();
             MessageBox.Show("Empleado Agregado");
+        }
+
+        public void agregarVehiculo(CEVehiculo cV)
+        {
+            OracleConnection conn = new OracleConnection(conexion);
+            try
+            {
+                conn.Open();
+                OracleCommand command = new OracleCommand("agregarVehiculo", conn);
+
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add("MARCA", OracleType.NVarChar).Value = cV.marca_ve;
+                command.Parameters.Add("ANIO", OracleType.Number).Value = Convert.ToInt32(cV.anio_ve);
+                command.Parameters.Add("PATENTE", OracleType.NVarChar).Value = cV.patente_ve;
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("No conectado" + ex.Message);
+            }
+            conn.Close();
         }
 
         public DataTable Listar()
