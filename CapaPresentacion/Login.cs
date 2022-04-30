@@ -166,7 +166,7 @@ namespace CapaPresentacion
 
         private void txtPass_KeyPress(object sender, KeyPressEventArgs e)
         {
-            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+            librarys.textBoxEvent.SoloTextoSinSaltoNiEspacio(e);
         }
 
         private void txtMail_KeyPress(object sender, KeyPressEventArgs e)

@@ -60,6 +60,36 @@
     <Compile Include="AgregarUsuario.Designer.cs">
       <DependentUpon>AgregarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Departamentos\AgregarDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departamentos\AgregarDepartamento.Designer.cs">
+      <DependentUpon>AgregarDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departamentos\EditarDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departamentos\EditarDepartamento.Designer.cs">
+      <DependentUpon>EditarDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departamentos\EliminarDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departamentos\EliminarDepartamento.Designer.cs">
+      <DependentUpon>EliminarDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departamentos\ListarDepartamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departamentos\ListarDepartamentos.Designer.cs">
+      <DependentUpon>ListarDepartamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departamentos\MantDepartamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departamentos\MantDepartamentos.Designer.cs">
+      <DependentUpon>MantDepartamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditarEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +164,21 @@
     <EmbeddedResource Include="AgregarUsuario.resx">
       <DependentUpon>AgregarUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Departamentos\AgregarDepartamento.resx">
+      <DependentUpon>AgregarDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departamentos\EditarDepartamento.resx">
+      <DependentUpon>EditarDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departamentos\EliminarDepartamento.resx">
+      <DependentUpon>EliminarDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departamentos\ListarDepartamentos.resx">
+      <DependentUpon>ListarDepartamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departamentos\MantDepartamentos.resx">
+      <DependentUpon>MantDepartamentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditarEmpleado.resx">
       <DependentUpon>EditarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,5 +244,6 @@
       <Name>CapaNegocio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

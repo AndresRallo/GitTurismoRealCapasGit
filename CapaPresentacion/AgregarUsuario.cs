@@ -9,12 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaNegocio.Library;
 
 namespace CapaPresentacion
 {
     public partial class AgregarUsuario : Form
     {
+        Librarys librarys = new Librarys();
         CNUsuario cnUsuario = new CNUsuario();
+
+        public string contrasenaEncriptada;
         public AgregarUsuario()
         {
             InitializeComponent();
@@ -31,7 +35,9 @@ namespace CapaPresentacion
                 usuario.us_apaterno = txtAPaterno.Text;
                 usuario.us_amaterno = txtAMaterno.Text;
                 usuario.us_email = txtEmail.Text;
-                usuario.us_contraseña = txtContrasenia.Text;
+                string ePass = Encrypt.GetSHA256(txtContrasenia.Text);
+
+                usuario.us_contraseña = ePass;
                 usuario.us_telefono = txtTelefono.Text;
                 usuario.idEstado = Convert.ToInt32(txtIDEstado.Text);
 
@@ -54,6 +60,11 @@ namespace CapaPresentacion
         private void btnProbarConexion_Click(object sender, EventArgs e)
         {
             cnUsuario.PruebaOracle();
+        }
+
+        private void txtContrasenia_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

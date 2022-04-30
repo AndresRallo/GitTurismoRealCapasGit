@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace CapaPresentacion
 {
     public partial class MenuPrincipal : Form
@@ -38,8 +39,8 @@ namespace CapaPresentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MantenedorDepartamento mantenedorDepartamento = new MantenedorDepartamento();
-            mantenedorDepartamento.Show();
+            Departamentos.MantDepartamentos mantDepartamentos = new Departamentos.MantDepartamentos();
+            mantDepartamentos.Show();
             this.Close();
         }
     }
