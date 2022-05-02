@@ -11,17 +11,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaNegocio.Library;
 
 namespace CapaPresentacion
 {
     public partial class AgregarEmpleado : Form
     {
+        Librarys librarys = new Librarys();
         CNEmpleado cNEmpleado = new CNEmpleado();
         
         
         public AgregarEmpleado()
         {
             InitializeComponent();
+
+          /*  cbComuna.DataSource = cNEmpleado.ObtenerComunas();
+            cbComuna.ValueMember = "IDCOMUNA";
+            cbComuna.DisplayMember = "C_DESCRIPCION";
+            cbComuna.Visible = true;
+            cbComuna.Enabled = true; */
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -43,7 +51,9 @@ namespace CapaPresentacion
                 empleado.em_apaterno = txtAPaterno.Text;
                 empleado.emp_amaterno = txtAMaterno.Text;
                 empleado.em_mail = txtEmail.Text;
-                empleado.em_contrasena = txtContrasenia.Text;
+                string ePass = Encrypt.GetSHA256(txtContrasenia.Text);
+
+                empleado.em_contrasena = ePass;
                 empleado.idEmpresa = Convert.ToInt32(txtIDEmpresa.Text);
                 empleado.idTipoEmleado = Convert.ToInt32(cbIDTipo.SelectedIndex);
                 empleado.idEstado = Convert.ToInt32(txtIDEstado.Text);
@@ -55,11 +65,13 @@ namespace CapaPresentacion
                     vehiculo.marca_ve = txtMarcaVe.Text;
                     vehiculo.patente_ve = txtPatenteVe.Text;
                     vehiculo.anio_ve = Convert.ToInt32(txtAnioVe.Text);
-                    cNEmpleado.CrearVehiculo(vehiculo);
-
+                    //cNEmpleado.CrearVehiculo(vehiculo);
+                    empleado.vehiculo = vehiculo;
                 }
-                
+
                 cNEmpleado.CrearEmpleado(empleado);
+
+                
             }
             catch (Exception ex)
             {

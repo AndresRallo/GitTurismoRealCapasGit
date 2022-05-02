@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio.Library;
-
+using CryptSharp;
 
 namespace CapaPresentacion
 {
@@ -59,6 +59,25 @@ namespace CapaPresentacion
 
             DataTable dt = new DataTable();
             objEuser.em_mail = txtMail.Text;
+            //objEuser.em_contrasena = txtPass.Text;
+            //buscar usuario po email
+
+            /*-------------------- ARREGALR LOGIN CON MÉTODO CRYPTER
+            CEEmpleado user = CNEmpleado.getUserByEmail(txtMail.Text);
+            if (user is null)
+            {
+
+                lblPass.Text = "No existe user";
+            }
+
+            if (!Crypter.CheckPassword(txtPass.Text,user.em_contrasena))
+            {
+                lblPass.Text = "la contreaseña no es la correcta";
+                return;
+            }
+            ------------*/ 
+
+
             string ePass = Encrypt.GetSHA256(txtPass.Text);
             objEuser.em_contrasena = ePass;
             //objEuser.em_contrasena = txtPass.Text;

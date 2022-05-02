@@ -19,68 +19,68 @@ namespace CapaNegocio
             
         }
         /*  public bool ValidarDatos(CEEmpleado empleado)
-          {
-              bool resultado = true;
+ {
+     bool resultado = true;
 
-              if (empleado.em_rut == string.Empty)
-              {
-                  resultado = false;
-                  MessageBox.Show("El RUT es Obligatorio");
-              }
+     if (empleado.em_rut == string.Empty)
+     {
+         resultado = false;
+         MessageBox.Show("El RUT es Obligatorio");
+     }
 
-              if (empleado.em_nombre == string.Empty)
-              {
-                  resultado = false;
-                  MessageBox.Show("El nombre es Obligatorio");
-              }
+     if (empleado.em_nombre == string.Empty)
+     {
+         resultado = false;
+         MessageBox.Show("El nombre es Obligatorio");
+     }
 
-              if (empleado.em_apaterno == string.Empty)
-              {
-                  resultado = false;
-                  MessageBox.Show("El apellido materno es Obligatorio");
-              }
+     if (empleado.em_apaterno == string.Empty)
+     {
+         resultado = false;
+         MessageBox.Show("El apellido materno es Obligatorio");
+     }
 
-              if (empleado.emp_amaterno == string.Empty)
-              {
-                  resultado = false;
-                  MessageBox.Show("El apellido materno es Obligatorio");
-              }
+     if (empleado.emp_amaterno == string.Empty)
+     {
+         resultado = false;
+         MessageBox.Show("El apellido materno es Obligatorio");
+     }
 
-              if (empleado.em_mail == string.Empty)
-              {
-                  resultado = false;
-                  MessageBox.Show("El Email es Obligatorio");
-              }
+     if (empleado.em_mail == string.Empty)
+     {
+         resultado = false;
+         MessageBox.Show("El Email es Obligatorio");
+     }
 
-              if (empleado.em_contrasena == string.Empty)
-              {
-                  resultado = false;
-                  MessageBox.Show("La contraseña es obligatoria");
-              }
+     if (empleado.em_contrasena == string.Empty)
+     {
+         resultado = false;
+         MessageBox.Show("La contraseña es obligatoria");
+     }
 
 
-              if (empleado.idEmpresa <= 0)
-              {
-                  resultado = false;
-                  MessageBox.Show("El id de la Empresa es Obligatorio");
-              }
-              if (empleado.idTipoEmleado <= 0)
-              {
-                  resultado = false;
-                  MessageBox.Show("El id del tipo de empleado es obligatorio");
-              }
-              if (empleado.idEstado <= 0)
-              {
-                  resultado = false;
-                  MessageBox.Show("El id del estado del empleado es obligatorio");
-              }
-              if (empleado.idDireccion <= 0)
-              {
-                  resultado = false;
-                  MessageBox.Show("El id de la dirección es obligatorio");
-              }
-              return resultado;
-          } */
+     if (empleado.idEmpresa <= 0)
+     {
+         resultado = false;
+         MessageBox.Show("El id de la Empresa es Obligatorio");
+     }
+     if (empleado.idTipoEmleado <= 0)
+     {
+         resultado = false;
+         MessageBox.Show("El id del tipo de empleado es obligatorio");
+     }
+     if (empleado.idEstado <= 0)
+     {
+         resultado = false;
+         MessageBox.Show("El id del estado del empleado es obligatorio");
+     }
+     if (empleado.idDireccion <= 0)
+     {
+         resultado = false;
+         MessageBox.Show("El id de la dirección es obligatorio");
+     }
+     return resultado;
+ } */
 
         public void PruebaOracle()
         {
@@ -114,11 +114,11 @@ namespace CapaNegocio
             return lista;
         }
 
-      /*  public List<CEComuna> ObtenerComunas()
+        public List<CEComuna> ObtenerComunas()
         {
             List<CEComuna> listaDireccion = new List<CEComuna>();
-            listaDireccion = cDEmpleado.Comunas();
+            listaDireccion = cDEmpleado.Comunas(1);
             return listaDireccion;
-        } */
+        }
     }
 }

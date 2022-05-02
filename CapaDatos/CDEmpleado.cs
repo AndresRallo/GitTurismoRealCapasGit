@@ -88,8 +88,8 @@ namespace CapaDatos
             conn.Close();
             MessageBox.Show("Conectado :)");
         }
-        /*
-        public List<CEComuna> Comunas()
+        
+        public List<CEComuna> Comunas(int idregion)
         {
             OracleConnection conn = new OracleConnection(conexion);
             OracleDataReader mostrarTabla;
@@ -98,8 +98,9 @@ namespace CapaDatos
             try
             {
                 conn.Open();
-                OracleCommand command = new OracleCommand("SP_GET_COMUNA_BY_IDCOMUNA", conn);
+                OracleCommand command = new OracleCommand("SP_GET_COMUNA_BY_IDREGION", conn);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add("IDREGION_",OracleType.Number).Value = idregion;
                 command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
                 mostrarTabla = command.ExecuteReader();
                 while (mostrarTabla.Read())
@@ -119,7 +120,7 @@ namespace CapaDatos
             }
             conn.Close();
             return listaDireccion;
-        } */
+        } 
 
         public void AgregarEmpleado(CEEmpleado cE)
         {
@@ -143,9 +144,9 @@ namespace CapaDatos
                 command.Parameters.Add("idTipoEmp", OracleType.Number).Value = Convert.ToInt32(cE.idTipoEmleado);
                 command.Parameters.Add("idEstadoEmp", OracleType.Number).Value = Convert.ToInt32(cE.idEstado);
                 command.Parameters.Add("idDireccionEmp", OracleType.Number).Value = Convert.ToInt32(cE.idDireccion);
-               /* command.Parameters.Add("MARCA", OracleType.NVarChar).Value = cV.marca_ve;
-                command.Parameters.Add("ANIO", OracleType.Number).Value = Convert.ToInt32(cV.anio_ve);
-                command.Parameters.Add("PATENTE", OracleType.NVarChar).Value = cV.patente_ve; */
+                //command.Parameters.Add("MARCA", OracleType.NVarChar).Value = cE.vehiculo.marca_ve;
+                //command.Parameters.Add("ANIO", OracleType.Number).Value = Convert.ToInt32(cE.vehiculo.anio_ve);
+                //command.Parameters.Add("PATENTE", OracleType.NVarChar).Value = cE.vehiculo.patente_ve;
                 command.ExecuteNonQuery();
                 #region procedimiento almacenado
                 /*
