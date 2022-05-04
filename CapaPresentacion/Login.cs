@@ -62,7 +62,7 @@ namespace CapaPresentacion
             //objEuser.em_contrasena = txtPass.Text;
             //buscar usuario po email
 
-            //*-------------------- ARREGALR LOGIN CON MÉTODO CRYPTER
+            /*-------------------- ARREGALR LOGIN CON MÉTODO CRYPTER
             CEEmpleado user = CNEmpleado.getUserByEmail(txtMail.Text);
             if (user is null)
             {
@@ -75,7 +75,7 @@ namespace CapaPresentacion
                 lblPass.Text = "la contreaseña no es la correcta";
                 return;
             }
-            //------------*/ 
+           /------------*/ 
 
 
             string ePass = Encrypt.GetSHA256(txtPass.Text);

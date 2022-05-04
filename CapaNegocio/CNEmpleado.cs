@@ -54,7 +54,7 @@ namespace CapaNegocio
         public List<CEComuna> ObtenerComunas(int idregion)
         {
             List<CEComuna> listaDireccion = new List<CEComuna>();
-            listaDireccion = cDEmpleado.Comunas(idregion);
+            listaDireccion = cDEmpleado.Comunas(idregion + 1);
             return listaDireccion;
         }
 
