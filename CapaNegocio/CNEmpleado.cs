@@ -19,13 +19,6 @@ namespace CapaNegocio
             
         }
 
-        public static CEEmpleado getUserByEmail(string text)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
         public void PruebaOracle()
         {
             cDEmpleado.PruebaConexion();
@@ -58,11 +51,18 @@ namespace CapaNegocio
             return lista;
         }
 
-        public List<CEComuna> ObtenerComunas()
+        public List<CEComuna> ObtenerComunas(int idregion)
         {
             List<CEComuna> listaDireccion = new List<CEComuna>();
-            listaDireccion = cDEmpleado.Comunas(1);
+            listaDireccion = cDEmpleado.Comunas(idregion);
             return listaDireccion;
+        }
+
+        public List<CERegion> ObtenerRegion()
+        {
+            List<CERegion> listaRegion = new List<CERegion>();
+            listaRegion = cDEmpleado.Region();
+            return listaRegion;
         }
     }
 }

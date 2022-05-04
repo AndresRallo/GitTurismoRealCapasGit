@@ -25,11 +25,9 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
-          /*  cbComuna.DataSource = cNEmpleado.ObtenerComunas();
-            cbComuna.ValueMember = "IDCOMUNA";
-            cbComuna.DisplayMember = "C_DESCRIPCION";
-            cbComuna.Visible = true;
-            cbComuna.Enabled = true; */
+
+            LoadComboRegion();
+            
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -111,21 +109,58 @@ namespace CapaPresentacion
 
         private void cbComuna_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
+            
+        }
+
+        private void LoadComboRegion()
+        {
             try
             {
-                  
-                cbComuna.SelectedItem = cNEmpleado.ObtenerComunas();
-                
-                
-                
+                cbRegion.DataSource = cNEmpleado.ObtenerRegion();
+                cbRegion.ValueMember = "IDREGION";
+                cbRegion.DisplayMember = "RE_DESCRIPCION";
 
+                if (cbRegion.Items.Count != 0)
+                {
+                    int idregion = Convert.ToInt32(cbRegion.SelectedValue);
+                    cbComuna.DataSource = null;
+                    cbComuna.Items.Clear();
+                    LoadComboComuna(idregion);
+                    
+                }
+              /*  else
+                {
+                    cbComuna.DataSource = null;
+                    
+                } */
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show("error " + ex);
-            }*/
+            }
+            
+            
+        }
+
+        private void LoadComboComuna(int idregion)
+        {
+            try
+            {
+                cbComuna.DataSource = cNEmpleado.ObtenerComunas(idregion);
+                cbComuna.ValueMember = "IDCOMUNA";
+                cbComuna.DisplayMember = "C_DESCRIPCION";
+                if (cbRegion.Items.Count != 0)
+                {
+                    int idcomuna = Convert.ToInt32(cbComuna.SelectedValue);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("error " + ex); 
+            }
+            
         }
 
         private void AgregarEmpleado_Load(object sender, EventArgs e)
@@ -145,5 +180,23 @@ namespace CapaPresentacion
             }*/
 
         }
+
+        private void cbRegion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                int regionid = cbRegion.SelectedIndex;
+
+                LoadComboComuna(regionid);
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("error " + ex);
+            }
+
+        }
     }
-    }
+}

@@ -120,7 +120,39 @@ namespace CapaDatos
             }
             conn.Close();
             return listaDireccion;
-        } 
+        }
+
+        public List<CERegion> Region()
+        {
+            OracleConnection conn = new OracleConnection(conexion);
+            OracleDataReader mostrarTabla;
+            List<CERegion> listaDireccion = new List<CERegion>();
+
+            try
+            {
+                conn.Open();
+                OracleCommand command = new OracleCommand("SP_GET_ALL_REGION", conn);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                mostrarTabla = command.ExecuteReader();
+                while (mostrarTabla.Read())
+                {
+                    listaDireccion.Add(new CERegion
+                    {
+                        IDREGION = Convert.ToInt32(mostrarTabla["IDREGION"]),
+                        RE_DESCRIPCION = Convert.ToString(mostrarTabla["RE_DESCRIPCION"].ToString())
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("No conectado" + ex.Message);
+            }
+            conn.Close();
+            return listaDireccion;
+        }
 
         public void AgregarEmpleado(CEEmpleado cE)
         {
