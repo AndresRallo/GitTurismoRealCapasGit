@@ -45,6 +45,7 @@
     <Compile Include="CEDepartamento.cs" />
     <Compile Include="CEDireccion.cs" />
     <Compile Include="CEEmpleado.cs" />
+    <Compile Include="CERegion.cs" />
     <Compile Include="CEUsuario.cs" />
     <Compile Include="CEVehiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

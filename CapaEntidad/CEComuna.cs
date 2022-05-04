@@ -10,6 +10,7 @@ namespace CapaEntidad
     {
         public int idcomuna { get; set; }
         public string c_descripcion { get; set; }
+        public CERegion IDRegion { get; set; }
         public CEComuna() { }
     }
 }
