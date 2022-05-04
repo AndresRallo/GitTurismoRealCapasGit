@@ -17,14 +17,14 @@ namespace CapaDatos
         public DataTable D_user(CEEmpleado obje)
         {
 
-            OracleCommand cmd = new OracleCommand("SELECT * FROM EMPLEADO WHERE EM_EMAIL = :mail AND EM_CONTRASEÑA = :contra", cn);
+            OracleCommand cmd = new OracleCommand("LOGIN_EMPLEADOS", cn);
 
             //cmd.Parameters.AddWithValue(":rut", txtUser.Text);
             //cmd.Parameters.AddWithValue(":contra", txtPass.Password);
 
-            //cmd.CommandType = CommandType.StoredProcedure; // para proceso almacenado
-            cmd.Parameters.Add(":mail", OracleType.NVarChar).Value = obje.em_mail;
-            cmd.Parameters.Add(":contra", OracleType.NVarChar).Value = obje.em_contrasena;
+            cmd.CommandType = CommandType.StoredProcedure; // para proceso almacenado
+            cmd.Parameters.Add("va_mail", OracleType.NVarChar).Value = obje.em_mail;
+            cmd.Parameters.Add("va_contra", OracleType.NVarChar).Value = obje.em_contrasena;
             //cmd.Parameters.Add(":contra", OracleType.Number).Value = Convert.ToInt32(obje.em_contrasena);
             //cmd.Parameters.AddWithValue("EM_NOM", obje.nombre);
             //cmd.Parameters.AddWithValue("EM_EM_APATERNO", obje.nombre);
@@ -40,6 +40,7 @@ namespace CapaDatos
 
         public DataTable D_mail(CEEmpleado em)
         {
+
             OracleCommand cmd = new OracleCommand("SELECT * FROM EMPLEADO WHERE EM_EMAIL = :mail", cn);
 
             cmd.Parameters.Add(":mail", OracleType.NVarChar).Value = em.em_mail;
