@@ -34,5 +34,19 @@ namespace CapaNegocio
         {
             cDDepartamento.CrearDepartamento(depto);
         }
+
+        public List<CETipoDepartamento> ObtenerTipoDepto()
+        {
+            List<CETipoDepartamento> listaTDDepartamento = new List<CETipoDepartamento>();
+            listaTDDepartamento = cDDepartamento.TipoDepto();
+            return listaTDDepartamento;
+        }
+
+        public List<CESysEstadoDepto> ObtenerEstadoDepto()
+        {
+            List<CESysEstadoDepto> listarEstadoDepto = new List<CESysEstadoDepto>();
+            listarEstadoDepto = cDDepartamento.SysEstDepto();
+            return listarEstadoDepto;
+        }
     }
 }

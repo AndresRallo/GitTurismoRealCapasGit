@@ -14,6 +14,7 @@ namespace CapaDatos
     public class CDDepartamento
     {
         string conexion = ConfigurationManager.AppSettings["conn"];
+        
 
         public void PruebaConexion()
         {
@@ -53,9 +54,79 @@ namespace CapaDatos
             catch (Exception ex)
             {
 
-                MessageBox.Show("Error eliminar depto :(");
+                MessageBox.Show("Error eliminar depto :("+ ex.Message);
             }
             conn.Close();
+        }
+
+        
+
+        public List<CETipoDepartamento> TipoDepto()
+        {
+            OracleConnection conn = new OracleConnection(conexion);
+            OracleDataReader mostrarTabla;
+            List<CETipoDepartamento> ListaTipoDepto = new List<CETipoDepartamento>();
+
+            try
+            {
+                conn.Open();
+                OracleCommand command = new OracleCommand("DP_TIPO_DEPTO", conn);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                mostrarTabla = command.ExecuteReader();
+                while (mostrarTabla.Read())
+                {
+                    ListaTipoDepto.Add(new CETipoDepartamento
+                    {
+                        idTipoDepartamento = Convert.ToInt32(mostrarTabla["IDTIPODEPARTAMENTO"]),
+                        tDDepartamento = Convert.ToString(mostrarTabla["TD_DESCRIPCION"].ToString())
+
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("No conectado :((" + ex.Message);
+            }
+            conn.Close();
+            return ListaTipoDepto;
+        }
+
+
+        public List<CESysEstadoDepto> SysEstDepto()
+        {
+            OracleConnection conn = new OracleConnection(conexion);
+            OracleDataReader mostrarTabla;
+
+            List<CESysEstadoDepto> listarEstadoDepto = new List<CESysEstadoDepto>();
+
+            try
+            {
+                conn.Open();
+                OracleCommand command = new OracleCommand("DP_GET_ESTADO_DEPARTAMENTO", conn);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                mostrarTabla = command.ExecuteReader();
+
+                while (mostrarTabla.Read())
+                {
+                    listarEstadoDepto.Add(new CESysEstadoDepto
+                    {
+                        IDEstDepto = Convert.ToInt32(mostrarTabla["IDESTADODEPARTAMENTO"]),
+                        EdDescripcion = Convert.ToString(mostrarTabla["ED_DESCRIPCION"].ToString())
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("No conectado :´(" + ex.Message);
+            }
+            conn.Close();
+            return listarEstadoDepto;
         }
 
         public void CrearDepartamento(CEDepartamento depto)
@@ -128,5 +199,7 @@ namespace CapaDatos
                 --------------*/
             #endregion
         }
+
+
     }
 }

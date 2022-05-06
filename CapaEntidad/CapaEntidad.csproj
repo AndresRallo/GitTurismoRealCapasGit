@@ -46,9 +46,11 @@
     <Compile Include="CEDireccion.cs" />
     <Compile Include="CEEmpleado.cs" />
     <Compile Include="CERegion.cs" />
+    <Compile Include="CETipoDepartamento.cs" />
     <Compile Include="CEUsuario.cs" />
     <Compile Include="CEVehiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CESysEstadoDepto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
