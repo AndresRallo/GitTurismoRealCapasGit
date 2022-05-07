@@ -22,6 +22,8 @@ namespace CapaEntidad
         public int idDireccion { get; set; }
         public CEDireccion direccion { get; set; }
         public CEVehiculo vehiculo { get; set; }
+        public CERegion region { get; set; }
+        public CEComuna comuna { get; set; }
         public CEEmpleado() { }
 
     }

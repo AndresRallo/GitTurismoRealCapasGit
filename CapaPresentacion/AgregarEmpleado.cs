@@ -55,7 +55,21 @@ namespace CapaPresentacion
                 empleado.idEmpresa = Convert.ToInt32(txtIDEmpresa.Text);
                 empleado.idTipoEmleado = Convert.ToInt32(cbIDTipo.SelectedIndex);
                 empleado.idEstado = Convert.ToInt32(txtIDEstado.Text);
-                empleado.idDireccion = Convert.ToInt32(txtDireccion.Text);
+                
+                CEDireccion direccion = new CEDireccion();
+                direccion.de_direccion = txtDireccion.Text;
+                direccion.de_numero = txtNumDireccion.Text;
+                direccion.id_comuna = Convert.ToInt32(cbComuna.SelectedValue);
+                empleado.direccion = direccion;
+
+              /*  CERegion region = new CERegion();
+                region.RE_DESCRIPCION = Convert.ToString(cbRegion.SelectedIndex);
+                empleado.region = region;
+
+                CEComuna comuna = new CEComuna();
+                comuna.c_descripcion = Convert.ToString(cbComuna.SelectedIndex);
+                empleado.comuna = comuna; */
+
                 if (cbIDTipo.SelectedIndex == 3)
                 {
 
@@ -66,10 +80,22 @@ namespace CapaPresentacion
                     //cNEmpleado.CrearVehiculo(vehiculo);
                     empleado.vehiculo = vehiculo;
                 }
+                else
+                {
+                    CEVehiculo vehiculo = new CEVehiculo();
+                    vehiculo.marca_ve = string.Empty;
+                    vehiculo.patente_ve = string.Empty;
+                    vehiculo.anio_ve = 0;
+                    //cNEmpleado.CrearVehiculo(vehiculo);
+                    empleado.vehiculo = vehiculo;
+                }
 
-                cNEmpleado.CrearEmpleado(empleado);
+                if(cNEmpleado.CrearEmpleado(empleado))
+                    MessageBox.Show("Empleado agregado");
+                else
+                    MessageBox.Show("Empleado no agregado");
 
-                
+
             }
             catch (Exception ex)
             {

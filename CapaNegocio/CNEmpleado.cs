@@ -24,9 +24,9 @@ namespace CapaNegocio
             cDEmpleado.PruebaConexion();
         }
 
-        public void CrearEmpleado(CEEmpleado cE)
+        public bool CrearEmpleado(CEEmpleado cE)
         {
-            cDEmpleado.AgregarEmpleado(cE);
+            return cDEmpleado.AgregarEmpleado(cE);
         }
 
         public void CrearVehiculo(CEVehiculo cV)
@@ -42,7 +42,6 @@ namespace CapaNegocio
         {
             cDEmpleado.EliminarEmpleado(cE);
         }
-
 
         public DataTable ObtenerDatos()
         {

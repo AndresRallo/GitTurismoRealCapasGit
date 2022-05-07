@@ -154,32 +154,48 @@ namespace CapaDatos
             return listaDireccion;
         }
 
-        public void AgregarEmpleado(CEEmpleado cE)
+        public bool AgregarEmpleado(CEEmpleado cE)
         {
-            OracleConnection conn = new OracleConnection(conexion);
-            
-
             try
             {
-                conn.Open();
-                OracleCommand command = new OracleCommand("agregarEmpleado", conn);
-                
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add("rutEmp", OracleType.Number).Value = Convert.ToInt32(cE.em_rut);      
-                command.Parameters.Add("dvEmp", OracleType.Char).Value = cE.em_dv;
-                command.Parameters.Add("nomEmp", OracleType.NVarChar).Value = cE.em_nombre;
-                command.Parameters.Add("aPaternoEmp", OracleType.NVarChar).Value = cE.em_apaterno;
-                command.Parameters.Add("aMaternoEmp", OracleType.NVarChar).Value = cE.emp_amaterno;
-                command.Parameters.Add("emailEmp", OracleType.NVarChar).Value = cE.em_mail;
-                command.Parameters.Add("contraseniaEmp", OracleType.NVarChar).Value = cE.em_contrasena;
-                command.Parameters.Add("idEmpresaEmp", OracleType.Number).Value = Convert.ToInt32(cE.idEmpresa);
-                command.Parameters.Add("idTipoEmp", OracleType.Number).Value = Convert.ToInt32(cE.idTipoEmleado);
-                command.Parameters.Add("idEstadoEmp", OracleType.Number).Value = Convert.ToInt32(cE.idEstado);
-                command.Parameters.Add("idDireccionEmp", OracleType.Number).Value = Convert.ToInt32(cE.idDireccion);
-                //command.Parameters.Add("MARCA", OracleType.NVarChar).Value = cE.vehiculo.marca_ve;
-                //command.Parameters.Add("ANIO", OracleType.Number).Value = Convert.ToInt32(cE.vehiculo.anio_ve);
-                //command.Parameters.Add("PATENTE", OracleType.NVarChar).Value = cE.vehiculo.patente_ve;
-                command.ExecuteNonQuery();
+                string salida = string.Empty;
+                using (OracleConnection conn = new OracleConnection(conexion))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_SET_ADD_EMPLEADO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("RUTEMP", OracleType.Number).Value = Convert.ToInt32(cE.em_rut);
+                    command.Parameters.Add("DVEMP", OracleType.Char).Value = cE.em_dv;
+                    command.Parameters.Add("NOMBREEMP", OracleType.NVarChar).Value = cE.em_nombre;
+                    command.Parameters.Add("APATERNOEMP", OracleType.NVarChar).Value = cE.em_apaterno;
+                    command.Parameters.Add("AMATERNOEMP", OracleType.NVarChar).Value = cE.emp_amaterno;
+                    command.Parameters.Add("EMAILEMP", OracleType.NVarChar).Value = cE.em_mail;
+                    command.Parameters.Add("PWSEMP", OracleType.NVarChar).Value = cE.em_contrasena;
+                    command.Parameters.Add("IDEMP", OracleType.Number).Value = Convert.ToInt32(cE.idEmpresa);
+                    command.Parameters.Add("IDTIPOEMP", OracleType.Number).Value = Convert.ToInt32(cE.idTipoEmleado);
+                    command.Parameters.Add("IDESTADOEMP", OracleType.Number).Value = Convert.ToInt32(cE.idEstado);
+                    command.Parameters.Add("DIRECCION", OracleType.Number).Value = Convert.ToString(cE.direccion.de_direccion);
+                    command.Parameters.Add("NUMDIREC", OracleType.NVarChar).Value = cE.direccion.de_numero;
+                    command.Parameters.Add("IDCOMUNADIREC", OracleType.Number).Value = Convert.ToInt32(cE.direccion.id_comuna);
+                    command.Parameters.Add("MARCA", OracleType.NVarChar).Value = cE.vehiculo.marca_ve;
+                    command.Parameters.Add("ANIO", OracleType.Number).Value = Convert.ToInt32(cE.vehiculo.anio_ve);
+                    command.Parameters.Add("PATENTE", OracleType.NVarChar).Value = cE.vehiculo.patente_ve;
+                    //command.Parameters.Add("V_DETALLE", OracleType.NVarChar).Direction = ParameterDirection.Output;
+                    OracleParameter par = new OracleParameter("V_DETALLE", OracleType.NVarChar);
+                    par.Direction = ParameterDirection.Output;
+                    par.Size = 250;
+                    command.Parameters.Add(par);
+                    command.ExecuteNonQuery();
+                    salida = command.Parameters["V_DETALLE"].Value.ToString();
+
+                    conn.Close();
+                }
+                //agregara salida a un Log
+                if (string.IsNullOrEmpty(salida))
+                    return true;
+                else
+                    return false;
+
                 #region procedimiento almacenado
                 /*
                 create or replace procedure agregarEmpleado(rutEmp in number, dvEmp in char, nomEmp in nvarchar2, aPaternoEmp in nvarchar2, aMaternoEmp in nvarchar2, emailEmp in nvarchar2, 
@@ -193,14 +209,17 @@ namespace CapaDatos
                 */
                 #endregion
             }
+            catch (OracleException orex)
+            {
+                return false;
+            }
             catch (Exception ex)
             {
-                
-                MessageBox.Show("No conectado" + ex.Message);
-
+                //ex.Message;
+                //ex.StackTrace;
+                //agregar ex al Log
+                return false;
             }
-            conn.Close();
-            MessageBox.Show("Empleado Agregado");
         }
 
         public void agregarVehiculo(CEVehiculo cV)
