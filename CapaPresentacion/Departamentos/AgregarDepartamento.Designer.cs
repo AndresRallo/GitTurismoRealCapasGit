@@ -137,15 +137,16 @@ namespace CapaPresentacion.Departamentos
             this.cbxTipoDepto.FormattingEnabled = true;
             this.cbxTipoDepto.Location = new System.Drawing.Point(183, 209);
             this.cbxTipoDepto.Name = "cbxTipoDepto";
-            this.cbxTipoDepto.Size = new System.Drawing.Size(121, 21);
+            this.cbxTipoDepto.Size = new System.Drawing.Size(238, 21);
             this.cbxTipoDepto.TabIndex = 54;
+            this.cbxTipoDepto.SelectedIndexChanged += new System.EventHandler(this.cbxTipoDepto_SelectedIndexChanged);
             // 
             // cbxEstadoDepa
             // 
             this.cbxEstadoDepa.FormattingEnabled = true;
             this.cbxEstadoDepa.Location = new System.Drawing.Point(183, 258);
             this.cbxEstadoDepa.Name = "cbxEstadoDepa";
-            this.cbxEstadoDepa.Size = new System.Drawing.Size(121, 21);
+            this.cbxEstadoDepa.Size = new System.Drawing.Size(238, 21);
             this.cbxEstadoDepa.TabIndex = 56;
             // 
             // lblEstadoDepa
