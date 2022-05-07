@@ -62,64 +62,77 @@ namespace CapaPresentacion
             //objEuser.em_contrasena = txtPass.Text;
             //buscar usuario po email
 
-            /*-------------------- ARREGALR LOGIN CON MÉTODO CRYPTER
-            CEEmpleado user = CNEmpleado.getUserByEmail(txtMail.Text);
-            if (user is null)
+            /*-------------------- ARREGALR LOGIN CON MÉTODO CRYPTER /------------*/
+            try
             {
-
-                lblPass.Text = "No existe user";
-            }
-
-            if (!Crypter.CheckPassword(txtPass.Text,user.em_contrasena))
-            {
-                lblPass.Text = "la contreaseña no es la correcta";
-                return;
-            }
-           /------------*/ 
-
-
-            string ePass = Encrypt.GetSHA256(txtPass.Text);
-            objEuser.em_contrasena = ePass;
-            //objEuser.em_contrasena = txtPass.Text;
-
-            dt = objNuser.N_user(objEuser);
-
-            if (dt.Rows.Count > 0)
-            {
-
-                this.Hide();
-                menuPrincipal.Show();
-                txtMail.Clear();
-                txtPass.Clear();
-            }
-            else
-            {
-
-                if (librarys.textBoxEvent.ComprobarFormatoEmail(txtMail.Text) && txtPass.Text != "")
+                CEEmpleado user = CNEmpleado.getUserByEmail(txtMail.Text);
+                if (user is null)
                 {
-                    lblPass.Text = "No se puede confirmar";
-                    MailCorrecto();
+                    lblPass.Text = "No existe user";
                 }
-                //colocar mensajes de error por Mail existente  o sin nada
-                if (librarys.textBoxEvent.ComprobarFormatoEmail(txtMail.Text))
+                else if (!Crypter.CheckPassword(txtPass.Text, user.em_contrasena))
                 {
-
-                    MailCorrecto();
+                    lblPass.Text = "la contreaseña no es la correcta";
+                    return;
                 }
-
-                if (txtPass.Text.Equals(""))
+                else
                 {
-                    lblPass.Text = "Insertar Contraseña";
+                    this.Hide();
+                    menuPrincipal.Show();
+                    txtMail.Clear();
+                    txtPass.Clear();
                 }
-                else //if (!Crypter.CheckPassword(contrasenaEncriptada, txtPass.Text))
-                {
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No es posible obtener el usuario, por favor contactarse con el administrador");
+            }
+           
+           
+
+
+            //string ePass = Encrypt.GetSHA256(txtPass.Text);
+            //objEuser.em_contrasena = ePass;
+            ////objEuser.em_contrasena = txtPass.Text;
+
+            //dt = objNuser.N_user(objEuser);
+
+            //if (dt.Rows.Count > 0)
+            //{
+
+            //    this.Hide();
+            //    menuPrincipal.Show();
+            //    txtMail.Clear();
+            //    txtPass.Clear();
+            //}
+            //else
+            //{
+
+            //    if (librarys.textBoxEvent.ComprobarFormatoEmail(txtMail.Text) && txtPass.Text != "")
+            //    {
+            //        lblPass.Text = "No se puede confirmar";
+            //        MailCorrecto();
+            //    }
+            //    //colocar mensajes de error por Mail existente  o sin nada
+            //    if (librarys.textBoxEvent.ComprobarFormatoEmail(txtMail.Text))
+            //    {
+
+            //        MailCorrecto();
+            //    }
+
+            //    if (txtPass.Text.Equals(""))
+            //    {
+            //        lblPass.Text = "Insertar Contraseña";
+            //    }
+            //    else //if (!Crypter.CheckPassword(contrasenaEncriptada, txtPass.Text))
+            //    {
                     
-                        lblPass.Text ="contraseña incorrecta";
+            //            lblPass.Text ="contraseña incorrecta";
 
-                    // lblPass.Text = "Contraseña incorrecta";
-                }
+            //        // lblPass.Text = "Contraseña incorrecta";
+            //    }
 
-            }
+            //}
         }
 
         private void btnProbarConexion_Click(object sender, EventArgs e)
