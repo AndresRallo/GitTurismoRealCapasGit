@@ -6,12 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using CapaEntidad;
+using System.Configuration;
 
 namespace CapaDatos
 {
     public class CDLogin
     {
-        OracleConnection cn = new OracleConnection("DATA SOURCE=localhost:1521/XEPDB1 ; PASSWORD=123456; USER ID=TURISMOADMIN;");
+        OracleConnection cn = new OracleConnection(ConfigurationManager.AppSettings["conn"]);
 
 
         public DataTable D_user(CEEmpleado obje)

@@ -63,5 +63,22 @@ namespace CapaNegocio
             listaRegion = cDEmpleado.Region();
             return listaRegion;
         }
+
+        /// <summary>
+        /// Obtiene el usuario segun correo ingresado, si el usuario no existe devuelve nul
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>Entidad usuario</returns>
+        public static CEEmpleado getUserByEmail(string email)
+        {
+            try
+            {
+                return CDEmpleado.getUserByEmail(email);
+            }
+            catch (Exception ex)
+            {
+                throw ex; 
+            }
+        }
     }
 }
