@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4D0C2FC2-C80D-428A-B0AB-FBAC30816E36}</ProjectGuid>
+    <ProjectGuid>{F1918066-1C2C-4050-A36D-F6FE47E58346}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CapaNegocio</RootNamespace>
-    <AssemblyName>CapaNegocio</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>TurismoRealExceptions</RootNamespace>
+    <AssemblyName>TurismoRealExceptions</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -32,9 +32,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,28 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CNDepartamento.cs" />
-    <Compile Include="CNEmpleado.cs" />
-    <Compile Include="CNLogin.cs" />
-    <Compile Include="CNUsuario.cs" />
-    <Compile Include="Library\Encrypt.cs" />
-    <Compile Include="Library\Librarys.cs" />
-    <Compile Include="Library\TextBoxEvent.cs" />
+    <Compile Include="BusinessException.cs" />
+    <Compile Include="CreateLogFiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
-      <Project>{23f8d4d2-f823-4457-a438-bd40523140cc}</Project>
-      <Name>CapaDatos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
-      <Project>{7e554079-9d59-4326-b772-4b61d5e37994}</Project>
-      <Name>CapaEntidad</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TurismoRealExceptions\TurismoRealExceptions.csproj">
-      <Project>{f1918066-1c2c-4050-a36d-f6fe47e58346}</Project>
-      <Name>TurismoRealExceptions</Name>
-    </ProjectReference>
+    <Compile Include="TechnicalException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -55,6 +55,10 @@
       <Project>{7e554079-9d59-4326-b772-4b61d5e37994}</Project>
       <Name>CapaEntidad</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TurismoRealExceptions\TurismoRealExceptions.csproj">
+      <Project>{f1918066-1c2c-4050-a36d-f6fe47e58346}</Project>
+      <Name>TurismoRealExceptions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using CapaEntidad;
 using System.Data;
 using System.Configuration;
-
+using TurismoRealExceptions;
 
 namespace CapaDatos
 {
@@ -72,6 +72,52 @@ namespace CapaDatos
             }
             */
         }
+
+        /// <summary>
+        /// Busca en el procedimiento almacenado "SP_GET_EMAIL_EMPLEADO" el usuario segun correo
+        /// </summary>
+        /// <param name="email">cooreo del usuario a buscar</param>
+        /// <returns>entidad empleado</returns>
+        public static CEEmpleado getUserByEmail(string email)
+        {
+            try
+            {
+                CEEmpleado cE = new CEEmpleado();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_EMAIL_EMPLEADO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("EMAIL", OracleType.NVarChar).Value = email;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    command.ExecuteReader();
+                    OracleDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        cE.idempleado = Convert.ToInt32(reader["idempleado"]);
+                        cE.em_contrasena = reader["em_contraseña"].ToString();
+                        cE.em_rut = reader["em_rut"].ToString();
+                        cE.em_dv = reader["em_dv"].ToString();
+                        cE.em_nombre = reader["em_nombre"].ToString();
+                        cE.em_apaterno = reader["em_apaterno"].ToString();
+                        cE.emp_amaterno = reader["em_amaterno"].ToString();
+                        cE.em_mail = reader["em_email"].ToString();
+                        cE.idTipoEmleado = Convert.ToInt32(reader["id_tipoempleado"]);
+                        cE.idDireccion = Convert.ToInt32(reader["id_direccion"]);
+                        cE.idEstado = Convert.ToInt32(reader["idestado"]);
+                        cE.idEmpresa = Convert.ToInt32(reader["idempresa"]);
+                    }
+                    conn.Close();
+                }
+
+                return cE;
+            }
+            catch (Exception ex)
+            {
+                throw new TechnicalException("No es posible obtener los datos del usuario por email, emal: " + email);
+            }
+        }
+
         public void PruebaConexion()
         {
             OracleConnection conn = new OracleConnection(conexion);
@@ -174,14 +220,14 @@ namespace CapaDatos
                     command.Parameters.Add("IDEMP", OracleType.Number).Value = Convert.ToInt32(cE.idEmpresa);
                     command.Parameters.Add("IDTIPOEMP", OracleType.Number).Value = Convert.ToInt32(cE.idTipoEmleado);
                     command.Parameters.Add("IDESTADOEMP", OracleType.Number).Value = Convert.ToInt32(cE.idEstado);
-                    command.Parameters.Add("DIRECCION", OracleType.Number).Value = Convert.ToString(cE.direccion.de_direccion);
+                    command.Parameters.Add("DIRECCION", OracleType.NVarChar).Value = Convert.ToString(cE.direccion.de_direccion);
                     command.Parameters.Add("NUMDIREC", OracleType.NVarChar).Value = cE.direccion.de_numero;
                     command.Parameters.Add("IDCOMUNADIREC", OracleType.Number).Value = Convert.ToInt32(cE.direccion.id_comuna);
                     command.Parameters.Add("MARCA", OracleType.NVarChar).Value = cE.vehiculo.marca_ve;
                     command.Parameters.Add("ANIO", OracleType.Number).Value = Convert.ToInt32(cE.vehiculo.anio_ve);
                     command.Parameters.Add("PATENTE", OracleType.NVarChar).Value = cE.vehiculo.patente_ve;
                     //command.Parameters.Add("V_DETALLE", OracleType.NVarChar).Direction = ParameterDirection.Output;
-                    OracleParameter par = new OracleParameter("V_DETALLE", OracleType.NVarChar);
+                    OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
                     par.Direction = ParameterDirection.Output;
                     par.Size = 250;
                     command.Parameters.Add(par);

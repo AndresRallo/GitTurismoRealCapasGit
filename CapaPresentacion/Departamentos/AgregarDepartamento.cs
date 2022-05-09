@@ -53,8 +53,8 @@ namespace CapaPresentacion.Departamentos
             {
 
                 cbxTipoDepto.DataSource = cNDepartamento.ObtenerTipoDepto();
-                cbxTipoDepto.ValueMember = "IDTIPODEPARTAMENTO";
-                cbxTipoDepto.DisplayMember = "TD_DESCRIPCION";
+                cbxTipoDepto.ValueMember = "idTipoDepartamento";
+                cbxTipoDepto.DisplayMember = "tDDepartamento";
 
                 //int idTipoDe = Convert.ToInt32(cbxTipoDepto.SelectedValue);
 
@@ -87,8 +87,8 @@ namespace CapaPresentacion.Departamentos
             try
             {
                 cbxEstadoDepa.DataSource = cNDepartamento.ObtenerEstadoDepto();
-                cbxEstadoDepa.ValueMember = "IDESTADODEPARTAMENTO";
-                cbxEstadoDepa.DisplayMember = "ED_DESCRIPCION";
+                cbxEstadoDepa.ValueMember = "IDEstDepto";
+                cbxEstadoDepa.DisplayMember = "EdDescripcion";
             }
             catch (Exception ex)
             {

@@ -70,7 +70,7 @@ namespace CapaDatos
             try
             {
                 conn.Open();
-                OracleCommand command = new OracleCommand("DP_TIPO_DEPTO", conn);
+                OracleCommand command = new OracleCommand("SP_GET_TIPO_DEPARTAMENTOS", conn);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
                 mostrarTabla = command.ExecuteReader();
@@ -105,7 +105,7 @@ namespace CapaDatos
             try
             {
                 conn.Open();
-                OracleCommand command = new OracleCommand("DP_GET_ESTADO_DEPARTAMENTO", conn);
+                OracleCommand command = new OracleCommand("SP_GET_TIPO_ESTADO_DEPARTAMENTO", conn);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
                 mostrarTabla = command.ExecuteReader();

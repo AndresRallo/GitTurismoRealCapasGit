@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using CapaEntidad;
 using CapaDatos;
 using System.Data;
+using TurismoRealExceptions;
 
 namespace CapaNegocio
 {
@@ -62,6 +63,23 @@ namespace CapaNegocio
             List<CERegion> listaRegion = new List<CERegion>();
             listaRegion = cDEmpleado.Region();
             return listaRegion;
+        }
+
+        /// <summary>
+        /// Obtiene el usuario segun correo ingresado, si el usuario no existe devuelve nul
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>Entidad usuario</returns>
+        public static CEEmpleado getUserByEmail(string email)
+        {
+            try
+            {
+                return CDEmpleado.getUserByEmail(email);
+            }
+            catch (TechnicalException)
+            {
+                throw new BusinessException("Estimado usuario, no es posible obtener el usuario, por favor contactarse con el administrador"); 
+            }
         }
     }
 }
