@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using CapaEntidad;
 using System.Data;
 using System.Configuration;
-
+using TurismoRealExceptions;
 
 namespace CapaDatos
 {
@@ -114,7 +114,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new TechnicalException("No es posible obtener los datos del usuario por email, emal: " + email);
             }
         }
 

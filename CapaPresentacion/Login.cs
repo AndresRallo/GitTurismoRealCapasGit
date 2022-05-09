@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio.Library;
 using CryptSharp;
+using TurismoRealExceptions;
 
 namespace CapaPresentacion
 {
@@ -82,6 +83,10 @@ namespace CapaPresentacion
                     txtMail.Clear();
                     txtPass.Clear();
                 }
+            }
+            catch (BusinessException bex)
+            {
+                MessageBox.Show(bex.Message, "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception)
             {

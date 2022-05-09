@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using CapaEntidad;
 using CapaDatos;
 using System.Data;
+using TurismoRealExceptions;
 
 namespace CapaNegocio
 {
@@ -75,9 +76,9 @@ namespace CapaNegocio
             {
                 return CDEmpleado.getUserByEmail(email);
             }
-            catch (Exception ex)
+            catch (TechnicalException)
             {
-                throw ex; 
+                throw new BusinessException("Estimado usuario, no es posible obtener el usuario, por favor contactarse con el administrador"); 
             }
         }
     }

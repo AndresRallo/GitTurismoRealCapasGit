@@ -277,6 +277,10 @@
       <Project>{4D0C2FC2-C80D-428A-B0AB-FBAC30816E36}</Project>
       <Name>CapaNegocio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TurismoRealExceptions\TurismoRealExceptions.csproj">
+      <Project>{f1918066-1c2c-4050-a36d-f6fe47e58346}</Project>
+      <Name>TurismoRealExceptions</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
