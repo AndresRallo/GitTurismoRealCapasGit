@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio.Library;
+using CryptSharp;
 
 namespace CapaPresentacion
 {
@@ -35,7 +36,7 @@ namespace CapaPresentacion
                 usuario.us_apaterno = txtAPaterno.Text;
                 usuario.us_amaterno = txtAMaterno.Text;
                 usuario.us_email = txtEmail.Text;
-                string ePass = Encrypt.GetSHA256(txtContrasenia.Text);
+                string ePass = Crypter.Blowfish.Crypt(txtContrasenia.Text);
 
                 usuario.us_contraseña = ePass;
                 usuario.us_telefono = txtTelefono.Text;

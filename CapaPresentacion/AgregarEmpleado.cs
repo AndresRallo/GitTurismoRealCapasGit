@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio.Library;
+using CryptSharp;
 
 namespace CapaPresentacion
 {
@@ -49,7 +50,7 @@ namespace CapaPresentacion
                 empleado.em_apaterno = txtAPaterno.Text;
                 empleado.emp_amaterno = txtAMaterno.Text;
                 empleado.em_mail = txtEmail.Text;
-                string ePass = Encrypt.GetSHA256(txtContrasenia.Text);
+                string ePass = Crypter.Blowfish.Crypt(txtContrasenia.Text);
 
                 empleado.em_contrasena = ePass;
                 empleado.idEmpresa = Convert.ToInt32(txtIDEmpresa.Text);
