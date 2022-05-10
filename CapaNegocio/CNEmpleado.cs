@@ -30,10 +30,7 @@ namespace CapaNegocio
             return cDEmpleado.AgregarEmpleado(cE);
         }
 
-        public void CrearVehiculo(CEVehiculo cV)
-        {
-            cDEmpleado.agregarVehiculo(cV);
-        }
+        
         public void EditarEmpleado(CEEmpleado cE) 
         {
             cDEmpleado.EditarEmpleado(cE);
@@ -44,11 +41,18 @@ namespace CapaNegocio
             cDEmpleado.EliminarEmpleado(cE);
         }
 
-        public DataTable ObtenerDatos()
+      /*  public DataTable ObtenerDatos()
         {
             DataTable lista = new DataTable();
             lista = cDEmpleado.Listar();
             return lista;
+        } */
+
+        public List<CEEmpleado> ObtenerEmpleados()
+        {
+            List<CEEmpleado> LISTA_EMPLEADO = new List<CEEmpleado>();
+            LISTA_EMPLEADO = cDEmpleado.Empleado();
+            return LISTA_EMPLEADO;
         }
 
         public List<CEComuna> ObtenerComunas(int idregion)
@@ -63,6 +67,19 @@ namespace CapaNegocio
             List<CERegion> listaRegion = new List<CERegion>();
             listaRegion = cDEmpleado.Region();
             return listaRegion;
+        }
+
+        public List<CE_TIPOEMPLEADO> ObtenerTipoEmpleado()
+        {
+            List<CE_TIPOEMPLEADO> LISTA_TIPOEMPLEADO = new List<CE_TIPOEMPLEADO>();
+            LISTA_TIPOEMPLEADO = cDEmpleado.TIPOEMPLEADO();
+            return LISTA_TIPOEMPLEADO;
+        }
+        public List<CE_ESTADO> ObtenerEstado()
+        {
+            List<CE_ESTADO> LISTA_ESTADO = new List<CE_ESTADO>();
+            LISTA_ESTADO = cDEmpleado.ESTADO();
+            return LISTA_ESTADO;
         }
 
         /// <summary>

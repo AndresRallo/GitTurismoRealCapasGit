@@ -36,8 +36,9 @@ namespace CapaPresentacion
             try
             {
                 CNEmpleado lista = new CNEmpleado();
-                dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
-                
+                dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
+              //dataGridViewEmpleados.EditMode = DataGridViewEditMode.EditOnEnter;
+
 
             }
             catch (Exception ex)

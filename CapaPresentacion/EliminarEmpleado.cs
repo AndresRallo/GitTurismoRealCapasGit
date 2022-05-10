@@ -31,7 +31,7 @@ namespace CapaPresentacion
             try
             {
                 CNEmpleado lista = new CNEmpleado();
-                dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
+                dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
 
 
             }
@@ -60,7 +60,7 @@ namespace CapaPresentacion
             try
             {
                 CEEmpleado empleado = new CEEmpleado();
-                empleado.idempleado = Convert.ToInt32(txtIDEmpleado.Text);
+                empleado.IDEMPLEADO = Convert.ToInt32(txtIDEmpleado.Text);
 
                 cNEmpleado.EliminarEmpleado(empleado);
 

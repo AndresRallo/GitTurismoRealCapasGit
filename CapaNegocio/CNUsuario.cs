@@ -39,5 +39,12 @@ namespace CapaNegocio
         {
             cDUsuario.EliminarUsuario(usuario);
         }
+
+        public List<CE_ESTADO> ObtenerEstado()
+        {
+            List<CE_ESTADO> LISTA_ESTADO = new List<CE_ESTADO>();
+            LISTA_ESTADO = cDUsuario.ESTADO();
+            return LISTA_ESTADO;
+        }
     }
 }

@@ -8,16 +8,17 @@ namespace CapaEntidad
 {
     public class CEUsuario
     {
-        public int idUsuario { get; set; }
-        public string us_rut { get; set; }
-        public string us_dv { get; set; }
-        public string us_nombre { get; set; }
-        public string us_apaterno { get; set; }
-        public string us_amaterno { get; set; }
-        public string us_telefono { get; set; }
-        public string us_email { get; set; }
-        public string us_contraseña { get; set; }
-        public int idEstado { get; set; }
+        public int IDUSUARIO { get; set; }
+        public string US_RUT { get; set; }
+        public string US_DV { get; set; }
+        public string US_NOMBRE { get; set; }
+        public string US_APATERNO { get; set; }
+        public string US_AMATERNO { get; set; }
+        public string US_TELEFONO { get; set; }
+        public string US_EMAIL { get; set; }
+        public string US_CONTRASEÑA { get; set; }
+        public int IDESTADO { get; set; }
+        public int IDTIPOUSUARIO { get; set; }
         public CEUsuario() { }
     }
 }

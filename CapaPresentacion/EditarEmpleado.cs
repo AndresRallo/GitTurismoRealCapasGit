@@ -42,7 +42,7 @@ namespace CapaPresentacion
             try
             {
                 CNEmpleado lista = new CNEmpleado();
-                dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
+                dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
 
 
             }
@@ -66,18 +66,18 @@ namespace CapaPresentacion
             try
             {
                 CEEmpleado empleado = new CEEmpleado();
-                empleado.idempleado = Convert.ToInt32(txtIDEmpleado.Text);
-                empleado.em_rut = txtRut.Text;
-                empleado.em_dv = txtDV.Text;
-                empleado.em_nombre = txtNom.Text;
-                empleado.em_apaterno = txtAPaterno.Text;
-                empleado.emp_amaterno = txtAMaterno.Text;
-                empleado.em_mail = txtEmail.Text;
-                empleado.em_contrasena = txtContrasenia.Text;
-                empleado.idEmpresa = Convert.ToInt32(txtIDEmpresa.Text);
-                empleado.idTipoEmleado = Convert.ToInt32(txtIDTipo.Text);
-                empleado.idEstado = Convert.ToInt32(txtIDEstado.Text);
-                empleado.idDireccion = Convert.ToInt32(txtIDDireccion.Text);
+                empleado.IDEMPLEADO = Convert.ToInt32(txtIDEmpleado.Text);
+                empleado.EM_RUT = txtRut.Text;
+                empleado.EM_DV = txtDV.Text;
+                empleado.EM_NOMBRE = txtNom.Text;
+                empleado.EM_APATERNO = txtAPaterno.Text;
+                empleado.EM_AMATERNO = txtAMaterno.Text;
+                empleado.EM_EMAIL = txtEmail.Text;
+                empleado.EM_CONTRASEÑA = txtContrasenia.Text;
+                empleado.IDEMPRESA = Convert.ToInt32(txtIDEmpresa.Text);
+                empleado.IDTIPOEMPLEADO = Convert.ToInt32(txtIDTipo.Text);
+                empleado.IDESTADO = Convert.ToInt32(txtIDEstado.Text);
+                empleado.IDDIRECCION = Convert.ToInt32(txtIDDireccion.Text);
 
                 cNEmpleado.EditarEmpleado(empleado);
             }

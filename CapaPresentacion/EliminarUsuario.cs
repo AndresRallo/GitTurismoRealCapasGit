@@ -53,7 +53,7 @@ namespace CapaPresentacion
             try
             {
                 CEUsuario usuario = new CEUsuario();
-                usuario.idUsuario = Convert.ToInt32(txtIDUsuario.Text);
+                usuario.IDUSUARIO = Convert.ToInt32(txtIDUsuario.Text);
 
                 cNUsuario.EliminarUsuario(usuario);
 

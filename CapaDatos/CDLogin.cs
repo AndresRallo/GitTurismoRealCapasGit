@@ -24,8 +24,8 @@ namespace CapaDatos
             //cmd.Parameters.AddWithValue(":contra", txtPass.Password);
 
             cmd.CommandType = CommandType.StoredProcedure; // para proceso almacenado
-            cmd.Parameters.Add("va_mail", OracleType.NVarChar).Value = obje.em_mail;
-            cmd.Parameters.Add("va_contra", OracleType.NVarChar).Value = obje.em_contrasena;
+            cmd.Parameters.Add("va_mail", OracleType.NVarChar).Value = obje.EM_EMAIL;
+            cmd.Parameters.Add("va_contra", OracleType.NVarChar).Value = obje.EM_CONTRASEÑA;
             //cmd.Parameters.Add(":contra", OracleType.Number).Value = Convert.ToInt32(obje.em_contrasena);
             //cmd.Parameters.AddWithValue("EM_NOM", obje.nombre);
             //cmd.Parameters.AddWithValue("EM_EM_APATERNO", obje.nombre);
@@ -44,7 +44,7 @@ namespace CapaDatos
 
             OracleCommand cmd = new OracleCommand("SELECT * FROM EMPLEADO WHERE EM_EMAIL = :mail", cn);
 
-            cmd.Parameters.Add(":mail", OracleType.NVarChar).Value = em.em_mail;
+            cmd.Parameters.Add(":mail", OracleType.NVarChar).Value = em.EM_EMAIL;
 
             OracleDataAdapter da = new OracleDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -58,8 +58,8 @@ namespace CapaDatos
 
             OracleCommand cmd = new OracleCommand("SELECT * FROM EMPLEADO WHERE EM_EMAIL = :mail AND EM_CONTRASEÑA = :contra", cn);
 
-            cmd.Parameters.Add(":mail", OracleType.NVarChar).Value = obje.em_mail;
-            cmd.Parameters.Add(":contra", OracleType.NVarChar).Value = obje.em_contrasena;
+            cmd.Parameters.Add(":mail", OracleType.NVarChar).Value = obje.EM_EMAIL;
+            cmd.Parameters.Add(":contra", OracleType.NVarChar).Value = obje.EM_CONTRASEÑA;
 
             OracleDataAdapter da = new OracleDataAdapter(cmd);
             DataTable dt = new DataTable();

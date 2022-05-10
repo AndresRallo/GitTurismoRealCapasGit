@@ -22,6 +22,7 @@ namespace CapaPresentacion
         public AgregarUsuario()
         {
             InitializeComponent();
+            LoadComboEstadoEmpleado();
         }
 
         private void btnAgregarUsuario_Click(object sender, EventArgs e)
@@ -29,17 +30,17 @@ namespace CapaPresentacion
             try
             {
                 CEUsuario usuario = new CEUsuario();
-                usuario.us_rut = txtRut.Text;
-                usuario.us_dv = txtDV.Text;
-                usuario.us_nombre = txtNom.Text;
-                usuario.us_apaterno = txtAPaterno.Text;
-                usuario.us_amaterno = txtAMaterno.Text;
-                usuario.us_email = txtEmail.Text;
+                usuario.US_RUT = txtRut.Text;
+                usuario.US_DV = txtDV.Text;
+                usuario.US_NOMBRE = txtNom.Text;
+                usuario.US_APATERNO = txtAPaterno.Text;
+                usuario.US_AMATERNO = txtAMaterno.Text;
+                usuario.US_EMAIL = txtEmail.Text;
                 string ePass = Encrypt.GetSHA256(txtContrasenia.Text);
 
-                usuario.us_contraseña = ePass;
-                usuario.us_telefono = txtTelefono.Text;
-                usuario.idEstado = Convert.ToInt32(txtIDEstado.Text);
+                usuario.US_CONTRASEÑA = ePass;
+                usuario.US_TELEFONO = txtTelefono.Text;
+                usuario.IDESTADO = Convert.ToInt32(cbESTADO.Text);
 
                 cnUsuario.CrearUsuario(usuario);
             }
@@ -47,6 +48,21 @@ namespace CapaPresentacion
             {
 
                 MessageBox.Show("Usuario No Agregado " + ex);
+            }
+        }
+
+        private void LoadComboEstadoEmpleado()
+        {
+            try
+            {
+                cbESTADO.DataSource = cnUsuario.ObtenerEstado();
+                cbESTADO.ValueMember = "IDESTADO";
+                cbESTADO.DisplayMember = "ES_DESCRIPCION";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error combo estado empleado" + ex);
             }
         }
 

@@ -40,7 +40,7 @@ namespace CapaPresentacion
         void MailCorrecto()
         {
             DataTable dlmail = new DataTable();
-            objEuser.em_mail = txtMail.Text;
+            objEuser.EM_EMAIL = txtMail.Text;
 
             dlmail = objNMail.N_user_mail(objEuser);
 
@@ -59,7 +59,7 @@ namespace CapaPresentacion
         {
 
             DataTable dt = new DataTable();
-            objEuser.em_mail = txtMail.Text;
+            objEuser.EM_EMAIL = txtMail.Text;
             //objEuser.em_contrasena = txtPass.Text;
             //buscar usuario po email
 
@@ -71,7 +71,7 @@ namespace CapaPresentacion
                 {
                     lblPass.Text = "No existe user";
                 }
-                else if (!Crypter.CheckPassword(txtPass.Text, user.em_contrasena))
+                else if (!Crypter.CheckPassword(txtPass.Text, user.EM_CONTRASEÑA))
                 {
                     lblPass.Text = "la contreaseña no es la correcta";
                     return;

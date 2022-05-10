@@ -27,7 +27,8 @@ namespace CapaPresentacion
 
 
             LoadComboRegion();
-            
+            LoadComboTipoEmpleado();
+            LoadComboEstadoEmpleado();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -43,18 +44,18 @@ namespace CapaPresentacion
             try
             {
                 CEEmpleado empleado = new CEEmpleado();
-                empleado.em_rut = txtRut.Text;
-                empleado.em_dv = txtDV.Text;
-                empleado.em_nombre = txtNom.Text;
-                empleado.em_apaterno = txtAPaterno.Text;
-                empleado.emp_amaterno = txtAMaterno.Text;
-                empleado.em_mail = txtEmail.Text;
+                empleado.EM_RUT = txtRut.Text;
+                empleado.EM_DV = txtDV.Text;
+                empleado.EM_NOMBRE = txtNom.Text;
+                empleado.EM_APATERNO = txtAPaterno.Text;
+                empleado.EM_AMATERNO = txtAMaterno.Text;
+                empleado.EM_EMAIL = txtEmail.Text;
                 string ePass = Encrypt.GetSHA256(txtContrasenia.Text);
 
-                empleado.em_contrasena = ePass;
-                empleado.idEmpresa = Convert.ToInt32(txtIDEmpresa.Text);
-                empleado.idTipoEmleado = Convert.ToInt32(cbIDTipo.SelectedIndex);
-                empleado.idEstado = Convert.ToInt32(txtIDEstado.Text);
+                empleado.EM_CONTRASEÑA = ePass;
+                empleado.IDEMPRESA = Convert.ToInt32(txtIDEmpresa.Text);
+                empleado.IDTIPOEMPLEADO = Convert.ToInt32(cbIDTipo.SelectedValue);
+                empleado.IDESTADO = Convert.ToInt32(cbESTADO.SelectedValue);
                 
                 CEDireccion direccion = new CEDireccion();
                 direccion.de_direccion = txtDireccion.Text;
@@ -70,7 +71,7 @@ namespace CapaPresentacion
                 comuna.c_descripcion = Convert.ToString(cbComuna.SelectedIndex);
                 empleado.comuna = comuna; */
 
-                if (cbIDTipo.SelectedIndex == 3)
+                if (cbIDTipo.Text == "CHÓFER")
                 {
 
                     CEVehiculo vehiculo = new CEVehiculo();
@@ -113,7 +114,7 @@ namespace CapaPresentacion
         private void cbIDTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            if(cbIDTipo.SelectedIndex == 2)
+            if(cbIDTipo.Text == "CHÓFER")
             {
                 groupBoxVehiculo.Visible = true;
                 groupBoxVehiculo.Enabled = true;
@@ -138,6 +139,35 @@ namespace CapaPresentacion
             
         }
 
+        private void LoadComboTipoEmpleado()
+        {
+            try
+            {
+                cbIDTipo.DataSource = cNEmpleado.ObtenerTipoEmpleado();
+                cbIDTipo.ValueMember = "IDTIPOUSUARIO";
+                cbIDTipo.DisplayMember = "TP_DESCRIPCION";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error combo tipo empleado" + ex);
+            }
+        }
+
+        private void LoadComboEstadoEmpleado()
+        {
+            try
+            {
+                cbESTADO.DataSource = cNEmpleado.ObtenerEstado();
+                cbESTADO.ValueMember = "IDESTADO";
+                cbESTADO.DisplayMember = "ES_DESCRIPCION";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error combo estado empleado" + ex);
+            }
+        }
         private void LoadComboRegion()
         {
             try
@@ -222,6 +252,11 @@ namespace CapaPresentacion
 
                 MessageBox.Show("error " + ex);
             }
+
+        }
+
+        private void cbESTADO_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -46,7 +46,6 @@ namespace CapaPresentacion
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblContrasenia = new System.Windows.Forms.Label();
             this.txtIDEmpresa = new System.Windows.Forms.TextBox();
-            this.txtIDEstado = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lblIDEmpresa = new System.Windows.Forms.Label();
             this.lblIDTipo = new System.Windows.Forms.Label();
@@ -69,6 +68,7 @@ namespace CapaPresentacion
             this.cbRegion = new System.Windows.Forms.ComboBox();
             this.lblNumDireccion = new System.Windows.Forms.Label();
             this.txtNumDireccion = new System.Windows.Forms.TextBox();
+            this.cbESTADO = new System.Windows.Forms.ComboBox();
             this.groupBoxVehiculo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -211,13 +211,6 @@ namespace CapaPresentacion
             this.txtIDEmpresa.Size = new System.Drawing.Size(146, 20);
             this.txtIDEmpresa.TabIndex = 16;
             // 
-            // txtIDEstado
-            // 
-            this.txtIDEstado.Location = new System.Drawing.Point(121, 261);
-            this.txtIDEstado.Name = "txtIDEstado";
-            this.txtIDEstado.Size = new System.Drawing.Size(146, 20);
-            this.txtIDEstado.TabIndex = 18;
-            // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(121, 287);
@@ -248,9 +241,9 @@ namespace CapaPresentacion
             this.lblIDEstado.AutoSize = true;
             this.lblIDEstado.Location = new System.Drawing.Point(21, 264);
             this.lblIDEstado.Name = "lblIDEstado";
-            this.lblIDEstado.Size = new System.Drawing.Size(54, 13);
+            this.lblIDEstado.Size = new System.Drawing.Size(40, 13);
             this.lblIDEstado.TabIndex = 22;
-            this.lblIDEstado.Text = "ID Estado";
+            this.lblIDEstado.Text = "Estado";
             // 
             // lblDireccion
             // 
@@ -293,12 +286,6 @@ namespace CapaPresentacion
             // 
             // cbIDTipo
             // 
-            this.cbIDTipo.AutoCompleteCustomSource.AddRange(new string[] {
-            "",
-            "1. Administrador",
-            "2. Recepcionista",
-            "3. Chofer",
-            "4. Guia Turistico"});
             this.cbIDTipo.FormattingEnabled = true;
             this.cbIDTipo.Items.AddRange(new object[] {
             "1. Administrador",
@@ -320,9 +307,9 @@ namespace CapaPresentacion
             this.groupBoxVehiculo.Controls.Add(this.txtPatenteVe);
             this.groupBoxVehiculo.Controls.Add(this.lblPatenteVe);
             this.groupBoxVehiculo.Enabled = false;
-            this.groupBoxVehiculo.Location = new System.Drawing.Point(427, 197);
+            this.groupBoxVehiculo.Location = new System.Drawing.Point(406, 197);
             this.groupBoxVehiculo.Name = "groupBoxVehiculo";
-            this.groupBoxVehiculo.Size = new System.Drawing.Size(222, 132);
+            this.groupBoxVehiculo.Size = new System.Drawing.Size(243, 132);
             this.groupBoxVehiculo.TabIndex = 28;
             this.groupBoxVehiculo.TabStop = false;
             this.groupBoxVehiculo.Text = "Ingresar Vehículo";
@@ -332,7 +319,7 @@ namespace CapaPresentacion
             // 
             this.txtAnioVe.Location = new System.Drawing.Point(102, 82);
             this.txtAnioVe.Name = "txtAnioVe";
-            this.txtAnioVe.Size = new System.Drawing.Size(100, 20);
+            this.txtAnioVe.Size = new System.Drawing.Size(135, 20);
             this.txtAnioVe.TabIndex = 33;
             // 
             // lblAnioVe
@@ -348,7 +335,7 @@ namespace CapaPresentacion
             // 
             this.txtMarcaVe.Location = new System.Drawing.Point(102, 56);
             this.txtMarcaVe.Name = "txtMarcaVe";
-            this.txtMarcaVe.Size = new System.Drawing.Size(100, 20);
+            this.txtMarcaVe.Size = new System.Drawing.Size(135, 20);
             this.txtMarcaVe.TabIndex = 31;
             // 
             // lblMarcaVe
@@ -364,7 +351,7 @@ namespace CapaPresentacion
             // 
             this.txtPatenteVe.Location = new System.Drawing.Point(102, 27);
             this.txtPatenteVe.Name = "txtPatenteVe";
-            this.txtPatenteVe.Size = new System.Drawing.Size(100, 20);
+            this.txtPatenteVe.Size = new System.Drawing.Size(135, 20);
             this.txtPatenteVe.TabIndex = 29;
             // 
             // lblPatenteVe
@@ -434,11 +421,27 @@ namespace CapaPresentacion
             this.txtNumDireccion.Size = new System.Drawing.Size(146, 20);
             this.txtNumDireccion.TabIndex = 35;
             // 
+            // cbESTADO
+            // 
+            this.cbESTADO.AutoCompleteCustomSource.AddRange(new string[] {
+            "",
+            "1. Administrador",
+            "2. Recepcionista",
+            "3. Chofer",
+            "4. Guia Turistico"});
+            this.cbESTADO.FormattingEnabled = true;
+            this.cbESTADO.Location = new System.Drawing.Point(121, 261);
+            this.cbESTADO.Name = "cbESTADO";
+            this.cbESTADO.Size = new System.Drawing.Size(146, 21);
+            this.cbESTADO.TabIndex = 36;
+            this.cbESTADO.SelectedIndexChanged += new System.EventHandler(this.cbESTADO_SelectedIndexChanged);
+            // 
             // AgregarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbESTADO);
             this.Controls.Add(this.txtNumDireccion);
             this.Controls.Add(this.lblNumDireccion);
             this.Controls.Add(this.cbRegion);
@@ -455,7 +458,6 @@ namespace CapaPresentacion
             this.Controls.Add(this.lblIDTipo);
             this.Controls.Add(this.lblIDEmpresa);
             this.Controls.Add(this.txtDireccion);
-            this.Controls.Add(this.txtIDEstado);
             this.Controls.Add(this.txtIDEmpresa);
             this.Controls.Add(this.lblContrasenia);
             this.Controls.Add(this.lblEmail);
@@ -502,7 +504,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblContrasenia;
         private System.Windows.Forms.TextBox txtIDEmpresa;
-        private System.Windows.Forms.TextBox txtIDEstado;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label lblIDEmpresa;
         private System.Windows.Forms.Label lblIDTipo;
@@ -525,5 +526,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.ComboBox cbRegion;
         private System.Windows.Forms.Label lblNumDireccion;
         private System.Windows.Forms.TextBox txtNumDireccion;
+        private System.Windows.Forms.ComboBox cbESTADO;
     }
 }

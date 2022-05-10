@@ -49,6 +49,8 @@
     <Compile Include="CETipoDepartamento.cs" />
     <Compile Include="CEUsuario.cs" />
     <Compile Include="CEVehiculo.cs" />
+    <Compile Include="CE_ESTADO.cs" />
+    <Compile Include="CE_TIPOEMPLEADO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CESysEstadoDepto.cs" />
   </ItemGroup>

@@ -26,8 +26,8 @@ namespace CapaDatos
                 conn.Open();
                 OracleCommand command = new OracleCommand();
                 command.CommandText = "select * from empleado where (em_email=@user and em_contraseña=@pass) or (Email=@user and password=@pass)";
-                command.Parameters.AddWithValue("@user", OracleType.NVarChar).Value = cE.em_mail;
-                command.Parameters.AddWithValue("@pass", OracleType.NVarChar).Value = cE.em_contrasena;
+                command.Parameters.AddWithValue("@user", OracleType.NVarChar).Value = cE.EM_EMAIL;
+                command.Parameters.AddWithValue("@pass", OracleType.NVarChar).Value = cE.EM_CONTRASEÑA;
                 OracleDataReader leerLogin = command.ExecuteReader();
                 if(leerLogin.Read())
                 {
@@ -94,18 +94,18 @@ namespace CapaDatos
                     OracleDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        cE.idempleado = Convert.ToInt32(reader["idempleado"]);
-                        cE.em_contrasena = reader["em_contraseña"].ToString();
-                        cE.em_rut = reader["em_rut"].ToString();
-                        cE.em_dv = reader["em_dv"].ToString();
-                        cE.em_nombre = reader["em_nombre"].ToString();
-                        cE.em_apaterno = reader["em_apaterno"].ToString();
-                        cE.emp_amaterno = reader["em_amaterno"].ToString();
-                        cE.em_mail = reader["em_email"].ToString();
-                        cE.idTipoEmleado = Convert.ToInt32(reader["id_tipoempleado"]);
-                        cE.idDireccion = Convert.ToInt32(reader["id_direccion"]);
-                        cE.idEstado = Convert.ToInt32(reader["idestado"]);
-                        cE.idEmpresa = Convert.ToInt32(reader["idempresa"]);
+                        cE.IDEMPLEADO = Convert.ToInt32(reader["idempleado"]);
+                        cE.EM_CONTRASEÑA = reader["em_contraseña"].ToString();
+                        cE.EM_RUT = reader["em_rut"].ToString();
+                        cE.EM_DV = reader["em_dv"].ToString();
+                        cE.EM_NOMBRE = reader["em_nombre"].ToString();
+                        cE.EM_APATERNO = reader["em_apaterno"].ToString();
+                        cE.EM_AMATERNO = reader["em_amaterno"].ToString();
+                        cE.EM_EMAIL = reader["em_email"].ToString();
+                        cE.IDTIPOEMPLEADO = Convert.ToInt32(reader["id_tipoempleado"]);
+                        cE.IDDIRECCION = Convert.ToInt32(reader["id_direccion"]);
+                        cE.IDESTADO = Convert.ToInt32(reader["idestado"]);
+                        cE.IDEMPRESA = Convert.ToInt32(reader["idempresa"]);
                     }
                     conn.Close();
                 }
@@ -168,6 +168,110 @@ namespace CapaDatos
             return listaDireccion;
         }
 
+        public List<CE_TIPOEMPLEADO> TIPOEMPLEADO()
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CE_TIPOEMPLEADO> LISTA_TIPOEMPLEADO = new List<CE_TIPOEMPLEADO>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_SYS_TIPO_EMPLEADO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        LISTA_TIPOEMPLEADO.Add(new CE_TIPOEMPLEADO
+                        {
+                            IDTIPOUSUARIO = Convert.ToInt32(mostrarTabla["IDTIPOUSUARIO"]),
+                            TP_DESCRIPCION = Convert.ToString(mostrarTabla["TP_DESCRIPCION"].ToString())
+                        });
+                    }
+                    conn.Close();
+                }
+                return LISTA_TIPOEMPLEADO;
+            }
+            catch (OracleException oex)
+            {
+
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
+        }
+
+        public List<CE_ESTADO> ESTADO()
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CE_ESTADO> LISTA_ESTADO = new List<CE_ESTADO>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_SYS_ESTADO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        LISTA_ESTADO.Add(new CE_ESTADO
+                        {
+                            IDESTADO = Convert.ToInt32(mostrarTabla["IDESTADO"]),
+                            ES_DESCRIPCION = Convert.ToString(mostrarTabla["ES_DESCRIPCION"].ToString())
+                        });
+                    }
+                    conn.Close();
+                }
+                return LISTA_ESTADO;
+            }
+            catch (OracleException oex)
+            {
+
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
+        }
+        public List<CEEmpleado> Empleado()
+        {
+            OracleConnection conn = new OracleConnection(conexion);
+            OracleDataReader mostrarTabla;
+            List<CEEmpleado> LISTA_EMPLEADO = new List<CEEmpleado>();
+
+            try
+            {
+                conn.Open();
+                OracleCommand command = new OracleCommand("SP_GET_ALL_EMPLEADO", conn);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                mostrarTabla = command.ExecuteReader();
+                while (mostrarTabla.Read())
+                {
+                    LISTA_EMPLEADO.Add(new CEEmpleado
+                    {
+                        IDEMPLEADO = Convert.ToInt32(mostrarTabla["IDEMPLEADO"]),
+                        EM_RUT = Convert.ToString(mostrarTabla["EM_RUT"].ToString()),
+                        EM_DV = Convert.ToString(mostrarTabla["EM_DV"].ToString()),
+                        EM_NOMBRE = Convert.ToString(mostrarTabla["EM_NOMBRE"].ToString()),
+                        EM_APATERNO = Convert.ToString(mostrarTabla["EM_APATERNO"].ToString()),
+                        EM_AMATERNO = Convert.ToString(mostrarTabla["EM_AMATERNO"].ToString()),
+                        EM_EMAIL = Convert.ToString(mostrarTabla["EM_EMAIL"].ToString()),
+                        EM_CONTRASEÑA = Convert.ToString(mostrarTabla["EM_CONTRASEÑA"].ToString()),
+                        IDEMPRESA = Convert.ToInt32(mostrarTabla["IDEMPRESA"]),
+                        IDTIPOEMPLEADO = Convert.ToInt32(mostrarTabla["IDTIPOEMPLEADO"]),
+                        IDESTADO = Convert.ToInt32(mostrarTabla["IDESTADO"]),
+                        IDDIRECCION = Convert.ToInt32(mostrarTabla["IDDIRECCION"])
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("No conectado" + ex.Message);
+            }
+            conn.Close();
+            return LISTA_EMPLEADO;
+        }
         public List<CERegion> Region()
         {
             OracleConnection conn = new OracleConnection(conexion);
@@ -210,16 +314,16 @@ namespace CapaDatos
                     conn.Open();
                     OracleCommand command = new OracleCommand("SP_SET_ADD_EMPLEADO", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add("RUTEMP", OracleType.Number).Value = Convert.ToInt32(cE.em_rut);
-                    command.Parameters.Add("DVEMP", OracleType.Char).Value = cE.em_dv;
-                    command.Parameters.Add("NOMBREEMP", OracleType.NVarChar).Value = cE.em_nombre;
-                    command.Parameters.Add("APATERNOEMP", OracleType.NVarChar).Value = cE.em_apaterno;
-                    command.Parameters.Add("AMATERNOEMP", OracleType.NVarChar).Value = cE.emp_amaterno;
-                    command.Parameters.Add("EMAILEMP", OracleType.NVarChar).Value = cE.em_mail;
-                    command.Parameters.Add("PWSEMP", OracleType.NVarChar).Value = cE.em_contrasena;
-                    command.Parameters.Add("IDEMP", OracleType.Number).Value = Convert.ToInt32(cE.idEmpresa);
-                    command.Parameters.Add("IDTIPOEMP", OracleType.Number).Value = Convert.ToInt32(cE.idTipoEmleado);
-                    command.Parameters.Add("IDESTADOEMP", OracleType.Number).Value = Convert.ToInt32(cE.idEstado);
+                    command.Parameters.Add("RUTEMP", OracleType.Number).Value = Convert.ToInt32(cE.EM_RUT);
+                    command.Parameters.Add("DVEMP", OracleType.Char).Value = cE.EM_DV;
+                    command.Parameters.Add("NOMBREEMP", OracleType.NVarChar).Value = cE.EM_NOMBRE;
+                    command.Parameters.Add("APATERNOEMP", OracleType.NVarChar).Value = cE.EM_APATERNO;
+                    command.Parameters.Add("AMATERNOEMP", OracleType.NVarChar).Value = cE.EM_AMATERNO;
+                    command.Parameters.Add("EMAILEMP", OracleType.NVarChar).Value = cE.EM_EMAIL;
+                    command.Parameters.Add("PWSEMP", OracleType.NVarChar).Value = cE.EM_CONTRASEÑA;
+                    command.Parameters.Add("IDEMP", OracleType.Number).Value = Convert.ToInt32(cE.IDEMPRESA);
+                    command.Parameters.Add("IDTIPOEMP", OracleType.Number).Value = Convert.ToInt32(cE.IDTIPOEMPLEADO);
+                    command.Parameters.Add("IDESTADOEMP", OracleType.Number).Value = Convert.ToInt32(cE.IDESTADO);
                     command.Parameters.Add("DIRECCION", OracleType.NVarChar).Value = Convert.ToString(cE.direccion.de_direccion);
                     command.Parameters.Add("NUMDIREC", OracleType.NVarChar).Value = cE.direccion.de_numero;
                     command.Parameters.Add("IDCOMUNADIREC", OracleType.Number).Value = Convert.ToInt32(cE.direccion.id_comuna);
@@ -268,29 +372,9 @@ namespace CapaDatos
             }
         }
 
-        public void agregarVehiculo(CEVehiculo cV)
-        {
-            OracleConnection conn = new OracleConnection(conexion);
-            try
-            {
-                conn.Open();
-                OracleCommand command = new OracleCommand("agregarVehiculo", conn);
+        
 
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add("MARCA", OracleType.NVarChar).Value = cV.marca_ve;
-                command.Parameters.Add("ANIO", OracleType.Number).Value = Convert.ToInt32(cV.anio_ve);
-                command.Parameters.Add("PATENTE", OracleType.NVarChar).Value = cV.patente_ve;
-                command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("No conectado" + ex.Message);
-            }
-            conn.Close();
-        }
-
-        public DataTable Listar()
+     /*   public DataTable Listar()
         {
             OracleConnection conn = new OracleConnection(conexion);
             OracleDataReader mostrarTabla;
@@ -317,17 +401,16 @@ namespace CapaDatos
             
             conn.Close();
             return tablaEmpleado;
-            #region procedimiento almacenado
-            /*
-             create or replace procedure seleccionarEmpleados (registros out SYS_REFCURSOR)
-                as
-                Begin
-                    open registros for select * from empleado;
-                End;
-             */
-            #endregion
-        }
-
+        } */
+        #region procedimiento almacenado
+        /*
+         create or replace procedure seleccionarEmpleados (registros out SYS_REFCURSOR)
+            as
+            Begin
+                open registros for select * from empleado;
+            End;
+         */
+        #endregion
 
         public void EditarEmpleado(CEEmpleado cE)
         {
@@ -338,18 +421,18 @@ namespace CapaDatos
                 conn.Open();
                 OracleCommand command = new OracleCommand("actualizarEmpleado", conn);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add("idEmpleado", OracleType.Number).Value = Convert.ToInt32(cE.idempleado);
-                command.Parameters.Add("rutEmp", OracleType.Number).Value = Convert.ToInt32(cE.em_rut);
-                command.Parameters.Add("dvEmp", OracleType.Char).Value = cE.em_dv;
-                command.Parameters.Add("nomEmp", OracleType.NVarChar).Value = cE.em_nombre;
-                command.Parameters.Add("aPaternoEmp", OracleType.NVarChar).Value = cE.em_apaterno;
-                command.Parameters.Add("aMaternoEmp", OracleType.NVarChar).Value = cE.emp_amaterno;
-                command.Parameters.Add("emailEmp", OracleType.NVarChar).Value = cE.em_mail;
-                command.Parameters.Add("contraseniaEmp", OracleType.NVarChar).Value = cE.em_contrasena;
-                command.Parameters.Add("idEmpresaEmp", OracleType.Number).Value = Convert.ToInt32(cE.idEmpresa);
-                command.Parameters.Add("idTipoEmp", OracleType.Number).Value = Convert.ToInt32(cE.idTipoEmleado);
-                command.Parameters.Add("idEstadoEmp", OracleType.Number).Value = Convert.ToInt32(cE.idEstado);
-                command.Parameters.Add("idDireccionEmp", OracleType.Number).Value = Convert.ToInt32(cE.idDireccion);
+                command.Parameters.Add("idEmpleado", OracleType.Number).Value = Convert.ToInt32(cE.IDEMPLEADO);
+                command.Parameters.Add("rutEmp", OracleType.Number).Value = Convert.ToInt32(cE.EM_RUT);
+                command.Parameters.Add("dvEmp", OracleType.Char).Value = cE.EM_DV;
+                command.Parameters.Add("nomEmp", OracleType.NVarChar).Value = cE.EM_NOMBRE;
+                command.Parameters.Add("aPaternoEmp", OracleType.NVarChar).Value = cE.EM_APATERNO;
+                command.Parameters.Add("aMaternoEmp", OracleType.NVarChar).Value = cE.EM_AMATERNO;
+                command.Parameters.Add("emailEmp", OracleType.NVarChar).Value = cE.EM_EMAIL;
+                command.Parameters.Add("contraseniaEmp", OracleType.NVarChar).Value = cE.EM_CONTRASEÑA;
+                command.Parameters.Add("idEmpresaEmp", OracleType.Number).Value = Convert.ToInt32(cE.IDEMPRESA);
+                command.Parameters.Add("idTipoEmp", OracleType.Number).Value = Convert.ToInt32(cE.IDTIPOEMPLEADO);
+                command.Parameters.Add("idEstadoEmp", OracleType.Number).Value = Convert.ToInt32(cE.IDESTADO);
+                command.Parameters.Add("idDireccionEmp", OracleType.Number).Value = Convert.ToInt32(cE.IDDIRECCION);
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -406,7 +489,7 @@ namespace CapaDatos
                     conn.Open();
                     OracleCommand command = new OracleCommand("eliminarEmpleado", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add("idEmpleado", OracleType.Number).Value = Convert.ToInt32(cE.idempleado);
+                    command.Parameters.Add("idEmpleado", OracleType.Number).Value = Convert.ToInt32(cE.IDEMPLEADO);
                     command.ExecuteNonQuery();
                     MessageBox.Show("Empleado Eliminado");
                 }

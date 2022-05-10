@@ -25,16 +25,16 @@ namespace CapaPresentacion
             try
             {
                 CEUsuario usuario = new CEUsuario();
-                usuario.idUsuario = Convert.ToInt32(txtIDUsuario.Text);
-                usuario.us_rut = txtRut.Text;
-                usuario.us_dv = txtDV.Text;
-                usuario.us_nombre = txtNom.Text;
-                usuario.us_apaterno = txtAPaterno.Text;
-                usuario.us_amaterno = txtAMaterno.Text;
-                usuario.us_email = txtEmail.Text;
-                usuario.us_contraseña = txtContrasenia.Text;
-                usuario.us_telefono = txtTelefono.Text;
-                usuario.idEstado = Convert.ToInt32(txtIDEstado.Text);
+                usuario.IDUSUARIO = Convert.ToInt32(txtIDUsuario.Text);
+                usuario.US_RUT = txtRut.Text;
+                usuario.US_DV = txtDV.Text;
+                usuario.US_NOMBRE = txtNom.Text;
+                usuario.US_APATERNO = txtAPaterno.Text;
+                usuario.US_AMATERNO = txtAMaterno.Text;
+                usuario.US_EMAIL = txtEmail.Text;
+                usuario.US_CONTRASEÑA = txtContrasenia.Text;
+                usuario.US_TELEFONO = txtTelefono.Text;
+                usuario.IDESTADO = Convert.ToInt32(txtIDEstado.Text);
 
                 cNUsuario.EditarUsuario(usuario);
             }

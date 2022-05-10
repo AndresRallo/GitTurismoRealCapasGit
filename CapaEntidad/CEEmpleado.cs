@@ -8,22 +8,24 @@ namespace CapaEntidad
 {
     public class CEEmpleado
     {
-        public int idempleado { get; set; }
-        public string em_rut { get; set; }
-        public string em_dv { get; set; }
-        public string em_nombre { get; set; }
-        public string em_apaterno { get; set; }
-        public string emp_amaterno { get; set; }
-        public string em_mail { get; set; }
-        public string em_contrasena { get; set; }
-        public int idEmpresa { get; set; }
-        public int idTipoEmleado { get; set; }
-        public int idEstado { get; set; }
-        public int idDireccion { get; set; }
+        public int IDEMPLEADO { get; set; }
+        public string EM_RUT { get; set; }
+        public string EM_DV { get; set; }
+        public string EM_NOMBRE { get; set; }
+        public string EM_APATERNO { get; set; }
+        public string EM_AMATERNO { get; set; }
+        public string EM_EMAIL { get; set; }
+        public string EM_CONTRASEÑA { get; set; }
+        public int IDEMPRESA { get; set; }
+        public int IDTIPOEMPLEADO { get; set; }
+        public int IDESTADO { get; set; }
+        public int IDDIRECCION { get; set; }
         public CEDireccion direccion { get; set; }
         public CEVehiculo vehiculo { get; set; }
         public CERegion region { get; set; }
         public CEComuna comuna { get; set; }
+        public CE_TIPOEMPLEADO tipoempleado { get; set; }
+        public CE_ESTADO estado { get; set; }
         public CEEmpleado() { }
 
     }
