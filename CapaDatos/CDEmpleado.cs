@@ -136,36 +136,36 @@ namespace CapaDatos
         }
         
         public List<CEComuna> Comunas(int idregion)
-        {
-            OracleConnection conn = new OracleConnection(conexion);
-            OracleDataReader mostrarTabla;
-            List<CEComuna> listaDireccion = new List<CEComuna>();
-
+        {        
             try
             {
-                conn.Open();
-                OracleCommand command = new OracleCommand("SP_GET_COMUNA_BY_IDREGION", conn);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add("IDREGION_",OracleType.Number).Value = idregion;
-                command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
-                mostrarTabla = command.ExecuteReader();
-                while (mostrarTabla.Read())
+                OracleDataReader mostrarTabla;
+                List<CEComuna> listaDireccion = new List<CEComuna>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
                 {
-                    listaDireccion.Add(new CEComuna
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_COMUNA_BY_IDREGION", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("IDREGION_", OracleType.Number).Value = idregion;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
                     {
-                        idcomuna = Convert.ToInt32(mostrarTabla["IDCOMUNA"]),
-                        c_descripcion = Convert.ToString(mostrarTabla["C_DESCRIPCION"].ToString())
-                    });
+                        listaDireccion.Add(new CEComuna
+                        {
+                            idcomuna = Convert.ToInt32(mostrarTabla["IDCOMUNA"]),
+                            c_descripcion = Convert.ToString(mostrarTabla["C_DESCRIPCION"].ToString())
+                        });
+                    }
+                    conn.Close();
                 }
-
+                return listaDireccion;
             }
-            catch (Exception ex)
+            catch (OracleException oex)
             {
 
-                MessageBox.Show("No conectado" + ex.Message);
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
-            conn.Close();
-            return listaDireccion;
         }
 
         public List<CE_TIPOEMPLEADO> TIPOEMPLEADO()
@@ -231,77 +231,79 @@ namespace CapaDatos
                 throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
         }
+
         public List<CEEmpleado> Empleado()
         {
-            OracleConnection conn = new OracleConnection(conexion);
-            OracleDataReader mostrarTabla;
-            List<CEEmpleado> LISTA_EMPLEADO = new List<CEEmpleado>();
-
             try
             {
-                conn.Open();
-                OracleCommand command = new OracleCommand("SP_GET_ALL_EMPLEADO", conn);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
-                mostrarTabla = command.ExecuteReader();
-                while (mostrarTabla.Read())
+                OracleDataReader mostrarTabla;
+                List<CEEmpleado> LISTA_EMPLEADO = new List<CEEmpleado>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
                 {
-                    LISTA_EMPLEADO.Add(new CEEmpleado
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_EMPLEADO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
                     {
-                        IDEMPLEADO = Convert.ToInt32(mostrarTabla["IDEMPLEADO"]),
-                        EM_RUT = Convert.ToString(mostrarTabla["EM_RUT"].ToString()),
-                        EM_DV = Convert.ToString(mostrarTabla["EM_DV"].ToString()),
-                        EM_NOMBRE = Convert.ToString(mostrarTabla["EM_NOMBRE"].ToString()),
-                        EM_APATERNO = Convert.ToString(mostrarTabla["EM_APATERNO"].ToString()),
-                        EM_AMATERNO = Convert.ToString(mostrarTabla["EM_AMATERNO"].ToString()),
-                        EM_EMAIL = Convert.ToString(mostrarTabla["EM_EMAIL"].ToString()),
-                        EM_CONTRASEÑA = Convert.ToString(mostrarTabla["EM_CONTRASEÑA"].ToString()),
-                        IDEMPRESA = Convert.ToInt32(mostrarTabla["IDEMPRESA"]),
-                        IDTIPOEMPLEADO = Convert.ToInt32(mostrarTabla["IDTIPOEMPLEADO"]),
-                        IDESTADO = Convert.ToInt32(mostrarTabla["IDESTADO"]),
-                        IDDIRECCION = Convert.ToInt32(mostrarTabla["IDDIRECCION"])
-                    });
+                        LISTA_EMPLEADO.Add(new CEEmpleado
+                        {
+                            IDEMPLEADO = Convert.ToInt32(mostrarTabla["IDEMPLEADO"]),
+                            EM_RUT = Convert.ToString(mostrarTabla["EM_RUT"].ToString()),
+                            EM_DV = Convert.ToString(mostrarTabla["EM_DV"].ToString()),
+                            EM_NOMBRE = Convert.ToString(mostrarTabla["EM_NOMBRE"].ToString()),
+                            EM_APATERNO = Convert.ToString(mostrarTabla["EM_APATERNO"].ToString()),
+                            EM_AMATERNO = Convert.ToString(mostrarTabla["EM_AMATERNO"].ToString()),
+                            EM_EMAIL = Convert.ToString(mostrarTabla["EM_EMAIL"].ToString()),
+                            EM_CONTRASEÑA = Convert.ToString(mostrarTabla["EM_CONTRASEÑA"].ToString()),
+                            IDEMPRESA = Convert.ToInt32(mostrarTabla["IDEMPRESA"]),
+                            IDTIPOEMPLEADO = Convert.ToInt32(mostrarTabla["IDTIPOEMPLEADO"]),
+                            IDESTADO = Convert.ToInt32(mostrarTabla["IDESTADO"]),
+                            IDDIRECCION = Convert.ToInt32(mostrarTabla["IDDIRECCION"])
+                        });
+                    }
+                    conn.Close();
                 }
-
+                return LISTA_EMPLEADO;
             }
-            catch (Exception ex)
+            catch (OracleException oex)
             {
 
-                MessageBox.Show("No conectado" + ex.Message);
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
-            conn.Close();
-            return LISTA_EMPLEADO;
         }
         public List<CERegion> Region()
         {
-            OracleConnection conn = new OracleConnection(conexion);
-            OracleDataReader mostrarTabla;
-            List<CERegion> listaDireccion = new List<CERegion>();
-
             try
             {
-                conn.Open();
-                OracleCommand command = new OracleCommand("SP_GET_ALL_REGION", conn);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
-                mostrarTabla = command.ExecuteReader();
-                while (mostrarTabla.Read())
+                OracleDataReader mostrarTabla;
+                List<CERegion> listaDireccion = new List<CERegion>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
                 {
-                    listaDireccion.Add(new CERegion
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_REGION", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
                     {
-                        IDREGION = Convert.ToInt32(mostrarTabla["IDREGION"]),
-                        RE_DESCRIPCION = Convert.ToString(mostrarTabla["RE_DESCRIPCION"].ToString())
-                    });
+                        listaDireccion.Add(new CERegion
+                        {
+                            IDREGION = Convert.ToInt32(mostrarTabla["IDREGION"]),
+                            RE_DESCRIPCION = Convert.ToString(mostrarTabla["RE_DESCRIPCION"].ToString())
+                        });
+                    }
+                    conn.Close();
                 }
+                return listaDireccion;
 
             }
-            catch (Exception ex)
+            catch (OracleException oex)
             {
 
-                MessageBox.Show("No conectado" + ex.Message);
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
-            conn.Close();
-            return listaDireccion;
         }
 
         public bool AgregarEmpleado(CEEmpleado cE)
@@ -371,46 +373,6 @@ namespace CapaDatos
                 return false;
             }
         }
-
-        
-
-     /*   public DataTable Listar()
-        {
-            OracleConnection conn = new OracleConnection(conexion);
-            OracleDataReader mostrarTabla;
-            DataTable tablaEmpleado = new DataTable();
-
-            try
-            {
-                conn.Open();
-                OracleCommand command = new OracleCommand("seleccionarEmpleados", conn);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
-                mostrarTabla = command.ExecuteReader();
-                mostrarTabla.Read();
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = command;
-                adaptador.Fill(tablaEmpleado);
-                
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("No conectado" + ex.Message);
-            }
-            
-            conn.Close();
-            return tablaEmpleado;
-        } */
-        #region procedimiento almacenado
-        /*
-         create or replace procedure seleccionarEmpleados (registros out SYS_REFCURSOR)
-            as
-            Begin
-                open registros for select * from empleado;
-            End;
-         */
-        #endregion
 
         public void EditarEmpleado(CEEmpleado cE)
         {

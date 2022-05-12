@@ -18,7 +18,8 @@ namespace CapaEntidad
         public string US_EMAIL { get; set; }
         public string US_CONTRASEÑA { get; set; }
         public int IDESTADO { get; set; }
-        public int IDTIPOUSUARIO { get; set; }
+
+        public const int IDTIPOUSUARIO = 90;
         public CEUsuario() { }
     }
 }
