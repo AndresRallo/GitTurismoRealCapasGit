@@ -51,28 +51,9 @@ namespace CapaPresentacion.Departamentos
         {
             try
             {
-
                 cbxTipoDepto.DataSource = cNDepartamento.ObtenerTipoDepto();
-                cbxTipoDepto.ValueMember = "idTipoDepartamento";
-                cbxTipoDepto.DisplayMember = "tDDepartamento";
-
-                //int idTipoDe = Convert.ToInt32(cbxTipoDepto.SelectedValue);
-
-                //if (cbxTipoDepto.Items.Count != 0)
-                //{
-
-                //    ////string tipoDepto = cbxTipoDepto.SelectedText;
-                //    //int idTipoDe = Convert.ToInt32(cbxTipoDepto.SelectedValue);
-                //}
-                //try
-                //{
-
-                //}
-                //catch (Exception ex)
-                //{
-
-                //    MessageBox.Show("error " + ex);
-                //}
+                cbxTipoDepto.ValueMember = "IDTIPODEPARTAMENTO";
+                cbxTipoDepto.DisplayMember = "TD_DESCRIPCION";
             }
             catch (Exception ex)
             {

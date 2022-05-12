@@ -102,8 +102,8 @@ namespace CapaDatos
                         cE.EM_APATERNO = reader["em_apaterno"].ToString();
                         cE.EM_AMATERNO = reader["em_amaterno"].ToString();
                         cE.EM_EMAIL = reader["em_email"].ToString();
-                        cE.IDTIPOEMPLEADO = Convert.ToInt32(reader["id_tipoempleado"]);
-                        cE.IDDIRECCION = Convert.ToInt32(reader["id_direccion"]);
+                        cE.IDTIPOEMPLEADO = Convert.ToInt32(reader["idtipoempleado"]);
+                        cE.IDDIRECCION = Convert.ToInt32(reader["iddireccion"]);
                         cE.IDESTADO = Convert.ToInt32(reader["idestado"]);
                         cE.IDEMPRESA = Convert.ToInt32(reader["idempresa"]);
                     }
