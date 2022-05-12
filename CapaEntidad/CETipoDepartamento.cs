@@ -8,8 +8,8 @@ namespace CapaEntidad
 {
     public class CETipoDepartamento
     {
-        public int idTipoDepartamento { get; set; }
-        public string tDDepartamento { get; set; }
+        public int IDTIPODEPARTAMENTO { get; set; }
+        public string TD_DESCRIPCION { get; set; }
 
         public CETipoDepartamento()
         {
