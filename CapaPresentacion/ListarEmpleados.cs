@@ -23,6 +23,9 @@ namespace CapaPresentacion
         public ListarEmpleados()
         {
             InitializeComponent();
+
+            CNEmpleado lista = new CNEmpleado();
+            dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -33,7 +36,7 @@ namespace CapaPresentacion
         private void btnListar_Click(object sender, EventArgs e)
         {
 
-            try
+          /*  try
             {
                 CNEmpleado lista = new CNEmpleado();
                 dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();

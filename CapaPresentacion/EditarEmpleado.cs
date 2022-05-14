@@ -27,7 +27,10 @@ namespace CapaPresentacion
 
             LoadComboRegion();
             LoadComboTipoEmpleado();
-            
+
+            CNEmpleado lista = new CNEmpleado();
+            dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
+
         }
 
         private void btnProbarConexion_Click(object sender, EventArgs e)
@@ -44,7 +47,7 @@ namespace CapaPresentacion
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 CNEmpleado lista = new CNEmpleado();
                 dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
@@ -55,7 +58,7 @@ namespace CapaPresentacion
             {
 
                 MessageBox.Show("error " + ex);
-            }
+            } */
 
             /**Procedimiento almacenado
                Create or replace procedure seleccionarEmpleados (registros out SYS_REFCURSOR)

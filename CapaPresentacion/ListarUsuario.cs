@@ -17,11 +17,14 @@ namespace CapaPresentacion
         public ListarUsuario()
         {
             InitializeComponent();
+
+            CNUsuario lista = new CNUsuario();
+            dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
         }
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 CNUsuario lista = new CNUsuario();
                 dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
@@ -32,7 +35,7 @@ namespace CapaPresentacion
             {
 
                 MessageBox.Show("error " + ex);
-            }
+            } */
         }
 
         private void btnProbarConexion_Click(object sender, EventArgs e)

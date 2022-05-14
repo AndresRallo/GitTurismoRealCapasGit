@@ -26,11 +26,14 @@ namespace CapaPresentacion
             InitializeComponent();
 
             LoadComboEstadoEmpleado();
+
+            CNEmpleado lista = new CNEmpleado();
+            dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
         }
 
         private void btnListarEmpleados_Click(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 CNEmpleado lista = new CNEmpleado();
                 dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
@@ -41,7 +44,7 @@ namespace CapaPresentacion
             {
 
                 MessageBox.Show("error " + ex);
-            }
+            } */
         }
 
         private void btnProbarConexion_Click(object sender, EventArgs e)

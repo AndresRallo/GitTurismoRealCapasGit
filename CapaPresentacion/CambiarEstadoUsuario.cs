@@ -20,6 +20,9 @@ namespace CapaPresentacion
             InitializeComponent();
 
             LoadComboEstadoEmpleado();
+
+            CNUsuario lista = new CNUsuario();
+            dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -31,7 +34,7 @@ namespace CapaPresentacion
 
         private void btnListarUsuario_Click(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 CNUsuario lista = new CNUsuario();
                 dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
@@ -42,7 +45,7 @@ namespace CapaPresentacion
             {
 
                 MessageBox.Show("error " + ex);
-            }
+            } */
         }
 
         private void btnProbarConexion_Click(object sender, EventArgs e)
