@@ -69,6 +69,7 @@ namespace CapaPresentacion
             this.lblNumDireccion = new System.Windows.Forms.Label();
             this.txtNumDireccion = new System.Windows.Forms.TextBox();
             this.cbESTADO = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBoxVehiculo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,11 +95,10 @@ namespace CapaPresentacion
             // lblDV
             // 
             this.lblDV.AutoSize = true;
-            this.lblDV.Location = new System.Drawing.Point(227, 82);
+            this.lblDV.Location = new System.Drawing.Point(273, 82);
             this.lblDV.Name = "lblDV";
-            this.lblDV.Size = new System.Drawing.Size(10, 13);
+            this.lblDV.Size = new System.Drawing.Size(0, 13);
             this.lblDV.TabIndex = 2;
-            this.lblDV.Text = "-";
             // 
             // lblDesc
             // 
@@ -115,6 +115,8 @@ namespace CapaPresentacion
             this.txtRut.Name = "txtRut";
             this.txtRut.Size = new System.Drawing.Size(100, 20);
             this.txtRut.TabIndex = 4;
+            this.txtRut.TextChanged += new System.EventHandler(this.txtRut_TextChanged);
+            this.txtRut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRut_KeyPress);
             // 
             // txtDV
             // 
@@ -122,6 +124,8 @@ namespace CapaPresentacion
             this.txtDV.Name = "txtDV";
             this.txtDV.Size = new System.Drawing.Size(24, 20);
             this.txtDV.TabIndex = 5;
+            this.txtDV.TextChanged += new System.EventHandler(this.txtDV_TextChanged);
+            this.txtDV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDV_KeyPress);
             // 
             // txtNom
             // 
@@ -129,6 +133,8 @@ namespace CapaPresentacion
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(146, 20);
             this.txtNom.TabIndex = 6;
+            this.txtNom.TextChanged += new System.EventHandler(this.txtNom_TextChanged);
+            this.txtNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNom_KeyPress);
             // 
             // lblNombre
             // 
@@ -154,6 +160,8 @@ namespace CapaPresentacion
             this.txtAPaterno.Name = "txtAPaterno";
             this.txtAPaterno.Size = new System.Drawing.Size(146, 20);
             this.txtAPaterno.TabIndex = 9;
+            this.txtAPaterno.TextChanged += new System.EventHandler(this.txtAPaterno_TextChanged);
+            this.txtAPaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAPaterno_KeyPress);
             // 
             // txtAMaterno
             // 
@@ -161,6 +169,8 @@ namespace CapaPresentacion
             this.txtAMaterno.Name = "txtAMaterno";
             this.txtAMaterno.Size = new System.Drawing.Size(146, 20);
             this.txtAMaterno.TabIndex = 10;
+            this.txtAMaterno.TextChanged += new System.EventHandler(this.txtAMaterno_TextChanged);
+            this.txtAMaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAMaterno_KeyPress);
             // 
             // txtEmail
             // 
@@ -168,6 +178,8 @@ namespace CapaPresentacion
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(146, 20);
             this.txtEmail.TabIndex = 11;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // txtContrasenia
             // 
@@ -176,6 +188,8 @@ namespace CapaPresentacion
             this.txtContrasenia.PasswordChar = '*';
             this.txtContrasenia.Size = new System.Drawing.Size(146, 20);
             this.txtContrasenia.TabIndex = 12;
+            this.txtContrasenia.TextChanged += new System.EventHandler(this.txtContrasenia_TextChanged);
+            this.txtContrasenia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContrasenia_KeyPress);
             // 
             // lblAMaterno
             // 
@@ -210,6 +224,8 @@ namespace CapaPresentacion
             this.txtIDEmpresa.Name = "txtIDEmpresa";
             this.txtIDEmpresa.Size = new System.Drawing.Size(146, 20);
             this.txtIDEmpresa.TabIndex = 16;
+            this.txtIDEmpresa.TextChanged += new System.EventHandler(this.txtIDEmpresa_TextChanged);
+            this.txtIDEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIDEmpresa_KeyPress);
             // 
             // txtDireccion
             // 
@@ -217,6 +233,8 @@ namespace CapaPresentacion
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(146, 20);
             this.txtDireccion.TabIndex = 19;
+            this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // lblIDEmpresa
             // 
@@ -297,6 +315,7 @@ namespace CapaPresentacion
             this.cbIDTipo.Size = new System.Drawing.Size(146, 21);
             this.cbIDTipo.TabIndex = 27;
             this.cbIDTipo.SelectedIndexChanged += new System.EventHandler(this.cbIDTipo_SelectedIndexChanged);
+            this.cbIDTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbIDTipo_KeyPress);
             // 
             // groupBoxVehiculo
             // 
@@ -321,6 +340,7 @@ namespace CapaPresentacion
             this.txtAnioVe.Name = "txtAnioVe";
             this.txtAnioVe.Size = new System.Drawing.Size(135, 20);
             this.txtAnioVe.TabIndex = 33;
+            this.txtAnioVe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnioVe_KeyPress);
             // 
             // lblAnioVe
             // 
@@ -337,6 +357,7 @@ namespace CapaPresentacion
             this.txtMarcaVe.Name = "txtMarcaVe";
             this.txtMarcaVe.Size = new System.Drawing.Size(135, 20);
             this.txtMarcaVe.TabIndex = 31;
+            this.txtMarcaVe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMarcaVe_KeyPress);
             // 
             // lblMarcaVe
             // 
@@ -353,6 +374,7 @@ namespace CapaPresentacion
             this.txtPatenteVe.Name = "txtPatenteVe";
             this.txtPatenteVe.Size = new System.Drawing.Size(135, 20);
             this.txtPatenteVe.TabIndex = 29;
+            this.txtPatenteVe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPatenteVe_KeyPress);
             // 
             // lblPatenteVe
             // 
@@ -395,6 +417,7 @@ namespace CapaPresentacion
             this.cbComuna.Size = new System.Drawing.Size(146, 21);
             this.cbComuna.TabIndex = 32;
             this.cbComuna.SelectedIndexChanged += new System.EventHandler(this.cbComuna_SelectedIndexChanged);
+            this.cbComuna.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbComuna_KeyPress);
             // 
             // cbRegion
             // 
@@ -404,6 +427,7 @@ namespace CapaPresentacion
             this.cbRegion.Size = new System.Drawing.Size(146, 21);
             this.cbRegion.TabIndex = 33;
             this.cbRegion.SelectedIndexChanged += new System.EventHandler(this.cbRegion_SelectedIndexChanged);
+            this.cbRegion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbRegion_KeyPress);
             // 
             // lblNumDireccion
             // 
@@ -420,6 +444,8 @@ namespace CapaPresentacion
             this.txtNumDireccion.Name = "txtNumDireccion";
             this.txtNumDireccion.Size = new System.Drawing.Size(146, 20);
             this.txtNumDireccion.TabIndex = 35;
+            this.txtNumDireccion.TextChanged += new System.EventHandler(this.txtNumDireccion_TextChanged);
+            this.txtNumDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumDireccion_KeyPress);
             // 
             // cbESTADO
             // 
@@ -436,11 +462,21 @@ namespace CapaPresentacion
             this.cbESTADO.TabIndex = 36;
             this.cbESTADO.SelectedIndexChanged += new System.EventHandler(this.cbESTADO_SelectedIndexChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(227, 82);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(10, 13);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "-";
+            // 
             // AgregarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cbESTADO);
             this.Controls.Add(this.txtNumDireccion);
             this.Controls.Add(this.lblNumDireccion);
@@ -527,5 +563,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblNumDireccion;
         private System.Windows.Forms.TextBox txtNumDireccion;
         private System.Windows.Forms.ComboBox cbESTADO;
+        private System.Windows.Forms.Label label1;
     }
 }

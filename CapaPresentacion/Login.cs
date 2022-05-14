@@ -71,6 +71,7 @@ namespace CapaPresentacion
                 {
                     lblPass.Text = "No existe user";
                 }
+                
                 else if (!Crypter.CheckPassword(txtPass.Text, user.EM_CONTRASEÑA))
                 {
                     lblPass.Text = "la contreaseña no es la correcta";
@@ -140,17 +141,28 @@ namespace CapaPresentacion
             //}
         }
 
-        private void btnProbarConexion_Click(object sender, EventArgs e)
-        {
-            cNEmpleado.PruebaOracle();
-        }
+        
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (txtMail.Text.Equals("") && txtPass.Text == "")
+            {
+                lblEmail.Text = "Email es Obligatorio";
+                lblEmail.ForeColor = Color.Red;
+                lblPass.Text = "Falta contraseña";
+                lblPass.ForeColor = Color.Red;
+            }
+
             if (txtMail.Text.Equals(""))
             {
                 lblEmail.Text = "Email es Obligatorio";
-                //lblEmail.TextAlign = ContentAlignment.TopCenter;
+                lblEmail.ForeColor = Color.Red;
+            }
+
+            else if (txtPass.Text == "")
+            {
+                lblPass.Text = "Falta contraseña";
+                lblPass.ForeColor = Color.Red;
             }
             else if (librarys.textBoxEvent.ComprobarFormatoEmail(txtMail.Text))
             {
@@ -161,17 +173,6 @@ namespace CapaPresentacion
             {
                 lblEmail.Text = "Formato Imail inválido";
             }
-        }
-
-
-
-       
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            MenuPrincipal menu = new MenuPrincipal();
-            menu.Show();
-            
         }
 
         private void txtMail_TextChanged(object sender, EventArgs e)
@@ -191,7 +192,7 @@ namespace CapaPresentacion
         {
             if (txtPass.Text.Equals(""))
             {
-                lblPass.ForeColor = Color.Gray;
+                lblPass.ForeColor = Color.Red;
 
             }
             else
@@ -209,6 +210,19 @@ namespace CapaPresentacion
         private void txtMail_KeyPress(object sender, KeyPressEventArgs e)
         {
             librarys.textBoxEvent.SoloTextoSinSaltoNiEspacio(e);
+        }
+
+
+        private void btnProbarConexion_Click(object sender, EventArgs e)
+        {
+            cNEmpleado.PruebaOracle();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal menu = new MenuPrincipal();
+            menu.Show();
+
         }
     }
 }

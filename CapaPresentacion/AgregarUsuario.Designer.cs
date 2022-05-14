@@ -32,7 +32,7 @@ namespace CapaPresentacion
             this.lblAgregarUsuario = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblIDEstado = new System.Windows.Forms.Label();
-            this.lblIDEmpresa = new System.Windows.Forms.Label();
+            this.lblTelefono = new System.Windows.Forms.Label();
             this.txtTELEFONO = new System.Windows.Forms.TextBox();
             this.lblContrasenia = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -52,6 +52,7 @@ namespace CapaPresentacion
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
             this.cbESTADO = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblAgregarUsuario
@@ -82,21 +83,23 @@ namespace CapaPresentacion
             this.lblIDEstado.TabIndex = 44;
             this.lblIDEstado.Text = "ID Estado";
             // 
-            // lblIDEmpresa
+            // lblTelefono
             // 
-            this.lblIDEmpresa.AutoSize = true;
-            this.lblIDEmpresa.Location = new System.Drawing.Point(28, 246);
-            this.lblIDEmpresa.Name = "lblIDEmpresa";
-            this.lblIDEmpresa.Size = new System.Drawing.Size(49, 13);
-            this.lblIDEmpresa.TabIndex = 42;
-            this.lblIDEmpresa.Text = "Telefono";
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.Location = new System.Drawing.Point(28, 246);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Size = new System.Drawing.Size(49, 13);
+            this.lblTelefono.TabIndex = 42;
+            this.lblTelefono.Text = "Telefono";
             // 
             // txtTELEFONO
             // 
-            this.txtTELEFONO.Location = new System.Drawing.Point(118, 243);
+            this.txtTELEFONO.Location = new System.Drawing.Point(122, 243);
             this.txtTELEFONO.Name = "txtTELEFONO";
             this.txtTELEFONO.Size = new System.Drawing.Size(146, 20);
             this.txtTELEFONO.TabIndex = 38;
+            this.txtTELEFONO.TextChanged += new System.EventHandler(this.txtTELEFONO_TextChanged);
+            this.txtTELEFONO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTELEFONO_KeyPress);
             // 
             // lblContrasenia
             // 
@@ -127,33 +130,40 @@ namespace CapaPresentacion
             // 
             // txtPW
             // 
-            this.txtPW.Location = new System.Drawing.Point(118, 217);
+            this.txtPW.Location = new System.Drawing.Point(122, 217);
             this.txtPW.Name = "txtPW";
             this.txtPW.PasswordChar = '*';
             this.txtPW.Size = new System.Drawing.Size(146, 20);
             this.txtPW.TabIndex = 34;
             this.txtPW.TextChanged += new System.EventHandler(this.txtContrasenia_TextChanged);
+            this.txtPW.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPW_KeyPress);
             // 
             // txtEMAIL
             // 
-            this.txtEMAIL.Location = new System.Drawing.Point(118, 191);
+            this.txtEMAIL.Location = new System.Drawing.Point(122, 191);
             this.txtEMAIL.Name = "txtEMAIL";
             this.txtEMAIL.Size = new System.Drawing.Size(146, 20);
             this.txtEMAIL.TabIndex = 33;
+            this.txtEMAIL.TextChanged += new System.EventHandler(this.txtEMAIL_TextChanged);
+            this.txtEMAIL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEMAIL_KeyPress);
             // 
             // txtAMATERNO
             // 
-            this.txtAMATERNO.Location = new System.Drawing.Point(118, 165);
+            this.txtAMATERNO.Location = new System.Drawing.Point(122, 165);
             this.txtAMATERNO.Name = "txtAMATERNO";
             this.txtAMATERNO.Size = new System.Drawing.Size(146, 20);
             this.txtAMATERNO.TabIndex = 32;
+            this.txtAMATERNO.TextChanged += new System.EventHandler(this.txtAMATERNO_TextChanged);
+            this.txtAMATERNO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAMATERNO_KeyPress);
             // 
             // txtAPATERNO
             // 
-            this.txtAPATERNO.Location = new System.Drawing.Point(118, 139);
+            this.txtAPATERNO.Location = new System.Drawing.Point(122, 139);
             this.txtAPATERNO.Name = "txtAPATERNO";
             this.txtAPATERNO.Size = new System.Drawing.Size(146, 20);
             this.txtAPATERNO.TabIndex = 31;
+            this.txtAPATERNO.TextChanged += new System.EventHandler(this.txtAPATERNO_TextChanged);
+            this.txtAPATERNO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAPATERNO_KeyPress);
             // 
             // lblAPaterno
             // 
@@ -175,10 +185,12 @@ namespace CapaPresentacion
             // 
             // txtNOMBRE
             // 
-            this.txtNOMBRE.Location = new System.Drawing.Point(118, 113);
+            this.txtNOMBRE.Location = new System.Drawing.Point(122, 113);
             this.txtNOMBRE.Name = "txtNOMBRE";
             this.txtNOMBRE.Size = new System.Drawing.Size(146, 20);
             this.txtNOMBRE.TabIndex = 28;
+            this.txtNOMBRE.TextChanged += new System.EventHandler(this.txtNOMBRE_TextChanged);
+            this.txtNOMBRE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNOMBRE_KeyPress);
             // 
             // txtDV
             // 
@@ -186,22 +198,25 @@ namespace CapaPresentacion
             this.txtDV.Name = "txtDV";
             this.txtDV.Size = new System.Drawing.Size(30, 20);
             this.txtDV.TabIndex = 27;
+            this.txtDV.TextChanged += new System.EventHandler(this.txtDV_TextChanged);
+            this.txtDV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDV_KeyPress);
             // 
             // txtRUT
             // 
-            this.txtRUT.Location = new System.Drawing.Point(118, 87);
+            this.txtRUT.Location = new System.Drawing.Point(122, 87);
             this.txtRUT.Name = "txtRUT";
             this.txtRUT.Size = new System.Drawing.Size(146, 20);
             this.txtRUT.TabIndex = 26;
+            this.txtRUT.TextChanged += new System.EventHandler(this.txtRUT_TextChanged);
+            this.txtRUT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRUT_KeyPress);
             // 
             // lblDV
             // 
             this.lblDV.AutoSize = true;
-            this.lblDV.Location = new System.Drawing.Point(276, 90);
+            this.lblDV.Location = new System.Drawing.Point(328, 90);
             this.lblDV.Name = "lblDV";
-            this.lblDV.Size = new System.Drawing.Size(10, 13);
+            this.lblDV.Size = new System.Drawing.Size(0, 13);
             this.lblDV.TabIndex = 25;
-            this.lblDV.Text = "-";
             // 
             // lblRut
             // 
@@ -251,22 +266,33 @@ namespace CapaPresentacion
             "3. Chofer",
             "4. Guia Turistico"});
             this.cbESTADO.FormattingEnabled = true;
-            this.cbESTADO.Location = new System.Drawing.Point(118, 272);
+            this.cbESTADO.Location = new System.Drawing.Point(122, 272);
             this.cbESTADO.Name = "cbESTADO";
             this.cbESTADO.Size = new System.Drawing.Size(146, 21);
             this.cbESTADO.TabIndex = 48;
+            this.cbESTADO.SelectedIndexChanged += new System.EventHandler(this.cbESTADO_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(276, 90);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(10, 13);
+            this.label1.TabIndex = 49;
+            this.label1.Text = "-";
             // 
             // AgregarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 433);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cbESTADO);
             this.Controls.Add(this.btnProbarConexion);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAgregarUsuario);
             this.Controls.Add(this.lblIDEstado);
-            this.Controls.Add(this.lblIDEmpresa);
+            this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.txtTELEFONO);
             this.Controls.Add(this.lblContrasenia);
             this.Controls.Add(this.lblEmail);
@@ -296,7 +322,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblAgregarUsuario;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblIDEstado;
-        private System.Windows.Forms.Label lblIDEmpresa;
+        private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.TextBox txtTELEFONO;
         private System.Windows.Forms.Label lblContrasenia;
         private System.Windows.Forms.Label lblEmail;
@@ -316,5 +342,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnAgregarUsuario;
         private System.Windows.Forms.ComboBox cbESTADO;
+        private System.Windows.Forms.Label label1;
     }
 }

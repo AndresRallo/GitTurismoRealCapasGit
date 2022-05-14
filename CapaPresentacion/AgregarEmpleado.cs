@@ -41,7 +41,76 @@ namespace CapaPresentacion
 
         private void btnAgregarEmpleado_Click(object sender, EventArgs e)
         {
+            if (txtRut.Text == "")
+            {
+                lblRut.Text = "Rut Obligatorio";
+                lblRut.ForeColor = Color.Red;
+            }
+            
+            if (txtDV.Text == "")
+            {
+                lblDV.Text = "Falta el Dígito";
+                lblDV.ForeColor = Color.Red;
+            }
+            if (txtNom.Text == "")
+            {
+                lblNombre.Text = "Falta Nombre";
+                lblNombre.ForeColor = Color.Red;
+            }
+            if (txtAPaterno.Text == "")
+            {
+                lblAPaterno.Text = "Falta Ap. Paterno";
+                lblAPaterno.ForeColor = Color.Red;
+            }
+            if (txtAMaterno.Text == "")
+            {
+                lblAMaterno.Text = "Falta Ap. Materno";
+                lblAMaterno.ForeColor = Color.Red;
+            }
+            if (txtEmail.Text == "")
+            {
+                lblEmail.Text = "Falta Email";
+                lblEmail.ForeColor = Color.Red;
+            }
+            else if (! librarys.textBoxEvent.ComprobarFormatoEmail(txtEmail.Text))
+            {
+                lblEmail.Text = "Email inválido";
+                lblEmail.ForeColor = Color.Red;
+            }
+            if (txtContrasenia.Text == "")
+            {
+                lblContrasenia.Text = "Falta Contraseña";
+                lblContrasenia.ForeColor = Color.Red;
+            }
+            if (txtIDEmpresa.Text == "")
+            {
+                lblIDEmpresa.Text = "Falta ID Empresa";
+                lblIDEmpresa.ForeColor = Color.Red;
+            }
+            if (txtDireccion.Text == "")
+            {
+                lblDireccion.Text = "Falta Dirección";
+                lblDireccion.ForeColor = Color.Red;
 
+            }
+            if (txtNumDireccion.Text == "")
+            {
+                lblNumDireccion.Text = "Falta Número";
+                lblNumDireccion.ForeColor = Color.Red;
+            }
+            
+            else
+            {
+                GuardarEmpleado();
+            }
+
+            
+            
+                
+        }
+
+        private void GuardarEmpleado()
+        {
             try
             {
                 CEEmpleado empleado = new CEEmpleado();
@@ -57,7 +126,7 @@ namespace CapaPresentacion
                 empleado.IDEMPRESA = Convert.ToInt32(txtIDEmpresa.Text);
                 empleado.IDTIPOEMPLEADO = Convert.ToInt32(cbIDTipo.SelectedValue);
                 empleado.IDESTADO = Convert.ToInt32(cbESTADO.SelectedValue);
-                
+
                 CEDireccion direccion = new CEDireccion();
                 direccion.de_direccion = txtDireccion.Text;
                 direccion.de_numero = txtNumDireccion.Text;
@@ -84,7 +153,7 @@ namespace CapaPresentacion
                     empleado.vehiculo = vehiculo;
                 }
 
-                if(cNEmpleado.CrearEmpleado(empleado))
+                if (cNEmpleado.CrearEmpleado(empleado))
                     MessageBox.Show("Empleado agregado");
                 else
                     MessageBox.Show("Empleado no agregado");
@@ -94,9 +163,8 @@ namespace CapaPresentacion
             catch (Exception ex)
             {
 
-                MessageBox.Show("Empleado No Agregado "+ ex);
+                MessageBox.Show("Empleado No Agregado " + ex);
             }
-                
         }
 
         private void btnProbarConexion_Click(object sender, EventArgs e)
@@ -251,6 +319,222 @@ namespace CapaPresentacion
         private void cbESTADO_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtRut_TextChanged(object sender, EventArgs e)
+        {
+            if (txtRut.Text.Equals(""))
+            {
+                lblRut.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblRut.ForeColor = Color.ForestGreen;
+                lblRut.Text = "RUT";
+            }
+        }
+
+        private void txtRut_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+        }
+
+        private void txtDV_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDV.Text.Equals(""))
+            {
+                lblDV.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblDV.ForeColor = Color.ForestGreen;
+                lblDV.Text = "Dígito agregado";
+            }
+        }
+
+        private void txtDV_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+        }
+
+        private void txtNom_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNom.Text.Equals(""))
+            {
+                lblNombre.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblNombre.ForeColor = Color.ForestGreen;
+                lblNombre.Text = "Nombre";
+            }
+        }
+
+        private void txtAPaterno_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAPaterno.Text.Equals(""))
+            {
+                lblAPaterno.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblAPaterno.ForeColor = Color.ForestGreen;
+                lblAPaterno.Text = "Apellido Paterno";
+            }
+        }
+
+        private void txtAMaterno_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAMaterno.Text.Equals(""))
+            {
+                lblAMaterno.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblAMaterno.ForeColor = Color.ForestGreen;
+                lblAMaterno.Text = "Apellido Materno";
+            }
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            if (librarys.textBoxEvent.ComprobarFormatoEmail(txtEmail.Text))
+            {
+                lblEmail.Text = "Email válido";
+                lblEmail.ForeColor = Color.Green;
+            }
+            else if (txtEmail.Text == "" && !librarys.textBoxEvent.ComprobarFormatoEmail(txtEmail.Text))
+            {
+                lblEmail.Text = "Email";
+                lblEmail.ForeColor = Color.DarkOrange;
+            }
+            else if (!librarys.textBoxEvent.ComprobarFormatoEmail(txtEmail.Text))
+            {
+                lblEmail.Text = "Email no válido";
+                lblEmail.ForeColor = Color.Red;
+            }      
+        }
+
+        private void txtContrasenia_TextChanged(object sender, EventArgs e)
+        {
+            if (txtContrasenia.Text.Equals(""))
+            {
+                lblContrasenia.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblContrasenia.ForeColor = Color.ForestGreen;
+                lblContrasenia.Text = "Contraseña";
+            }
+        }
+
+        private void txtIDEmpresa_TextChanged(object sender, EventArgs e)
+        {
+            if (txtIDEmpresa.Text.Equals(""))
+            {
+                lblIDEmpresa.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblIDEmpresa.ForeColor = Color.ForestGreen;
+                lblIDEmpresa.Text = "Id Empresa";
+            }
+        }
+
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDireccion.Text.Equals(""))
+            {
+                lblDireccion.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblDireccion.ForeColor = Color.ForestGreen;
+                lblDireccion.Text = "Dirección";
+            }
+        }
+
+        private void txtNumDireccion_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNumDireccion.Text.Equals(""))
+            {
+                lblNumDireccion.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblNumDireccion.ForeColor = Color.ForestGreen;
+                lblNumDireccion.Text = "Número";
+            }
+        }
+
+        private void cbRegion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void cbComuna_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void cbIDTipo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtPatenteVe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtMarcaVe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtAnioVe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtNom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloTextoSinSaltoNiEspacioNiNumeros(e);
+        }
+
+        private void txtAPaterno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloTextoSinSaltoNiEspacioNiNumeros(e);
+        }
+
+        private void txtAMaterno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloTextoSinSaltoNiEspacioNiNumeros(e);
+        }
+
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloTextoSinSaltoNiEspacio(e);
+        }
+
+        private void txtContrasenia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //librarys.textBoxEvent.SoloTextoSinSaltoNiEspacio(e);
+        }
+
+        private void txtIDEmpresa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+        }
+
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void txtNumDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
         }
     }
 }

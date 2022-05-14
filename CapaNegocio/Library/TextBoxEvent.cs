@@ -10,9 +10,9 @@ namespace CapaNegocio.Library
 {
     public class TextBoxEvent
     {
-        public void SoloTextoSinSaltoNiEspacio(KeyPressEventArgs e)// solo letras de la A a la Z nada más
+        public void SoloTextoSinSaltoNiEspacioNiNumeros(KeyPressEventArgs e)// solo letras de la A a la Z nada más
         {
-            if (char.IsDigit(e.KeyChar)) { e.Handled = false; } // con false se permite números
+            if (char.IsDigit(e.KeyChar)) { e.Handled = true; } // con false se permite números
             //condición que solo permite ingresat datos de tipo texto
             else if (char.IsLetter(e.KeyChar)) { e.Handled = false; } // con false se permite textos
             //condición que no permite dar saltos de línea al oprimir enter
@@ -26,6 +26,23 @@ namespace CapaNegocio.Library
             {
                 e.Handled = false;
             }
+            else { e.Handled = true; }
+
+        }
+
+        public void SoloTextoSinSaltoNiEspacio(KeyPressEventArgs e)// solo letras de la A a la Z nada más
+        {
+            if (char.IsDigit(e.KeyChar)) { e.Handled = false; } // con false se permite números
+            //condición que solo permite ingresat datos de tipo texto
+            else if (char.IsLetter(e.KeyChar)) { e.Handled = false; } // con false se permite textos
+            //condición que no permite dar saltos de línea al oprimir enter
+            else if (e.KeyChar == Convert.ToChar(Keys.Enter)) { e.Handled = true; } //con true se niega
+            //Condición que nos permite utilizar la tecla backspace (flecha para borrar)
+            else if (char.IsControl(e.KeyChar)) { e.Handled = false; }
+            //Condición que permite o niega el uso de tecla espaciadora
+            else if (char.IsSeparator(e.KeyChar)) { e.Handled = true; }
+            //permite que acepte puntuación
+            else if (Char.IsPunctuation(e.KeyChar)){e.Handled = false;}
             else { e.Handled = true; }
 
         }
