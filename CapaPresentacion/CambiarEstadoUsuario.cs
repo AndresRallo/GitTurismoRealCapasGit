@@ -12,12 +12,14 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class EliminarUsuario : Form
+    public partial class CambiarEstadoUsuario : Form
     {
         CNUsuario cNUsuario = new CNUsuario();
-        public EliminarUsuario()
+        public CambiarEstadoUsuario()
         {
             InitializeComponent();
+
+            LoadComboEstadoEmpleado();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -54,14 +56,32 @@ namespace CapaPresentacion
             {
                 CEUsuario usuario = new CEUsuario();
                 usuario.IDUSUARIO = Convert.ToInt32(txtIDUsuario.Text);
+                usuario.IDESTADO = Convert.ToInt32(cbESTADO.SelectedValue);
 
-                cNUsuario.EliminarUsuario(usuario);
-
+                if (cNUsuario.CAMBIAR_ESTADO_USUARIO(usuario))
+                    MessageBox.Show("CAMBIO DE ESTADO EXITOSO");
+                else
+                    MessageBox.Show("CAMBIO DE ESTADO NO EXITOSO");
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show("Usuario No Eliminado " + ex);
+                MessageBox.Show("Empleado No Eliminado " + ex);
+            }
+        }
+
+        private void LoadComboEstadoEmpleado()
+        {
+            try
+            {
+                cbESTADO.DataSource = cNUsuario.ObtenerEstado();
+                cbESTADO.ValueMember = "IDESTADO";
+                cbESTADO.DisplayMember = "ES_DESCRIPCION";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error combo estado empleado" + ex);
             }
         }
     }

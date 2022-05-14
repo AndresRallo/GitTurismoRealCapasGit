@@ -74,7 +74,7 @@ namespace CapaPresentacion
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(135, 23);
             this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = "Cambiar Estado";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 

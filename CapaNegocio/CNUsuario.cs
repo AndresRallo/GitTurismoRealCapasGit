@@ -18,26 +18,26 @@ namespace CapaNegocio
             cDUsuario.PruebaConexion();
         }
 
-        public DataTable ObtenerDatos()
+        public List<CEUsuario> ObtenerDatos()
         {
-            DataTable lista = new DataTable();
-            lista = cDUsuario.Listar();
-            return lista;
+            List<CEUsuario> LISTA_USUARIO = new List<CEUsuario>();
+            LISTA_USUARIO = cDUsuario.LISTAR_USUARIO();
+            return LISTA_USUARIO;
         }
 
-        public void CrearUsuario(CEUsuario usuario)
+        public bool CrearUsuario(CEUsuario usuario)
         {
-            cDUsuario.AgregarUsuario(usuario);
+           return cDUsuario.AgregarUsuario(usuario);
         }
 
-        public void EditarUsuario(CEUsuario usuario)
+        public bool EditarUsuario(CEUsuario usuario)
         {
-            cDUsuario.EditarUsuario(usuario);
+           return cDUsuario.EditarUsuario(usuario);
         }
 
-        public void EliminarUsuario(CEUsuario usuario)
+        public bool CAMBIAR_ESTADO_USUARIO(CEUsuario usuario)
         {
-            cDUsuario.EliminarUsuario(usuario);
+           return cDUsuario.CAMBIAR_ESTADO_USUARIO(usuario);
         }
 
         public List<CE_ESTADO> ObtenerEstado()

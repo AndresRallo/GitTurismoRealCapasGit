@@ -64,14 +64,6 @@ namespace CapaPresentacion
                 direccion.id_comuna = Convert.ToInt32(cbComuna.SelectedValue);
                 empleado.direccion = direccion;
 
-              /*  CERegion region = new CERegion();
-                region.RE_DESCRIPCION = Convert.ToString(cbRegion.SelectedIndex);
-                empleado.region = region;
-
-                CEComuna comuna = new CEComuna();
-                comuna.c_descripcion = Convert.ToString(cbComuna.SelectedIndex);
-                empleado.comuna = comuna; */
-
                 if (cbIDTipo.Text == "CHÓFER")
                 {
 

@@ -30,25 +30,17 @@ namespace CapaPresentacion
         private void InitializeComponent()
         {
             this.btnEditar = new System.Windows.Forms.Button();
-            this.txtIDEstado = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtAMaterno = new System.Windows.Forms.TextBox();
             this.txtAPaterno = new System.Windows.Forms.TextBox();
             this.txtNom = new System.Windows.Forms.TextBox();
-            this.lblIDEstado = new System.Windows.Forms.Label();
-            this.lblTelefono = new System.Windows.Forms.Label();
             this.lblContrasenia = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblAMaterno = new System.Windows.Forms.Label();
             this.lblAPaterno = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.txtDV = new System.Windows.Forms.TextBox();
-            this.lblDV = new System.Windows.Forms.Label();
-            this.txtRut = new System.Windows.Forms.TextBox();
             this.txtIDUsuario = new System.Windows.Forms.TextBox();
-            this.lblRut = new System.Windows.Forms.Label();
             this.lblIDEmpleado = new System.Windows.Forms.Label();
             this.btnProbarConexion = new System.Windows.Forms.Button();
             this.btnListar = new System.Windows.Forms.Button();
@@ -56,6 +48,8 @@ namespace CapaPresentacion
             this.dataGridViewEmpleados = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbESTADO = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,20 +62,6 @@ namespace CapaPresentacion
             this.btnEditar.Text = "Editar Usuario";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // txtIDEstado
-            // 
-            this.txtIDEstado.Location = new System.Drawing.Point(111, 296);
-            this.txtIDEstado.Name = "txtIDEstado";
-            this.txtIDEstado.Size = new System.Drawing.Size(100, 20);
-            this.txtIDEstado.TabIndex = 60;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(111, 270);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(100, 20);
-            this.txtTelefono.TabIndex = 58;
             // 
             // txtContrasenia
             // 
@@ -117,24 +97,6 @@ namespace CapaPresentacion
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(100, 20);
             this.txtNom.TabIndex = 53;
-            // 
-            // lblIDEstado
-            // 
-            this.lblIDEstado.AutoSize = true;
-            this.lblIDEstado.Location = new System.Drawing.Point(21, 299);
-            this.lblIDEstado.Name = "lblIDEstado";
-            this.lblIDEstado.Size = new System.Drawing.Size(54, 13);
-            this.lblIDEstado.TabIndex = 51;
-            this.lblIDEstado.Text = "ID Estado";
-            // 
-            // lblTelefono
-            // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(21, 273);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(49, 13);
-            this.lblTelefono.TabIndex = 49;
-            this.lblTelefono.Text = "Telofono";
             // 
             // lblContrasenia
             // 
@@ -181,44 +143,12 @@ namespace CapaPresentacion
             this.lblNombre.TabIndex = 44;
             this.lblNombre.Text = "Nombre";
             // 
-            // txtDV
-            // 
-            this.txtDV.Location = new System.Drawing.Point(233, 115);
-            this.txtDV.Name = "txtDV";
-            this.txtDV.Size = new System.Drawing.Size(24, 20);
-            this.txtDV.TabIndex = 43;
-            // 
-            // lblDV
-            // 
-            this.lblDV.AutoSize = true;
-            this.lblDV.Location = new System.Drawing.Point(217, 118);
-            this.lblDV.Name = "lblDV";
-            this.lblDV.Size = new System.Drawing.Size(10, 13);
-            this.lblDV.TabIndex = 42;
-            this.lblDV.Text = "-";
-            // 
-            // txtRut
-            // 
-            this.txtRut.Location = new System.Drawing.Point(111, 115);
-            this.txtRut.Name = "txtRut";
-            this.txtRut.Size = new System.Drawing.Size(100, 20);
-            this.txtRut.TabIndex = 41;
-            // 
             // txtIDUsuario
             // 
             this.txtIDUsuario.Location = new System.Drawing.Point(111, 89);
             this.txtIDUsuario.Name = "txtIDUsuario";
             this.txtIDUsuario.Size = new System.Drawing.Size(100, 20);
             this.txtIDUsuario.TabIndex = 40;
-            // 
-            // lblRut
-            // 
-            this.lblRut.AutoSize = true;
-            this.lblRut.Location = new System.Drawing.Point(21, 118);
-            this.lblRut.Name = "lblRut";
-            this.lblRut.Size = new System.Drawing.Size(24, 13);
-            this.lblRut.TabIndex = 39;
-            this.lblRut.Text = "Rut";
             // 
             // lblIDEmpleado
             // 
@@ -286,31 +216,48 @@ namespace CapaPresentacion
             this.label1.TabIndex = 32;
             this.label1.Text = "Editar Usuario";
             // 
+            // cbESTADO
+            // 
+            this.cbESTADO.AutoCompleteCustomSource.AddRange(new string[] {
+            "",
+            "1. Administrador",
+            "2. Recepcionista",
+            "3. Chofer",
+            "4. Guia Turistico"});
+            this.cbESTADO.FormattingEnabled = true;
+            this.cbESTADO.Location = new System.Drawing.Point(111, 271);
+            this.cbESTADO.Name = "cbESTADO";
+            this.cbESTADO.Size = new System.Drawing.Size(100, 21);
+            this.cbESTADO.TabIndex = 63;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 279);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.TabIndex = 64;
+            this.label3.Text = "ID Estado";
+            // 
             // EditarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cbESTADO);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.txtIDEstado);
-            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtContrasenia);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtAMaterno);
             this.Controls.Add(this.txtAPaterno);
             this.Controls.Add(this.txtNom);
-            this.Controls.Add(this.lblIDEstado);
-            this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.lblContrasenia);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblAMaterno);
             this.Controls.Add(this.lblAPaterno);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.txtDV);
-            this.Controls.Add(this.lblDV);
-            this.Controls.Add(this.txtRut);
             this.Controls.Add(this.txtIDUsuario);
-            this.Controls.Add(this.lblRut);
             this.Controls.Add(this.lblIDEmpleado);
             this.Controls.Add(this.btnProbarConexion);
             this.Controls.Add(this.btnListar);
@@ -329,25 +276,17 @@ namespace CapaPresentacion
         #endregion
 
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.TextBox txtIDEstado;
-        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtContrasenia;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtAMaterno;
         private System.Windows.Forms.TextBox txtAPaterno;
         private System.Windows.Forms.TextBox txtNom;
-        private System.Windows.Forms.Label lblIDEstado;
-        private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblContrasenia;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblAMaterno;
         private System.Windows.Forms.Label lblAPaterno;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txtDV;
-        private System.Windows.Forms.Label lblDV;
-        private System.Windows.Forms.TextBox txtRut;
         private System.Windows.Forms.TextBox txtIDUsuario;
-        private System.Windows.Forms.Label lblRut;
         private System.Windows.Forms.Label lblIDEmpleado;
         private System.Windows.Forms.Button btnProbarConexion;
         private System.Windows.Forms.Button btnListar;
@@ -355,5 +294,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridView dataGridViewEmpleados;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbESTADO;
+        private System.Windows.Forms.Label label3;
     }
 }

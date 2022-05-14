@@ -15,15 +15,17 @@ using System.Windows.Forms;
 namespace CapaPresentacion
 {
    
-    public partial class EliminarEmpleado : Form
+    public partial class CambiarEstadoEmpleado : Form
     {
         CNEmpleado cNEmpleado = new CNEmpleado();
-        CEEmpleado cEEmpleado = new CEEmpleado();
+        
         string conexion = ConfigurationManager.AppSettings["conn"];
         
-        public EliminarEmpleado()
+        public CambiarEstadoEmpleado()
         {
             InitializeComponent();
+
+            LoadComboEstadoEmpleado();
         }
 
         private void btnListarEmpleados_Click(object sender, EventArgs e)
@@ -61,9 +63,12 @@ namespace CapaPresentacion
             {
                 CEEmpleado empleado = new CEEmpleado();
                 empleado.IDEMPLEADO = Convert.ToInt32(txtIDEmpleado.Text);
+                empleado.IDESTADO = Convert.ToInt32(cbESTADO.SelectedValue);
 
-                cNEmpleado.EliminarEmpleado(empleado);
-
+                if (cNEmpleado.CAMBIAR_ESTADO_EMPLEADO(empleado))
+                    MessageBox.Show("CAMBIO DE ESTADO EXITOSO");
+                else
+                    MessageBox.Show("CAMBIO DE ESTADO NO EXITOSO");
             }
             catch (Exception ex)
             {
@@ -76,6 +81,20 @@ namespace CapaPresentacion
             
         }
 
+        private void LoadComboEstadoEmpleado()
+        {
+            try
+            {
+                cbESTADO.DataSource = cNEmpleado.ObtenerEstado();
+                cbESTADO.ValueMember = "IDESTADO";
+                cbESTADO.DisplayMember = "ES_DESCRIPCION";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error combo estado empleado" + ex);
+            }
+        }
         private void dataGridViewEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

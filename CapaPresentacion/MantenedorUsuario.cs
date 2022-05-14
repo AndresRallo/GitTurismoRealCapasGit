@@ -54,7 +54,7 @@ namespace CapaPresentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            EliminarUsuario eliminarUsuario = new EliminarUsuario();
+            CambiarEstadoUsuario eliminarUsuario = new CambiarEstadoUsuario();
             eliminarUsuario.Show();
             this.Close();
         }

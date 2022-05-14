@@ -18,6 +18,8 @@ namespace CapaPresentacion
         public EditarUsuario()
         {
             InitializeComponent();
+
+            LoadComboEstadoEmpleado();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -26,17 +28,19 @@ namespace CapaPresentacion
             {
                 CEUsuario usuario = new CEUsuario();
                 usuario.IDUSUARIO = Convert.ToInt32(txtIDUsuario.Text);
-                usuario.US_RUT = txtRut.Text;
-                usuario.US_DV = txtDV.Text;
+                
                 usuario.US_NOMBRE = txtNom.Text;
                 usuario.US_APATERNO = txtAPaterno.Text;
                 usuario.US_AMATERNO = txtAMaterno.Text;
                 usuario.US_EMAIL = txtEmail.Text;
                 usuario.US_CONTRASEÑA = txtContrasenia.Text;
-                usuario.US_TELEFONO = txtTelefono.Text;
-                usuario.IDESTADO = Convert.ToInt32(txtIDEstado.Text);
+                usuario.IDESTADO = Convert.ToInt32(cbESTADO.SelectedValue);
 
-                cNUsuario.EditarUsuario(usuario);
+
+                if (cNUsuario.EditarUsuario(usuario))
+                    MessageBox.Show("Usuario editado");
+                else
+                    MessageBox.Show("Usuario no editado");
             }
             catch (Exception ex)
             {
@@ -67,7 +71,20 @@ namespace CapaPresentacion
                 MessageBox.Show("error " + ex);
             }
         }
+        private void LoadComboEstadoEmpleado()
+        {
+            try
+            {
+                cbESTADO.DataSource = cNUsuario.ObtenerEstado();
+                cbESTADO.ValueMember = "IDESTADO";
+                cbESTADO.DisplayMember = "ES_DESCRIPCION";
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show("Error combo estado empleado" + ex);
+            }
+        }
         private void btnProbarConexion_Click(object sender, EventArgs e)
         {
             cNUsuario.PruebaOracle();
