@@ -31,19 +31,24 @@ namespace CapaPresentacion
             try
             {
                 CEUsuario usuario = new CEUsuario();
-                usuario.US_RUT = txtRut.Text;
+                usuario.US_RUT = txtRUT.Text;
                 usuario.US_DV = txtDV.Text;
-                usuario.US_NOMBRE = txtNom.Text;
-                usuario.US_APATERNO = txtAPaterno.Text;
-                usuario.US_AMATERNO = txtAMaterno.Text;
-                usuario.US_EMAIL = txtEmail.Text;
-                string ePass = Encrypt.GetSHA256(txtContrasenia.Text);
+                usuario.US_NOMBRE = txtNOMBRE.Text;
+                usuario.US_APATERNO = txtAPATERNO.Text;
+                usuario.US_AMATERNO = txtAMATERNO.Text;
+                usuario.US_EMAIL = txtEMAIL.Text;
+                string ePass = Encrypt.GetSHA256(txtPW.Text);
 
                 usuario.US_CONTRASEÑA = ePass;
-                usuario.US_TELEFONO = txtTelefono.Text;
-                usuario.IDESTADO = Convert.ToInt32(cbESTADO.Text);
+                usuario.US_TELEFONO = txtTELEFONO.Text;
+                usuario.IDESTADO = Convert.ToInt32(cbESTADO.SelectedValue);
 
-                cnUsuario.CrearUsuario(usuario);
+                if (cnUsuario.CrearUsuario(usuario))
+                    MessageBox.Show("Usuario agregado");
+                else
+                    MessageBox.Show("Usuario no agregado");
+
+
             }
             catch (Exception ex)
             {
@@ -51,6 +56,8 @@ namespace CapaPresentacion
                 MessageBox.Show("Usuario No Agregado " + ex);
             }
         }
+            
+        
 
         private void LoadComboEstadoEmpleado()
         {

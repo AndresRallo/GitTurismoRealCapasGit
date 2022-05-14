@@ -31,14 +31,14 @@ namespace CapaNegocio
         }
 
         
-        public void EditarEmpleado(CEEmpleado cE) 
+        public bool EditarEmpleado(CEEmpleado cE) 
         {
-            cDEmpleado.EditarEmpleado(cE);
+           return cDEmpleado.EditarEmpleado(cE);
         }
 
-        public void EliminarEmpleado(CEEmpleado cE) 
+        public bool CAMBIAR_ESTADO_EMPLEADO(CEEmpleado cE) 
         {
-            cDEmpleado.EliminarEmpleado(cE);
+           return cDEmpleado.CAMBIAR_ESTADO_EMPLEADO(cE);
         }
 
       /*  public DataTable ObtenerDatos()

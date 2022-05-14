@@ -374,37 +374,71 @@ namespace CapaDatos
             }
         }
 
-        public void EditarEmpleado(CEEmpleado cE)
+        public bool EditarEmpleado(CEEmpleado cE)
         {
-            OracleConnection conn = new OracleConnection(conexion);
-
             try
             {
-                conn.Open();
-                OracleCommand command = new OracleCommand("actualizarEmpleado", conn);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add("idEmpleado", OracleType.Number).Value = Convert.ToInt32(cE.IDEMPLEADO);
-                command.Parameters.Add("rutEmp", OracleType.Number).Value = Convert.ToInt32(cE.EM_RUT);
-                command.Parameters.Add("dvEmp", OracleType.Char).Value = cE.EM_DV;
-                command.Parameters.Add("nomEmp", OracleType.NVarChar).Value = cE.EM_NOMBRE;
-                command.Parameters.Add("aPaternoEmp", OracleType.NVarChar).Value = cE.EM_APATERNO;
-                command.Parameters.Add("aMaternoEmp", OracleType.NVarChar).Value = cE.EM_AMATERNO;
-                command.Parameters.Add("emailEmp", OracleType.NVarChar).Value = cE.EM_EMAIL;
-                command.Parameters.Add("contraseniaEmp", OracleType.NVarChar).Value = cE.EM_CONTRASEÑA;
-                command.Parameters.Add("idEmpresaEmp", OracleType.Number).Value = Convert.ToInt32(cE.IDEMPRESA);
-                command.Parameters.Add("idTipoEmp", OracleType.Number).Value = Convert.ToInt32(cE.IDTIPOEMPLEADO);
-                command.Parameters.Add("idEstadoEmp", OracleType.Number).Value = Convert.ToInt32(cE.IDESTADO);
-                command.Parameters.Add("idDireccionEmp", OracleType.Number).Value = Convert.ToInt32(cE.IDDIRECCION);
-                command.ExecuteNonQuery();
+                string salida = string.Empty;
+                using (OracleConnection conn = new OracleConnection(conexion))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_UPDATE_EMPLEADO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("IDEMP", OracleType.Number).Value = Convert.ToInt32(cE.IDEMPLEADO);
+                    command.Parameters.Add("IDDIREC", OracleType.Number).Value = Convert.ToInt32(cE.IDDIRECCION);
+                    command.Parameters.Add("NOMBREEMP", OracleType.NVarChar).Value = cE.EM_NOMBRE;
+                    command.Parameters.Add("APATERNOEMP", OracleType.NVarChar).Value = cE.EM_APATERNO;
+                    command.Parameters.Add("AMATERNOEMP", OracleType.NVarChar).Value = cE.EM_AMATERNO;
+                    command.Parameters.Add("EMAILEMP", OracleType.NVarChar).Value = cE.EM_EMAIL;
+                    command.Parameters.Add("PWSEMP", OracleType.NVarChar).Value = cE.EM_CONTRASEÑA;
+                    command.Parameters.Add("IDTIPOEMP", OracleType.Number).Value = Convert.ToInt32(cE.IDTIPOEMPLEADO);
+
+                    command.Parameters.Add("DIRECCION", OracleType.NVarChar).Value = Convert.ToString(cE.direccion.de_direccion);
+                    command.Parameters.Add("NUMDIREC", OracleType.NVarChar).Value = cE.direccion.de_numero;
+                    command.Parameters.Add("IDCOMUNADIREC", OracleType.Number).Value = Convert.ToInt32(cE.direccion.id_comuna);
+                    command.Parameters.Add("MARCA", OracleType.NVarChar).Value = cE.vehiculo.marca_ve;
+                    command.Parameters.Add("ANIO", OracleType.Number).Value = Convert.ToInt32(cE.vehiculo.anio_ve);
+                    command.Parameters.Add("PATENTE", OracleType.NVarChar).Value = cE.vehiculo.patente_ve;
+                    //command.Parameters.Add("V_DETALLE", OracleType.NVarChar).Direction = ParameterDirection.Output;
+                    OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
+                    par.Direction = ParameterDirection.Output;
+                    par.Size = 250;
+                    command.Parameters.Add(par);
+                    command.ExecuteNonQuery();
+                    salida = command.Parameters["V_DETALLE"].Value.ToString();
+
+                    conn.Close();
+                }
+                //agregara salida a un Log
+                if (string.IsNullOrEmpty(salida))
+                    return true;
+                else
+                    return false;
+
+                #region procedimiento almacenado
+                /*
+                create or replace procedure agregarEmpleado(rutEmp in number, dvEmp in char, nomEmp in nvarchar2, aPaternoEmp in nvarchar2, aMaternoEmp in nvarchar2, emailEmp in nvarchar2, 
+                contraseniaEmp in nvarchar2,
+                idEmpresaEmp in number, idTipoEmp in number, idEstadoEmp in number, idDireccionEmp in number)
+                as
+                  Begin
+                    insert into empleado (em_rut,em_dv,em_nombre,em_apaterno,em_amaterno,em_email,em_contraseña,idempresa,id_tipoempleado,idestado,id_direccion) 
+                    values(rutEmp,dvEmp,nomEmp,aPaternoEmp,aMaternoEmp,emailEmp,contraseniaEmp,idEmpresaEmp,idTipoEmp,idEstadoEmp,idDireccionEmp);
+                end;
+                */
+                #endregion
+            }
+            catch (OracleException orex)
+            {
+                return false;
             }
             catch (Exception ex)
             {
-                
-                MessageBox.Show("No conectado");
-
+                //ex.Message;
+                //ex.StackTrace;
+                //agregar ex al Log
+                return false;
             }
-            conn.Close();
-            MessageBox.Show("Empleado Actualizado");
             #region procedimiento almacenado
             /*
              create or replace PROCEDURE actualizarEmpleado(idEmpleado in Number, rutEmp in number, dvEmp in char, nomEmp in nvarchar2, aPaternoEmp in nvarchar2, aMaternoEmp in nvarchar2, emailEmp in nvarchar2, 
@@ -439,41 +473,58 @@ namespace CapaDatos
             #endregion
         }
 
-        public void EliminarEmpleado(CEEmpleado cE) 
+        public bool CAMBIAR_ESTADO_EMPLEADO(CEEmpleado cE) 
         {
-            OracleConnection conn = new OracleConnection(conexion);
             try
             {
-                DialogResult result;
-                result = MessageBox.Show("¿Esta seguro de eliminar este empleado?", "Eliminar Empleado", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
+                string salida = string.Empty;
+                using (OracleConnection conn = new OracleConnection(conexion))
                 {
-                    conn.Open();
-                    OracleCommand command = new OracleCommand("eliminarEmpleado", conn);
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add("idEmpleado", OracleType.Number).Value = Convert.ToInt32(cE.IDEMPLEADO);
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Empleado Eliminado");
+                    DialogResult result;
+                    result = MessageBox.Show("¿Esta seguro de cambiar el estado del empleado?", "Cambiar Estado", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        conn.Open();
+                        OracleCommand command = new OracleCommand("SP_SET_STATUS_CHANGE_EMPLEADO", conn);
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+                        command.Parameters.Add("IDEMPLEADO", OracleType.Number).Value = Convert.ToInt32(cE.IDEMPLEADO);
+                        command.Parameters.Add("IDESTADO", OracleType.Number).Value = Convert.ToInt32(cE.IDESTADO);
+                        
+                        OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
+                        par.Direction = ParameterDirection.Output;
+                        par.Size = 250;
+                        command.Parameters.Add(par);
+                        command.ExecuteNonQuery();
+                        salida = command.Parameters["V_DETALLE"].Value.ToString();
+                        conn.Close();
+                    }
                 }
+                if (string.IsNullOrEmpty(salida))
+                    return true;
                 else
-                {
-                    return;
-                }
+                    return false;
+            }
+            catch (OracleException orex)
+            {
+                return false;
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("Error" + ex);
+                //ex.Message;
+                //ex.StackTrace;
+                //agregar ex al Log
+                return false;
             }
+            
 
-            conn.Close();
+            
             #region procedimiento almacenado
             /* Procedimiento almacenado 
-             Create or replace procedure eliminarEmpleado (idEmpleado in NUMBER)
-             as
-                vid number := idEmpleado;
-             begin
-                delete from empleado where idempleado = vid;
+             CREATE OR REPLACE PROCEDURE SP_DELETE_EMPLEADO (IDEMPLEADO IN NUMBER)
+             AS
+                vid number := IDEMPLEADO;
+             BEGIN
+                DELETE FROM EMPLEADO WHERE IDEMPLEADO = vid;
              END;
              */
             #endregion

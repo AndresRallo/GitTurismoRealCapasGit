@@ -33,19 +33,19 @@ namespace CapaPresentacion
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblIDEstado = new System.Windows.Forms.Label();
             this.lblIDEmpresa = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtTELEFONO = new System.Windows.Forms.TextBox();
             this.lblContrasenia = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblAMaterno = new System.Windows.Forms.Label();
-            this.txtContrasenia = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtAMaterno = new System.Windows.Forms.TextBox();
-            this.txtAPaterno = new System.Windows.Forms.TextBox();
+            this.txtPW = new System.Windows.Forms.TextBox();
+            this.txtEMAIL = new System.Windows.Forms.TextBox();
+            this.txtAMATERNO = new System.Windows.Forms.TextBox();
+            this.txtAPATERNO = new System.Windows.Forms.TextBox();
             this.lblAPaterno = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.txtNom = new System.Windows.Forms.TextBox();
+            this.txtNOMBRE = new System.Windows.Forms.TextBox();
             this.txtDV = new System.Windows.Forms.TextBox();
-            this.txtRut = new System.Windows.Forms.TextBox();
+            this.txtRUT = new System.Windows.Forms.TextBox();
             this.lblDV = new System.Windows.Forms.Label();
             this.lblRut = new System.Windows.Forms.Label();
             this.btnProbarConexion = new System.Windows.Forms.Button();
@@ -91,12 +91,12 @@ namespace CapaPresentacion
             this.lblIDEmpresa.TabIndex = 42;
             this.lblIDEmpresa.Text = "Telefono";
             // 
-            // txtTelefono
+            // txtTELEFONO
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(118, 243);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(146, 20);
-            this.txtTelefono.TabIndex = 38;
+            this.txtTELEFONO.Location = new System.Drawing.Point(118, 243);
+            this.txtTELEFONO.Name = "txtTELEFONO";
+            this.txtTELEFONO.Size = new System.Drawing.Size(146, 20);
+            this.txtTELEFONO.TabIndex = 38;
             // 
             // lblContrasenia
             // 
@@ -125,34 +125,35 @@ namespace CapaPresentacion
             this.lblAMaterno.TabIndex = 35;
             this.lblAMaterno.Text = "Apellido Materno";
             // 
-            // txtContrasenia
+            // txtPW
             // 
-            this.txtContrasenia.Location = new System.Drawing.Point(118, 217);
-            this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.Size = new System.Drawing.Size(146, 20);
-            this.txtContrasenia.TabIndex = 34;
-            this.txtContrasenia.TextChanged += new System.EventHandler(this.txtContrasenia_TextChanged);
+            this.txtPW.Location = new System.Drawing.Point(118, 217);
+            this.txtPW.Name = "txtPW";
+            this.txtPW.PasswordChar = '*';
+            this.txtPW.Size = new System.Drawing.Size(146, 20);
+            this.txtPW.TabIndex = 34;
+            this.txtPW.TextChanged += new System.EventHandler(this.txtContrasenia_TextChanged);
             // 
-            // txtEmail
+            // txtEMAIL
             // 
-            this.txtEmail.Location = new System.Drawing.Point(118, 191);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(146, 20);
-            this.txtEmail.TabIndex = 33;
+            this.txtEMAIL.Location = new System.Drawing.Point(118, 191);
+            this.txtEMAIL.Name = "txtEMAIL";
+            this.txtEMAIL.Size = new System.Drawing.Size(146, 20);
+            this.txtEMAIL.TabIndex = 33;
             // 
-            // txtAMaterno
+            // txtAMATERNO
             // 
-            this.txtAMaterno.Location = new System.Drawing.Point(118, 165);
-            this.txtAMaterno.Name = "txtAMaterno";
-            this.txtAMaterno.Size = new System.Drawing.Size(146, 20);
-            this.txtAMaterno.TabIndex = 32;
+            this.txtAMATERNO.Location = new System.Drawing.Point(118, 165);
+            this.txtAMATERNO.Name = "txtAMATERNO";
+            this.txtAMATERNO.Size = new System.Drawing.Size(146, 20);
+            this.txtAMATERNO.TabIndex = 32;
             // 
-            // txtAPaterno
+            // txtAPATERNO
             // 
-            this.txtAPaterno.Location = new System.Drawing.Point(118, 139);
-            this.txtAPaterno.Name = "txtAPaterno";
-            this.txtAPaterno.Size = new System.Drawing.Size(146, 20);
-            this.txtAPaterno.TabIndex = 31;
+            this.txtAPATERNO.Location = new System.Drawing.Point(118, 139);
+            this.txtAPATERNO.Name = "txtAPATERNO";
+            this.txtAPATERNO.Size = new System.Drawing.Size(146, 20);
+            this.txtAPATERNO.TabIndex = 31;
             // 
             // lblAPaterno
             // 
@@ -172,12 +173,12 @@ namespace CapaPresentacion
             this.lblNombre.TabIndex = 29;
             this.lblNombre.Text = "Nombre";
             // 
-            // txtNom
+            // txtNOMBRE
             // 
-            this.txtNom.Location = new System.Drawing.Point(118, 113);
-            this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(146, 20);
-            this.txtNom.TabIndex = 28;
+            this.txtNOMBRE.Location = new System.Drawing.Point(118, 113);
+            this.txtNOMBRE.Name = "txtNOMBRE";
+            this.txtNOMBRE.Size = new System.Drawing.Size(146, 20);
+            this.txtNOMBRE.TabIndex = 28;
             // 
             // txtDV
             // 
@@ -186,12 +187,12 @@ namespace CapaPresentacion
             this.txtDV.Size = new System.Drawing.Size(30, 20);
             this.txtDV.TabIndex = 27;
             // 
-            // txtRut
+            // txtRUT
             // 
-            this.txtRut.Location = new System.Drawing.Point(118, 87);
-            this.txtRut.Name = "txtRut";
-            this.txtRut.Size = new System.Drawing.Size(146, 20);
-            this.txtRut.TabIndex = 26;
+            this.txtRUT.Location = new System.Drawing.Point(118, 87);
+            this.txtRUT.Name = "txtRUT";
+            this.txtRUT.Size = new System.Drawing.Size(146, 20);
+            this.txtRUT.TabIndex = 26;
             // 
             // lblDV
             // 
@@ -266,19 +267,19 @@ namespace CapaPresentacion
             this.Controls.Add(this.btnAgregarUsuario);
             this.Controls.Add(this.lblIDEstado);
             this.Controls.Add(this.lblIDEmpresa);
-            this.Controls.Add(this.txtTelefono);
+            this.Controls.Add(this.txtTELEFONO);
             this.Controls.Add(this.lblContrasenia);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblAMaterno);
-            this.Controls.Add(this.txtContrasenia);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtAMaterno);
-            this.Controls.Add(this.txtAPaterno);
+            this.Controls.Add(this.txtPW);
+            this.Controls.Add(this.txtEMAIL);
+            this.Controls.Add(this.txtAMATERNO);
+            this.Controls.Add(this.txtAPATERNO);
             this.Controls.Add(this.lblAPaterno);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.txtNom);
+            this.Controls.Add(this.txtNOMBRE);
             this.Controls.Add(this.txtDV);
-            this.Controls.Add(this.txtRut);
+            this.Controls.Add(this.txtRUT);
             this.Controls.Add(this.lblDV);
             this.Controls.Add(this.lblRut);
             this.Controls.Add(this.lblDescripcion);
@@ -296,19 +297,19 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblIDEstado;
         private System.Windows.Forms.Label lblIDEmpresa;
-        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtTELEFONO;
         private System.Windows.Forms.Label lblContrasenia;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblAMaterno;
-        private System.Windows.Forms.TextBox txtContrasenia;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtAMaterno;
-        private System.Windows.Forms.TextBox txtAPaterno;
+        private System.Windows.Forms.TextBox txtPW;
+        private System.Windows.Forms.TextBox txtEMAIL;
+        private System.Windows.Forms.TextBox txtAMATERNO;
+        private System.Windows.Forms.TextBox txtAPATERNO;
         private System.Windows.Forms.Label lblAPaterno;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.TextBox txtNOMBRE;
         private System.Windows.Forms.TextBox txtDV;
-        private System.Windows.Forms.TextBox txtRut;
+        private System.Windows.Forms.TextBox txtRUT;
         private System.Windows.Forms.Label lblDV;
         private System.Windows.Forms.Label lblRut;
         private System.Windows.Forms.Button btnProbarConexion;

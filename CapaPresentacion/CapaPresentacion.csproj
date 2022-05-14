@@ -123,17 +123,17 @@
     <Compile Include="EditarUsuario.Designer.cs">
       <DependentUpon>EditarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="EliminarEmpleado.cs">
+    <Compile Include="CambiarEstadoEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EliminarEmpleado.Designer.cs">
-      <DependentUpon>EliminarEmpleado.cs</DependentUpon>
+    <Compile Include="CambiarEstadoEmpleado.Designer.cs">
+      <DependentUpon>CambiarEstadoEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="EliminarUsuario.cs">
+    <Compile Include="CambiarEstadoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EliminarUsuario.Designer.cs">
-      <DependentUpon>EliminarUsuario.cs</DependentUpon>
+    <Compile Include="CambiarEstadoUsuario.Designer.cs">
+      <DependentUpon>CambiarEstadoUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="ListarEmpleados.cs">
       <SubType>Form</SubType>
@@ -218,11 +218,11 @@
     <EmbeddedResource Include="EditarUsuario.resx">
       <DependentUpon>EditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EliminarEmpleado.resx">
-      <DependentUpon>EliminarEmpleado.cs</DependentUpon>
+    <EmbeddedResource Include="CambiarEstadoEmpleado.resx">
+      <DependentUpon>CambiarEstadoEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EliminarUsuario.resx">
-      <DependentUpon>EliminarUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="CambiarEstadoUsuario.resx">
+      <DependentUpon>CambiarEstadoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListarEmpleados.resx">
       <DependentUpon>ListarEmpleados.cs</DependentUpon>

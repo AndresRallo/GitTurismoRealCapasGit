@@ -47,7 +47,7 @@ namespace CapaPresentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            EliminarEmpleado eliminarEmpleado = new EliminarEmpleado();
+            CambiarEstadoEmpleado eliminarEmpleado = new CambiarEstadoEmpleado();
             eliminarEmpleado.Show();
             this.Close();
         }

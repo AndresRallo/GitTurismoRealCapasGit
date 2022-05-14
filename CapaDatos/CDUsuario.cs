@@ -33,104 +33,167 @@ namespace CapaDatos
             MessageBox.Show("Conectado :)");
         }
 
-        public void EditarUsuario(CEUsuario cEUsuario)
+        public bool EditarUsuario(CEUsuario cEUsuario)
         {
-            OracleConnection conn = new OracleConnection(conexion);
-
             try
             {
-                conn.Open();
-                OracleCommand command = new OracleCommand("actualizarUsuario", conn);
+                string salida = string.Empty;
+                using (OracleConnection conn = new OracleConnection(conexion))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_UPDATE_USUARIO", conn);
 
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add("idUsuario", OracleType.Number).Value = Convert.ToInt32(cEUsuario.IDUSUARIO);
-                command.Parameters.Add("rutUs", OracleType.Number).Value = Convert.ToInt32(cEUsuario.US_RUT);
-                command.Parameters.Add("dvUs", OracleType.Char).Value = cEUsuario.US_DV;
-                command.Parameters.Add("nomUs", OracleType.NVarChar).Value = cEUsuario.US_NOMBRE;
-                command.Parameters.Add("aPaternoUs", OracleType.NVarChar).Value = cEUsuario.US_APATERNO;
-                command.Parameters.Add("aMaternoUs", OracleType.NVarChar).Value = cEUsuario.US_AMATERNO;
-                command.Parameters.Add("telefonoUs", OracleType.NVarChar).Value = cEUsuario.US_TELEFONO;
-                command.Parameters.Add("emailUs", OracleType.NVarChar).Value = cEUsuario.US_EMAIL;
-                command.Parameters.Add("contraseniaUs", OracleType.NVarChar).Value = cEUsuario.US_CONTRASEÑA;
-                command.Parameters.Add("idEstadoUs", OracleType.Number).Value = Convert.ToInt32(cEUsuario.IDESTADO);
-                command.ExecuteNonQuery();
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("IDUSER", OracleType.Number).Value = Convert.ToInt32(cEUsuario.US_RUT);
+                    
+                    command.Parameters.Add("NOMBRECLI", OracleType.NVarChar).Value = cEUsuario.US_NOMBRE;
+                    command.Parameters.Add("APATERNOCLI", OracleType.NVarChar).Value = cEUsuario.US_APATERNO;
+                    command.Parameters.Add("AMATERNOEMP", OracleType.NVarChar).Value = cEUsuario.US_AMATERNO;
+                    command.Parameters.Add("EMAILEMP", OracleType.NVarChar).Value = cEUsuario.US_EMAIL;
+                    command.Parameters.Add("PWSEMP", OracleType.NVarChar).Value = cEUsuario.US_CONTRASEÑA;
+                    
+                    command.Parameters.Add("IDESTADOCLI", OracleType.Number).Value = Convert.ToInt32(cEUsuario.IDESTADO);
+                    OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
+                    par.Direction = ParameterDirection.Output;
+                    par.Size = 250;
+                    command.Parameters.Add(par);
+                    command.ExecuteNonQuery();
+                    salida = command.Parameters["V_DETALLE"].Value.ToString();
+
+                    conn.Close();
+                    #region procedimiento almacenado
+                    /*
+                    create or replace procedure agregarUsuario(rutUs in number, dvUs in char, nomUs in nvarchar2, aPaternoUs in nvarchar2, aMaternoUs in nvarchar2, emailUs in nvarchar2, 
+                    contraseniaUs in nvarchar2,
+                    telefonoUs in number,  idEstado in number)
+                    as
+                      Begin
+                        insert into usuario (us_rut,us_dv,us_nombre,us_apaterno,us_amaterno,us_email,us_contraseña,us_telefono,idestado) 
+                        values(rutUs,dvUs,nomUs,aPaternoUs,aMaternoUs,emailUs,contraseniaUs,telefonoUs,idEstado);
+                    end;
+                    */
+                    #endregion
+                }
+                if (string.IsNullOrEmpty(salida))
+                    return true;
+                else
+                    return false;
+            }
+            catch (OracleException orex)
+            {
+                return false;
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("No conectado" + ex);
+                //ex.Message;
+                //ex.StackTrace;
+                //agregar ex al Log
+                return false;
             }
-            conn.Close();
-            MessageBox.Show("Usuario Actualizado");
         }
-        public void AgregarUsuario(CEUsuario usuario)
+        public bool AgregarUsuario(CEUsuario usuario)
         {
-            OracleConnection conn = new OracleConnection(conexion);
-
             try
             {
-                conn.Open();
-                OracleCommand command = new OracleCommand("agregarUsuario", conn);
+                string salida = string.Empty;
+                using (OracleConnection conn = new OracleConnection(conexion))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_SET_ADD_CLIENTE", conn);
 
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add("rutUs", OracleType.Number).Value = Convert.ToInt32(usuario.US_RUT);
-                command.Parameters.Add("dvUs", OracleType.Char).Value = usuario.US_DV;
-                command.Parameters.Add("nomUs", OracleType.NVarChar).Value = usuario.US_NOMBRE;
-                command.Parameters.Add("aPaternoUs", OracleType.NVarChar).Value = usuario.US_APATERNO;
-                command.Parameters.Add("aMaternoUs", OracleType.NVarChar).Value = usuario.US_AMATERNO;
-                command.Parameters.Add("emailUs", OracleType.NVarChar).Value = usuario.US_EMAIL;
-                command.Parameters.Add("contraseniaUs", OracleType.NVarChar).Value = usuario.US_CONTRASEÑA;
-                command.Parameters.Add("telefonoUs", OracleType.NVarChar).Value = usuario.US_TELEFONO;
-                command.Parameters.Add("idEstado", OracleType.Number).Value = Convert.ToInt32(usuario.IDESTADO);
-                command.ExecuteNonQuery();
-                #region procedimiento almacenado
-                /*
-                create or replace procedure agregarUsuario(rutUs in number, dvUs in char, nomUs in nvarchar2, aPaternoUs in nvarchar2, aMaternoUs in nvarchar2, emailUs in nvarchar2, 
-                contraseniaUs in nvarchar2,
-                telefonoUs in number,  idEstado in number)
-                as
-                  Begin
-                    insert into usuario (us_rut,us_dv,us_nombre,us_apaterno,us_amaterno,us_email,us_contraseña,us_telefono,idestado) 
-                    values(rutUs,dvUs,nomUs,aPaternoUs,aMaternoUs,emailUs,contraseniaUs,telefonoUs,idEstado);
-                end;
-                */
-                #endregion
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("RUTCLI", OracleType.Number).Value = Convert.ToInt32(usuario.US_RUT);
+                    command.Parameters.Add("DVCLI", OracleType.Char).Value = usuario.US_DV;
+                    command.Parameters.Add("NOMBRECLI", OracleType.NVarChar).Value = usuario.US_NOMBRE;
+                    command.Parameters.Add("APATERNOCLI", OracleType.NVarChar).Value = usuario.US_APATERNO;
+                    command.Parameters.Add("AMATERNOEMP", OracleType.NVarChar).Value = usuario.US_AMATERNO;
+                    command.Parameters.Add("EMAILEMP", OracleType.NVarChar).Value = usuario.US_EMAIL;
+                    command.Parameters.Add("PWSEMP", OracleType.NVarChar).Value = usuario.US_CONTRASEÑA;
+                    command.Parameters.Add("TELEFONOEMP", OracleType.NVarChar).Value = usuario.US_TELEFONO;
+                    command.Parameters.Add("IDTIPOCLI", OracleType.Number).Value = Convert.ToInt32(usuario.IDTIPOUSUARIO);
+                    command.Parameters.Add("IDESTADOCLI", OracleType.Number).Value = Convert.ToInt32(usuario.IDESTADO);
+                    OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
+                    par.Direction = ParameterDirection.Output;
+                    par.Size = 250;
+                    command.Parameters.Add(par);
+                    command.ExecuteNonQuery();
+                    salida = command.Parameters["V_DETALLE"].Value.ToString();
+
+                    conn.Close();
+                    #region procedimiento almacenado
+                    /*
+                    create or replace procedure agregarUsuario(rutUs in number, dvUs in char, nomUs in nvarchar2, aPaternoUs in nvarchar2, aMaternoUs in nvarchar2, emailUs in nvarchar2, 
+                    contraseniaUs in nvarchar2,
+                    telefonoUs in number,  idEstado in number)
+                    as
+                      Begin
+                        insert into usuario (us_rut,us_dv,us_nombre,us_apaterno,us_amaterno,us_email,us_contraseña,us_telefono,idestado) 
+                        values(rutUs,dvUs,nomUs,aPaternoUs,aMaternoUs,emailUs,contraseniaUs,telefonoUs,idEstado);
+                    end;
+                    */
+                    #endregion
+                }
+                if (string.IsNullOrEmpty(salida))
+                    return true;
+                else
+                    return false;
+
+
+            }
+            catch (OracleException orex)
+            {
+                return false;
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("No conectado" + ex.Message);
+                //ex.Message;
+                //ex.StackTrace;
+                //agregar ex al Log
+                return false;
             }
-            conn.Close();
-            MessageBox.Show("Usuario Agregado");
+
         }
-        public DataTable Listar()
-        {
-            OracleConnection conn = new OracleConnection(conexion);
-            OracleDataReader mostrarTabla;
-            DataTable tablaUsuario = new DataTable();
 
+        public List<CEUsuario> LISTAR_USUARIO()
+        {
             try
             {
-                conn.Open();
-                OracleCommand command = new OracleCommand("seleccionarUsuarios", conn);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
-                mostrarTabla = command.ExecuteReader();
-                mostrarTabla.Read();
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = command;
-                adaptador.Fill(tablaUsuario);
+                OracleDataReader mostrarTabla;
+                List<CEUsuario> LISTA_USUARIO = new List<CEUsuario>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_CLIENTE", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        LISTA_USUARIO.Add(new CEUsuario
+                        {
+                            IDUSUARIO = Convert.ToInt32(mostrarTabla["IDUSUARIO"]),
+                            US_RUT = Convert.ToString(mostrarTabla["US_RUT"].ToString()),
+                            US_DV = Convert.ToString(mostrarTabla["US_DV"].ToString()),
+                            US_NOMBRE = Convert.ToString(mostrarTabla["US_NOMBRE"].ToString()),
+                            US_APATERNO = Convert.ToString(mostrarTabla["US_APATERNO"].ToString()),
+                            US_AMATERNO = Convert.ToString(mostrarTabla["US_AMATERNO"].ToString()),
+                            US_TELEFONO = Convert.ToString(mostrarTabla["US_TELEFONO"].ToString()),
+                            US_EMAIL = Convert.ToString(mostrarTabla["US_EMAIL"].ToString()),
+                            US_CONTRASEÑA = Convert.ToString(mostrarTabla["US_CONTRASEÑA"].ToString()),
+                            IDESTADO = Convert.ToInt32(mostrarTabla["IDESTADO"])
+                            //  IDTIPOUSUARIO = Convert.ToString(mostrarTabla["IDUSUARIO"].ToString())
 
+                        });
+                    }
+                    conn.Close();
+                }
+                return LISTA_USUARIO;
             }
-            catch (Exception ex)
+            catch (OracleException oex)
             {
 
-                MessageBox.Show("No conectado" + ex.Message);
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
-
-            conn.Close();
-            return tablaUsuario;
         }
 
         public List<CE_ESTADO> ESTADO()
@@ -164,34 +227,48 @@ namespace CapaDatos
                 throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
         }
-        public void EliminarUsuario(CEUsuario usuario)
+        public bool CAMBIAR_ESTADO_USUARIO(CEUsuario USUARIO)
         {
-            OracleConnection conn = new OracleConnection(conexion);
             try
             {
-                DialogResult result;
-                result = MessageBox.Show("¿Esta seguro de eliminar este empleado?", "Eliminar Empleado", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
+                string salida = string.Empty;
+                using (OracleConnection conn = new OracleConnection(conexion))
                 {
-                    conn.Open();
-                    OracleCommand command = new OracleCommand("eliminarUsuario", conn);
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add("idUsuario", OracleType.Number).Value = Convert.ToInt32(usuario.IDUSUARIO);
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Usuario Eliminado");
+                    DialogResult result;
+                    result = MessageBox.Show("¿Esta seguro de cambiar el estado del usuario?", "Cambiar Estado", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        conn.Open();
+                        OracleCommand command = new OracleCommand("SP_SET_STATUS_CHANGE_USUARIO", conn);
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+                        command.Parameters.Add("IDUSUARIO", OracleType.Number).Value = Convert.ToInt32(USUARIO.IDUSUARIO);
+                        command.Parameters.Add("IDESTADO", OracleType.Number).Value = Convert.ToInt32(USUARIO.IDESTADO);
+
+                        OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
+                        par.Direction = ParameterDirection.Output;
+                        par.Size = 250;
+                        command.Parameters.Add(par);
+                        command.ExecuteNonQuery();
+                        salida = command.Parameters["V_DETALLE"].Value.ToString();
+                        conn.Close();
+                    }
                 }
+                if (string.IsNullOrEmpty(salida))
+                    return true;
                 else
-                {
-                    return;
-                }
+                    return false;
+            }
+            catch (OracleException orex)
+            {
+                return false;
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("Error" + ex);
+                //ex.Message;
+                //ex.StackTrace;
+                //agregar ex al Log
+                return false;
             }
-
-            conn.Close();
         }
     }
 }
