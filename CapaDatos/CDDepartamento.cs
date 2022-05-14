@@ -147,6 +147,7 @@ namespace CapaDatos
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add("VA_DE_DESCRIPCION", OracleType.NVarChar).Value = depto.descripcionDepto;
                     command.Parameters.Add("VA_DE_PRECIO", OracleType.Number).Value = depto.precioDepto;
+
                     command.Parameters.Add("VA_IDTIPODEPARTAMENTO", OracleType.Number).Value = depto.idTipoDepto;
                     command.Parameters.Add("VA_IDESTADODEPARTAMENTO", OracleType.Number).Value = depto.idEstadoDepto;
                     command.ExecuteNonQuery();

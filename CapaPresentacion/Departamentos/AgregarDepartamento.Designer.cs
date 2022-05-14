@@ -42,6 +42,8 @@ namespace CapaPresentacion.Departamentos
             this.cbxTipoDepto = new System.Windows.Forms.ComboBox();
             this.cbxEstadoDepa = new System.Windows.Forms.ComboBox();
             this.lblEstadoDepa = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtEstrellas = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnProbarConexion
@@ -75,7 +77,7 @@ namespace CapaPresentacion.Departamentos
             // lblTipoDepa
             // 
             this.lblTipoDepa.AutoSize = true;
-            this.lblTipoDepa.Location = new System.Drawing.Point(20, 212);
+            this.lblTipoDepa.Location = new System.Drawing.Point(23, 231);
             this.lblTipoDepa.Name = "lblTipoDepa";
             this.lblTipoDepa.Size = new System.Drawing.Size(113, 13);
             this.lblTipoDepa.TabIndex = 50;
@@ -84,7 +86,7 @@ namespace CapaPresentacion.Departamentos
             // lblIDEstado
             // 
             this.lblIDEstado.AutoSize = true;
-            this.lblIDEstado.Location = new System.Drawing.Point(20, 162);
+            this.lblIDEstado.Location = new System.Drawing.Point(23, 139);
             this.lblIDEstado.Name = "lblIDEstado";
             this.lblIDEstado.Size = new System.Drawing.Size(124, 13);
             this.lblIDEstado.TabIndex = 49;
@@ -101,16 +103,16 @@ namespace CapaPresentacion.Departamentos
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(161, 159);
+            this.txtPrecio.Location = new System.Drawing.Point(183, 136);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(143, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(185, 20);
             this.txtPrecio.TabIndex = 45;
             // 
             // txtDescDepto
             // 
-            this.txtDescDepto.Location = new System.Drawing.Point(20, 122);
+            this.txtDescDepto.Location = new System.Drawing.Point(183, 99);
             this.txtDescDepto.Name = "txtDescDepto";
-            this.txtDescDepto.Size = new System.Drawing.Size(284, 20);
+            this.txtDescDepto.Size = new System.Drawing.Size(185, 20);
             this.txtDescDepto.TabIndex = 44;
             // 
             // lblDesc
@@ -135,9 +137,9 @@ namespace CapaPresentacion.Departamentos
             // cbxTipoDepto
             // 
             this.cbxTipoDepto.FormattingEnabled = true;
-            this.cbxTipoDepto.Location = new System.Drawing.Point(183, 209);
+            this.cbxTipoDepto.Location = new System.Drawing.Point(183, 231);
             this.cbxTipoDepto.Name = "cbxTipoDepto";
-            this.cbxTipoDepto.Size = new System.Drawing.Size(238, 21);
+            this.cbxTipoDepto.Size = new System.Drawing.Size(185, 21);
             this.cbxTipoDepto.TabIndex = 54;
             this.cbxTipoDepto.SelectedIndexChanged += new System.EventHandler(this.cbxTipoDepto_SelectedIndexChanged);
             // 
@@ -146,7 +148,7 @@ namespace CapaPresentacion.Departamentos
             this.cbxEstadoDepa.FormattingEnabled = true;
             this.cbxEstadoDepa.Location = new System.Drawing.Point(183, 258);
             this.cbxEstadoDepa.Name = "cbxEstadoDepa";
-            this.cbxEstadoDepa.Size = new System.Drawing.Size(238, 21);
+            this.cbxEstadoDepa.Size = new System.Drawing.Size(185, 21);
             this.cbxEstadoDepa.TabIndex = 56;
             // 
             // lblEstadoDepa
@@ -158,11 +160,29 @@ namespace CapaPresentacion.Departamentos
             this.lblEstadoDepa.TabIndex = 55;
             this.lblEstadoDepa.Text = "Estado del Departamento";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(23, 187);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "Número Estrellas";
+            // 
+            // txtEstrellas
+            // 
+            this.txtEstrellas.Location = new System.Drawing.Point(183, 187);
+            this.txtEstrellas.Name = "txtEstrellas";
+            this.txtEstrellas.Size = new System.Drawing.Size(64, 20);
+            this.txtEstrellas.TabIndex = 58;
+            // 
             // AgregarDepartamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtEstrellas);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxEstadoDepa);
             this.Controls.Add(this.lblEstadoDepa);
             this.Controls.Add(this.cbxTipoDepto);
@@ -198,5 +218,7 @@ namespace CapaPresentacion.Departamentos
         private System.Windows.Forms.ComboBox cbxTipoDepto;
         private System.Windows.Forms.ComboBox cbxEstadoDepa;
         private System.Windows.Forms.Label lblEstadoDepa;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtEstrellas;
     }
 }

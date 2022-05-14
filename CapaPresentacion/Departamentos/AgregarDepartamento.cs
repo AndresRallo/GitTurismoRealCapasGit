@@ -33,6 +33,7 @@ namespace CapaPresentacion.Departamentos
 
                 depto.descripcionDepto = txtDescDepto.Text;
                 depto.precioDepto = Convert.ToInt32(txtPrecio.Text);
+                depto.de_start = Convert.ToInt32(txtEstrellas.Text);
                 depto.idTipoDepto = Convert.ToInt32(cbxTipoDepto.Text);
                 depto.idEstadoDepto = Convert.ToInt32(cbxEstadoDepa.Text);
 
