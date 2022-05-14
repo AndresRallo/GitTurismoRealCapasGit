@@ -1,6 +1,7 @@
 ﻿using CapaEntidad;
 using CapaNegocio;
 using CapaNegocio.Library;
+using CryptSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
-            LoadComboRegion();
+            //LoadComboRegion();
             LoadComboTipoEmpleado();
 
             CNEmpleado lista = new CNEmpleado();
@@ -84,7 +85,7 @@ namespace CapaPresentacion
         }
 
         
-        private void LoadComboRegion()
+       /* private void LoadComboRegion()
         {
             try
             {
@@ -104,7 +105,7 @@ namespace CapaPresentacion
                   {
                       cbComuna.DataSource = null;
 
-                  } */
+                  } 
             }
             catch (Exception ex)
             {
@@ -113,9 +114,9 @@ namespace CapaPresentacion
             }
 
 
-        }
+        } */
 
-        private void LoadComboComuna(int idregion)
+      /*  private void LoadComboComuna(int idregion)
         {
             try
             {
@@ -133,31 +134,27 @@ namespace CapaPresentacion
                 MessageBox.Show("error " + ex);
             }
 
-        }
+        } */
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             try
             {
                 CEEmpleado empleado = new CEEmpleado();
+                CEDireccion direccion = new CEDireccion();
                 empleado.IDEMPLEADO = Convert.ToInt32(txtIDEmpleado.Text);
-                empleado.IDDIRECCION = Convert.ToInt32(txtIDDireccion.Text);
+                direccion.idDireccion = Convert.ToInt32(txtIDDireccion.Text);
                 
                 empleado.EM_NOMBRE = txtNOMBRE.Text;
                 empleado.EM_APATERNO = txtAPATERNO.Text;
                 empleado.EM_AMATERNO = txtAMATERNO.Text;
-                empleado.EM_EMAIL = txtEMAIL.Text;
-                string ePass = Encrypt.GetSHA256(txtPW.Text);
-
+                string ePass = Crypter.Blowfish.Crypt(txtPW.Text);
                 empleado.EM_CONTRASEÑA = ePass;
-                
                 empleado.IDTIPOEMPLEADO = Convert.ToInt32(cbIDTipo.SelectedValue);
-                
 
-                CEDireccion direccion = new CEDireccion();
+                
                 direccion.de_direccion = txtDIRECCION.Text;
                 direccion.de_numero = txtNUM_DIRECCION.Text;
-                direccion.id_comuna = Convert.ToInt32(cbComuna.SelectedValue);
                 empleado.direccion = direccion;
 
                 if (cbIDTipo.Text == "CHÓFER")
@@ -223,7 +220,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void cbRegion_SelectedIndexChanged(object sender, EventArgs e)
+     /*   private void cbRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -237,6 +234,6 @@ namespace CapaPresentacion
 
                 MessageBox.Show("error " + ex);
             }
-        }
+        } */
     }
 }

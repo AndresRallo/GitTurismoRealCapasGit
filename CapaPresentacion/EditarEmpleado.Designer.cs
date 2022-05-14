@@ -43,10 +43,8 @@ namespace CapaPresentacion
             this.lblDireccion = new System.Windows.Forms.Label();
             this.txtDIRECCION = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPW = new System.Windows.Forms.TextBox();
-            this.txtEMAIL = new System.Windows.Forms.TextBox();
             this.txtAMATERNO = new System.Windows.Forms.TextBox();
             this.txtAPATERNO = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,10 +52,6 @@ namespace CapaPresentacion
             this.txtNOMBRE = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtIDDireccion = new System.Windows.Forms.TextBox();
-            this.cbRegion = new System.Windows.Forms.ComboBox();
-            this.cbComuna = new System.Windows.Forms.ComboBox();
-            this.lblComuna = new System.Windows.Forms.Label();
-            this.lblRegion = new System.Windows.Forms.Label();
             this.cbIDTipo = new System.Windows.Forms.ComboBox();
             this.lblIDTipo = new System.Windows.Forms.Label();
             this.groupBoxVehiculo = new System.Windows.Forms.GroupBox();
@@ -156,7 +150,7 @@ namespace CapaPresentacion
             // 
             // txtNUM_DIRECCION
             // 
-            this.txtNUM_DIRECCION.Location = new System.Drawing.Point(121, 271);
+            this.txtNUM_DIRECCION.Location = new System.Drawing.Point(121, 245);
             this.txtNUM_DIRECCION.Name = "txtNUM_DIRECCION";
             this.txtNUM_DIRECCION.Size = new System.Drawing.Size(146, 20);
             this.txtNUM_DIRECCION.TabIndex = 57;
@@ -164,7 +158,7 @@ namespace CapaPresentacion
             // lblNumDireccion
             // 
             this.lblNumDireccion.AutoSize = true;
-            this.lblNumDireccion.Location = new System.Drawing.Point(21, 274);
+            this.lblNumDireccion.Location = new System.Drawing.Point(21, 248);
             this.lblNumDireccion.Name = "lblNumDireccion";
             this.lblNumDireccion.Size = new System.Drawing.Size(44, 13);
             this.lblNumDireccion.TabIndex = 56;
@@ -173,7 +167,7 @@ namespace CapaPresentacion
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(21, 248);
+            this.lblDireccion.Location = new System.Drawing.Point(21, 222);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblDireccion.TabIndex = 55;
@@ -181,7 +175,7 @@ namespace CapaPresentacion
             // 
             // txtDIRECCION
             // 
-            this.txtDIRECCION.Location = new System.Drawing.Point(121, 245);
+            this.txtDIRECCION.Location = new System.Drawing.Point(121, 219);
             this.txtDIRECCION.Name = "txtDIRECCION";
             this.txtDIRECCION.Size = new System.Drawing.Size(146, 20);
             this.txtDIRECCION.TabIndex = 52;
@@ -189,20 +183,11 @@ namespace CapaPresentacion
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 222);
+            this.label5.Location = new System.Drawing.Point(21, 196);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 50;
             this.label5.Text = "Contraseña";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 196);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
-            this.label6.TabIndex = 49;
-            this.label6.Text = "Email";
             // 
             // label7
             // 
@@ -215,18 +200,11 @@ namespace CapaPresentacion
             // 
             // txtPW
             // 
-            this.txtPW.Location = new System.Drawing.Point(121, 219);
+            this.txtPW.Location = new System.Drawing.Point(121, 193);
             this.txtPW.Name = "txtPW";
             this.txtPW.PasswordChar = '*';
             this.txtPW.Size = new System.Drawing.Size(146, 20);
             this.txtPW.TabIndex = 47;
-            // 
-            // txtEMAIL
-            // 
-            this.txtEMAIL.Location = new System.Drawing.Point(121, 193);
-            this.txtEMAIL.Name = "txtEMAIL";
-            this.txtEMAIL.Size = new System.Drawing.Size(146, 20);
-            this.txtEMAIL.TabIndex = 46;
             // 
             // txtAMATERNO
             // 
@@ -283,47 +261,6 @@ namespace CapaPresentacion
             this.txtIDDireccion.Size = new System.Drawing.Size(24, 20);
             this.txtIDDireccion.TabIndex = 60;
             // 
-            // cbRegion
-            // 
-            this.cbRegion.FormattingEnabled = true;
-            this.cbRegion.Location = new System.Drawing.Point(387, 89);
-            this.cbRegion.Name = "cbRegion";
-            this.cbRegion.Size = new System.Drawing.Size(146, 21);
-            this.cbRegion.TabIndex = 66;
-            this.cbRegion.SelectedIndexChanged += new System.EventHandler(this.cbRegion_SelectedIndexChanged);
-            // 
-            // cbComuna
-            // 
-            this.cbComuna.AutoCompleteCustomSource.AddRange(new string[] {
-            "Seleccione Tipo de Empleado",
-            "1. Administrador",
-            "2. Recepcionista",
-            "3. Chofer",
-            "4. Guia Turistico"});
-            this.cbComuna.FormattingEnabled = true;
-            this.cbComuna.Location = new System.Drawing.Point(387, 118);
-            this.cbComuna.Name = "cbComuna";
-            this.cbComuna.Size = new System.Drawing.Size(146, 21);
-            this.cbComuna.TabIndex = 65;
-            // 
-            // lblComuna
-            // 
-            this.lblComuna.AutoSize = true;
-            this.lblComuna.Location = new System.Drawing.Point(287, 121);
-            this.lblComuna.Name = "lblComuna";
-            this.lblComuna.Size = new System.Drawing.Size(46, 13);
-            this.lblComuna.TabIndex = 64;
-            this.lblComuna.Text = "Comuna";
-            // 
-            // lblRegion
-            // 
-            this.lblRegion.AutoSize = true;
-            this.lblRegion.Location = new System.Drawing.Point(287, 92);
-            this.lblRegion.Name = "lblRegion";
-            this.lblRegion.Size = new System.Drawing.Size(41, 13);
-            this.lblRegion.TabIndex = 63;
-            this.lblRegion.Text = "Región";
-            // 
             // cbIDTipo
             // 
             this.cbIDTipo.FormattingEnabled = true;
@@ -332,7 +269,7 @@ namespace CapaPresentacion
             "2. Recepcionista",
             "3. Chofer",
             "4. Guia Turistico"});
-            this.cbIDTipo.Location = new System.Drawing.Point(387, 148);
+            this.cbIDTipo.Location = new System.Drawing.Point(121, 271);
             this.cbIDTipo.Name = "cbIDTipo";
             this.cbIDTipo.Size = new System.Drawing.Size(146, 21);
             this.cbIDTipo.TabIndex = 62;
@@ -341,7 +278,7 @@ namespace CapaPresentacion
             // lblIDTipo
             // 
             this.lblIDTipo.AutoSize = true;
-            this.lblIDTipo.Location = new System.Drawing.Point(287, 151);
+            this.lblIDTipo.Location = new System.Drawing.Point(21, 274);
             this.lblIDTipo.Name = "lblIDTipo";
             this.lblIDTipo.Size = new System.Drawing.Size(42, 13);
             this.lblIDTipo.TabIndex = 61;
@@ -356,7 +293,7 @@ namespace CapaPresentacion
             this.groupBoxVehiculo.Controls.Add(this.txtPatenteVe);
             this.groupBoxVehiculo.Controls.Add(this.lblPatenteVe);
             this.groupBoxVehiculo.Enabled = false;
-            this.groupBoxVehiculo.Location = new System.Drawing.Point(539, 63);
+            this.groupBoxVehiculo.Location = new System.Drawing.Point(545, 70);
             this.groupBoxVehiculo.Name = "groupBoxVehiculo";
             this.groupBoxVehiculo.Size = new System.Drawing.Size(243, 113);
             this.groupBoxVehiculo.TabIndex = 67;
@@ -419,10 +356,6 @@ namespace CapaPresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBoxVehiculo);
-            this.Controls.Add(this.cbRegion);
-            this.Controls.Add(this.cbComuna);
-            this.Controls.Add(this.lblComuna);
-            this.Controls.Add(this.lblRegion);
             this.Controls.Add(this.cbIDTipo);
             this.Controls.Add(this.lblIDTipo);
             this.Controls.Add(this.txtIDDireccion);
@@ -432,10 +365,8 @@ namespace CapaPresentacion
             this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.txtDIRECCION);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPW);
-            this.Controls.Add(this.txtEMAIL);
             this.Controls.Add(this.txtAMATERNO);
             this.Controls.Add(this.txtAPATERNO);
             this.Controls.Add(this.label8);
@@ -476,10 +407,8 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.TextBox txtDIRECCION;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPW;
-        private System.Windows.Forms.TextBox txtEMAIL;
         private System.Windows.Forms.TextBox txtAMATERNO;
         private System.Windows.Forms.TextBox txtAPATERNO;
         private System.Windows.Forms.Label label8;
@@ -487,10 +416,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox txtNOMBRE;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtIDDireccion;
-        private System.Windows.Forms.ComboBox cbRegion;
-        private System.Windows.Forms.ComboBox cbComuna;
-        private System.Windows.Forms.Label lblComuna;
-        private System.Windows.Forms.Label lblRegion;
         private System.Windows.Forms.ComboBox cbIDTipo;
         private System.Windows.Forms.Label lblIDTipo;
         private System.Windows.Forms.GroupBox groupBoxVehiculo;

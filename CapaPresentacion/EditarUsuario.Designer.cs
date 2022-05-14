@@ -31,12 +31,10 @@ namespace CapaPresentacion
         {
             this.btnEditar = new System.Windows.Forms.Button();
             this.txtContrasenia = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtAMaterno = new System.Windows.Forms.TextBox();
             this.txtAPaterno = new System.Windows.Forms.TextBox();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.lblContrasenia = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
             this.lblAMaterno = new System.Windows.Forms.Label();
             this.lblAPaterno = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -65,17 +63,11 @@ namespace CapaPresentacion
             // 
             // txtContrasenia
             // 
-            this.txtContrasenia.Location = new System.Drawing.Point(111, 245);
+            this.txtContrasenia.Location = new System.Drawing.Point(111, 219);
             this.txtContrasenia.Name = "txtContrasenia";
+            this.txtContrasenia.PasswordChar = '*';
             this.txtContrasenia.Size = new System.Drawing.Size(100, 20);
             this.txtContrasenia.TabIndex = 57;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(111, 219);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
-            this.txtEmail.TabIndex = 56;
             // 
             // txtAMaterno
             // 
@@ -101,20 +93,11 @@ namespace CapaPresentacion
             // lblContrasenia
             // 
             this.lblContrasenia.AutoSize = true;
-            this.lblContrasenia.Location = new System.Drawing.Point(21, 248);
+            this.lblContrasenia.Location = new System.Drawing.Point(21, 222);
             this.lblContrasenia.Name = "lblContrasenia";
             this.lblContrasenia.Size = new System.Drawing.Size(61, 13);
             this.lblContrasenia.TabIndex = 48;
             this.lblContrasenia.Text = "Contraseña";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(21, 222);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(32, 13);
-            this.lblEmail.TabIndex = 47;
-            this.lblEmail.Text = "Email";
             // 
             // lblAMaterno
             // 
@@ -225,7 +208,7 @@ namespace CapaPresentacion
             "3. Chofer",
             "4. Guia Turistico"});
             this.cbESTADO.FormattingEnabled = true;
-            this.cbESTADO.Location = new System.Drawing.Point(111, 271);
+            this.cbESTADO.Location = new System.Drawing.Point(111, 245);
             this.cbESTADO.Name = "cbESTADO";
             this.cbESTADO.Size = new System.Drawing.Size(100, 21);
             this.cbESTADO.TabIndex = 63;
@@ -233,7 +216,7 @@ namespace CapaPresentacion
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 279);
+            this.label3.Location = new System.Drawing.Point(24, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 64;
@@ -248,12 +231,10 @@ namespace CapaPresentacion
             this.Controls.Add(this.cbESTADO);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.txtContrasenia);
-            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtAMaterno);
             this.Controls.Add(this.txtAPaterno);
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.lblContrasenia);
-            this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblAMaterno);
             this.Controls.Add(this.lblAPaterno);
             this.Controls.Add(this.lblNombre);
@@ -277,12 +258,10 @@ namespace CapaPresentacion
 
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.TextBox txtContrasenia;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtAMaterno;
         private System.Windows.Forms.TextBox txtAPaterno;
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.Label lblContrasenia;
-        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblAMaterno;
         private System.Windows.Forms.Label lblAPaterno;
         private System.Windows.Forms.Label lblNombre;

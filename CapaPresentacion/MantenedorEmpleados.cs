@@ -17,6 +17,8 @@ namespace CapaPresentacion
         public MantenedorEmpleados()
         {
             InitializeComponent();
+
+            btnEditar.Enabled = false;
         }
 
         private void label1_Click(object sender, EventArgs e)

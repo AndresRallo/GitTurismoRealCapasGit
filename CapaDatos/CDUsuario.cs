@@ -46,13 +46,13 @@ namespace CapaDatos
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add("IDUSER", OracleType.Number).Value = Convert.ToInt32(cEUsuario.US_RUT);
                     
-                    command.Parameters.Add("NOMBRECLI", OracleType.NVarChar).Value = cEUsuario.US_NOMBRE;
-                    command.Parameters.Add("APATERNOCLI", OracleType.NVarChar).Value = cEUsuario.US_APATERNO;
-                    command.Parameters.Add("AMATERNOEMP", OracleType.NVarChar).Value = cEUsuario.US_AMATERNO;
-                    command.Parameters.Add("EMAILEMP", OracleType.NVarChar).Value = cEUsuario.US_EMAIL;
-                    command.Parameters.Add("PWSEMP", OracleType.NVarChar).Value = cEUsuario.US_CONTRASEÑA;
+                    command.Parameters.Add("NOMBREUSER", OracleType.NVarChar).Value = cEUsuario.US_NOMBRE;
+                    command.Parameters.Add("APATERNOUSER", OracleType.NVarChar).Value = cEUsuario.US_APATERNO;
+                    command.Parameters.Add("AMATERNOUSER", OracleType.NVarChar).Value = cEUsuario.US_AMATERNO;
                     
-                    command.Parameters.Add("IDESTADOCLI", OracleType.Number).Value = Convert.ToInt32(cEUsuario.IDESTADO);
+                    command.Parameters.Add("PWSUSER", OracleType.NVarChar).Value = cEUsuario.US_CONTRASEÑA;
+                    
+                    command.Parameters.Add("IDESTADOUSER", OracleType.Number).Value = Convert.ToInt32(cEUsuario.IDESTADO);
                     OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
                     par.Direction = ParameterDirection.Output;
                     par.Size = 250;

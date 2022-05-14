@@ -385,14 +385,13 @@ namespace CapaDatos
                     OracleCommand command = new OracleCommand("SP_UPDATE_EMPLEADO", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add("IDEMP", OracleType.Number).Value = Convert.ToInt32(cE.IDEMPLEADO);
-                    command.Parameters.Add("IDDIREC", OracleType.Number).Value = Convert.ToInt32(cE.IDDIRECCION);
                     command.Parameters.Add("NOMBREEMP", OracleType.NVarChar).Value = cE.EM_NOMBRE;
                     command.Parameters.Add("APATERNOEMP", OracleType.NVarChar).Value = cE.EM_APATERNO;
                     command.Parameters.Add("AMATERNOEMP", OracleType.NVarChar).Value = cE.EM_AMATERNO;
-                    command.Parameters.Add("EMAILEMP", OracleType.NVarChar).Value = cE.EM_EMAIL;
                     command.Parameters.Add("PWSEMP", OracleType.NVarChar).Value = cE.EM_CONTRASEÑA;
                     command.Parameters.Add("IDTIPOEMP", OracleType.Number).Value = Convert.ToInt32(cE.IDTIPOEMPLEADO);
-
+                    command.Parameters.Add("IDESTADOEMP", OracleType.Number).Value = Convert.ToInt32(cE.IDESTADO);
+                    command.Parameters.Add("IDDIREC", OracleType.Number).Value = Convert.ToInt32(cE.IDDIRECCION);
                     command.Parameters.Add("DIRECCION", OracleType.NVarChar).Value = Convert.ToString(cE.direccion.de_direccion);
                     command.Parameters.Add("NUMDIREC", OracleType.NVarChar).Value = cE.direccion.de_numero;
                     command.Parameters.Add("IDCOMUNADIREC", OracleType.Number).Value = Convert.ToInt32(cE.direccion.id_comuna);

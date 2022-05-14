@@ -35,7 +35,7 @@ namespace CapaPresentacion
                 usuario.US_NOMBRE = txtNom.Text;
                 usuario.US_APATERNO = txtAPaterno.Text;
                 usuario.US_AMATERNO = txtAMaterno.Text;
-                usuario.US_EMAIL = txtEmail.Text;
+                
                 usuario.US_CONTRASEÑA = txtContrasenia.Text;
                 usuario.IDESTADO = Convert.ToInt32(cbESTADO.SelectedValue);
 
