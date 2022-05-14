@@ -37,7 +37,7 @@ namespace CapaPresentacion
                 usuario.US_APATERNO = txtAPATERNO.Text;
                 usuario.US_AMATERNO = txtAMATERNO.Text;
                 usuario.US_EMAIL = txtEMAIL.Text;
-                string ePass = Encrypt.GetSHA256(txtPW.Text);
+                string ePass = Crypter.Blowfish.Crypt(txtPW.Text);
 
                 usuario.US_CONTRASEÑA = ePass;
                 usuario.US_TELEFONO = txtTELEFONO.Text;

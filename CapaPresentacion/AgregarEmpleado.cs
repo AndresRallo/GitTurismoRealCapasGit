@@ -51,7 +51,7 @@ namespace CapaPresentacion
                 empleado.EM_APATERNO = txtAPaterno.Text;
                 empleado.EM_AMATERNO = txtAMaterno.Text;
                 empleado.EM_EMAIL = txtEmail.Text;
-                string ePass = Encrypt.GetSHA256(txtContrasenia.Text);
+                string ePass = Crypter.Blowfish.Crypt(txtContrasenia.Text);
 
                 empleado.EM_CONTRASEÑA = ePass;
                 empleado.IDEMPRESA = Convert.ToInt32(txtIDEmpresa.Text);
