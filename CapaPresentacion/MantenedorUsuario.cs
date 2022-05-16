@@ -17,6 +17,8 @@ namespace CapaPresentacion
         public MantenedorUsuario()
         {
             InitializeComponent();
+
+            //btnEditar.Enabled = false;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

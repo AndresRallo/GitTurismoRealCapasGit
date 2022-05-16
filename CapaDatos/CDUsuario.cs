@@ -44,7 +44,7 @@ namespace CapaDatos
                     OracleCommand command = new OracleCommand("SP_UPDATE_USUARIO", conn);
 
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add("IDUSER", OracleType.Number).Value = Convert.ToInt32(cEUsuario.US_RUT);
+                    command.Parameters.Add("IDUSER", OracleType.Number).Value = Convert.ToInt32(cEUsuario.IDUSUARIO);
                     
                     command.Parameters.Add("NOMBREUSER", OracleType.NVarChar).Value = cEUsuario.US_NOMBRE;
                     command.Parameters.Add("APATERNOUSER", OracleType.NVarChar).Value = cEUsuario.US_APATERNO;

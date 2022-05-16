@@ -26,6 +26,8 @@ namespace CapaPresentacion
 
             CNEmpleado lista = new CNEmpleado();
             dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
+            dgvVEHICULO.DataSource = lista.ObtenerVehiculos();
+
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

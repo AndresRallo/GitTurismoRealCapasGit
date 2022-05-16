@@ -35,7 +35,9 @@ namespace CapaPresentacion
             this.btnListar = new System.Windows.Forms.Button();
             this.btnProbarConexion = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.dgvVEHICULO = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVEHICULO)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -64,7 +66,7 @@ namespace CapaPresentacion
             this.dataGridViewEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEmpleados.Location = new System.Drawing.Point(36, 130);
             this.dataGridViewEmpleados.Name = "dataGridViewEmpleados";
-            this.dataGridViewEmpleados.Size = new System.Drawing.Size(717, 308);
+            this.dataGridViewEmpleados.Size = new System.Drawing.Size(717, 128);
             this.dataGridViewEmpleados.TabIndex = 2;
             this.dataGridViewEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmpleados_CellContentClick);
             // 
@@ -92,11 +94,20 @@ namespace CapaPresentacion
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
+            // dgvVEHICULO
+            // 
+            this.dgvVEHICULO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVEHICULO.Location = new System.Drawing.Point(36, 282);
+            this.dgvVEHICULO.Name = "dgvVEHICULO";
+            this.dgvVEHICULO.Size = new System.Drawing.Size(717, 139);
+            this.dgvVEHICULO.TabIndex = 6;
+            // 
             // ListarEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvVEHICULO);
             this.Controls.Add(this.btnProbarConexion);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.dataGridViewEmpleados);
@@ -105,6 +116,7 @@ namespace CapaPresentacion
             this.Name = "ListarEmpleados";
             this.Text = "ListarEmpleados";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVEHICULO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,5 +130,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnProbarConexion;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DataGridView dgvVEHICULO;
     }
 }

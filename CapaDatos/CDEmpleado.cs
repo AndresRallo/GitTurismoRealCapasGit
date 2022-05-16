@@ -231,7 +231,40 @@ namespace CapaDatos
                 throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
         }
+        public List<CEVehiculo> LISTA_VEHICULO()
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CEVehiculo> LISTA_VEHICULO = new List<CEVehiculo>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_VEHICULO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        LISTA_VEHICULO.Add(new CEVehiculo
+                        {
+                            id_ve = Convert.ToInt32(mostrarTabla["IDVEHICULO"]),
+                            marca_ve = Convert.ToString(mostrarTabla["VE_MARCA"].ToString()),
+                            anio_ve = Convert.ToInt32(mostrarTabla["VE_ANIO"]),
+                            patente_ve = Convert.ToString(mostrarTabla["VE_PATENTE"].ToString()),
+                            idempleado = Convert.ToInt32(mostrarTabla["IDEMPLEADO"].ToString())
+                        });
+                    }
+                    conn.Close();
+                }
+                return LISTA_VEHICULO;
+            }
+            catch (OracleException oex)
+            {
 
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
+        }
         public List<CEEmpleado> Empleado()
         {
             try

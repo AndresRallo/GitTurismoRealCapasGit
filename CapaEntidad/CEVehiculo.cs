@@ -12,6 +12,7 @@ namespace CapaEntidad
         public int anio_ve { get; set; }
         public string marca_ve { get; set; }
         public string patente_ve { get; set; }
+        public int idempleado { get; set; }
         public CEVehiculo() { }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using CapaEntidad;
+using CryptSharp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,6 +33,7 @@ namespace CapaNegocio
 
         public bool EditarUsuario(CEUsuario usuario)
         {
+            usuario.US_CONTRASEÑA = Crypter.Blowfish.Crypt(usuario.US_CONTRASEÑA);
            return cDUsuario.EditarUsuario(usuario);
         }
 

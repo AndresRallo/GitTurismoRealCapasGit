@@ -61,7 +61,7 @@ namespace CapaPresentacion
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-           /* try
+            try
             {
                 CNUsuario lista = new CNUsuario();
                 dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
@@ -72,7 +72,7 @@ namespace CapaPresentacion
             {
 
                 MessageBox.Show("error " + ex);
-            } */
+            } 
         }
         private void LoadComboEstadoEmpleado()
         {

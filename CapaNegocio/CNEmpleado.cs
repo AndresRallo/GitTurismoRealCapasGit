@@ -55,6 +55,13 @@ namespace CapaNegocio
             return LISTA_EMPLEADO;
         }
 
+        public List<CEVehiculo> ObtenerVehiculos()
+        {
+            List<CEVehiculo> LISTA_VEHICULO = new List<CEVehiculo>();
+            LISTA_VEHICULO = cDEmpleado.LISTA_VEHICULO();
+            return LISTA_VEHICULO;
+        }
+
         public List<CEComuna> ObtenerComunas(int idregion)
         {
             List<CEComuna> listaDireccion = new List<CEComuna>();

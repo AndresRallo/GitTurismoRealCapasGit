@@ -18,7 +18,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
-            btnEditar.Enabled = false;
+            //btnEditar.Enabled = false;
         }
 
         private void label1_Click(object sender, EventArgs e)

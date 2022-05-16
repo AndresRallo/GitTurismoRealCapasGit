@@ -158,7 +158,7 @@ namespace CapaPresentacion
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(150, 23);
             this.btnListar.TabIndex = 36;
-            this.btnListar.Text = "Listar/Actualizar Usuario";
+            this.btnListar.Text = "Actualizar Lista";
             this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
