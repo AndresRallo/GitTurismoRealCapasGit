@@ -97,7 +97,7 @@ namespace CapaPresentacion
             this.btnListarEmpleados.Name = "btnListarEmpleados";
             this.btnListarEmpleados.Size = new System.Drawing.Size(135, 23);
             this.btnListarEmpleados.TabIndex = 5;
-            this.btnListarEmpleados.Text = "Listar/Actualizar";
+            this.btnListarEmpleados.Text = "Actualizar";
             this.btnListarEmpleados.UseVisualStyleBackColor = true;
             this.btnListarEmpleados.Click += new System.EventHandler(this.btnListarEmpleados_Click);
             // 

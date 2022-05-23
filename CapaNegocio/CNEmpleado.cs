@@ -8,6 +8,7 @@ using CapaEntidad;
 using CapaDatos;
 using System.Data;
 using TurismoRealExceptions;
+using CryptSharp;
 
 namespace CapaNegocio
 {
@@ -33,6 +34,7 @@ namespace CapaNegocio
         
         public bool EditarEmpleado(CEEmpleado cE) 
         {
+            cE.EM_CONTRASEÑA = Crypter.Blowfish.Crypt(cE.EM_CONTRASEÑA);
            return cDEmpleado.EditarEmpleado(cE);
         }
 

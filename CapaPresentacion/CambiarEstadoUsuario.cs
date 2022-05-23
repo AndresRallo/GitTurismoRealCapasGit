@@ -34,7 +34,7 @@ namespace CapaPresentacion
 
         private void btnListarUsuario_Click(object sender, EventArgs e)
         {
-           /* try
+            try
             {
                 CNUsuario lista = new CNUsuario();
                 dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
@@ -45,7 +45,7 @@ namespace CapaPresentacion
             {
 
                 MessageBox.Show("error " + ex);
-            } */
+            } 
         }
 
         private void btnProbarConexion_Click(object sender, EventArgs e)
@@ -63,6 +63,7 @@ namespace CapaPresentacion
 
                 if (cNUsuario.CAMBIAR_ESTADO_USUARIO(usuario))
                     MessageBox.Show("CAMBIO DE ESTADO EXITOSO");
+                    
                 else
                     MessageBox.Show("CAMBIO DE ESTADO NO EXITOSO");
             }

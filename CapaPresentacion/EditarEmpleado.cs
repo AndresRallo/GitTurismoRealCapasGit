@@ -26,8 +26,9 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
-            //LoadComboRegion();
+            LoadComboRegion();
             LoadComboTipoEmpleado();
+            LoadComboEstadoEmpleado();
 
             CNEmpleado lista = new CNEmpleado();
             dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
@@ -39,6 +40,21 @@ namespace CapaPresentacion
             cNEmpleado.PruebaOracle();
         }
 
+        private void LoadComboEstadoEmpleado()
+        {
+            try
+            {
+                cbESTADO.DataSource = cNEmpleado.ObtenerEstado();
+                cbESTADO.ValueMember = "IDESTADO";
+                cbESTADO.DisplayMember = "ES_DESCRIPCION";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error combo estado empleado" + ex);
+            }
+        }
+
         private void btnVolver_Click(object sender, EventArgs e)
         {
             MantenedorEmpleados mantenedorEmpleados = new MantenedorEmpleados();
@@ -48,7 +64,7 @@ namespace CapaPresentacion
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-           /* try
+            try
             {
                 CNEmpleado lista = new CNEmpleado();
                 dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
@@ -59,7 +75,7 @@ namespace CapaPresentacion
             {
 
                 MessageBox.Show("error " + ex);
-            } */
+            } 
 
             /**Procedimiento almacenado
                Create or replace procedure seleccionarEmpleados (registros out SYS_REFCURSOR)
@@ -84,8 +100,8 @@ namespace CapaPresentacion
             }
         }
 
-        
-       /* private void LoadComboRegion()
+
+        private void LoadComboRegion()
         {
             try
             {
@@ -105,7 +121,7 @@ namespace CapaPresentacion
                   {
                       cbComuna.DataSource = null;
 
-                  } 
+                  } */
             }
             catch (Exception ex)
             {
@@ -114,9 +130,9 @@ namespace CapaPresentacion
             }
 
 
-        } */
+        }
 
-      /*  private void LoadComboComuna(int idregion)
+        private void LoadComboComuna(int idregion)
         {
             try
             {
@@ -134,7 +150,7 @@ namespace CapaPresentacion
                 MessageBox.Show("error " + ex);
             }
 
-        } */
+        }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -143,7 +159,7 @@ namespace CapaPresentacion
                 CEEmpleado empleado = new CEEmpleado();
                 CEDireccion direccion = new CEDireccion();
                 empleado.IDEMPLEADO = Convert.ToInt32(txtIDEmpleado.Text);
-                direccion.idDireccion = Convert.ToInt32(txtIDDireccion.Text);
+                empleado.IDDIRECCION = Convert.ToInt32(txtIDDireccion.Text);
                 
                 empleado.EM_NOMBRE = txtNOMBRE.Text;
                 empleado.EM_APATERNO = txtAPATERNO.Text;
@@ -151,10 +167,12 @@ namespace CapaPresentacion
                 string ePass = Crypter.Blowfish.Crypt(txtPW.Text);
                 empleado.EM_CONTRASEÑA = ePass;
                 empleado.IDTIPOEMPLEADO = Convert.ToInt32(cbIDTipo.SelectedValue);
+                empleado.IDESTADO = Convert.ToInt32(cbESTADO.SelectedValue);
 
                 
                 direccion.de_direccion = txtDIRECCION.Text;
                 direccion.de_numero = txtNUM_DIRECCION.Text;
+                direccion.id_comuna = Convert.ToInt32(cbComuna.SelectedValue);
                 empleado.direccion = direccion;
 
                 if (cbIDTipo.Text == "CHÓFER")
@@ -220,7 +238,7 @@ namespace CapaPresentacion
             }
         }
 
-     /*   private void cbRegion_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -234,6 +252,7 @@ namespace CapaPresentacion
 
                 MessageBox.Show("error " + ex);
             }
-        } */
+        }
+
     }
 }

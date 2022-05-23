@@ -247,7 +247,7 @@ namespace CapaPresentacion
             else
             {
                 lblTelefono.ForeColor = Color.ForestGreen;
-                lblTelefono.Text = "Apellido Materno";
+                lblTelefono.Text = "Telefono";
             }
         }
 

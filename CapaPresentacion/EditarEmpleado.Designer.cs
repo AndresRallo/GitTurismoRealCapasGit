@@ -61,6 +61,12 @@ namespace CapaPresentacion
             this.lblMarcaVe = new System.Windows.Forms.Label();
             this.txtPatenteVe = new System.Windows.Forms.TextBox();
             this.lblPatenteVe = new System.Windows.Forms.Label();
+            this.cbESTADO = new System.Windows.Forms.ComboBox();
+            this.lblIDEstado = new System.Windows.Forms.Label();
+            this.cbRegion = new System.Windows.Forms.ComboBox();
+            this.cbComuna = new System.Windows.Forms.ComboBox();
+            this.lblComuna = new System.Windows.Forms.Label();
+            this.lblRegion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).BeginInit();
             this.groupBoxVehiculo.SuspendLayout();
             this.SuspendLayout();
@@ -350,11 +356,81 @@ namespace CapaPresentacion
             this.lblPatenteVe.TabIndex = 29;
             this.lblPatenteVe.Text = "Patente Vehículo";
             // 
+            // cbESTADO
+            // 
+            this.cbESTADO.AutoCompleteCustomSource.AddRange(new string[] {
+            "",
+            "1. Administrador",
+            "2. Recepcionista",
+            "3. Chofer",
+            "4. Guia Turistico"});
+            this.cbESTADO.FormattingEnabled = true;
+            this.cbESTADO.Location = new System.Drawing.Point(121, 298);
+            this.cbESTADO.Name = "cbESTADO";
+            this.cbESTADO.Size = new System.Drawing.Size(146, 21);
+            this.cbESTADO.TabIndex = 69;
+            // 
+            // lblIDEstado
+            // 
+            this.lblIDEstado.AutoSize = true;
+            this.lblIDEstado.Location = new System.Drawing.Point(21, 301);
+            this.lblIDEstado.Name = "lblIDEstado";
+            this.lblIDEstado.Size = new System.Drawing.Size(40, 13);
+            this.lblIDEstado.TabIndex = 68;
+            this.lblIDEstado.Text = "Estado";
+            // 
+            // cbRegion
+            // 
+            this.cbRegion.FormattingEnabled = true;
+            this.cbRegion.Location = new System.Drawing.Point(384, 89);
+            this.cbRegion.Name = "cbRegion";
+            this.cbRegion.Size = new System.Drawing.Size(146, 21);
+            this.cbRegion.TabIndex = 73;
+            this.cbRegion.SelectedIndexChanged += new System.EventHandler(this.cbRegion_SelectedIndexChanged);
+            // 
+            // cbComuna
+            // 
+            this.cbComuna.AutoCompleteCustomSource.AddRange(new string[] {
+            "Seleccione Tipo de Empleado",
+            "1. Administrador",
+            "2. Recepcionista",
+            "3. Chofer",
+            "4. Guia Turistico"});
+            this.cbComuna.FormattingEnabled = true;
+            this.cbComuna.Location = new System.Drawing.Point(384, 118);
+            this.cbComuna.Name = "cbComuna";
+            this.cbComuna.Size = new System.Drawing.Size(146, 21);
+            this.cbComuna.TabIndex = 72;
+            // 
+            // lblComuna
+            // 
+            this.lblComuna.AutoSize = true;
+            this.lblComuna.Location = new System.Drawing.Point(284, 121);
+            this.lblComuna.Name = "lblComuna";
+            this.lblComuna.Size = new System.Drawing.Size(46, 13);
+            this.lblComuna.TabIndex = 71;
+            this.lblComuna.Text = "Comuna";
+            // 
+            // lblRegion
+            // 
+            this.lblRegion.AutoSize = true;
+            this.lblRegion.Location = new System.Drawing.Point(284, 92);
+            this.lblRegion.Name = "lblRegion";
+            this.lblRegion.Size = new System.Drawing.Size(41, 13);
+            this.lblRegion.TabIndex = 70;
+            this.lblRegion.Text = "Región";
+            // 
             // EditarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbRegion);
+            this.Controls.Add(this.cbComuna);
+            this.Controls.Add(this.lblComuna);
+            this.Controls.Add(this.lblRegion);
+            this.Controls.Add(this.cbESTADO);
+            this.Controls.Add(this.lblIDEstado);
             this.Controls.Add(this.groupBoxVehiculo);
             this.Controls.Add(this.cbIDTipo);
             this.Controls.Add(this.lblIDTipo);
@@ -425,5 +501,11 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblMarcaVe;
         private System.Windows.Forms.TextBox txtPatenteVe;
         private System.Windows.Forms.Label lblPatenteVe;
+        private System.Windows.Forms.ComboBox cbESTADO;
+        private System.Windows.Forms.Label lblIDEstado;
+        private System.Windows.Forms.ComboBox cbRegion;
+        private System.Windows.Forms.ComboBox cbComuna;
+        private System.Windows.Forms.Label lblComuna;
+        private System.Windows.Forms.Label lblRegion;
     }
 }
