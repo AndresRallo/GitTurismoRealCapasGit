@@ -8,16 +8,17 @@ namespace CapaEntidad
 {
     public class CEAdjunto
     {
-        public int IdAdjuntoHabitacion { get; set; }
-        public string Ad_Nombre { get; set; }
-        public DateTime Ad_FechaCreacion { get; set; }
-        public string Ad_TipoArchivo { get; set; }
-        public int IdDepartamento { get; set; }
-        public int IdEstado { get; set; }
+        public int IDADJUNTOHABITACION { get; set; }
+        public string AD_NOMBRE { get; set; }
+        public DateTime AD_FECHACREACION { get; set; }
+        public string AD_TIPOARCHIVO { get; set; }
+        public int IDDEPARTAMENTO { get; set; }
+        public int IDESTADO { get; set; }
 
         public CEAdjunto()
         {
 
         }
+        
     }
 }

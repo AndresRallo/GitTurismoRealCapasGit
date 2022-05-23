@@ -10,11 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OracleClient;
+using CapaNegocio.Library;
 
 namespace CapaPresentacion.Departamentos
 {
     public partial class AgregarDepartamento : Form
     {
+
+        Librarys librarys = new Librarys();
         CNDepartamento cNDepartamento = new CNDepartamento();
 
         public AgregarDepartamento()
@@ -83,16 +86,14 @@ namespace CapaPresentacion.Departamentos
 
         private void cbxTipoDepto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //try
-            //{
-                
-            //    int tipoDepto = cbxTipoDepto.SelectedIndex;
-            //}
-            //catch (Exception ex)
-            //{
 
-            //    MessageBox.Show("error " + ex);
-            //}
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            MantenedorDepartamento mantenedorDepartamento = new MantenedorDepartamento();
+            mantenedorDepartamento.Show();
+            this.Close();
         }
     }
 }

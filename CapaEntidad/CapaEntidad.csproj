@@ -43,12 +43,16 @@
   <ItemGroup>
     <Compile Include="CEAdjunto.cs" />
     <Compile Include="CECaracteristicas_Departamento.cs" />
+    <Compile Include="CEComentarios.cs" />
+    <Compile Include="CEComentarios_Departamentos.cs" />
     <Compile Include="CEComuna.cs" />
     <Compile Include="CEDepartamento.cs" />
     <Compile Include="CEDireccion.cs" />
     <Compile Include="CEEmpleado.cs" />
     <Compile Include="CEMantencion.cs" />
+    <Compile Include="CEMulta.cs" />
     <Compile Include="CERegion.cs" />
+    <Compile Include="CESYS_TipoComentario.cs" />
     <Compile Include="CETipoDepartamento.cs" />
     <Compile Include="CEUsuario.cs" />
     <Compile Include="CEVehiculo.cs" />
