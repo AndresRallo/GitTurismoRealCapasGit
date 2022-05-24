@@ -52,7 +52,9 @@
     <Compile Include="CEMantencion.cs" />
     <Compile Include="CEMulta.cs" />
     <Compile Include="CERegion.cs" />
+    <Compile Include="CEReserva_Departamento.cs" />
     <Compile Include="CESYS_TipoComentario.cs" />
+    <Compile Include="CETemporada.cs" />
     <Compile Include="CETipoDepartamento.cs" />
     <Compile Include="CEUsuario.cs" />
     <Compile Include="CEVehiculo.cs" />

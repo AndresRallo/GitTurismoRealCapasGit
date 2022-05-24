@@ -64,6 +64,8 @@ namespace CapaPresentacion.Departamentos
             this.lblNumero = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxComuna = new System.Windows.Forms.ComboBox();
+            this.lblRegion = new System.Windows.Forms.Label();
+            this.cbxRegion = new System.Windows.Forms.ComboBox();
             this.gbxDepto.SuspendLayout();
             this.gbxCarDepto.SuspendLayout();
             this.gbxDireccion.SuspendLayout();
@@ -311,6 +313,8 @@ namespace CapaPresentacion.Departamentos
             // 
             // gbxDireccion
             // 
+            this.gbxDireccion.Controls.Add(this.lblRegion);
+            this.gbxDireccion.Controls.Add(this.cbxRegion);
             this.gbxDireccion.Controls.Add(this.label2);
             this.gbxDireccion.Controls.Add(this.txtNumero);
             this.gbxDireccion.Controls.Add(this.cbxComuna);
@@ -325,7 +329,7 @@ namespace CapaPresentacion.Departamentos
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(5, 45);
+            this.txtDireccion.Location = new System.Drawing.Point(6, 148);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(185, 20);
             this.txtDireccion.TabIndex = 61;
@@ -333,7 +337,7 @@ namespace CapaPresentacion.Departamentos
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(6, 16);
+            this.lblDireccion.Location = new System.Drawing.Point(6, 128);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblDireccion.TabIndex = 61;
@@ -357,7 +361,7 @@ namespace CapaPresentacion.Departamentos
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(5, 100);
+            this.txtNumero.Location = new System.Drawing.Point(6, 195);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(83, 20);
             this.txtNumero.TabIndex = 62;
@@ -365,7 +369,7 @@ namespace CapaPresentacion.Departamentos
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(6, 71);
+            this.lblNumero.Location = new System.Drawing.Point(6, 175);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(44, 13);
             this.lblNumero.TabIndex = 63;
@@ -374,7 +378,7 @@ namespace CapaPresentacion.Departamentos
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 140);
+            this.label2.Location = new System.Drawing.Point(6, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 61;
@@ -383,10 +387,28 @@ namespace CapaPresentacion.Departamentos
             // cbxComuna
             // 
             this.cbxComuna.FormattingEnabled = true;
-            this.cbxComuna.Location = new System.Drawing.Point(0, 161);
+            this.cbxComuna.Location = new System.Drawing.Point(6, 100);
             this.cbxComuna.Name = "cbxComuna";
             this.cbxComuna.Size = new System.Drawing.Size(185, 21);
             this.cbxComuna.TabIndex = 62;
+            // 
+            // lblRegion
+            // 
+            this.lblRegion.AutoSize = true;
+            this.lblRegion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRegion.Location = new System.Drawing.Point(6, 32);
+            this.lblRegion.Name = "lblRegion";
+            this.lblRegion.Size = new System.Drawing.Size(41, 13);
+            this.lblRegion.TabIndex = 64;
+            this.lblRegion.Text = "Región";
+            // 
+            // cbxRegion
+            // 
+            this.cbxRegion.FormattingEnabled = true;
+            this.cbxRegion.Location = new System.Drawing.Point(6, 52);
+            this.cbxRegion.Name = "cbxRegion";
+            this.cbxRegion.Size = new System.Drawing.Size(185, 21);
+            this.cbxRegion.TabIndex = 65;
             // 
             // AgregarDepartamento
             // 
@@ -450,5 +472,7 @@ namespace CapaPresentacion.Departamentos
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxComuna;
+        private System.Windows.Forms.Label lblRegion;
+        private System.Windows.Forms.ComboBox cbxRegion;
     }
 }
