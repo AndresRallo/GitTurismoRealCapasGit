@@ -20,12 +20,15 @@ namespace CapaPresentacion.Departamentos
         Librarys librarys = new Librarys();
         CNDepartamento cNDepartamento = new CNDepartamento();
 
+        
+
         public AgregarDepartamento()
         {
             InitializeComponent();
             
             LoadComboEstadoDepto();
             LoadTipoDepto();
+            LoadComboRegion();
         }
 
         private void btnAgreDepto_Click(object sender, EventArgs e)
@@ -34,13 +37,44 @@ namespace CapaPresentacion.Departamentos
             {
                 CEDepartamento depto = new CEDepartamento();
 
+                depto.de_nombre = txtNombre.Text;
                 depto.descripcionDepto = txtDescDepto.Text;
                 depto.precioDepto = Convert.ToInt32(txtPrecio.Text);
                 depto.de_start = Convert.ToInt32(txtEstrellas.Text);
-                depto.idTipoDepto = Convert.ToInt32(cbxTipoDepto.Text);
-                depto.idEstadoDepto = Convert.ToInt32(cbxEstadoDepa.Text);
+                depto.idTipoDepto = Convert.ToInt32(cbxTipoDepto.SelectedValue);
+                depto.idEstadoDepto = Convert.ToInt32(cbxEstadoDepa.SelectedValue);
 
-                cNDepartamento.CrearDepartamento(depto);
+                CEDireccion direccion = new CEDireccion();
+
+                direccion.de_direccion = txtDireccion.Text;
+                direccion.de_numero = txtNumero.Text;
+                direccion.id_comuna = Convert.ToInt32(cbxComuna.SelectedValue);
+
+                depto.direccion = direccion;
+
+                CECaracteristicas_Departamento carDepto = new CECaracteristicas_Departamento();
+
+                carDepto.Ca_CantHabitaciones = Convert.ToInt32(txtCantHabitaciones.Text);
+                carDepto.Ca_CantCamas = Convert.ToInt32(txtCanCamas.Text);
+                carDepto.Ca_CantBaño = Convert.ToInt32(txtCantBanos.Text);
+                carDepto.Ca_CapPersonas = Convert.ToInt32(txtCanPersonas.Text);
+
+                carDepto.Ca_CheckIn = txtCheckIn.Text;
+                carDepto.Ca_CheckOut = txtCheckOut.Text;
+
+                depto.carateristicasDepartamento = carDepto;
+
+                if (cNDepartamento.CrearDepartamento(depto))
+                
+                    MessageBox.Show("Departamento Agregado");
+                
+                else
+                
+                    MessageBox.Show("Departamento NO Agregado");
+                
+
+
+                
                 
             }
             catch (Exception ex)
@@ -94,6 +128,80 @@ namespace CapaPresentacion.Departamentos
             MantenedorDepartamento mantenedorDepartamento = new MantenedorDepartamento();
             mantenedorDepartamento.Show();
             this.Close();
+        }
+
+
+        //---------------combos region y comunas
+        private void LoadComboRegion()
+        {
+            try
+            {
+                cbxRegion.DataSource = cNDepartamento.ObtenerRegion();
+                cbxRegion.ValueMember = "IDREGION";
+                cbxRegion.DisplayMember = "RE_DESCRIPCION";
+
+                if (cbxRegion.Items.Count != 0)
+                {
+                    int idregion = Convert.ToInt32(cbxRegion.SelectedValue);
+                    cbxComuna.DataSource = null;
+                    cbxComuna.Items.Clear();
+                    LoadComboComuna(idregion);
+
+                }
+                /*  else
+                  {
+                      cbComuna.DataSource = null;
+
+                  } */
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("error " + ex);
+            }
+
+
+        }
+
+        private void LoadComboComuna(int idregion)
+        {
+            try
+            {
+                cbxComuna.DataSource = cNDepartamento.ObtenerComunas(idregion);
+                cbxComuna.ValueMember = "IDCOMUNA";
+                cbxComuna.DisplayMember = "C_DESCRIPCION";
+                if (cbxRegion.Items.Count != 0)
+                {
+                    int idcomuna = Convert.ToInt32(cbxComuna.SelectedValue);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("error " + ex);
+            }
+
+        }
+
+        private void cbxRegion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int regionid = cbxRegion.SelectedIndex;
+
+                LoadComboComuna(regionid);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("error " + ex);
+            }
+        }
+
+        private void txtCantBanos_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

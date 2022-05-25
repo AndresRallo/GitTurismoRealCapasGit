@@ -63,7 +63,70 @@ namespace CapaDatos
             }
         }
 
-        
+        public List<CERegion> Region()
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CERegion> listaDireccion = new List<CERegion>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_REGION", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        listaDireccion.Add(new CERegion
+                        {
+                            IDREGION = Convert.ToInt32(mostrarTabla["IDREGION"]),
+                            RE_DESCRIPCION = Convert.ToString(mostrarTabla["RE_DESCRIPCION"].ToString())
+                        });
+                    }
+                    conn.Close();
+                }
+                return listaDireccion;
+
+            }
+            catch (OracleException oex)
+            {
+
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
+        }
+        public List<CEComuna> Comunas(int idregion)
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CEComuna> listaDireccion = new List<CEComuna>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_COMUNA_BY_IDREGION", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("IDREGION_", OracleType.Number).Value = idregion;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        listaDireccion.Add(new CEComuna
+                        {
+                            idcomuna = Convert.ToInt32(mostrarTabla["IDCOMUNA"]),
+                            c_descripcion = Convert.ToString(mostrarTabla["C_DESCRIPCION"].ToString())
+                        });
+                    }
+                    conn.Close();
+                }
+                return listaDireccion;
+            }
+            catch (OracleException oex)
+            {
+
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
+        }
 
         public List<CETipoDepartamento> TipoDepto()
         {
@@ -135,25 +198,55 @@ namespace CapaDatos
 
         }
 
-        public void CrearDepartamento(CEDepartamento depto)
+        public bool CrearDepartamento(CEDepartamento depto)
         {
             try
             {
+                string salida = string.Empty;
                 using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
                 {
                     conn.Open();
-                    OracleCommand command = new OracleCommand("DP_agregarDepartamento", conn);
+                    OracleCommand command = new OracleCommand("SP_SET_ADD_DEPTO", conn);
 
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add("VA_DE_DESCRIPCION", OracleType.NVarChar).Value = depto.descripcionDepto;
-                    command.Parameters.Add("VA_DE_PRECIO", OracleType.Number).Value = depto.precioDepto;
+                    command.Parameters.Add("NOMBRE", OracleType.NVarChar).Value = depto.de_nombre;
+                    command.Parameters.Add("DESCRIPCION", OracleType.NVarChar).Value = depto.descripcionDepto;
+                    command.Parameters.Add("PRECIO", OracleType.Number).Value = Convert.ToInt32(depto.precioDepto);
+                    command.Parameters.Add("STARS", OracleType.Number).Value = Convert.ToInt32(depto.de_start);
+                    command.Parameters.Add("IDTIPODEPTO", OracleType.Number).Value = Convert.ToInt32(depto.idTipoDepto);
+                    command.Parameters.Add("IDESTADODEPTO", OracleType.Number).Value = Convert.ToInt32(depto.idEstadoDepto);
 
-                    command.Parameters.Add("VA_IDTIPODEPARTAMENTO", OracleType.Number).Value = depto.idTipoDepto;
-                    command.Parameters.Add("VA_IDESTADODEPARTAMENTO", OracleType.Number).Value = depto.idEstadoDepto;
+                    command.Parameters.Add("DIRECCION", OracleType.NVarChar).Value = depto.direccion.de_direccion;
+                    command.Parameters.Add("NUMDIREC", OracleType.NVarChar).Value = depto.direccion.de_numero;
+                    command.Parameters.Add("IDCOMUNADIREC", OracleType.Number).Value = Convert.ToInt32(depto.direccion.id_comuna);
+
+                    command.Parameters.Add("CANTHAB", OracleType.Number).Value = Convert.ToInt32(depto.carateristicasDepartamento.Ca_CantHabitaciones);
+                    command.Parameters.Add("CANTCAMAS", OracleType.Number).Value = Convert.ToInt32(depto.carateristicasDepartamento.Ca_CantCamas);
+                    command.Parameters.Add("CANTBANIO", OracleType.Number).Value = Convert.ToInt32(depto.carateristicasDepartamento.Ca_CantBaño);
+                    command.Parameters.Add("CANTPERS", OracleType.Number).Value = Convert.ToInt32(depto.carateristicasDepartamento.Ca_CapPersonas);
+
+                    command.Parameters.Add("CHECKIN", OracleType.NVarChar).Value = depto.carateristicasDepartamento.Ca_CheckIn;
+                    command.Parameters.Add("CHECKOUT", OracleType.NVarChar).Value = depto.carateristicasDepartamento.Ca_CheckOut;
+
+                    OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
+                    par.Direction = ParameterDirection.Output;
+                    par.Size = 250;
+                    command.Parameters.Add(par);
                     command.ExecuteNonQuery();
+                    salida = command.Parameters["V_DETALLE"].Value.ToString();
+
+                    
                     conn.Close();
+
                 }
-                MessageBox.Show("Departamento Agregado");
+                if (string.IsNullOrEmpty(salida))
+
+                    return true;
+                else
+
+                    return false;
+                
+               
             }
             catch (OracleException oex)
             {

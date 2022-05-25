@@ -20,6 +20,7 @@ namespace CapaEntidad
 
         public CEMantencion mantencion { get; set; }
         public CEAdjunto adjunto { get; set; }
+        public CEDireccion direccion { get; set; }
         public CECaracteristicas_Departamento carateristicasDepartamento { get; set; }
 
 
