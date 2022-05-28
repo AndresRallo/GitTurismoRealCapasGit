@@ -9,6 +9,10 @@ namespace CapaEntidad
     public class CEDepartamento
     {
         public int idDepto { get; set; }
+
+        public int idDireccion { get; set; }
+        public int idCaracteristicas  { get; set; }
+
         public string de_nombre { get; set; }
         public string descripcionDepto { get; set; }
         public int precioDepto { get; set; }

@@ -9,6 +9,7 @@ namespace CapaEntidad
     public class CECaracteristicas_Departamento
     {
         public int IdCaracteristica { get; set; }
+        public int Ca_NumDepto { get; set; }
         public int Ca_CantHabitaciones { get; set; }
         public int Ca_CantCamas { get; set; }
         public int Ca_CantBaño { get; set; }

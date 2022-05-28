@@ -87,11 +87,11 @@
     <Compile Include="Departamentos\EditarDepartamento.Designer.cs">
       <DependentUpon>EditarDepartamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Departamentos\EliminarDepartamento.cs">
+    <Compile Include="Departamentos\CambiarEstadoDepartamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Departamentos\EliminarDepartamento.Designer.cs">
-      <DependentUpon>EliminarDepartamento.cs</DependentUpon>
+    <Compile Include="Departamentos\CambiarEstadoDepartamento.Designer.cs">
+      <DependentUpon>CambiarEstadoDepartamento.cs</DependentUpon>
     </Compile>
     <Compile Include="Departamentos\InventarioDepto.cs">
       <SubType>Form</SubType>
@@ -203,8 +203,8 @@
     <EmbeddedResource Include="Departamentos\EditarDepartamento.resx">
       <DependentUpon>EditarDepartamento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Departamentos\EliminarDepartamento.resx">
-      <DependentUpon>EliminarDepartamento.cs</DependentUpon>
+    <EmbeddedResource Include="Departamentos\CambiarEstadoDepartamento.resx">
+      <DependentUpon>CambiarEstadoDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Departamentos\ListarDepartamentos.resx">
       <DependentUpon>ListarDepartamentos.cs</DependentUpon>

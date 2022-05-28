@@ -18,11 +18,18 @@ namespace CapaNegocio
             cDDepartamento.PruebaConexion();
         }
 
-        public object ObtenerDatos()
+        public List<CEDepartamento> ObtenerDatos()
         {
-            DataTable lista = new DataTable();
-            lista = cDDepartamento.Listar();
-            return lista;
+            List<CEDepartamento> listaDepto = new List<CEDepartamento>();
+            listaDepto = cDDepartamento.ListarDepartamento();
+            return listaDepto;
+        }
+
+        public List<CECaracteristicas_Departamento> ObtenerCaracteristicas()
+        {
+            List<CECaracteristicas_Departamento> listaCaracteristicas = new List<CECaracteristicas_Departamento>();
+            listaCaracteristicas = cDDepartamento.ListaCaracteristicasDepto();
+            return listaCaracteristicas;
         }
 
         public void EliminarDepartamento(CEDepartamento departamento)
@@ -35,11 +42,21 @@ namespace CapaNegocio
             return cDDepartamento.CrearDepartamento(depto);
         }
 
+        public bool ActualizarDepartamento(CEDepartamento depto)
+        {
+            return cDDepartamento.ActualizarDepartamento(depto);
+        }
+
         public List<CETipoDepartamento> ObtenerTipoDepto()
         {
             List<CETipoDepartamento> listaTDDepartamento = new List<CETipoDepartamento>();
             listaTDDepartamento = cDDepartamento.TipoDepto();
             return listaTDDepartamento;
+        }
+
+        public bool CAMBIAR_ESTADO_DEPARTAMENTO(CEDepartamento cE)
+        {
+            return cDDepartamento.CAMBIAR_ESTADO_DEPARTAMENTO(cE);
         }
 
         public List<CESysEstadoDepto> ObtenerEstadoDepto()
@@ -62,5 +79,7 @@ namespace CapaNegocio
             listaRegion = cDDepartamento.Region();
             return listaRegion;
         }
+
+        
     }
 }

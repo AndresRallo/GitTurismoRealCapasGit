@@ -18,6 +18,7 @@ namespace CapaPresentacion.Departamentos
         public ListarDepartamentos()
         {
             InitializeComponent();
+            Lista();
         }
 
         private void btnListar_Click(object sender, EventArgs e)
@@ -25,8 +26,7 @@ namespace CapaPresentacion.Departamentos
             
             try
             {
-                CNDepartamento lista = new CNDepartamento();
-                dataGridViewDepartamentos.DataSource = lista.ObtenerDatos();
+                Lista();
             }
             catch (Exception)
             {
@@ -34,6 +34,18 @@ namespace CapaPresentacion.Departamentos
                 throw;
             }
 
+        }
+        public void Lista()
+        {
+            CNDepartamento lista = new CNDepartamento();
+            dataGridViewDepartamentos.DataSource = lista.ObtenerDatos();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Departamentos.MantDepartamentos mantenedorDepartamento = new MantDepartamentos();
+            mantenedorDepartamento.Show();
+            this.Close();
         }
     }
 }
