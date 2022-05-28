@@ -29,7 +29,6 @@ namespace CapaPresentacion.Departamentos
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnProbarConexion = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnAgreDepto = new System.Windows.Forms.Button();
             this.lblTipoDepa = new System.Windows.Forms.Label();
@@ -47,6 +46,8 @@ namespace CapaPresentacion.Departamentos
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.gbxDepto = new System.Windows.Forms.GroupBox();
             this.gbxCarDepto = new System.Windows.Forms.GroupBox();
+            this.txtCantHabitaciones = new System.Windows.Forms.TextBox();
+            this.lblHabitaciones = new System.Windows.Forms.Label();
             this.txtCheckOut = new System.Windows.Forms.TextBox();
             this.lblCheckOut = new System.Windows.Forms.Label();
             this.txtCheckIn = new System.Windows.Forms.TextBox();
@@ -66,21 +67,12 @@ namespace CapaPresentacion.Departamentos
             this.lblNumero = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
-            this.txtCantHabitaciones = new System.Windows.Forms.TextBox();
-            this.lblHabitaciones = new System.Windows.Forms.Label();
+            this.txtNumDepto = new System.Windows.Forms.TextBox();
+            this.lblNumDepto = new System.Windows.Forms.Label();
             this.gbxDepto.SuspendLayout();
             this.gbxCarDepto.SuspendLayout();
             this.gbxDireccion.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnProbarConexion
-            // 
-            this.btnProbarConexion.Location = new System.Drawing.Point(242, 420);
-            this.btnProbarConexion.Name = "btnProbarConexion";
-            this.btnProbarConexion.Size = new System.Drawing.Size(135, 23);
-            this.btnProbarConexion.TabIndex = 53;
-            this.btnProbarConexion.Text = "Probar Conexion";
-            this.btnProbarConexion.UseVisualStyleBackColor = true;
             // 
             // btnVolver
             // 
@@ -233,6 +225,8 @@ namespace CapaPresentacion.Departamentos
             // 
             // gbxCarDepto
             // 
+            this.gbxCarDepto.Controls.Add(this.txtNumDepto);
+            this.gbxCarDepto.Controls.Add(this.lblNumDepto);
             this.gbxCarDepto.Controls.Add(this.txtCantHabitaciones);
             this.gbxCarDepto.Controls.Add(this.lblHabitaciones);
             this.gbxCarDepto.Controls.Add(this.txtCheckOut);
@@ -245,15 +239,31 @@ namespace CapaPresentacion.Departamentos
             this.gbxCarDepto.Controls.Add(this.lblCantBanos);
             this.gbxCarDepto.Controls.Add(this.txtCanCamas);
             this.gbxCarDepto.Controls.Add(this.lblCantCamas);
-            this.gbxCarDepto.Location = new System.Drawing.Point(502, 81);
+            this.gbxCarDepto.Location = new System.Drawing.Point(494, 86);
             this.gbxCarDepto.Name = "gbxCarDepto";
-            this.gbxCarDepto.Size = new System.Drawing.Size(140, 333);
+            this.gbxCarDepto.Size = new System.Drawing.Size(225, 260);
             this.gbxCarDepto.TabIndex = 62;
             this.gbxCarDepto.TabStop = false;
             // 
+            // txtCantHabitaciones
+            // 
+            this.txtCantHabitaciones.Location = new System.Drawing.Point(146, 47);
+            this.txtCantHabitaciones.Name = "txtCantHabitaciones";
+            this.txtCantHabitaciones.Size = new System.Drawing.Size(63, 20);
+            this.txtCantHabitaciones.TabIndex = 72;
+            // 
+            // lblHabitaciones
+            // 
+            this.lblHabitaciones.AutoSize = true;
+            this.lblHabitaciones.Location = new System.Drawing.Point(6, 54);
+            this.lblHabitaciones.Name = "lblHabitaciones";
+            this.lblHabitaciones.Size = new System.Drawing.Size(129, 13);
+            this.lblHabitaciones.TabIndex = 73;
+            this.lblHabitaciones.Text = "Cantidad de Habitaciones";
+            // 
             // txtCheckOut
             // 
-            this.txtCheckOut.Location = new System.Drawing.Point(6, 293);
+            this.txtCheckOut.Location = new System.Drawing.Point(146, 207);
             this.txtCheckOut.Name = "txtCheckOut";
             this.txtCheckOut.Size = new System.Drawing.Size(63, 20);
             this.txtCheckOut.TabIndex = 70;
@@ -261,7 +271,7 @@ namespace CapaPresentacion.Departamentos
             // lblCheckOut
             // 
             this.lblCheckOut.AutoSize = true;
-            this.lblCheckOut.Location = new System.Drawing.Point(6, 271);
+            this.lblCheckOut.Location = new System.Drawing.Point(6, 214);
             this.lblCheckOut.Name = "lblCheckOut";
             this.lblCheckOut.Size = new System.Drawing.Size(58, 13);
             this.lblCheckOut.TabIndex = 71;
@@ -269,7 +279,7 @@ namespace CapaPresentacion.Departamentos
             // 
             // txtCheckIn
             // 
-            this.txtCheckIn.Location = new System.Drawing.Point(6, 242);
+            this.txtCheckIn.Location = new System.Drawing.Point(146, 175);
             this.txtCheckIn.Name = "txtCheckIn";
             this.txtCheckIn.Size = new System.Drawing.Size(63, 20);
             this.txtCheckIn.TabIndex = 68;
@@ -277,7 +287,7 @@ namespace CapaPresentacion.Departamentos
             // lblCheckIn
             // 
             this.lblCheckIn.AutoSize = true;
-            this.lblCheckIn.Location = new System.Drawing.Point(6, 220);
+            this.lblCheckIn.Location = new System.Drawing.Point(6, 182);
             this.lblCheckIn.Name = "lblCheckIn";
             this.lblCheckIn.Size = new System.Drawing.Size(50, 13);
             this.lblCheckIn.TabIndex = 69;
@@ -285,7 +295,7 @@ namespace CapaPresentacion.Departamentos
             // 
             // txtCanPersonas
             // 
-            this.txtCanPersonas.Location = new System.Drawing.Point(6, 191);
+            this.txtCanPersonas.Location = new System.Drawing.Point(146, 143);
             this.txtCanPersonas.Name = "txtCanPersonas";
             this.txtCanPersonas.Size = new System.Drawing.Size(63, 20);
             this.txtCanPersonas.TabIndex = 66;
@@ -293,7 +303,7 @@ namespace CapaPresentacion.Departamentos
             // lblCantPersonas
             // 
             this.lblCantPersonas.AutoSize = true;
-            this.lblCantPersonas.Location = new System.Drawing.Point(6, 169);
+            this.lblCantPersonas.Location = new System.Drawing.Point(6, 150);
             this.lblCantPersonas.Name = "lblCantPersonas";
             this.lblCantPersonas.Size = new System.Drawing.Size(111, 13);
             this.lblCantPersonas.TabIndex = 67;
@@ -301,7 +311,7 @@ namespace CapaPresentacion.Departamentos
             // 
             // txtCantBanos
             // 
-            this.txtCantBanos.Location = new System.Drawing.Point(6, 140);
+            this.txtCantBanos.Location = new System.Drawing.Point(146, 111);
             this.txtCantBanos.Name = "txtCantBanos";
             this.txtCantBanos.Size = new System.Drawing.Size(63, 20);
             this.txtCantBanos.TabIndex = 64;
@@ -318,7 +328,7 @@ namespace CapaPresentacion.Departamentos
             // 
             // txtCanCamas
             // 
-            this.txtCanCamas.Location = new System.Drawing.Point(6, 89);
+            this.txtCanCamas.Location = new System.Drawing.Point(146, 79);
             this.txtCanCamas.Name = "txtCanCamas";
             this.txtCanCamas.Size = new System.Drawing.Size(63, 20);
             this.txtCanCamas.TabIndex = 62;
@@ -326,7 +336,7 @@ namespace CapaPresentacion.Departamentos
             // lblCantCamas
             // 
             this.lblCantCamas.AutoSize = true;
-            this.lblCantCamas.Location = new System.Drawing.Point(6, 67);
+            this.lblCantCamas.Location = new System.Drawing.Point(6, 86);
             this.lblCantCamas.Name = "lblCantCamas";
             this.lblCantCamas.Size = new System.Drawing.Size(99, 13);
             this.lblCantCamas.TabIndex = 63;
@@ -342,9 +352,9 @@ namespace CapaPresentacion.Departamentos
             this.gbxDireccion.Controls.Add(this.lblNumero);
             this.gbxDireccion.Controls.Add(this.txtDireccion);
             this.gbxDireccion.Controls.Add(this.lblDireccion);
-            this.gbxDireccion.Location = new System.Drawing.Point(259, 81);
+            this.gbxDireccion.Location = new System.Drawing.Point(232, 86);
             this.gbxDireccion.Name = "gbxDireccion";
-            this.gbxDireccion.Size = new System.Drawing.Size(204, 333);
+            this.gbxDireccion.Size = new System.Drawing.Size(204, 206);
             this.gbxDireccion.TabIndex = 72;
             this.gbxDireccion.TabStop = false;
             // 
@@ -352,7 +362,7 @@ namespace CapaPresentacion.Departamentos
             // 
             this.lblRegion.AutoSize = true;
             this.lblRegion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblRegion.Location = new System.Drawing.Point(6, 32);
+            this.lblRegion.Location = new System.Drawing.Point(6, 11);
             this.lblRegion.Name = "lblRegion";
             this.lblRegion.Size = new System.Drawing.Size(41, 13);
             this.lblRegion.TabIndex = 64;
@@ -361,7 +371,7 @@ namespace CapaPresentacion.Departamentos
             // cbxRegion
             // 
             this.cbxRegion.FormattingEnabled = true;
-            this.cbxRegion.Location = new System.Drawing.Point(6, 52);
+            this.cbxRegion.Location = new System.Drawing.Point(6, 31);
             this.cbxRegion.Name = "cbxRegion";
             this.cbxRegion.Size = new System.Drawing.Size(185, 21);
             this.cbxRegion.TabIndex = 65;
@@ -370,7 +380,7 @@ namespace CapaPresentacion.Departamentos
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 80);
+            this.label2.Location = new System.Drawing.Point(6, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 61;
@@ -378,7 +388,7 @@ namespace CapaPresentacion.Departamentos
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(6, 195);
+            this.txtNumero.Location = new System.Drawing.Point(6, 174);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(83, 20);
             this.txtNumero.TabIndex = 62;
@@ -386,7 +396,7 @@ namespace CapaPresentacion.Departamentos
             // cbxComuna
             // 
             this.cbxComuna.FormattingEnabled = true;
-            this.cbxComuna.Location = new System.Drawing.Point(6, 100);
+            this.cbxComuna.Location = new System.Drawing.Point(6, 79);
             this.cbxComuna.Name = "cbxComuna";
             this.cbxComuna.Size = new System.Drawing.Size(185, 21);
             this.cbxComuna.TabIndex = 62;
@@ -394,7 +404,7 @@ namespace CapaPresentacion.Departamentos
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(6, 175);
+            this.lblNumero.Location = new System.Drawing.Point(6, 154);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(44, 13);
             this.lblNumero.TabIndex = 63;
@@ -402,7 +412,7 @@ namespace CapaPresentacion.Departamentos
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(6, 148);
+            this.txtDireccion.Location = new System.Drawing.Point(6, 127);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(185, 20);
             this.txtDireccion.TabIndex = 61;
@@ -410,27 +420,27 @@ namespace CapaPresentacion.Departamentos
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(6, 128);
+            this.lblDireccion.Location = new System.Drawing.Point(6, 107);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblDireccion.TabIndex = 61;
             this.lblDireccion.Text = "Dirección";
             // 
-            // txtCantHabitaciones
+            // txtNumDepto
             // 
-            this.txtCantHabitaciones.Location = new System.Drawing.Point(6, 38);
-            this.txtCantHabitaciones.Name = "txtCantHabitaciones";
-            this.txtCantHabitaciones.Size = new System.Drawing.Size(63, 20);
-            this.txtCantHabitaciones.TabIndex = 72;
+            this.txtNumDepto.Location = new System.Drawing.Point(145, 15);
+            this.txtNumDepto.Name = "txtNumDepto";
+            this.txtNumDepto.Size = new System.Drawing.Size(65, 20);
+            this.txtNumDepto.TabIndex = 66;
             // 
-            // lblHabitaciones
+            // lblNumDepto
             // 
-            this.lblHabitaciones.AutoSize = true;
-            this.lblHabitaciones.Location = new System.Drawing.Point(6, 16);
-            this.lblHabitaciones.Name = "lblHabitaciones";
-            this.lblHabitaciones.Size = new System.Drawing.Size(129, 13);
-            this.lblHabitaciones.TabIndex = 73;
-            this.lblHabitaciones.Text = "Cantidad de Habitaciones";
+            this.lblNumDepto.AutoSize = true;
+            this.lblNumDepto.Location = new System.Drawing.Point(6, 22);
+            this.lblNumDepto.Name = "lblNumDepto";
+            this.lblNumDepto.Size = new System.Drawing.Size(114, 13);
+            this.lblNumDepto.TabIndex = 67;
+            this.lblNumDepto.Text = "Número Departamento";
             // 
             // AgregarDepartamento
             // 
@@ -440,7 +450,6 @@ namespace CapaPresentacion.Departamentos
             this.Controls.Add(this.gbxDireccion);
             this.Controls.Add(this.gbxCarDepto);
             this.Controls.Add(this.gbxDepto);
-            this.Controls.Add(this.btnProbarConexion);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAgreDepto);
             this.Controls.Add(this.lblAgregarEmpleado);
@@ -458,8 +467,6 @@ namespace CapaPresentacion.Departamentos
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnProbarConexion;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnAgreDepto;
         private System.Windows.Forms.Label lblTipoDepa;
@@ -498,5 +505,7 @@ namespace CapaPresentacion.Departamentos
         private System.Windows.Forms.ComboBox cbxRegion;
         private System.Windows.Forms.TextBox txtCantHabitaciones;
         private System.Windows.Forms.Label lblHabitaciones;
+        private System.Windows.Forms.TextBox txtNumDepto;
+        private System.Windows.Forms.Label lblNumDepto;
     }
 }

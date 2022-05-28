@@ -40,7 +40,7 @@ namespace CapaPresentacion.Departamentos
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            EliminarDepartamento eliminarDepartamento = new EliminarDepartamento();
+            CambiarEstadoDepartamento eliminarDepartamento = new CambiarEstadoDepartamento();
             eliminarDepartamento.Show();
             this.Close();
         }

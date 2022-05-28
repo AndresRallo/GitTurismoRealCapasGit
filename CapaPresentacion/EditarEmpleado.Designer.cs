@@ -211,6 +211,7 @@ namespace CapaPresentacion
             this.txtPW.PasswordChar = '*';
             this.txtPW.Size = new System.Drawing.Size(146, 20);
             this.txtPW.TabIndex = 47;
+            this.txtPW.TextChanged += new System.EventHandler(this.txtPW_TextChanged);
             // 
             // txtAMATERNO
             // 
