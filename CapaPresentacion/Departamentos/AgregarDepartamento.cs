@@ -66,17 +66,17 @@ namespace CapaPresentacion.Departamentos
                 depto.carateristicasDepartamento = carDepto;
 
                 if (cNDepartamento.CrearDepartamento(depto))
-                
+                {
+                    Limpiar();
+                    Departamentos.ListarDepartamentos listarDepartamentos = new ListarDepartamentos();
+                    listarDepartamentos.Show();
+                    this.Close();
                     MessageBox.Show("Departamento Agregado");
-                
+                }
                 else
-                
+                {
                     MessageBox.Show("Departamento NO Agregado");
-                
-
-
-                
-                
+                }
             }
             catch (Exception ex)
             {
@@ -203,6 +203,29 @@ namespace CapaPresentacion.Departamentos
         private void txtCantBanos_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Limpiar()
+        {
+            
+            txtNombre.Text = string.Empty;
+            txtDescDepto.Text = string.Empty;
+            txtPrecio.Text = string.Empty;
+            txtEstrellas.Text = string.Empty;
+
+            
+            txtDireccion.Text = string.Empty;
+            txtNumero.Text = string.Empty;
+
+            
+            txtNumDepto.Text = string.Empty;
+            txtCantHabitaciones.Text = string.Empty;
+            txtCanCamas.Text = string.Empty;
+            txtCantBanos.Text = string.Empty;
+            txtCanPersonas.Text = string.Empty;
+
+            txtCheckIn.Text = string.Empty;
+            txtCheckOut.Text = string.Empty;
         }
     }
 }

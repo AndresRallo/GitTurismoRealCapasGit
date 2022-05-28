@@ -54,7 +54,7 @@ namespace CapaPresentacion.Departamentos
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(135, 23);
             this.btnEliminar.TabIndex = 11;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = "Cambiar Estado";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -108,7 +108,7 @@ namespace CapaPresentacion.Departamentos
             this.btnConexion.UseVisualStyleBackColor = true;
             this.btnConexion.Click += new System.EventHandler(this.btnConexion_Click);
             // 
-            // MantenedorDepartamentos
+            // MantDepartamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -120,7 +120,7 @@ namespace CapaPresentacion.Departamentos
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lblMantenedorEmpleado);
-            this.Name = "MantenedorDepartamentos";
+            this.Name = "MantDepartamentos";
             this.Text = "MantenedorDepartamentos";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -27,9 +27,10 @@ namespace CapaPresentacion.Departamentos
         {
             try
             {
-                CNDepartamento lista = new CNDepartamento();
-                dataGridViewDepartamentos.DataSource = lista.ObtenerDatos();
-                
+
+                Listar();
+
+
             }
             catch (Exception ex)
             {
@@ -38,7 +39,11 @@ namespace CapaPresentacion.Departamentos
             }
         }
 
-        
+        private void Listar()
+        {
+            CNDepartamento lista = new CNDepartamento();
+            dataGridViewDepartamentos.DataSource = lista.ObtenerDatos();
+        }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
@@ -57,9 +62,15 @@ namespace CapaPresentacion.Departamentos
 
 
                 if (cNDepartamento.CAMBIAR_ESTADO_DEPARTAMENTO(departamento))
+                {
+                    Listar();
                     MessageBox.Show("CAMBIO DE ESTADO EXITOSO");
-                else
-                    MessageBox.Show("CAMBIO DE ESTADO NO EXITOSO");
+                }
+
+                else {
+                    MessageBox.Show("CAMBIO DE ESTADO NO EXITOSO"); 
+                }
+                    
             }
             catch (Exception ex)
             {

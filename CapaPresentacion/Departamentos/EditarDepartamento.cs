@@ -188,14 +188,16 @@ namespace CapaPresentacion.Departamentos
                 depto.carateristicasDepartamento = carDepto;
 
                 if (cNDepartamento.ActualizarDepartamento(depto))
-                
+                {
+                    Lista();
+                    Limpiar();
                     MessageBox.Show("Departamento Agregado");
-
-                
+                }
                 else
-                
+                {
                     MessageBox.Show("Departamento NO Agregado");
-                
+                }
+
             }
             catch (Exception ex)
             {
@@ -204,6 +206,30 @@ namespace CapaPresentacion.Departamentos
             }
         }
 
+
+        private void Limpiar()
+        {
+            txtIdDepto.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtDescDepto.Text = string.Empty;
+            txtPrecio.Text = string.Empty;
+            txtEstrellas.Text = string.Empty;
+
+            txtIdDirc.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtNumero.Text = string.Empty;
+
+            txtIdCaract.Text = string.Empty;
+            txtNumDepto.Text = string.Empty;
+            txtCantHabitaciones.Text = string.Empty;
+            txtCanCamas.Text = string.Empty;
+            txtCantBanos.Text = string.Empty;
+            txtCanPersonas.Text = string.Empty;
+
+            txtCheckIn.Text = string.Empty;
+            txtCheckOut.Text = string.Empty;
+
+        }
         private void dgvDepartamentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

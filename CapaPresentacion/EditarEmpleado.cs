@@ -164,7 +164,7 @@ namespace CapaPresentacion
                 empleado.EM_NOMBRE = txtNOMBRE.Text;
                 empleado.EM_APATERNO = txtAPATERNO.Text;
                 empleado.EM_AMATERNO = txtAMATERNO.Text;
-                string ePass = Crypter.Blowfish.Crypt(txtPW.Text);
+                string ePass = txtPW.Text;
                 empleado.EM_CONTRASEÑA = ePass;
                 empleado.IDTIPOEMPLEADO = Convert.ToInt32(cbIDTipo.SelectedValue);
                 empleado.IDESTADO = Convert.ToInt32(cbESTADO.SelectedValue);
@@ -254,5 +254,9 @@ namespace CapaPresentacion
             }
         }
 
+        private void txtPW_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
