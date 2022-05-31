@@ -234,5 +234,19 @@ namespace CapaPresentacion.Departamentos
         {
 
         }
+
+        private void dgvDepartamentos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvDepartamentos.Rows.Count != 0)
+            {
+
+            }
+
+        }
+
+        private void dgvDepartamentos_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }

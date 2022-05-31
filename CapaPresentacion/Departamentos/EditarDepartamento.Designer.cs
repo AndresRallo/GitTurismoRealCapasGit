@@ -34,6 +34,8 @@ namespace CapaPresentacion.Departamentos
             this.label1 = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.gbxCarDepto = new System.Windows.Forms.GroupBox();
+            this.txtNumDepto = new System.Windows.Forms.TextBox();
+            this.lblNumDepto = new System.Windows.Forms.Label();
             this.txtCantHabitaciones = new System.Windows.Forms.TextBox();
             this.lblHabitaciones = new System.Windows.Forms.Label();
             this.txtCheckOut = new System.Windows.Forms.TextBox();
@@ -75,8 +77,6 @@ namespace CapaPresentacion.Departamentos
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.btnListar = new System.Windows.Forms.Button();
-            this.txtNumDepto = new System.Windows.Forms.TextBox();
-            this.lblNumDepto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).BeginInit();
             this.gbxCarDepto.SuspendLayout();
             this.gbxDepto.SuspendLayout();
@@ -100,7 +100,9 @@ namespace CapaPresentacion.Departamentos
             this.dgvDepartamentos.Name = "dgvDepartamentos";
             this.dgvDepartamentos.Size = new System.Drawing.Size(572, 234);
             this.dgvDepartamentos.TabIndex = 34;
+            this.dgvDepartamentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartamentos_CellClick);
             this.dgvDepartamentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartamentos_CellContentClick);
+            this.dgvDepartamentos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvDepartamentos_KeyUp);
             // 
             // label1
             // 
@@ -143,6 +145,22 @@ namespace CapaPresentacion.Departamentos
             this.gbxCarDepto.Size = new System.Drawing.Size(228, 189);
             this.gbxCarDepto.TabIndex = 74;
             this.gbxCarDepto.TabStop = false;
+            // 
+            // txtNumDepto
+            // 
+            this.txtNumDepto.Location = new System.Drawing.Point(151, 19);
+            this.txtNumDepto.Name = "txtNumDepto";
+            this.txtNumDepto.Size = new System.Drawing.Size(65, 20);
+            this.txtNumDepto.TabIndex = 74;
+            // 
+            // lblNumDepto
+            // 
+            this.lblNumDepto.AutoSize = true;
+            this.lblNumDepto.Location = new System.Drawing.Point(6, 26);
+            this.lblNumDepto.Name = "lblNumDepto";
+            this.lblNumDepto.Size = new System.Drawing.Size(114, 13);
+            this.lblNumDepto.TabIndex = 75;
+            this.lblNumDepto.Text = "Número Departamento";
             // 
             // txtCantHabitaciones
             // 
@@ -506,22 +524,6 @@ namespace CapaPresentacion.Departamentos
             this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
-            // txtNumDepto
-            // 
-            this.txtNumDepto.Location = new System.Drawing.Point(151, 19);
-            this.txtNumDepto.Name = "txtNumDepto";
-            this.txtNumDepto.Size = new System.Drawing.Size(65, 20);
-            this.txtNumDepto.TabIndex = 74;
-            // 
-            // lblNumDepto
-            // 
-            this.lblNumDepto.AutoSize = true;
-            this.lblNumDepto.Location = new System.Drawing.Point(6, 26);
-            this.lblNumDepto.Name = "lblNumDepto";
-            this.lblNumDepto.Size = new System.Drawing.Size(114, 13);
-            this.lblNumDepto.TabIndex = 75;
-            this.lblNumDepto.Text = "Número Departamento";
-            // 
             // EditarDepartamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -536,7 +538,7 @@ namespace CapaPresentacion.Departamentos
             this.Controls.Add(this.dgvDepartamentos);
             this.Controls.Add(this.label1);
             this.Name = "EditarDepartamento";
-            this.Text = "EditarDepartamento";
+            this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).EndInit();
             this.gbxCarDepto.ResumeLayout(false);
             this.gbxCarDepto.PerformLayout();

@@ -344,17 +344,25 @@ namespace CapaPresentacion
             if (txtDV.Text.Equals(""))
             {
                 lblDV.ForeColor = Color.DarkOrange;
+                //lblRut.Text = "DV";
             }
-            else
+            else if (txtDV.Text =="0" || txtDV.Text == "1" || txtDV.Text == "2" || txtDV.Text == "3" || txtDV.Text == "4" || txtDV.Text == "5" || txtDV.Text == "6" || txtDV.Text == "7" || txtDV.Text == "8" || txtDV.Text == "9" || txtDV.Text == "K" || txtDV.Text == "k")
             {
                 lblDV.ForeColor = Color.ForestGreen;
-                lblDV.Text = "Dígito agregado";
+                lblDV.Text = "DV";
+            }
+            else //if (txtDV.Text == "0" || txtDV.Text == "1" || txtDV.Text == "2" || txtDV.Text == "3" || txtDV.Text == "4" || txtDV.Text == "5" || txtDV.Text != "6" || txtDV.Text == "7" || txtDV.Text == "8" || txtDV.Text == "9" || txtDV.Text == "H" || txtDV.Text == "h")
+            {
+                
+
+                lblDV.ForeColor = Color.DarkOrange;
+                lblDV.Text = "DV incorrecto";
             }
         }
 
         private void txtDV_KeyPress(object sender, KeyPressEventArgs e)
         {
-            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+            librarys.textBoxEvent.TextoParaRUT(e);
         }
 
         private void txtNom_TextChanged(object sender, EventArgs e)
