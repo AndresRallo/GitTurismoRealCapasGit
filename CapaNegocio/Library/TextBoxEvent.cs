@@ -62,6 +62,21 @@ namespace CapaNegocio.Library
             else { e.Handled = true; }
         }
 
+        public void TextoParaRUT(KeyPressEventArgs e)
+        {
+            //condición que solo permite ingresat datos de tipo númerico
+            if (char.IsDigit(e.KeyChar)) { e.Handled = false; } // con false se permite
+            //condición que no permite dar saltos de línea al oprimir enter
+            else if (e.KeyChar == Convert.ToChar(Keys.Enter)) { e.Handled = true; } //con true se niega
+            //condición que NO ingresat datos de tipo texto
+            else if (char.IsLetter(e.KeyChar)) { e.Handled = false; } // con true no permite
+            //Condición que nos permite utilizar la tecla backspace (flecha para borrar)
+            else if (char.IsControl(e.KeyChar)) { e.Handled = false; }
+            //Condición que permite o niega el uso de tecla espaciadora
+            else if (char.IsSeparator(e.KeyChar)) { e.Handled = true; }// ya no puede ocupar tecla separadora
+            else { e.Handled = true; }
+        }
+
         public bool ComprobarFormatoEmail(string email)
         {
             return new EmailAddressAttribute().IsValid(email);
