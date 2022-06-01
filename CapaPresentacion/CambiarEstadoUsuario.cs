@@ -22,7 +22,8 @@ namespace CapaPresentacion
             LoadComboEstadoEmpleado();
 
             CNUsuario lista = new CNUsuario();
-            dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
+            dgvUSER.DataSource = lista.ObtenerDatos();
+            dgvUSER.Columns["IDTIPOUSUARIO"].Visible = false;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace CapaPresentacion
             try
             {
                 CNUsuario lista = new CNUsuario();
-                dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
+                dgvUSER.DataSource = lista.ObtenerDatos();
 
 
             }

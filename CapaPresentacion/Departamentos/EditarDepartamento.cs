@@ -191,7 +191,7 @@ namespace CapaPresentacion.Departamentos
                 {
                     Lista();
                     Limpiar();
-                    MessageBox.Show("Departamento Agregado");
+                    MessageBox.Show("Departamento Editado");
                 }
                 else
                 {

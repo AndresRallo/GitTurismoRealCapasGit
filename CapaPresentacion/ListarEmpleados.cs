@@ -26,6 +26,7 @@ namespace CapaPresentacion
 
             CNEmpleado lista = new CNEmpleado();
             dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
+            cleanDGVEmpleados();
             dgvVEHICULO.DataSource = lista.ObtenerVehiculos();
 
         }
@@ -33,6 +34,15 @@ namespace CapaPresentacion
         private void btnActualizar_Click(object sender, EventArgs e)
         {
 
+        }
+        private void cleanDGVEmpleados()
+        {
+            dataGridViewEmpleados.Columns["direccion"].Visible = false;
+            dataGridViewEmpleados.Columns["vehiculo"].Visible = false;
+            dataGridViewEmpleados.Columns["region"].Visible = false;
+            dataGridViewEmpleados.Columns["comuna"].Visible = false;
+            dataGridViewEmpleados.Columns["tipoempleado"].Visible = false;
+            dataGridViewEmpleados.Columns["estado"].Visible = false;
         }
 
         private void btnListar_Click(object sender, EventArgs e)

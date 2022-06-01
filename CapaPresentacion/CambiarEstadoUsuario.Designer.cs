@@ -32,14 +32,14 @@ namespace CapaPresentacion
             this.btnProbarConexion = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnListarUsuario = new System.Windows.Forms.Button();
-            this.dataGridViewEmpleados = new System.Windows.Forms.DataGridView();
+            this.dgvUSER = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.txtIDUsuario = new System.Windows.Forms.TextBox();
             this.lblIngresarID = new System.Windows.Forms.Label();
             this.lblEliminarEmpleado = new System.Windows.Forms.Label();
             this.cbESTADO = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUSER)).BeginInit();
             this.SuspendLayout();
             // 
             // btnProbarConexion
@@ -72,13 +72,13 @@ namespace CapaPresentacion
             this.btnListarUsuario.UseVisualStyleBackColor = true;
             this.btnListarUsuario.Click += new System.EventHandler(this.btnListarUsuario_Click);
             // 
-            // dataGridViewEmpleados
+            // dgvUSER
             // 
-            this.dataGridViewEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEmpleados.Location = new System.Drawing.Point(24, 109);
-            this.dataGridViewEmpleados.Name = "dataGridViewEmpleados";
-            this.dataGridViewEmpleados.Size = new System.Drawing.Size(764, 329);
-            this.dataGridViewEmpleados.TabIndex = 12;
+            this.dgvUSER.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUSER.Location = new System.Drawing.Point(24, 109);
+            this.dgvUSER.Name = "dgvUSER";
+            this.dgvUSER.Size = new System.Drawing.Size(764, 329);
+            this.dgvUSER.TabIndex = 12;
             // 
             // btnEliminar
             // 
@@ -150,14 +150,14 @@ namespace CapaPresentacion
             this.Controls.Add(this.btnProbarConexion);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnListarUsuario);
-            this.Controls.Add(this.dataGridViewEmpleados);
+            this.Controls.Add(this.dgvUSER);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtIDUsuario);
             this.Controls.Add(this.lblIngresarID);
             this.Controls.Add(this.lblEliminarEmpleado);
             this.Name = "CambiarEstadoUsuario";
             this.Text = "EliminarUsuario";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUSER)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,7 +168,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnProbarConexion;
         private System.Windows.Forms.Button btnVolver;
         protected internal System.Windows.Forms.Button btnListarUsuario;
-        private System.Windows.Forms.DataGridView dataGridViewEmpleados;
+        private System.Windows.Forms.DataGridView dgvUSER;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtIDUsuario;
         private System.Windows.Forms.Label lblIngresarID;
