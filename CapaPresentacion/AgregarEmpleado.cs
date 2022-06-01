@@ -20,7 +20,7 @@ namespace CapaPresentacion
     {
         Librarys librarys = new Librarys();
         CNEmpleado cNEmpleado = new CNEmpleado();
-        
+        Rut rut = new Rut();
         
         public AgregarEmpleado()
         {
@@ -46,12 +46,22 @@ namespace CapaPresentacion
                 lblRut.Text = "Rut Obligatorio";
                 lblRut.ForeColor = Color.Red;
             }
-            
+            string rut1 = txtRut.Text;
             if (txtDV.Text == "")
             {
                 lblDV.Text = "Falta el Dígito";
                 lblDV.ForeColor = Color.Red;
             }
+            string dv = txtDV.Text;
+
+            
+            bool validar = rut.RutValidar(rut1, dv);
+            if (validar !=true)
+            {
+                lblRut.Text = "Rut incorrecto";
+                lblRut.ForeColor = Color.Red;
+            }
+
             if (txtNom.Text == "")
             {
                 lblNombre.Text = "Falta Nombre";
