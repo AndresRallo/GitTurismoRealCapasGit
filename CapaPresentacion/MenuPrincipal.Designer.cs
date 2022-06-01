@@ -56,8 +56,9 @@ namespace CapaPresentacion
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 52);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Controlador\r\nPropiedades";
+            this.button1.Text = "Mantenedor Reservas";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnMantenedorEmpleados
             // 

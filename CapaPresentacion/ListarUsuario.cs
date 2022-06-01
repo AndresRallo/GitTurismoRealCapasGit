@@ -19,7 +19,8 @@ namespace CapaPresentacion
             InitializeComponent();
 
             CNUsuario lista = new CNUsuario();
-            dataGridViewEmpleados.DataSource = lista.ObtenerDatos();
+            dgvUSER.DataSource = lista.ObtenerDatos();
+            dgvUSER.Columns["IDTIPOUSUARIO"].Visible = false;
         }
 
         private void btnListar_Click(object sender, EventArgs e)

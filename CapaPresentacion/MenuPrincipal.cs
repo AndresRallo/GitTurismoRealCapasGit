@@ -43,5 +43,12 @@ namespace CapaPresentacion
             mantDepartamentos.Show();
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MantenedorReservas mantenedorReservas = new MantenedorReservas();
+            mantenedorReservas.Show();
+            this.Close();
+        }
     }
 }

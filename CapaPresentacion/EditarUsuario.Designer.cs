@@ -43,12 +43,12 @@ namespace CapaPresentacion
             this.btnProbarConexion = new System.Windows.Forms.Button();
             this.btnListar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
-            this.dataGridViewEmpleados = new System.Windows.Forms.DataGridView();
+            this.dgvUSER = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbESTADO = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUSER)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEditar
@@ -172,13 +172,13 @@ namespace CapaPresentacion
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
-            // dataGridViewEmpleados
+            // dgvUSER
             // 
-            this.dataGridViewEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEmpleados.Location = new System.Drawing.Point(334, 92);
-            this.dataGridViewEmpleados.Name = "dataGridViewEmpleados";
-            this.dataGridViewEmpleados.Size = new System.Drawing.Size(454, 346);
-            this.dataGridViewEmpleados.TabIndex = 34;
+            this.dgvUSER.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUSER.Location = new System.Drawing.Point(334, 92);
+            this.dgvUSER.Name = "dgvUSER";
+            this.dgvUSER.Size = new System.Drawing.Size(454, 346);
+            this.dgvUSER.TabIndex = 34;
             // 
             // label2
             // 
@@ -243,12 +243,12 @@ namespace CapaPresentacion
             this.Controls.Add(this.btnProbarConexion);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.dataGridViewEmpleados);
+            this.Controls.Add(this.dgvUSER);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "EditarUsuario";
             this.Text = "EditarUsuario";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUSER)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,7 +270,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnProbarConexion;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnVolver;
-        private System.Windows.Forms.DataGridView dataGridViewEmpleados;
+        private System.Windows.Forms.DataGridView dgvUSER;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbESTADO;

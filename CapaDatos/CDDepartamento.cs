@@ -7,6 +7,7 @@ using System.Data.OracleClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 using System.Windows.Forms;
 using TurismoRealExceptions;
 
@@ -365,7 +366,35 @@ namespace CapaDatos
             }
         }
 
+     /*  public List<CEDepartamento> GETDEPTO()
+        {
+            try
+            {
+                List<CEDepartamento> GETDEPTO = new List<CEDepartamento>();
+                
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    var getdepto = from dep in CEDepartamento
+                                   join car in CECaracteristicas_Departamento on 
+                                   dep equals car.iddepartemento
+                                   select new
+                                   {
 
+                                   }
+                        /*select * from departamento dp
+join caracteristicas_departamento cd on (dp.iddepartamento = cd.iddepartamento)
+join direccion dr on (dr.iddireccion = cd.iddireccion); 
+                    conn.Close();
+                }
+                return GETDEPTO;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        } */
 
 
 
@@ -410,7 +439,7 @@ namespace CapaDatos
                 throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
         }
-
+        
         public List<CECaracteristicas_Departamento> ListaCaracteristicasDepto()
         {
             try
