@@ -177,6 +177,12 @@
     <Compile Include="MantenedorReservas.Designer.cs">
       <DependentUpon>MantenedorReservas.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateServiceBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateServiceBooking.Designer.cs">
+      <DependentUpon>CreateServiceBooking.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenedorUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MantenedorReservas.resx">
       <DependentUpon>MantenedorReservas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateServiceBooking.resx">
+      <DependentUpon>CreateServiceBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenedorUsuario.resx">
       <DependentUpon>MantenedorUsuario.cs</DependentUpon>

@@ -35,6 +35,7 @@ namespace CapaPresentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            //Here migration ok 
             AgregarUsuario agregarUsuario = new AgregarUsuario();
             agregarUsuario.Show();
             this.Close();
@@ -42,6 +43,7 @@ namespace CapaPresentacion
 
         private void btnListar_Click(object sender, EventArgs e)
         {
+            //Here migration ok 
             ListarUsuario listarUsuario = new ListarUsuario();
             listarUsuario.Show();
             this.Close();
@@ -49,6 +51,7 @@ namespace CapaPresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            //Here migration ok 
             EditarUsuario editarUsuario = new EditarUsuario();
             editarUsuario.Show();
             this.Close();
@@ -56,6 +59,7 @@ namespace CapaPresentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            //Here migration ok 
             CambiarEstadoUsuario eliminarUsuario = new CambiarEstadoUsuario();
             eliminarUsuario.Show();
             this.Close();
