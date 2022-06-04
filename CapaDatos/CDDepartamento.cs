@@ -64,6 +64,8 @@ namespace CapaDatos
             }
         }
 
+
+
         public bool CAMBIAR_ESTADO_DEPARTAMENTO(CEDepartamento cE)
         {
             try
@@ -346,57 +348,73 @@ namespace CapaDatos
                     command.ExecuteNonQuery();
                     salida = command.Parameters["V_DETALLE"].Value.ToString();
 
-
                     conn.Close();
-
                 }
                 if (string.IsNullOrEmpty(salida))
-
                     return true;
                 else
-
                     return false;
-
-
             }
             catch (OracleException oex)
             {
-
                 throw new TechnicalException("No se creó el departamento" + oex.Message);
             }
         }
 
-     /*  public List<CEDepartamento> GETDEPTO()
+        #region ListaCaracteristicasDeptoJoin()
+        
+        public List<CECaracteristicas_Departamento> ListaCaracteristicasDeptoJoin()
         {
             try
             {
-                List<CEDepartamento> GETDEPTO = new List<CEDepartamento>();
-                
+                OracleDataReader mostrarTabla;
+                List<CECaracteristicas_Departamento> LISTA_Caract_DEPTO = new List<CECaracteristicas_Departamento>();
                 using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
                 {
                     conn.Open();
-                    var getdepto = from dep in CEDepartamento
-                                   join car in CECaracteristicas_Departamento on 
-                                   dep equals car.iddepartemento
-                                   select new
-                                   {
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_DEPARTAMENTO_JOIN_CARACT_JOIN_DIRECCION", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        LISTA_Caract_DEPTO.Add(new CECaracteristicas_Departamento
+                        {
+                            IdCaracteristica = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
 
-                                   }
-                        /*select * from departamento dp
-join caracteristicas_departamento cd on (dp.iddepartamento = cd.iddepartamento)
-join direccion dr on (dr.iddireccion = cd.iddireccion); 
+
+
+                            Ca_NumDepto = Convert.ToInt32(mostrarTabla["CA_NUMDEPTO"]),
+                            Ca_CantHabitaciones = Convert.ToInt32(mostrarTabla["CA_CANTHABITACIONES"]),
+                            Ca_CantCamas = Convert.ToInt32(mostrarTabla["CA_CANTCAMAS"]),
+                            Ca_CantBaño = Convert.ToInt32(mostrarTabla["CA_CANTBAÑO"]),
+                            Ca_CapPersonas = Convert.ToInt32(mostrarTabla["CA_CAPPERSONAS"]),
+
+                            Ca_CheckIn = Convert.ToString(mostrarTabla["CA_CHECKIN"].ToString()),
+                            Ca_CheckOut = Convert.ToString(mostrarTabla["CA_CHECKOUT"].ToString()),
+
+
+
+                            IdDepartamento = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
+                            IdDirecion = Convert.ToInt32(mostrarTabla["IDDIRECCION"]),
+
+                            
+
+
+                        });
+                    }
                     conn.Close();
                 }
-                return GETDEPTO;
+                return LISTA_Caract_DEPTO;
             }
-            catch (Exception)
+            catch (OracleException oex)
             {
 
-                throw;
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
-        } */
-
-
+        }
+        #endregion
+        #region ListarDepartamento
 
         public List<CEDepartamento> ListarDepartamento()
         {
@@ -439,7 +457,63 @@ join direccion dr on (dr.iddireccion = cd.iddireccion);
                 throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
         }
-        
+        #endregion
+
+        public List<CEDepartamento> ListarDepartamentoJoinCaractJoinDireccion()
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                
+                List<CEDepartamento> LISTA_DEPARTAMENTOS = new List<CEDepartamento>();
+
+                
+                
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_DEPARTAMENTO_JOIN_CARACT_JOIN_DIRECCION", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        CEDepartamento depto = new CEDepartamento();
+                        LISTA_DEPARTAMENTOS.Add(new CEDepartamento
+                        {
+
+                            idDepto = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
+                            de_nombre = Convert.ToString(mostrarTabla["DE_NOMBRE"].ToString()),
+
+
+                            descripcionDepto = Convert.ToString(mostrarTabla["DE_DESCRIPCION"].ToString()),
+                            precioDepto = Convert.ToInt32(mostrarTabla["DE_PRECIO"]),
+                            de_start = Convert.ToInt32(mostrarTabla["DE_START"]),
+
+                            idTipoDepto = Convert.ToInt32(mostrarTabla["IDTIPODEPARTAMENTO"]),
+                            idEstadoDepto = Convert.ToInt32(mostrarTabla["IDESTADODEPARTAMENTO"]),
+
+                            idDireccion = Convert.ToInt32(mostrarTabla["IDDIRECCION"]),
+                            idCaracteristicas = Convert.ToInt32(mostrarTabla["IDCARACTERISTICA"]),
+                            
+
+
+
+
+                        });
+                    }
+                    conn.Close();
+                }
+                return LISTA_DEPARTAMENTOS;
+            }
+            catch (OracleException oex)
+            {
+
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
+        }
+
         public List<CECaracteristicas_Departamento> ListaCaracteristicasDepto()
         {
             try
@@ -483,7 +557,6 @@ join direccion dr on (dr.iddireccion = cd.iddireccion);
                 throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
         }
-
 
         public bool EditarDepartamento(CEDepartamento depto)
         {
@@ -550,9 +623,6 @@ join direccion dr on (dr.iddireccion = cd.iddireccion);
                 //agregar ex al Log
                 return false;
             }
-            
-
         }
-
     }
 }

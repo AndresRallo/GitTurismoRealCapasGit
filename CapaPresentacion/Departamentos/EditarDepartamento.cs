@@ -16,6 +16,8 @@ namespace CapaPresentacion.Departamentos
 {
     public partial class EditarDepartamento : Form
     {
+        private string _accion = "insert";
+
         Librarys librarys = new Librarys();
         CNDepartamento cNDepartamento = new CNDepartamento();
 
@@ -74,19 +76,12 @@ namespace CapaPresentacion.Departamentos
                     LoadComboComuna(idregion);
 
                 }
-                /*  else
-                  {
-                      cbComuna.DataSource = null;
-
-                  } */
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show("error " + ex);
             }
-
-
         }
 
         private void LoadComboComuna(int idregion)
@@ -106,7 +101,6 @@ namespace CapaPresentacion.Departamentos
 
                 MessageBox.Show("error " + ex);
             }
-
         }
 
         private void cbxRegion_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,11 +110,9 @@ namespace CapaPresentacion.Departamentos
                 int regionid = cbxRegion.SelectedIndex;
 
                 LoadComboComuna(regionid);
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("error " + ex);
             }
         }
@@ -133,14 +125,13 @@ namespace CapaPresentacion.Departamentos
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
         public void Lista()
         {
             CNDepartamento lista = new CNDepartamento();
-            dgvDepartamentos.DataSource = lista.ObtenerCaracteristicas();
+            dgvDepartamentos.DataSource = lista.ObtenerDatosJoinCaracteristicas();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -151,6 +142,87 @@ namespace CapaPresentacion.Departamentos
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (txtNombre.Text == "")
+            {
+                lblNombre.Text = "Falta Nombre del Departamento";
+                lblNombre.ForeColor = Color.Red;
+            }
+            if (txtDescDepto.Text == "")
+            {
+                lblDesDepto.Text = "Falta Descripción Depto";
+                lblDesDepto.ForeColor = Color.Red;
+            }
+            if (txtPrecio.Text == "")
+            {
+                lblAgrePrecio.Text = "Falta agregar Precio en Pesos";
+                lblAgrePrecio.ForeColor = Color.Red;
+            }
+            if (txtEstrellas.Text == "")
+            {
+                lblEstrellas.Text = "Falta agregar Estellas";
+                lblEstrellas.ForeColor = Color.Red;
+
+            }
+            else if (Convert.ToInt32(txtEstrellas.Text) < 1 || Convert.ToInt32(txtEstrellas.Text) > 5)
+            {
+                lblEstrellas.Text = "Estrellas fuera de rango (1-5)";
+                lblEstrellas.ForeColor = Color.Red;
+            }
+            if (txtDireccion.Text == "")
+            {
+                lblDireccion.Text = "Falta Dirección";
+                lblDireccion.ForeColor = Color.Red;
+            }
+            if (txtDireccion.Text == "")
+            {
+                lblNumero.Text = "Falta Número";
+                lblNumero.ForeColor = Color.Red;
+            }
+            if (txtNumDepto.Text == "")
+            {
+                lblNumDepto.Text = "Falta Núm.Depto";
+                lblNumDepto.ForeColor = Color.Red;
+            }
+            if (txtCantHabitaciones.Text == "")
+            {
+                lblHabitaciones.Text = "Falta Cant. Habitaciones";
+                lblHabitaciones.ForeColor = Color.Red;
+            }
+            if (txtCanCamas.Text == "")
+            {
+                lblCantCamas.Text = "Falta Cant. de Camas";
+                lblCantCamas.ForeColor = Color.Red;
+            }
+            if (txtCantBanos.Text == "")
+            {
+                lblCantBanos.Text = "Falta Cant. de Baños";
+                lblCantBanos.ForeColor = Color.Red;
+            }
+            if (txtCanPersonas.Text == "")
+            {
+                lblCantPersonas.Text = "Falta Cant. de Personas";
+                lblCantPersonas.ForeColor = Color.Red;
+            }
+            if (txtCheckIn.Text == "")
+            {
+                lblCheckIn.Text = "Falta Check In";
+                lblCheckIn.ForeColor = Color.Red;
+            }
+            if (txtCheckIn.Text == "")
+            {
+                lblCheckOut.Text = "Falta Check Out";
+                lblCheckOut.ForeColor = Color.Red;
+            }
+
+            //---------------Ahora se edita el departamento----------------//
+            else
+            {
+                GuardarEdicionDepartamento();
+            }
+        }
+
+        private void GuardarEdicionDepartamento()
         {
             try
             {
@@ -195,17 +267,14 @@ namespace CapaPresentacion.Departamentos
                 }
                 else
                 {
-                    MessageBox.Show("Departamento NO Agregado");
+                    MessageBox.Show("Departamento NO Editado");
                 }
-
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("Departamento no agregado :(" + ex);
+                MessageBox.Show("Departamento no Editado :(" + ex);
             }
         }
-
 
         private void Limpiar()
         {
@@ -228,25 +297,30 @@ namespace CapaPresentacion.Departamentos
 
             txtCheckIn.Text = string.Empty;
             txtCheckOut.Text = string.Empty;
-
         }
-        private void dgvDepartamentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
 
         private void dgvDepartamentos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if(dgvDepartamentos.Rows.Count != 0)
             {
-
+                GetDepartamento();
             }
 
         }
 
         private void dgvDepartamentos_KeyUp(object sender, KeyEventArgs e)
         {
+            GetDepartamento();
+        }
 
+        private int _IdCaracteristica = 0;
+
+        public void GetDepartamento()
+        {
+            _accion = "update";
+            _IdCaracteristica = Convert.ToInt32(dgvDepartamentos.CurrentRow.Cells[0].Value);
+            txtIdCaract.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells[0].Value);
         }
     }
 }

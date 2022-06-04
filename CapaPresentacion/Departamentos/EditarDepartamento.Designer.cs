@@ -57,8 +57,8 @@ namespace CapaPresentacion.Departamentos
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtEstrellas = new System.Windows.Forms.TextBox();
             this.lblDesDepto = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblIDEstado = new System.Windows.Forms.Label();
+            this.lblEstrellas = new System.Windows.Forms.Label();
+            this.lblAgrePrecio = new System.Windows.Forms.Label();
             this.cbxEstadoDepa = new System.Windows.Forms.ComboBox();
             this.lblTipoDepa = new System.Windows.Forms.Label();
             this.lblEstadoDepa = new System.Windows.Forms.Label();
@@ -101,7 +101,6 @@ namespace CapaPresentacion.Departamentos
             this.dgvDepartamentos.Size = new System.Drawing.Size(572, 234);
             this.dgvDepartamentos.TabIndex = 34;
             this.dgvDepartamentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartamentos_CellClick);
-            this.dgvDepartamentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartamentos_CellContentClick);
             this.dgvDepartamentos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvDepartamentos_KeyUp);
             // 
             // label1
@@ -268,8 +267,8 @@ namespace CapaPresentacion.Departamentos
             this.gbxDepto.Controls.Add(this.txtPrecio);
             this.gbxDepto.Controls.Add(this.txtEstrellas);
             this.gbxDepto.Controls.Add(this.lblDesDepto);
-            this.gbxDepto.Controls.Add(this.label3);
-            this.gbxDepto.Controls.Add(this.lblIDEstado);
+            this.gbxDepto.Controls.Add(this.lblEstrellas);
+            this.gbxDepto.Controls.Add(this.lblAgrePrecio);
             this.gbxDepto.Controls.Add(this.cbxEstadoDepa);
             this.gbxDepto.Controls.Add(this.lblTipoDepa);
             this.gbxDepto.Controls.Add(this.lblEstadoDepa);
@@ -342,23 +341,23 @@ namespace CapaPresentacion.Departamentos
             this.lblDesDepto.TabIndex = 48;
             this.lblDesDepto.Text = "Descripción del Departamento";
             // 
-            // label3
+            // lblEstrellas
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 170);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 13);
-            this.label3.TabIndex = 57;
-            this.label3.Text = "Número Estrellas";
+            this.lblEstrellas.AutoSize = true;
+            this.lblEstrellas.Location = new System.Drawing.Point(12, 170);
+            this.lblEstrellas.Name = "lblEstrellas";
+            this.lblEstrellas.Size = new System.Drawing.Size(86, 13);
+            this.lblEstrellas.TabIndex = 57;
+            this.lblEstrellas.Text = "Número Estrellas";
             // 
-            // lblIDEstado
+            // lblAgrePrecio
             // 
-            this.lblIDEstado.AutoSize = true;
-            this.lblIDEstado.Location = new System.Drawing.Point(12, 122);
-            this.lblIDEstado.Name = "lblIDEstado";
-            this.lblIDEstado.Size = new System.Drawing.Size(124, 13);
-            this.lblIDEstado.TabIndex = 49;
-            this.lblIDEstado.Text = "Agregar Precio en Pesos";
+            this.lblAgrePrecio.AutoSize = true;
+            this.lblAgrePrecio.Location = new System.Drawing.Point(12, 122);
+            this.lblAgrePrecio.Name = "lblAgrePrecio";
+            this.lblAgrePrecio.Size = new System.Drawing.Size(124, 13);
+            this.lblAgrePrecio.TabIndex = 49;
+            this.lblAgrePrecio.Text = "Agregar Precio en Pesos";
             // 
             // cbxEstadoDepa
             // 
@@ -577,8 +576,8 @@ namespace CapaPresentacion.Departamentos
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtEstrellas;
         private System.Windows.Forms.Label lblDesDepto;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblIDEstado;
+        private System.Windows.Forms.Label lblEstrellas;
+        private System.Windows.Forms.Label lblAgrePrecio;
         private System.Windows.Forms.ComboBox cbxEstadoDepa;
         private System.Windows.Forms.Label lblTipoDepa;
         private System.Windows.Forms.Label lblEstadoDepa;
