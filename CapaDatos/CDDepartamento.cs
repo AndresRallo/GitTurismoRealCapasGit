@@ -388,21 +388,23 @@ namespace CapaDatos
                               idTipoDepto = Convert.ToInt32(mostrarTabla["IDTIPODEPARTAMENTO"]),
                               idEstadoDepto = Convert.ToInt32(mostrarTabla["IDESTADODEPARTAMENTO"])
                           };
-
-                          departamento.carateristicasDepartamento = new CECaracteristicas_Departamento
-                          {
-                              IdCaracteristica = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
-                              Ca_NumDepto = Convert.ToInt32(mostrarTabla["CA_NUMDEPTO"]),
-                              Ca_CantHabitaciones = Convert.ToInt32(mostrarTabla["CA_CANTHABITACIONES"]),
-                              Ca_CantCamas = Convert.ToInt32(mostrarTabla["CA_CANTCAMAS"]),
-                              Ca_CantBaño = Convert.ToInt32(mostrarTabla["CA_CANTBAÑO"]),
-                              Ca_CapPersonas = Convert.ToInt32(mostrarTabla["CA_CAPPERSONAS"]),
-                              Ca_CheckIn = Convert.ToString(mostrarTabla["CA_CHECKIN"].ToString()),
-                              Ca_CheckOut = Convert.ToString(mostrarTabla["CA_CHECKOUT"].ToString()),
-                              IdDepartamento = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
-                              IdDirecion = Convert.ToInt32(mostrarTabla["IDDIRECCION"])
-                          };
-
+                        if (mostrarTabla.NextResult())
+                        {
+                            while(mostrarTabla.Read())
+                                departamento.carateristicasDepartamento = new CECaracteristicas_Departamento
+                                {
+                                    IdCaracteristica = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
+                                    Ca_NumDepto = Convert.ToInt32(mostrarTabla["CA_NUMDEPTO"]),
+                                    Ca_CantHabitaciones = Convert.ToInt32(mostrarTabla["CA_CANTHABITACIONES"]),
+                                    Ca_CantCamas = Convert.ToInt32(mostrarTabla["CA_CANTCAMAS"]),
+                                    Ca_CantBaño = Convert.ToInt32(mostrarTabla["CA_CANTBAÑO"]),
+                                    Ca_CapPersonas = Convert.ToInt32(mostrarTabla["CA_CAPPERSONAS"]),
+                                    Ca_CheckIn = Convert.ToString(mostrarTabla["CA_CHECKIN"].ToString()),
+                                    Ca_CheckOut = Convert.ToString(mostrarTabla["CA_CHECKOUT"].ToString()),
+                                    IdDepartamento = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
+                                    IdDirecion = Convert.ToInt32(mostrarTabla["IDDIRECCION"])
+                                };
+                        }
                           LISTA_DEPTO.Add(departamento);
                       };
                       conn.Close();
