@@ -19,6 +19,7 @@ namespace CapaEntidad
         public int IdDepartamento { get; set; }
         public int IdDirecion { get; set; }
         
+        public CEDepartamento departamento { get; set; }
 
         public CECaracteristicas_Departamento()
         {

@@ -362,8 +362,8 @@ namespace CapaDatos
         }
 
         #region ListaCaracteristicasDeptoJoin()
-        /*
-          public List<CECaracteristicas_Departamento> ListaCaracteristicasDeptoJoin()
+        
+          public List<CEDepartamento> ListaCaracteristicasDeptoJoin()
           {
               try
               {
@@ -378,7 +378,7 @@ namespace CapaDatos
                       mostrarTabla = command.ExecuteReader();
                       while (mostrarTabla.Read())
                       {
-                          CEDepartamento departamento = new CEDepartamento()
+                          CEDepartamento departamento = new CEDepartamento
                           {
                               idDepto = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
                               de_nombre = Convert.ToString(mostrarTabla["DE_NOMBRE"].ToString()),
@@ -414,7 +414,7 @@ namespace CapaDatos
 
                   throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
               }
-          } */
+          } 
         #endregion
         #region ListarDepartamento
 
