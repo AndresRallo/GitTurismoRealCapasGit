@@ -16,7 +16,7 @@ namespace CapaDatos
     public class CDDepartamento
     {
         string conexion = ConfigurationManager.AppSettings["conn"];
-        
+
 
         public void PruebaConexion()
         {
@@ -50,7 +50,7 @@ namespace CapaDatos
                         command.CommandType = System.Data.CommandType.StoredProcedure;
                         command.Parameters.Add("ID_DEPARTAMENTO", OracleType.Number).Value = Convert.ToInt32(departamento.idDepto);
                         command.ExecuteNonQuery();
-                        
+
                     }
                     conn.Close();
                 }
@@ -283,7 +283,7 @@ namespace CapaDatos
                     command.ExecuteNonQuery();
                     salida = command.Parameters["V_DETALLE"].Value.ToString();
 
-                    
+
                     conn.Close();
 
                 }
@@ -293,8 +293,8 @@ namespace CapaDatos
                 else
 
                     return false;
-                
-               
+
+
             }
             catch (OracleException oex)
             {
@@ -362,61 +362,63 @@ namespace CapaDatos
         }
 
         #region ListaCaracteristicasDeptoJoin()
-        
-          public List<CEDepartamento> ListaCaracteristicasDeptoJoin()
-          {
-              try
-              {
-                  OracleDataReader mostrarTabla;
-                  List<CEDepartamento> LISTA_DEPTO = new List<CEDepartamento>();
-                  using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
-                  {
-                      conn.Open();
-                      OracleCommand command = new OracleCommand("SP_GET_CARACTERISTICAS_BY_DEPTO", conn);
-                      command.CommandType = System.Data.CommandType.StoredProcedure;
-                      command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
-                      mostrarTabla = command.ExecuteReader();
-                      while (mostrarTabla.Read())
-                      {
-                          CEDepartamento departamento = new CEDepartamento
-                          {
-                              idDepto = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
-                              de_nombre = Convert.ToString(mostrarTabla["DE_NOMBRE"].ToString()),
-                              descripcionDepto = Convert.ToString(mostrarTabla["DE_DESCRIPCION"].ToString()),
-                              precioDepto = Convert.ToInt32(mostrarTabla["DE_PRECIO"]),
-                              de_start = Convert.ToInt32(mostrarTabla["DE_START"]),
-                              idTipoDepto = Convert.ToInt32(mostrarTabla["IDTIPODEPARTAMENTO"]),
-                              idEstadoDepto = Convert.ToInt32(mostrarTabla["IDESTADODEPARTAMENTO"])
-                          };
-                        if (mostrarTabla.NextResult())
-                        {
-                            while(mostrarTabla.Read())
-                                departamento.carateristicasDepartamento = new CECaracteristicas_Departamento
-                                {
-                                    IdCaracteristica = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
-                                    Ca_NumDepto = Convert.ToInt32(mostrarTabla["CA_NUMDEPTO"]),
-                                    Ca_CantHabitaciones = Convert.ToInt32(mostrarTabla["CA_CANTHABITACIONES"]),
-                                    Ca_CantCamas = Convert.ToInt32(mostrarTabla["CA_CANTCAMAS"]),
-                                    Ca_CantBaño = Convert.ToInt32(mostrarTabla["CA_CANTBAÑO"]),
-                                    Ca_CapPersonas = Convert.ToInt32(mostrarTabla["CA_CAPPERSONAS"]),
-                                    Ca_CheckIn = Convert.ToString(mostrarTabla["CA_CHECKIN"].ToString()),
-                                    Ca_CheckOut = Convert.ToString(mostrarTabla["CA_CHECKOUT"].ToString()),
-                                    IdDepartamento = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
-                                    IdDirecion = Convert.ToInt32(mostrarTabla["IDDIRECCION"])
-                                };
-                        }
-                          LISTA_DEPTO.Add(departamento);
-                      };
-                      conn.Close();
-                  }
-                  return LISTA_DEPTO;
-              }
-              catch (OracleException oex)
-              {
 
-                  throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
-              }
-          } 
+        public List<CEDepartamento> ListaCaracteristicasDeptoJoin()
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CEDepartamento> LISTA_DEPTO = new List<CEDepartamento>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_CARACTERISTICAS_BY_DEPTO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        CEDepartamento departamento = new CEDepartamento
+                        {
+                            idDepto = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
+                            de_nombre = Convert.ToString(mostrarTabla["DE_NOMBRE"].ToString()),
+                            descripcionDepto = Convert.ToString(mostrarTabla["DE_DESCRIPCION"].ToString()),
+                            precioDepto = Convert.ToInt32(mostrarTabla["DE_PRECIO"]),
+                            de_start = Convert.ToInt32(mostrarTabla["DE_START"]),
+                            idTipoDepto = Convert.ToInt32(mostrarTabla["IDTIPODEPARTAMENTO"]),
+                            idEstadoDepto = Convert.ToInt32(mostrarTabla["IDESTADODEPARTAMENTO"])
+                        };
+
+                        departamento.carateristicasDepartamento = new CECaracteristicas_Departamento
+                        {
+                            IdCaracteristica = Convert.ToInt32(mostrarTabla["IDCARACTERISTICA"]),
+                            Ca_NumDepto = Convert.ToString(mostrarTabla["CA_NUMDEPTO"]),
+                            Ca_CantHabitaciones = Convert.ToInt32(mostrarTabla["CA_CANTHABITACIONES"]),
+                            Ca_CantCamas = Convert.ToInt32(mostrarTabla["CA_CANTCAMAS"]),
+                            Ca_CantBaño = Convert.ToInt32(mostrarTabla["CA_CANTBAÑO"]),
+                            Ca_CapPersonas = Convert.ToInt32(mostrarTabla["CA_CAPPERSONAS"]),
+                            Ca_CheckIn = Convert.ToString(mostrarTabla["CA_CHECKIN"].ToString()),
+                            Ca_CheckOut = Convert.ToString(mostrarTabla["CA_CHECKOUT"].ToString()),
+                            IdDepartamento = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
+                            IdDirecion = Convert.ToInt32(mostrarTabla["IDDIRECCION"])
+                        };
+
+                        LISTA_DEPTO.Add(departamento);
+                    };
+                    conn.Close();
+                }
+                return LISTA_DEPTO;
+            }
+            catch (OracleException oex)
+            {
+
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new TechnicalException("Error al obtener listado de departamentos",ex);
+            }
+        }
         #endregion
         #region ListarDepartamento
 
@@ -446,7 +448,7 @@ namespace CapaDatos
 
                             idTipoDepto = Convert.ToInt32(mostrarTabla["IDTIPODEPARTAMENTO"]),
                             idEstadoDepto = Convert.ToInt32(mostrarTabla["IDESTADODEPARTAMENTO"])
-                            
+
                             //idDireccion = Convert.ToInt32(mostrarTabla["IDDIRECCION"]),
                             //idCaracteristicas = Convert.ToInt32(mostrarTabla["IDCARACTERISTICA"])
                         });
@@ -468,11 +470,11 @@ namespace CapaDatos
             try
             {
                 OracleDataReader mostrarTabla;
-                
+
                 List<CEDepartamento> LISTA_DEPARTAMENTOS = new List<CEDepartamento>();
 
-                
-                
+
+
                 using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
                 {
                     conn.Open();
@@ -500,7 +502,7 @@ namespace CapaDatos
 
                             idDireccion = Convert.ToInt32(mostrarTabla["IDDIRECCION"]),
                             idCaracteristicas = Convert.ToInt32(mostrarTabla["IDCARACTERISTICA"]),
-                            
+
 
 
 
@@ -614,7 +616,7 @@ namespace CapaDatos
                 else
                     return false;
 
-                
+
             }
             catch (OracleException orex)
             {

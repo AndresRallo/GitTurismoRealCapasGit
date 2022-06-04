@@ -107,10 +107,10 @@ namespace CapaPresentacion.Departamentos
 
         private void CLEAN_DGV_DEPTO()
         {
-            dgvDepartamentos.Columns["mantencion"].Visible = false;
-            dgvDepartamentos.Columns["adjunto"].Visible = false;
-            dgvDepartamentos.Columns["direccion"].Visible = false;
-            dgvDepartamentos.Columns["carateristicasDepartamento"].Visible = false;
+            //dgvDepartamentos.Columns["mantencion"].Visible = false;
+            //dgvDepartamentos.Columns["adjunto"].Visible = false;
+            //dgvDepartamentos.Columns["direccion"].Visible = false;
+            //dgvDepartamentos.Columns["carateristicasDepartamento"].Visible = false;
         }
         private void cbxRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -259,7 +259,7 @@ namespace CapaPresentacion.Departamentos
                 CECaracteristicas_Departamento carDepto = new CECaracteristicas_Departamento();
 
                 carDepto.IdCaracteristica = Convert.ToInt32(txtIdCaract.Text);
-                carDepto.Ca_NumDepto = Convert.ToInt32(txtNumDepto.Text);
+                carDepto.Ca_NumDepto = txtNumDepto.Text;
                 carDepto.Ca_CantHabitaciones = Convert.ToInt32(txtCantHabitaciones.Text);
                 carDepto.Ca_CantCamas = Convert.ToInt32(txtCanCamas.Text);
                 carDepto.Ca_CantBaño = Convert.ToInt32(txtCantBanos.Text);

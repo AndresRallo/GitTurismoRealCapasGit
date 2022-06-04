@@ -134,7 +134,7 @@ namespace CapaPresentacion.Departamentos
 
                 CECaracteristicas_Departamento carDepto = new CECaracteristicas_Departamento();
 
-                carDepto.Ca_NumDepto = Convert.ToInt32(txtNumDepto.Text);
+                carDepto.Ca_NumDepto = txtNumDepto.Text;
                 carDepto.Ca_CantHabitaciones = Convert.ToInt32(txtCantHabitaciones.Text);
                 carDepto.Ca_CantCamas = Convert.ToInt32(txtCanCamas.Text);
                 carDepto.Ca_CantBaño = Convert.ToInt32(txtCantBanos.Text);
