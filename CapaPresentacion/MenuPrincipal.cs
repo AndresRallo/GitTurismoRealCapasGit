@@ -103,7 +103,7 @@ namespace CapaPresentacion
         }
         #endregion
 
-        #region Delete  employee 
+        #region ChangeStatus  employee 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CambiarEstadoEmpleado eliminarEmpleado = new CambiarEstadoEmpleado();
@@ -145,7 +145,7 @@ namespace CapaPresentacion
         }
         #endregion
 
-        #region delete User
+        #region ChangeStatus User
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
             
@@ -159,28 +159,36 @@ namespace CapaPresentacion
         #region list department
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-
+            Departamentos.ListarDepartamentos LISTA_DEPARTAMENTOS = new Departamentos.ListarDepartamentos();
+            LISTA_DEPARTAMENTOS.Show();
+            this.Close();
         }
         #endregion
 
         #region add department
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
-
+            Departamentos.AgregarDepartamento AGREGAR_DEPARTAMENTO = new Departamentos.AgregarDepartamento();
+            AGREGAR_DEPARTAMENTO.Show();
+            this.Close();
         }
         #endregion
 
         #region edit department
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
         {
-
+            Departamentos.EditarDepartamento EDITAR_DEPARTAMENTO = new Departamentos.EditarDepartamento();
+            EDITAR_DEPARTAMENTO.Show();
+            this.Close();
         }
         #endregion
 
         #region delete department
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
         {
-
+            Departamentos.CambiarEstadoDepartamento CHANGE_STATUS_DEPARTAMENTO = new Departamentos.CambiarEstadoDepartamento();
+            CHANGE_STATUS_DEPARTAMENTO.Show();
+            this.Close();
         }
         #endregion
 

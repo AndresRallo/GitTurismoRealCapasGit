@@ -28,9 +28,10 @@ namespace CapaPresentacion.Departamentos
             LoadTipoDepto();
             LoadComboRegion();
             Lista();
+            CLEAN_DGV_DEPTO();
         }
 
-
+        #region combobox
         private void LoadComboEstadoDepto()
         {
             try
@@ -102,7 +103,15 @@ namespace CapaPresentacion.Departamentos
                 MessageBox.Show("error " + ex);
             }
         }
+        #endregion
 
+        private void CLEAN_DGV_DEPTO()
+        {
+            dgvDepartamentos.Columns["mantencion"].Visible = false;
+            dgvDepartamentos.Columns["adjunto"].Visible = false;
+            dgvDepartamentos.Columns["direccion"].Visible = false;
+            dgvDepartamentos.Columns["carateristicasDepartamento"].Visible = false;
+        }
         private void cbxRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -141,6 +150,7 @@ namespace CapaPresentacion.Departamentos
             this.Close();
         }
 
+        #region validacion textbox
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (txtNombre.Text == "")
@@ -221,6 +231,7 @@ namespace CapaPresentacion.Departamentos
                 GuardarEdicionDepartamento();
             }
         }
+        #endregion
 
         private void GuardarEdicionDepartamento()
         {

@@ -19,6 +19,7 @@ namespace CapaPresentacion.Departamentos
         {
             InitializeComponent();
             Lista();
+            CLEAN_DGV_DEPTO();
         }
 
         private void btnListar_Click(object sender, EventArgs e)
@@ -39,6 +40,14 @@ namespace CapaPresentacion.Departamentos
         {
             CNDepartamento lista = new CNDepartamento();
             dataGridViewDepartamentos.DataSource = lista.ObtenerDatos();
+        }
+
+        private void CLEAN_DGV_DEPTO()
+        {
+            dataGridViewDepartamentos.Columns["mantencion"].Visible = false;
+            dataGridViewDepartamentos.Columns["adjunto"].Visible = false;
+            dataGridViewDepartamentos.Columns["direccion"].Visible = false;
+            dataGridViewDepartamentos.Columns["carateristicasDepartamento"].Visible = false;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
