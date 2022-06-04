@@ -16,5 +16,15 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

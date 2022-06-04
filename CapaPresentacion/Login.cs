@@ -145,6 +145,7 @@ namespace CapaPresentacion
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            
             if (txtMail.Text.Equals("") && txtPass.Text == "")
             {
                 lblEmail.Text = "Email es Obligatorio";
