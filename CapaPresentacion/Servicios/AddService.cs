@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaEntidad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -175,5 +176,21 @@ namespace CapaPresentacion
         }
         #endregion
 
+        #region add service
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CEService service = new CEService();
+            service.Delete = 0;
+            //service.FECHAS =
+            //service.IDRESERVA=
+            //service.IDSERVICIO=
+
+        }
+        #endregion
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
