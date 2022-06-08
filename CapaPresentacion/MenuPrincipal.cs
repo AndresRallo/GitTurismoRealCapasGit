@@ -13,11 +13,19 @@ namespace CapaPresentacion
 {
     public partial class MenuPrincipal : Form
     {
-        public MenuPrincipal()
+        public MenuPrincipal(string name)
         {
+           
             InitializeComponent();
+            NameUser(name);
         }
 
+        private void NameUser(string name)
+        {
+            lblName.Text = (name != "") ? name : "Invitado";
+            lblName.ForeColor = Color.White;
+            
+        }
         private void btnCerrarAplicacion_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -218,6 +226,42 @@ namespace CapaPresentacion
         {
 
         }
+
         #endregion
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip5_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

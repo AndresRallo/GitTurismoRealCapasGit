@@ -240,7 +240,7 @@ namespace CapaDatos
                 using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
                 {
                     conn.Open();
-                    OracleCommand command = new OracleCommand("SP_GET_ALL_VEHICULO", conn);
+                    OracleCommand command = new OracleCommand("ci", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
                     mostrarTabla = command.ExecuteReader();
