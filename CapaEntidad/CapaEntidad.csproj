@@ -47,6 +47,7 @@
     <Compile Include="CEComentarios_Departamentos.cs" />
     <Compile Include="CEComuna.cs" />
     <Compile Include="CEDepartamento.cs" />
+    <Compile Include="CEDeptoListaJoin.cs" />
     <Compile Include="CEDireccion.cs" />
     <Compile Include="CEEmpleado.cs" />
     <Compile Include="CEMantencion.cs" />
