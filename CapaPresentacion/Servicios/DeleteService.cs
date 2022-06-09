@@ -34,7 +34,8 @@ namespace CapaPresentacion.Servicios
         private void button1_Click(object sender, EventArgs e)
         {
             string idService = txtIdServicio.Text;
-            if (true)
+
+            if (false)
             {
                 btnEliminarResServicio.Visible = true;
                 txtNombreServicio.Visible = true;

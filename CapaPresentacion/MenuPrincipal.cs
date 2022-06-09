@@ -228,7 +228,9 @@ namespace CapaPresentacion
         #region delete Service booking
         private void toolStripMenuItem16_Click(object sender, EventArgs e)
         {
-
+            DeleteService deleteService = new DeleteService();
+            deleteService.Show();
+            this.Close();
         }
 
         #endregion
