@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaDatos;
+using CapaPresentacion.Servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -212,7 +214,9 @@ namespace CapaPresentacion
         #region list Service booking
         private void toolStripMenuItem13_Click(object sender, EventArgs e)
         {
-
+            ListService listService = new ListService();
+            listService.Show();
+            this.Close();
         }
         #endregion
         #region edit Service booking
@@ -260,6 +264,11 @@ namespace CapaPresentacion
         }
 
         private void contextMenuStrip5_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
         }

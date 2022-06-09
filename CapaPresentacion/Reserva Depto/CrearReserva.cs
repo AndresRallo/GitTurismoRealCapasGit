@@ -16,5 +16,10 @@ namespace CapaPresentacion.Reserva
         {
             InitializeComponent();
         }
+
+        private void btnReservarDepto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

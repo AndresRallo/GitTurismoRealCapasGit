@@ -53,11 +53,11 @@ namespace CapaPresentacion
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.Employee = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Department = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.SERVICE = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,12 +65,12 @@ namespace CapaPresentacion
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.label5 = new System.Windows.Forms.Label();
+            this.Employee = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
-            this.Department = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCerrarAplicacion = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label2 = new System.Windows.Forms.Label();
@@ -79,7 +79,6 @@ namespace CapaPresentacion
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -110,9 +109,9 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Reserva.SuspendLayout();
             this.User.SuspendLayout();
-            this.Employee.SuspendLayout();
-            this.SERVICE.SuspendLayout();
             this.Department.SuspendLayout();
+            this.SERVICE.SuspendLayout();
+            this.Employee.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
@@ -120,14 +119,6 @@ namespace CapaPresentacion
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.panel8);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(241)))), ((int)(((byte)(244)))));
             this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.pictureBox6);
@@ -143,31 +134,20 @@ namespace CapaPresentacion
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.Reservas);
-            this.panel1.Location = new System.Drawing.Point(4, 13);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.ForeColor = System.Drawing.Color.Chocolate;
-            this.panel1.Location = new System.Drawing.Point(1, -1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(2, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(237, 612);
+            this.panel1.Size = new System.Drawing.Size(356, 942);
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox7
             // 
-            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
-            this.panel6.Location = new System.Drawing.Point(20, 202);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(34, 32);
-            this.panel6.TabIndex = 14;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(73, 32);
+            this.pictureBox7.Location = new System.Drawing.Point(110, 49);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(130, 130);
+            this.pictureBox7.Size = new System.Drawing.Size(195, 200);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 14;
             this.pictureBox7.TabStop = false;
@@ -175,80 +155,55 @@ namespace CapaPresentacion
             // 
             // pictureBox6
             // 
-            this.panel7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel7.BackgroundImage")));
-            this.panel7.Location = new System.Drawing.Point(20, 162);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(34, 32);
-            this.panel7.TabIndex = 14;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(36, 432);
+            this.pictureBox6.Location = new System.Drawing.Point(54, 665);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(34, 34);
+            this.pictureBox6.Size = new System.Drawing.Size(51, 52);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 24;
             this.pictureBox6.TabStop = false;
             // 
             // pictureBox5
             // 
-            this.panel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel8.BackgroundImage")));
-            this.panel8.Location = new System.Drawing.Point(20, 124);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(34, 32);
-            this.panel8.TabIndex = 14;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(36, 383);
+            this.pictureBox5.Location = new System.Drawing.Point(54, 589);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(34, 34);
+            this.pictureBox5.Size = new System.Drawing.Size(51, 52);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 23;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
-            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
-            this.panel5.Location = new System.Drawing.Point(20, 240);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(34, 32);
-            this.panel5.TabIndex = 15;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(36, 332);
+            this.pictureBox4.Location = new System.Drawing.Point(54, 511);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(34, 34);
+            this.pictureBox4.Size = new System.Drawing.Size(51, 52);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 22;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
-            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
-            this.panel4.Location = new System.Drawing.Point(20, 84);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(34, 32);
-            this.panel4.TabIndex = 14;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(36, 283);
+            this.pictureBox3.Location = new System.Drawing.Point(54, 435);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(34, 34);
+            this.pictureBox3.Size = new System.Drawing.Size(51, 52);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 21;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
-            this.panel3.Location = new System.Drawing.Point(20, 21);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(34, 32);
-            this.panel3.TabIndex = 13;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(36, 183);
+            this.pictureBox2.Location = new System.Drawing.Point(54, 282);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(34, 34);
+            this.pictureBox2.Size = new System.Drawing.Size(51, 52);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
@@ -256,9 +211,10 @@ namespace CapaPresentacion
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(36, 232);
+            this.pictureBox1.Location = new System.Drawing.Point(54, 357);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(34, 34);
+            this.pictureBox1.Size = new System.Drawing.Size(51, 52);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
@@ -269,10 +225,9 @@ namespace CapaPresentacion
             this.label7.ContextMenuStrip = this.Reserva;
             this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label7.Location = new System.Drawing.Point(85, 394);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(128, 606);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 23);
+            this.label7.Size = new System.Drawing.Size(105, 30);
             this.label7.TabIndex = 16;
             this.label7.Text = "Reservas";
             // 
@@ -285,40 +240,41 @@ namespace CapaPresentacion
             this.toolStripMenuItem11,
             this.toolStripMenuItem12});
             this.Reserva.Name = "contextMenuStrip1";
-            this.Reserva.Size = new System.Drawing.Size(118, 92);
+            this.Reserva.Size = new System.Drawing.Size(133, 100);
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(132, 24);
             this.toolStripMenuItem9.Text = "Listar";
             this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(132, 24);
             this.toolStripMenuItem10.Text = "Agregar";
             this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
             // 
             // toolStripMenuItem11
             // 
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(132, 24);
             this.toolStripMenuItem11.Text = "Editar";
             // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(132, 24);
             this.toolStripMenuItem12.Text = "Eliminar";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(70, 39);
+            this.lblName.Location = new System.Drawing.Point(105, 60);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 13);
+            this.lblName.Size = new System.Drawing.Size(0, 20);
             this.lblName.TabIndex = 16;
             // 
             // label8
@@ -327,10 +283,9 @@ namespace CapaPresentacion
             this.label8.ContextMenuStrip = this.User;
             this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label8.Location = new System.Drawing.Point(85, 443);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(128, 682);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 23);
+            this.label8.Size = new System.Drawing.Size(107, 30);
             this.label8.TabIndex = 15;
             this.label8.Text = "Informes";
             // 
@@ -343,87 +298,86 @@ namespace CapaPresentacion
             this.toolStripMenuItem3,
             this.toolStripMenuItem4});
             this.User.Name = "contextMenuStrip1";
-            this.User.Size = new System.Drawing.Size(118, 92);
+            this.User.Size = new System.Drawing.Size(133, 100);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(132, 24);
             this.toolStripMenuItem1.Text = "Listar";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(132, 24);
             this.toolStripMenuItem2.Text = "Agregar";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(132, 24);
             this.toolStripMenuItem3.Text = "Editar";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(132, 24);
             this.toolStripMenuItem4.Text = "Eliminar";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ContextMenuStrip = this.Employee;
+            this.label1.ContextMenuStrip = this.Department;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label1.Location = new System.Drawing.Point(85, 294);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(128, 452);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 23);
+            this.label1.Size = new System.Drawing.Size(177, 30);
             this.label1.TabIndex = 16;
             this.label1.Text = "Departamentos";
             // 
-            // Employee
+            // Department
             // 
-            this.Employee.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.Employee.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listarToolStripMenuItem,
-            this.agregarToolStripMenuItem,
-            this.editarToolStripMenuItem,
-            this.eliminarToolStripMenuItem});
-            this.Employee.Name = "contextMenuStrip1";
-            this.Employee.Size = new System.Drawing.Size(118, 92);
+            this.Department.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.Department.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem6,
+            this.toolStripMenuItem7,
+            this.toolStripMenuItem8});
+            this.Department.Name = "contextMenuStrip1";
+            this.Department.Size = new System.Drawing.Size(133, 100);
             // 
-            // listarToolStripMenuItem
+            // toolStripMenuItem5
             // 
-            this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.listarToolStripMenuItem.Text = "Listar";
-            this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(132, 24);
+            this.toolStripMenuItem5.Text = "Listar";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
-            // agregarToolStripMenuItem
+            // toolStripMenuItem6
             // 
-            this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.agregarToolStripMenuItem.Text = "Agregar";
-            this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click_1);
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(132, 24);
+            this.toolStripMenuItem6.Text = "Agregar";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
-            // editarToolStripMenuItem
+            // toolStripMenuItem7
             // 
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.editarToolStripMenuItem.Text = "Editar";
-            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(132, 24);
+            this.toolStripMenuItem7.Text = "Editar";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
-            // eliminarToolStripMenuItem
+            // toolStripMenuItem8
             // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
-            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(132, 24);
+            this.toolStripMenuItem8.Text = "Eliminar";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // label6
             // 
@@ -431,10 +385,9 @@ namespace CapaPresentacion
             this.label6.ContextMenuStrip = this.SERVICE;
             this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label6.Location = new System.Drawing.Point(85, 343);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(128, 528);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 23);
+            this.label6.Size = new System.Drawing.Size(106, 30);
             this.label6.TabIndex = 15;
             this.label6.Text = "Servicios";
             // 
@@ -447,34 +400,34 @@ namespace CapaPresentacion
             this.toolStripMenuItem15,
             this.toolStripMenuItem16});
             this.SERVICE.Name = "contextMenuStrip1";
-            this.SERVICE.Size = new System.Drawing.Size(118, 92);
+            this.SERVICE.Size = new System.Drawing.Size(211, 128);
             this.SERVICE.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip5_Opening);
             // 
             // toolStripMenuItem13
             // 
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItem13.Text = "Listar";
             this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
             // 
             // toolStripMenuItem14
             // 
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItem14.Text = "Agregar";
             this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
             // 
             // toolStripMenuItem15
             // 
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItem15.Text = "Editar";
             this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
             // 
             // toolStripMenuItem16
             // 
             this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem16.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItem16.Text = "Eliminar";
             this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click);
             // 
@@ -484,13 +437,51 @@ namespace CapaPresentacion
             this.label5.ContextMenuStrip = this.Employee;
             this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label5.Location = new System.Drawing.Point(85, 194);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(128, 298);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 23);
+            this.label5.Size = new System.Drawing.Size(129, 30);
             this.label5.TabIndex = 12;
             this.label5.Text = "Empleados";
             this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // Employee
+            // 
+            this.Employee.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.Employee.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listarToolStripMenuItem,
+            this.agregarToolStripMenuItem,
+            this.editarToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
+            this.Employee.Name = "contextMenuStrip1";
+            this.Employee.Size = new System.Drawing.Size(133, 100);
+            // 
+            // listarToolStripMenuItem
+            // 
+            this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
+            this.listarToolStripMenuItem.Text = "Listar";
+            this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
+            // 
+            // agregarToolStripMenuItem
+            // 
+            this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
+            this.agregarToolStripMenuItem.Text = "Agregar";
+            this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click_1);
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
+            this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // label4
             // 
@@ -498,62 +489,27 @@ namespace CapaPresentacion
             this.label4.ContextMenuStrip = this.User;
             this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label4.Location = new System.Drawing.Point(85, 243);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(128, 374);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 23);
+            this.label4.Size = new System.Drawing.Size(103, 30);
             this.label4.TabIndex = 11;
             this.label4.Text = "Usuarios";
-            // 
-            // Department
-            // 
-            this.Department.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.Department.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem6,
-            this.toolStripMenuItem7,
-            this.toolStripMenuItem8});
-            this.Department.Name = "contextMenuStrip1";
-            this.Department.Size = new System.Drawing.Size(118, 92);
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(117, 22);
-            this.toolStripMenuItem5.Text = "Listar";
-            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(117, 22);
-            this.toolStripMenuItem6.Text = "Agregar";
-            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(117, 22);
-            this.toolStripMenuItem7.Text = "Editar";
-            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(117, 22);
-            this.toolStripMenuItem8.Text = "Eliminar";
-            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // btnCerrarAplicacion
             // 
             this.btnCerrarAplicacion.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnCerrarAplicacion.Location = new System.Drawing.Point(645, -1);
+            this.btnCerrarAplicacion.Location = new System.Drawing.Point(968, -2);
+            this.btnCerrarAplicacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCerrarAplicacion.Name = "btnCerrarAplicacion";
-            this.btnCerrarAplicacion.Size = new System.Drawing.Size(39, 23);
+            this.btnCerrarAplicacion.Size = new System.Drawing.Size(58, 35);
             this.btnCerrarAplicacion.TabIndex = 0;
             this.btnCerrarAplicacion.Text = "X";
             this.btnCerrarAplicacion.UseVisualStyleBackColor = false;
             this.btnCerrarAplicacion.Click += new System.EventHandler(this.btnCerrarAplicacion_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // label2
             // 
@@ -561,10 +517,9 @@ namespace CapaPresentacion
             this.label2.ContextMenuStrip = this.Employee;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label2.Location = new System.Drawing.Point(287, 125);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(430, 192);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 23);
+            this.label2.Size = new System.Drawing.Size(116, 30);
             this.label2.TabIndex = 25;
             this.label2.Text = "Mis datos";
             // 
@@ -574,10 +529,9 @@ namespace CapaPresentacion
             this.label3.ContextMenuStrip = this.Employee;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label3.Location = new System.Drawing.Point(287, 182);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(430, 280);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 23);
+            this.label3.Size = new System.Drawing.Size(101, 30);
             this.label3.TabIndex = 25;
             this.label3.Text = "Nombre";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -588,10 +542,9 @@ namespace CapaPresentacion
             this.label9.ContextMenuStrip = this.Employee;
             this.label9.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label9.Location = new System.Drawing.Point(287, 286);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(430, 440);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 23);
+            this.label9.Size = new System.Drawing.Size(47, 30);
             this.label9.TabIndex = 26;
             this.label9.Text = "Rol";
             // 
@@ -601,10 +554,9 @@ namespace CapaPresentacion
             this.label10.ContextMenuStrip = this.Employee;
             this.label10.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label10.Location = new System.Drawing.Point(287, 253);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(430, 389);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 23);
+            this.label10.Size = new System.Drawing.Size(56, 30);
             this.label10.TabIndex = 27;
             this.label10.Text = "RUT";
             // 
@@ -614,10 +566,9 @@ namespace CapaPresentacion
             this.label11.ContextMenuStrip = this.Employee;
             this.label11.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label11.Location = new System.Drawing.Point(287, 217);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Location = new System.Drawing.Point(430, 334);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 23);
+            this.label11.Size = new System.Drawing.Size(101, 30);
             this.label11.TabIndex = 28;
             this.label11.Text = "Apellido";
             // 
@@ -631,9 +582,10 @@ namespace CapaPresentacion
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.pictureBox8);
             this.panel2.Controls.Add(this.btnCerrarAplicacion);
-            this.panel2.Location = new System.Drawing.Point(229, 0);
+            this.panel2.Location = new System.Drawing.Point(344, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(684, 79);
+            this.panel2.Size = new System.Drawing.Size(1026, 122);
             this.panel2.TabIndex = 29;
             // 
             // checkBox4
@@ -641,9 +593,10 @@ namespace CapaPresentacion
             this.checkBox4.AutoSize = true;
             this.checkBox4.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.checkBox4.Location = new System.Drawing.Point(331, 32);
+            this.checkBox4.Location = new System.Drawing.Point(496, 49);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(98, 27);
+            this.checkBox4.Size = new System.Drawing.Size(120, 34);
             this.checkBox4.TabIndex = 29;
             this.checkBox4.Text = "Eliminar";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -653,9 +606,10 @@ namespace CapaPresentacion
             this.checkBox3.AutoSize = true;
             this.checkBox3.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.checkBox3.Location = new System.Drawing.Point(212, 32);
+            this.checkBox3.Location = new System.Drawing.Point(318, 49);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(113, 27);
+            this.checkBox3.Size = new System.Drawing.Size(138, 34);
             this.checkBox3.TabIndex = 28;
             this.checkBox3.Text = "Actualizar";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -665,9 +619,10 @@ namespace CapaPresentacion
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.checkBox2.Location = new System.Drawing.Point(132, 32);
+            this.checkBox2.Location = new System.Drawing.Point(198, 49);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(74, 27);
+            this.checkBox2.Size = new System.Drawing.Size(90, 34);
             this.checkBox2.TabIndex = 27;
             this.checkBox2.Text = "Listar";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -677,9 +632,10 @@ namespace CapaPresentacion
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.checkBox1.Location = new System.Drawing.Point(29, 32);
+            this.checkBox1.Location = new System.Drawing.Point(44, 49);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(97, 27);
+            this.checkBox1.Size = new System.Drawing.Size(119, 34);
             this.checkBox1.TabIndex = 26;
             this.checkBox1.Text = "Agregar";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -690,19 +646,19 @@ namespace CapaPresentacion
             this.label12.ContextMenuStrip = this.Employee;
             this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label12.Location = new System.Drawing.Point(562, 33);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Location = new System.Drawing.Point(843, 51);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(88, 23);
+            this.label12.Size = new System.Drawing.Size(111, 30);
             this.label12.TabIndex = 25;
             this.label12.Text = "{nombre}";
             // 
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(537, 36);
+            this.pictureBox8.Location = new System.Drawing.Point(806, 55);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox8.Size = new System.Drawing.Size(30, 31);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 25;
             this.pictureBox8.TabStop = false;
@@ -713,51 +669,55 @@ namespace CapaPresentacion
             this.label13.ContextMenuStrip = this.Employee;
             this.label13.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label13.Location = new System.Drawing.Point(287, 322);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Location = new System.Drawing.Point(430, 495);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(68, 23);
+            this.label13.Size = new System.Drawing.Size(85, 30);
             this.label13.TabIndex = 30;
             this.label13.Text = "Correo";
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(397, 220);
+            this.txtApellido.Location = new System.Drawing.Point(596, 338);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.ReadOnly = true;
-            this.txtApellido.Size = new System.Drawing.Size(389, 20);
+            this.txtApellido.Size = new System.Drawing.Size(582, 26);
             this.txtApellido.TabIndex = 31;
             // 
             // txtRut
             // 
-            this.txtRut.Location = new System.Drawing.Point(397, 256);
+            this.txtRut.Location = new System.Drawing.Point(596, 394);
+            this.txtRut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtRut.Name = "txtRut";
             this.txtRut.ReadOnly = true;
-            this.txtRut.Size = new System.Drawing.Size(389, 20);
+            this.txtRut.Size = new System.Drawing.Size(582, 26);
             this.txtRut.TabIndex = 32;
             // 
             // txtRol
             // 
-            this.txtRol.Location = new System.Drawing.Point(397, 289);
+            this.txtRol.Location = new System.Drawing.Point(596, 445);
+            this.txtRol.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtRol.Name = "txtRol";
             this.txtRol.ReadOnly = true;
-            this.txtRol.Size = new System.Drawing.Size(389, 20);
+            this.txtRol.Size = new System.Drawing.Size(582, 26);
             this.txtRol.TabIndex = 33;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(397, 185);
+            this.txtNombre.Location = new System.Drawing.Point(596, 285);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(389, 20);
+            this.txtNombre.Size = new System.Drawing.Size(582, 26);
             this.txtNombre.TabIndex = 34;
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(397, 325);
+            this.txtCorreo.Location = new System.Drawing.Point(596, 500);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.ReadOnly = true;
-            this.txtCorreo.Size = new System.Drawing.Size(389, 20);
+            this.txtCorreo.Size = new System.Drawing.Size(582, 26);
             this.txtCorreo.TabIndex = 35;
             // 
             // label14
@@ -766,35 +726,37 @@ namespace CapaPresentacion
             this.label14.ContextMenuStrip = this.Employee;
             this.label14.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label14.Location = new System.Drawing.Point(287, 383);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Location = new System.Drawing.Point(430, 589);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(179, 23);
+            this.label14.Size = new System.Drawing.Size(224, 30);
             this.label14.TabIndex = 36;
             this.label14.Text = "Cambiar contraseña";
             // 
             // txtPassAntigua
             // 
-            this.txtPassAntigua.Location = new System.Drawing.Point(498, 436);
+            this.txtPassAntigua.Location = new System.Drawing.Point(747, 671);
+            this.txtPassAntigua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassAntigua.Name = "txtPassAntigua";
             this.txtPassAntigua.ReadOnly = true;
-            this.txtPassAntigua.Size = new System.Drawing.Size(288, 20);
+            this.txtPassAntigua.Size = new System.Drawing.Size(430, 26);
             this.txtPassAntigua.TabIndex = 42;
             // 
             // txtPassNuevaConfirmar
             // 
-            this.txtPassNuevaConfirmar.Location = new System.Drawing.Point(498, 507);
+            this.txtPassNuevaConfirmar.Location = new System.Drawing.Point(747, 780);
+            this.txtPassNuevaConfirmar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassNuevaConfirmar.Name = "txtPassNuevaConfirmar";
             this.txtPassNuevaConfirmar.ReadOnly = true;
-            this.txtPassNuevaConfirmar.Size = new System.Drawing.Size(288, 20);
+            this.txtPassNuevaConfirmar.Size = new System.Drawing.Size(430, 26);
             this.txtPassNuevaConfirmar.TabIndex = 41;
             // 
             // txtPassNueva
             // 
-            this.txtPassNueva.Location = new System.Drawing.Point(498, 471);
+            this.txtPassNueva.Location = new System.Drawing.Point(747, 725);
+            this.txtPassNueva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassNueva.Name = "txtPassNueva";
             this.txtPassNueva.ReadOnly = true;
-            this.txtPassNueva.Size = new System.Drawing.Size(288, 20);
+            this.txtPassNueva.Size = new System.Drawing.Size(430, 26);
             this.txtPassNueva.TabIndex = 40;
             // 
             // label15
@@ -803,10 +765,9 @@ namespace CapaPresentacion
             this.label15.ContextMenuStrip = this.Employee;
             this.label15.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label15.Location = new System.Drawing.Point(287, 468);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Location = new System.Drawing.Point(430, 720);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(162, 23);
+            this.label15.Size = new System.Drawing.Size(205, 30);
             this.label15.TabIndex = 39;
             this.label15.Text = "Contraseña nueva";
             // 
@@ -816,10 +777,9 @@ namespace CapaPresentacion
             this.label16.ContextMenuStrip = this.Employee;
             this.label16.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label16.Location = new System.Drawing.Point(287, 504);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Location = new System.Drawing.Point(430, 775);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(193, 23);
+            this.label16.Size = new System.Drawing.Size(242, 30);
             this.label16.TabIndex = 38;
             this.label16.Text = "Confirmar contraseña";
             // 
@@ -829,50 +789,29 @@ namespace CapaPresentacion
             this.label17.ContextMenuStrip = this.Employee;
             this.label17.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label17.Location = new System.Drawing.Point(287, 433);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Location = new System.Drawing.Point(430, 666);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(175, 23);
+            this.label17.Size = new System.Drawing.Size(220, 30);
             this.label17.TabIndex = 37;
             this.label17.Text = "Contraseña antigua";
             // 
             // btnCambioPass
             // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.panel2.Location = new System.Drawing.Point(358, 34);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(370, 329);
-            this.panel2.TabIndex = 7;
             this.btnCambioPass.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCambioPass.Location = new System.Drawing.Point(629, 558);
+            this.btnCambioPass.Location = new System.Drawing.Point(944, 858);
+            this.btnCambioPass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCambioPass.Name = "btnCambioPass";
-            this.btnCambioPass.Size = new System.Drawing.Size(157, 29);
+            this.btnCambioPass.Size = new System.Drawing.Size(236, 45);
             this.btnCambioPass.TabIndex = 43;
             this.btnCambioPass.Text = "Cambiar contraseña";
             this.btnCambioPass.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ContextMenuStrip = this.contextMenuStrip1;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(66, 29);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 24);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Perfil";
-            // 
             // MenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(910, 609);
+            this.ClientSize = new System.Drawing.Size(1365, 937);
             this.Controls.Add(this.btnCambioPass);
             this.Controls.Add(this.txtPassAntigua);
             this.Controls.Add(this.txtPassNuevaConfirmar);
@@ -895,6 +834,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MenuPrincipal";
             this.Text = "MenuPrincipal";
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
@@ -909,9 +849,9 @@ namespace CapaPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Reserva.ResumeLayout(false);
             this.User.ResumeLayout(false);
-            this.Employee.ResumeLayout(false);
-            this.SERVICE.ResumeLayout(false);
             this.Department.ResumeLayout(false);
+            this.SERVICE.ResumeLayout(false);
+            this.Employee.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -969,13 +909,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
