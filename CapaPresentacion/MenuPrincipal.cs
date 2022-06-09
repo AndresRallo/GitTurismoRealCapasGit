@@ -24,8 +24,8 @@ namespace CapaPresentacion
 
         private void NameUser(string name)
         {
-            lblName.Text = (name != "") ? name : "Invitado";
-            lblName.ForeColor = Color.White;
+            lblNameUser.Text = (name != "") ? name : "Invitado";
+            lblNameUser.ForeColor = Color.Black;
             
         }
         private void btnCerrarAplicacion_Click(object sender, EventArgs e)
