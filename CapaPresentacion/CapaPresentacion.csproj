@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -388,10 +388,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <None Include="CapaEntidad.CEDepartamento1.datasource" />
-    <None Include="CapaEntidad.CEDeptoListaJoin.datasource" />
-=======
     <EmbeddedResource Include="Servicios\DeleteService.resx">
       <DependentUpon>DeleteService.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,7 +397,6 @@
     <EmbeddedResource Include="Servicios\updateService.resx">
       <DependentUpon>updateService.cs</DependentUpon>
     </EmbeddedResource>
->>>>>>> 90c1e5cb67872fab26b47c6a6935e41dc94862b7
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
