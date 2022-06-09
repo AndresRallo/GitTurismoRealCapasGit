@@ -363,36 +363,34 @@ namespace CapaDatos
 
         #region ListaCaracteristicasDeptoJoin()
 
-        public List<CEDeptoListaJoin> ListaCaracteristicasDeptoJoin()
+        public List<CEDepartamento> ListaCaracteristicasDeptoJoin()
         {
             try
             {
                 OracleDataReader mostrarTabla;
-                List<CEDeptoListaJoin> LISTA_DEPTO = new List<CEDeptoListaJoin>();
+                List<CEDepartamento> LISTA_DEPTO = new List<CEDepartamento>();
                 using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
                 {
                     conn.Open();
-                    OracleCommand command = new OracleCommand("SP_GET_CARACTERISTICAS_BY_DEPTO_VER_EDITAR", conn);//SP_GET_CARACTERISTICAS_BY_DEPTO
+                    OracleCommand command = new OracleCommand("SP_GET_CARACTERISTICAS_BY_DEPTO", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
                     mostrarTabla = command.ExecuteReader();
                     while (mostrarTabla.Read())
                     {
-                        CEDeptoListaJoin departamento = new CEDeptoListaJoin
+                        CEDepartamento departamento = new CEDepartamento
                         {
-
                             idDepto = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
                             de_nombre = Convert.ToString(mostrarTabla["DE_NOMBRE"].ToString()),
                             descripcionDepto = Convert.ToString(mostrarTabla["DE_DESCRIPCION"].ToString()),
                             precioDepto = Convert.ToInt32(mostrarTabla["DE_PRECIO"]),
                             de_start = Convert.ToInt32(mostrarTabla["DE_START"]),
                             idTipoDepto = Convert.ToInt32(mostrarTabla["IDTIPODEPARTAMENTO"]),
-                            idEstadoDepto = Convert.ToInt32(mostrarTabla["IDESTADODEPARTAMENTO"]),
-                            tipoDepto = Convert.ToString(mostrarTabla["TD_DESCRIPCION"].ToString()),
-                            estadoDepto = Convert.ToString(mostrarTabla["ED_DESCRIPCION"].ToString()),
+                            idEstadoDepto = Convert.ToInt32(mostrarTabla["IDESTADODEPARTAMENTO"])
+                        };
 
-
-
+                        departamento.carateristicasDepartamento = new CECaracteristicas_Departamento
+                        {
                             IdCaracteristica = Convert.ToInt32(mostrarTabla["IDCARACTERISTICA"]),
                             Ca_NumDepto = Convert.ToString(mostrarTabla["CA_NUMDEPTO"]),
                             Ca_CantHabitaciones = Convert.ToInt32(mostrarTabla["CA_CANTHABITACIONES"]),
@@ -402,19 +400,8 @@ namespace CapaDatos
                             Ca_CheckIn = Convert.ToString(mostrarTabla["CA_CHECKIN"].ToString()),
                             Ca_CheckOut = Convert.ToString(mostrarTabla["CA_CHECKOUT"].ToString()),
                             IdDepartamento = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
-                            IdDirecion = Convert.ToInt32(mostrarTabla["IDDIRECCION"]),
-
-                            comuna = Convert.ToString(mostrarTabla["C_DESCRIPCION"].ToString()),
-                            region = Convert.ToString(mostrarTabla["RE_DESCRIPCION"].ToString()),
-                            
-
-                            idDireccion = Convert.ToInt32(mostrarTabla["IDDIRECCION"]),
-                            de_direccion = Convert.ToString(mostrarTabla["DE_DIRECCION"]),
-                            de_numero = Convert.ToString(mostrarTabla["DE_NUMERO"]),
-                            id_comuna = Convert.ToInt32(mostrarTabla["IDCOMUNA"]),
-                            idRegion = Convert.ToInt32(mostrarTabla["IDREGION"])
+                            IdDirecion = Convert.ToInt32(mostrarTabla["IDDIRECCION"])
                         };
-
 
                         LISTA_DEPTO.Add(departamento);
                     };
@@ -429,7 +416,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                throw new TechnicalException("Error al obtener listado de departamentos", ex);
+                throw new TechnicalException("Error al obtener listado de departamentos",ex);
             }
         }
         #endregion

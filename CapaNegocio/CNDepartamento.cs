@@ -25,9 +25,9 @@ namespace CapaNegocio
             return listaDepto;
         }
 
-        public List<CEDeptoListaJoin> ObtenerDatosJoinCaracteristicas()
+        public List<CEDepartamento> ObtenerDatosJoinCaracteristicas()
         {
-            List<CEDeptoListaJoin> listaDepto = new List<CEDeptoListaJoin>();
+            List<CEDepartamento> listaDepto = new List<CEDepartamento>();
             listaDepto = cDDepartamento.ListaCaracteristicasDeptoJoin();
             return listaDepto;
         }

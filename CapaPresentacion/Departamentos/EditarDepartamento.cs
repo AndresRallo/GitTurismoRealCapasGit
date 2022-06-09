@@ -105,7 +105,13 @@ namespace CapaPresentacion.Departamentos
         }
         #endregion
 
-        
+        private void CLEAN_DGV_DEPTO()
+        {
+            //dgvDepartamentos.Columns["mantencion"].Visible = false;
+            //dgvDepartamentos.Columns["adjunto"].Visible = false;
+            //dgvDepartamentos.Columns["direccion"].Visible = false;
+            //dgvDepartamentos.Columns["carateristicasDepartamento"].Visible = false;
+        }
         private void cbxRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -135,7 +141,6 @@ namespace CapaPresentacion.Departamentos
         {
             CNDepartamento lista = new CNDepartamento();
             dgvDepartamentos.DataSource = lista.ObtenerDatosJoinCaracteristicas();
-            
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -324,58 +329,9 @@ namespace CapaPresentacion.Departamentos
 
         public void GetDepartamento()
         {
-            
             _accion = "update";
             _IdCaracteristica = Convert.ToInt32(dgvDepartamentos.CurrentRow.Cells[0].Value);
-            txtIdDepto.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["idDepto"].Value);
-            txtIdDirc.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["idDireccion"].Value);
-            txtIdCaract.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["IdCaracteristica"].Value);
-
-            txtNombre.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["de_nombre"].Value);
-            txtDescDepto.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["descripcionDepto"].Value);
-            txtPrecio.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["precioDepto"].Value);
-            txtEstrellas.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["cantidadEstrellas"].Value);
-            // cbx tipo depto
-            cbxTipoDepto.SelectedValue = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["id_comuna"].Value);
-            cbxTipoDepto.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["tipoDepto"].Value);
-            // cbx estado depto
-            cbxEstadoDepa.SelectedValue = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["idEstadoDepto"].Value);
-            cbxEstadoDepa.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["estadoDepto"].Value);
-
-            //Direccion
-            // cbx region
-            cbxRegion.SelectedValue = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["idRegion"].Value);
-            cbxRegion.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["region"].Value); 
-            // cbx comuna
-            cbxComuna.SelectedValue = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["id_comuna"].Value);
-            cbxComuna.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["comuna"].Value);
-            
-            txtDireccion.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["de_direccion"].Value);
-            txtNumero.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["de_numero"].Value);
-            // Características
-            txtNumDepto.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["Ca_NumDepto"].Value);
-            txtCantHabitaciones.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["Ca_CantHabitaciones"].Value);
-            txtCanCamas.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["Ca_CantCamas"].Value);
-            txtCantBanos.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["Ca_CantBaño"].Value);
-            txtCanPersonas.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["Ca_CapPersonas"].Value);
-            txtCheckIn.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["Ca_CheckIn"].Value);
-            txtCheckOut.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["Ca_CheckOut"].Value);
-        }
-
-        private void CLEAN_DGV_DEPTO()
-        {
-
-            dgvDepartamentos.Columns["idDepto"].Visible = false;
-            dgvDepartamentos.Columns["idDireccion"].Visible = false;
-            dgvDepartamentos.Columns["IdCaracteristica"].Visible = false;
-            dgvDepartamentos.Columns["IdRegion"].Visible = false;
-            dgvDepartamentos.Columns["Id_comuna"].Visible = false;
-            dgvDepartamentos.Columns["idTipoDepto"].Visible = false;
-        }
-
-        private void dgvDepartamentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            txtIdCaract.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells[0].Value);
         }
     }
 }
