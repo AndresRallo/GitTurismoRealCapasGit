@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaEntidad;
+using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -175,5 +177,35 @@ namespace CapaPresentacion
         }
         #endregion
 
+        #region add service
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CEService service = new CEService();
+            service.NameService = (txtNombreServicio.Text != "") ? txtNombreServicio.Text : null;
+            service.Precio = (txtPrecio.Text != "") ? int.Parse(txtPrecio.Text) : 0;
+            service.Iva = (txtIVA.Text != "") ? int.Parse(txtIVA.Text) : 0;
+            service.ValorTotal = (txtTotal.Text != "") ? int.Parse(txtTotal.Text) : 0;
+            service.DireccionSucursal = (comboBoxSucursal.Text != "") ? comboBoxSucursal.Text : null;
+            service.Estado = (txtEstado.Text != "") ? int.Parse(txtEstado.Text) : 0;
+            service.TipoServicio = (comboBoxTipoServicio.Text != "") ? int.Parse(comboBoxTipoServicio.Text) : 0;
+            service.Descripcion = (txtDescripcion.Text != "") ? txtDescripcion.Text : null;
+            //falta agregar estos campos al front
+            service.NumeroDireccion = 0;
+            service.IdComuna = 0;
+            //
+            CNService cNService = new CNService();
+            if (cNService.CreateService(service))
+
+                MessageBox.Show("Servicio agregado");
+            else
+                MessageBox.Show("Servicio no agregado");
+
+        }
+        #endregion
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

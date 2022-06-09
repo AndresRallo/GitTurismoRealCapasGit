@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaDatos;
+using CapaPresentacion.Servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +15,19 @@ namespace CapaPresentacion
 {
     public partial class MenuPrincipal : Form
     {
-        public MenuPrincipal()
+        public MenuPrincipal(string name)
         {
+           
             InitializeComponent();
+            NameUser(name);
         }
 
+        private void NameUser(string name)
+        {
+            lblNameUser.Text = (name != "") ? name : "Invitado";
+            lblNameUser.ForeColor = Color.Black;
+            
+        }
         private void btnCerrarAplicacion_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -204,7 +214,9 @@ namespace CapaPresentacion
         #region list Service booking
         private void toolStripMenuItem13_Click(object sender, EventArgs e)
         {
-
+            ListService listService = new ListService();
+            listService.Show();
+            this.Close();
         }
         #endregion
         #region edit Service booking
@@ -216,8 +228,51 @@ namespace CapaPresentacion
         #region delete Service booking
         private void toolStripMenuItem16_Click(object sender, EventArgs e)
         {
+            DeleteService deleteService = new DeleteService();
+            deleteService.Show();
+            this.Close();
+        }
+
+        #endregion
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
 
         }
-        #endregion
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip5_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
     }
 }
