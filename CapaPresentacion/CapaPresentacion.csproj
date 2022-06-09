@@ -260,12 +260,6 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Perfil_Empleado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Perfil_Empleado.Designer.cs">
-      <DependentUpon>Perfil_Empleado.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\ContrRepDepto.cs">
@@ -385,9 +379,6 @@
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Perfil_Empleado.resx">
-      <DependentUpon>Perfil_Empleado.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -421,6 +412,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{23F8D4D2-F823-4457-A438-BD40523140CC}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
       <Project>{7E554079-9D59-4326-B772-4B61D5E37994}</Project>
       <Name>CapaEntidad</Name>
