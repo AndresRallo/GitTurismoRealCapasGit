@@ -325,8 +325,8 @@ namespace CapaPresentacion.Departamentos
         public void GetDepartamento()
         {
             
-            _accion = "update";
-            _IdCaracteristica = Convert.ToInt32(dgvDepartamentos.CurrentRow.Cells[0].Value);
+            //_accion = "update";
+            //_IdCaracteristica = Convert.ToInt32(dgvDepartamentos.CurrentRow.Cells[0].Value);
             txtIdDepto.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["idDepto"].Value);
             txtIdDirc.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["idDireccion"].Value);
             txtIdCaract.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["IdCaracteristica"].Value);
@@ -336,7 +336,7 @@ namespace CapaPresentacion.Departamentos
             txtPrecio.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["precioDepto"].Value);
             txtEstrellas.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["cantidadEstrellas"].Value);
             // cbx tipo depto
-            cbxTipoDepto.SelectedValue = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["id_comuna"].Value);
+            cbxTipoDepto.SelectedValue = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["idTipoDepto"].Value);
             cbxTipoDepto.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["tipoDepto"].Value);
             // cbx estado depto
             cbxEstadoDepa.SelectedValue = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["idEstadoDepto"].Value);
@@ -368,14 +368,234 @@ namespace CapaPresentacion.Departamentos
             dgvDepartamentos.Columns["idDepto"].Visible = false;
             dgvDepartamentos.Columns["idDireccion"].Visible = false;
             dgvDepartamentos.Columns["IdCaracteristica"].Visible = false;
+
+            dgvDepartamentos.Columns["idTipoDepto"].Visible = false;
+            dgvDepartamentos.Columns["idEstadoDepto"].Visible = false;
+
             dgvDepartamentos.Columns["IdRegion"].Visible = false;
             dgvDepartamentos.Columns["Id_comuna"].Visible = false;
-            dgvDepartamentos.Columns["idTipoDepto"].Visible = false;
+
         }
 
-        private void dgvDepartamentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        // text change
 
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNombre.Text.Equals(""))
+            {
+                lblNombre.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblNombre.ForeColor = Color.ForestGreen;
+                lblNombre.Text = "Nombre del Departamento";
+            }
+        }
+
+        private void txtDescDepto_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDescDepto.Text.Equals(""))
+            {
+                lblDesDepto.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblDesDepto.ForeColor = Color.ForestGreen;
+                lblDesDepto.Text = "Descripción del Departamento";
+            }
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPrecio.Text.Equals(""))
+            {
+                lblAgrePrecio.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblAgrePrecio.ForeColor = Color.ForestGreen;
+                lblAgrePrecio.Text = "Agregar Precio en Pesos";
+            }
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+        }
+
+        private void txtEstrellas_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEstrellas.Text.Equals(""))
+            {
+                lblEstrellas.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblEstrellas.ForeColor = Color.ForestGreen;
+                lblEstrellas.Text = "Número de Estrellas";
+            }
+        }
+
+        private void txtEstrellas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+        }
+
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDireccion.Text.Equals(""))
+            {
+                lblDireccion.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblDireccion.ForeColor = Color.ForestGreen;
+                lblDireccion.Text = "Dirección";
+            }
+        }
+
+        private void txtNumero_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNumero.Text.Equals(""))
+            {
+                lblNumero.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblNumero.ForeColor = Color.ForestGreen;
+                lblNumero.Text = "Número";
+            }
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+        }
+
+        private void txtNumDepto_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNumDepto.Text.Equals(""))
+            {
+                lblNumDepto.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblNumDepto.ForeColor = Color.ForestGreen;
+                lblNumDepto.Text = "Número Departamento";
+            }
+        }
+
+        private void txtNumDepto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+        }
+
+        private void txtCantHabitaciones_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCantHabitaciones.Text.Equals(""))
+            {
+                lblHabitaciones.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblHabitaciones.ForeColor = Color.ForestGreen;
+                lblHabitaciones.Text = "Cantidad de Habitaciones";
+            }
+        }
+
+        private void txtCantHabitaciones_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+        }
+
+        private void txtCanCamas_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCanCamas.Text.Equals(""))
+            {
+                lblCantCamas.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblCantCamas.ForeColor = Color.ForestGreen;
+                lblCantCamas.Text = "Cantidad de Camas";
+            }
+        }
+
+        private void txtCanCamas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+        }
+
+        private void txtCantBanos_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCantBanos.Text.Equals(""))
+            {
+                lblCantBanos.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblCantBanos.ForeColor = Color.ForestGreen;
+                lblCantBanos.Text = "Cantidad de Baños";
+            }
+        }
+
+        private void txtCantBanos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+        }
+
+        private void txtCanPersonas_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCanPersonas.Text.Equals(""))
+            {
+                lblCantPersonas.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblCantPersonas.ForeColor = Color.ForestGreen;
+                lblCantPersonas.Text = "Cantidad de Personas";
+            }
+        }
+
+        private void txtCanPersonas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
+        }
+
+        private void txtCheckIn_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCheckIn.Text.Equals(""))
+            {
+                lblCheckIn.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblCheckIn.ForeColor = Color.ForestGreen;
+                lblCheckIn.Text = "Check In";
+            }
+        }
+
+        private void txtCheckIn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspaciosConPuntos(e);
+        }
+
+        private void txtCheckOut_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCheckOut.Text.Equals(""))
+            {
+                lblCheckOut.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblCheckOut.ForeColor = Color.ForestGreen;
+                lblCheckOut.Text = "Check Out";
+            }
+        }
+
+        private void txtCheckOut_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspaciosConPuntos(e);
         }
     }
 }

@@ -311,11 +311,6 @@ namespace CapaPresentacion.Departamentos
             }
         }
 
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //librarys.textBoxEvent.SoloTextoSinSaltoNiEspacioNiNumeros(e);
-        }
-
         private void txtDescDepto_TextChanged(object sender, EventArgs e)
         {
             if (txtDescDepto.Text.Equals(""))
