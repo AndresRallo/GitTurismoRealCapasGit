@@ -19,9 +19,9 @@ namespace CapaPresentacion
     public partial class EditarEmpleado : Form
     {
         CNEmpleado cNEmpleado = new CNEmpleado();
-        
-        
-        
+
+
+
         public EditarEmpleado()
         {
             InitializeComponent();
@@ -32,18 +32,18 @@ namespace CapaPresentacion
 
             CNEmpleado lista = new CNEmpleado();
             dataGridViewEmpleados.DataSource = lista.ObtenerEmpleados();
-            cleanDGVEmpleados();
+            //cleanDGVEmpleados();
         }
 
-        private void cleanDGVEmpleados()
-        {
-            dataGridViewEmpleados.Columns["direccion"].Visible = false;
-            dataGridViewEmpleados.Columns["vehiculo"].Visible = false;
-            dataGridViewEmpleados.Columns["region"].Visible = false;
-            dataGridViewEmpleados.Columns["comuna"].Visible = false;
-            dataGridViewEmpleados.Columns["tipoempleado"].Visible = false;
-            dataGridViewEmpleados.Columns["estado"].Visible = false;
-        }
+        //private void cleanDGVEmpleados()
+        //{
+        //    dataGridViewEmpleados.Columns["direccion"].Visible = false;
+        //    dataGridViewEmpleados.Columns["vehiculo"].Visible = false;
+        //    dataGridViewEmpleados.Columns["region"].Visible = false;
+        //    dataGridViewEmpleados.Columns["comuna"].Visible = false;
+        //    dataGridViewEmpleados.Columns["tipoempleado"].Visible = false;
+        //    dataGridViewEmpleados.Columns["estado"].Visible = false;
+        //}
         private void btnProbarConexion_Click(object sender, EventArgs e)
         {
             cNEmpleado.PruebaOracle();
@@ -84,7 +84,7 @@ namespace CapaPresentacion
             {
 
                 MessageBox.Show("error " + ex);
-            } 
+            }
 
             /**Procedimiento almacenado
                Create or replace procedure seleccionarEmpleados (registros out SYS_REFCURSOR)
@@ -169,16 +169,15 @@ namespace CapaPresentacion
                 CEDireccion direccion = new CEDireccion();
                 empleado.IDEMPLEADO = Convert.ToInt32(txtIDEmpleado.Text);
                 empleado.IDDIRECCION = Convert.ToInt32(txtIDDireccion.Text);
-                
+
                 empleado.EM_NOMBRE = txtNOMBRE.Text;
                 empleado.EM_APATERNO = txtAPATERNO.Text;
                 empleado.EM_AMATERNO = txtAMATERNO.Text;
-                string ePass = txtPW.Text;
-                empleado.EM_CONTRASEÑA = ePass;
+                empleado.EM_CONTRASEÑA = txtPW.Text;
                 empleado.IDTIPOEMPLEADO = Convert.ToInt32(cbIDTipo.SelectedValue);
                 empleado.IDESTADO = Convert.ToInt32(cbESTADO.SelectedValue);
 
-                
+
                 direccion.de_direccion = txtDIRECCION.Text;
                 direccion.de_numero = txtNUM_DIRECCION.Text;
                 direccion.id_comuna = Convert.ToInt32(cbComuna.SelectedValue);
@@ -204,20 +203,20 @@ namespace CapaPresentacion
                     empleado.vehiculo = vehiculo;
                 }
 
-                
+
 
                 if (cNEmpleado.EditarEmpleado(empleado))
                     MessageBox.Show("Empleado editado");
                 else
-                    MessageBox.Show("Empleado no editado"); 
+                    MessageBox.Show("Empleado no editado");
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show("Empleado No Editato" + ex);
             }
-            
-            
+
+
         }
 
         private void txtNom_TextChanged(object sender, EventArgs e)
@@ -266,6 +265,53 @@ namespace CapaPresentacion
         private void txtPW_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridViewEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void getEMPLEADOS()
+        {
+            txtIDEmpleado.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["IDEMPLEADO"].Value);
+            txtIDDireccion.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDDIRECCION"].Value);
+            txtNOMBRE.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["eMNOMBRE"].Value);
+            txtAPATERNO.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["eMAPATERNO"].Value);
+            txtAMATERNO.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["eMAMATERNO"].Value);
+            txtDIRECCION.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["de_direccion"].Value);
+            txtNUM_DIRECCION.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["de_numero"].Value);
+            cbIDTipo.SelectedValue = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDTIPOEMPLEADO"].Value);
+            cbIDTipo.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["TP_DESCRIPCION"].Value);
+            cbESTADO.SelectedValue = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDESTADO"].Value);
+            cbESTADO.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["ES_DESCRIPCION"].Value);
+            cbRegion.SelectedValue = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDREGION"].Value);
+            cbRegion.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["rEDESCRIPCION"].Value);
+            cbComuna.SelectedValue  = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["idcomuna"].Value);
+            cbComuna.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["cdescripcion"].Value);
+            
+          /*
+            if (cbIDTipo.Text == "CHÓFER")
+            {
+                txtMarcaVe.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells[""].Value);
+                txtPatenteVe.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells[""].Value);
+                txtAnioVe.Text  = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells[""].Value);
+                //cNEmpleado.CrearVehiculo(vehiculo);
+            } */
+            
+        }
+
+        private void dataGridViewEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewEmpleados.Rows.Count != 0)
+            {
+                getEMPLEADOS();
+            }
+        }
+
+        private void dataGridViewEmpleados_KeyUp(object sender, KeyEventArgs e)
+        {
+            getEMPLEADOS();
         }
     }
 }

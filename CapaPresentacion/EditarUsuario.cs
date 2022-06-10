@@ -23,7 +23,7 @@ namespace CapaPresentacion
 
             CNUsuario lista = new CNUsuario();
             dgvUSER.DataSource = lista.ObtenerDatos();
-            dgvUSER.Columns["IDTIPOUSUARIO"].Visible = false;
+            //dgvUSER.Columns["IDTIPOUSUARIO"].Visible = false;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -92,6 +92,30 @@ namespace CapaPresentacion
         private void btnProbarConexion_Click(object sender, EventArgs e)
         {
             cNUsuario.PruebaOracle();
+        }
+
+        private void dgvUSER_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvUSER.Rows.Count != 0)
+            {
+                getUSER();
+            }
+        }
+
+        private void getUSER()
+        {
+            txtIDUsuario.Text = Convert.ToString(dgvUSER.CurrentRow.Cells["iDUSUARIODataGridViewTextBoxColumn"].Value);
+            txtNom.Text = Convert.ToString(dgvUSER.CurrentRow.Cells["uSNOMBREDataGridViewTextBoxColumn"].Value);
+            txtAPaterno.Text = Convert.ToString(dgvUSER.CurrentRow.Cells["uSAPATERNODataGridViewTextBoxColumn"].Value);
+            txtAMaterno.Text = Convert.ToString(dgvUSER.CurrentRow.Cells["uSAMATERNODataGridViewTextBoxColumn"].Value);
+            cbESTADO.SelectedValue = Convert.ToString(dgvUSER.CurrentRow.Cells["iDESTADODataGridViewTextBoxColumn"].Value);
+            cbESTADO.Text = Convert.ToString(dgvUSER.CurrentRow.Cells["ES_DESCRIPCION"].Value);
+
+        }
+
+        private void dgvUSER_KeyUp(object sender, KeyEventArgs e)
+        {
+            getUSER();
         }
     }
 }

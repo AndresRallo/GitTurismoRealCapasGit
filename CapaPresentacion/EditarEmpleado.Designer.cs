@@ -29,9 +29,11 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewEmpleados = new System.Windows.Forms.DataGridView();
+            this.cEEmpleadoDireccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnListar = new System.Windows.Forms.Button();
             this.btnProbarConexion = new System.Windows.Forms.Button();
@@ -42,9 +44,7 @@ namespace CapaPresentacion
             this.lblNumDireccion = new System.Windows.Forms.Label();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.txtDIRECCION = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtPW = new System.Windows.Forms.TextBox();
             this.txtAMATERNO = new System.Windows.Forms.TextBox();
             this.txtAPATERNO = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -67,7 +67,26 @@ namespace CapaPresentacion
             this.cbComuna = new System.Windows.Forms.ComboBox();
             this.lblComuna = new System.Windows.Forms.Label();
             this.lblRegion = new System.Windows.Forms.Label();
+            this.txtPW = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.IDEMPLEADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDIRECCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eMNOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eMAPATERNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eMAMATERNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eMCONTRASEÑA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.de_direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.de_numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDTIPOEMPLEADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TP_DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDESTADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ES_DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idcomuna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDREGION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rEDESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEEmpleadoDireccionBindingSource)).BeginInit();
             this.groupBoxVehiculo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,11 +111,40 @@ namespace CapaPresentacion
             // 
             // dataGridViewEmpleados
             // 
+            this.dataGridViewEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewEmpleados.AutoGenerateColumns = false;
             this.dataGridViewEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDEMPLEADO,
+            this.iDDIRECCION,
+            this.eMNOMBRE,
+            this.eMAPATERNO,
+            this.eMAMATERNO,
+            this.eMCONTRASEÑA,
+            this.de_direccion,
+            this.de_numero,
+            this.iDTIPOEMPLEADO,
+            this.TP_DESCRIPCION,
+            this.iDESTADO,
+            this.ES_DESCRIPCION,
+            this.idcomuna,
+            this.cdescripcion,
+            this.iDREGION,
+            this.rEDESCRIPCION});
+            this.dataGridViewEmpleados.DataSource = this.cEEmpleadoDireccionBindingSource;
             this.dataGridViewEmpleados.Location = new System.Drawing.Point(290, 215);
             this.dataGridViewEmpleados.Name = "dataGridViewEmpleados";
             this.dataGridViewEmpleados.Size = new System.Drawing.Size(498, 154);
             this.dataGridViewEmpleados.TabIndex = 2;
+            this.dataGridViewEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmpleados_CellClick);
+            this.dataGridViewEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmpleados_CellDoubleClick);
+            this.dataGridViewEmpleados.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridViewEmpleados_KeyUp);
+            // 
+            // cEEmpleadoDireccionBindingSource
+            // 
+            this.cEEmpleadoDireccionBindingSource.DataSource = typeof(CapaEntidad.CEEmpleado_Direccion);
             // 
             // btnVolver
             // 
@@ -139,6 +187,7 @@ namespace CapaPresentacion
             // 
             // txtIDEmpleado
             // 
+            this.txtIDEmpleado.Enabled = false;
             this.txtIDEmpleado.Location = new System.Drawing.Point(121, 89);
             this.txtIDEmpleado.Name = "txtIDEmpleado";
             this.txtIDEmpleado.Size = new System.Drawing.Size(38, 20);
@@ -186,15 +235,6 @@ namespace CapaPresentacion
             this.txtDIRECCION.Size = new System.Drawing.Size(146, 20);
             this.txtDIRECCION.TabIndex = 52;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 196);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 50;
-            this.label5.Text = "Contraseña";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -203,15 +243,6 @@ namespace CapaPresentacion
             this.label7.Size = new System.Drawing.Size(86, 13);
             this.label7.TabIndex = 48;
             this.label7.Text = "Apellido Materno";
-            // 
-            // txtPW
-            // 
-            this.txtPW.Location = new System.Drawing.Point(121, 193);
-            this.txtPW.Name = "txtPW";
-            this.txtPW.PasswordChar = '*';
-            this.txtPW.Size = new System.Drawing.Size(146, 20);
-            this.txtPW.TabIndex = 47;
-            this.txtPW.TextChanged += new System.EventHandler(this.txtPW_TextChanged);
             // 
             // txtAMATERNO
             // 
@@ -263,6 +294,7 @@ namespace CapaPresentacion
             // 
             // txtIDDireccion
             // 
+            this.txtIDDireccion.Enabled = false;
             this.txtIDDireccion.Location = new System.Drawing.Point(243, 89);
             this.txtIDDireccion.Name = "txtIDDireccion";
             this.txtIDDireccion.Size = new System.Drawing.Size(24, 20);
@@ -421,6 +453,120 @@ namespace CapaPresentacion
             this.lblRegion.TabIndex = 70;
             this.lblRegion.Text = "Región";
             // 
+            // txtPW
+            // 
+            this.txtPW.Location = new System.Drawing.Point(121, 193);
+            this.txtPW.Name = "txtPW";
+            this.txtPW.PasswordChar = '*';
+            this.txtPW.Size = new System.Drawing.Size(146, 20);
+            this.txtPW.TabIndex = 47;
+            this.txtPW.TextChanged += new System.EventHandler(this.txtPW_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(21, 196);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 50;
+            this.label5.Text = "Contraseña";
+            // 
+            // IDEMPLEADO
+            // 
+            this.IDEMPLEADO.DataPropertyName = "IDEMPLEADO";
+            this.IDEMPLEADO.HeaderText = "IDEMPLEADO";
+            this.IDEMPLEADO.Name = "IDEMPLEADO";
+            // 
+            // iDDIRECCION
+            // 
+            this.iDDIRECCION.DataPropertyName = "IDDIRECCION";
+            this.iDDIRECCION.HeaderText = "IDDIRECCION";
+            this.iDDIRECCION.Name = "iDDIRECCION";
+            // 
+            // eMNOMBRE
+            // 
+            this.eMNOMBRE.DataPropertyName = "EM_NOMBRE";
+            this.eMNOMBRE.HeaderText = "EM_NOMBRE";
+            this.eMNOMBRE.Name = "eMNOMBRE";
+            // 
+            // eMAPATERNO
+            // 
+            this.eMAPATERNO.DataPropertyName = "EM_APATERNO";
+            this.eMAPATERNO.HeaderText = "EM_APATERNO";
+            this.eMAPATERNO.Name = "eMAPATERNO";
+            // 
+            // eMAMATERNO
+            // 
+            this.eMAMATERNO.DataPropertyName = "EM_AMATERNO";
+            this.eMAMATERNO.HeaderText = "EM_AMATERNO";
+            this.eMAMATERNO.Name = "eMAMATERNO";
+            // 
+            // eMCONTRASEÑA
+            // 
+            this.eMCONTRASEÑA.DataPropertyName = "EM_CONTRASEÑA";
+            this.eMCONTRASEÑA.HeaderText = "EM_CONTRASEÑA";
+            this.eMCONTRASEÑA.Name = "eMCONTRASEÑA";
+            // 
+            // de_direccion
+            // 
+            this.de_direccion.DataPropertyName = "de_direccion";
+            this.de_direccion.HeaderText = "de_direccion";
+            this.de_direccion.Name = "de_direccion";
+            // 
+            // de_numero
+            // 
+            this.de_numero.DataPropertyName = "de_numero";
+            this.de_numero.HeaderText = "de_numero";
+            this.de_numero.Name = "de_numero";
+            // 
+            // iDTIPOEMPLEADO
+            // 
+            this.iDTIPOEMPLEADO.DataPropertyName = "IDTIPOEMPLEADO";
+            this.iDTIPOEMPLEADO.HeaderText = "IDTIPOEMPLEADO";
+            this.iDTIPOEMPLEADO.Name = "iDTIPOEMPLEADO";
+            // 
+            // TP_DESCRIPCION
+            // 
+            this.TP_DESCRIPCION.DataPropertyName = "TP_DESCRIPCION";
+            this.TP_DESCRIPCION.HeaderText = "TP_DESCRIPCION";
+            this.TP_DESCRIPCION.Name = "TP_DESCRIPCION";
+            // 
+            // iDESTADO
+            // 
+            this.iDESTADO.DataPropertyName = "IDESTADO";
+            this.iDESTADO.HeaderText = "IDESTADO";
+            this.iDESTADO.Name = "iDESTADO";
+            // 
+            // ES_DESCRIPCION
+            // 
+            this.ES_DESCRIPCION.DataPropertyName = "ES_DESCRIPCION";
+            this.ES_DESCRIPCION.HeaderText = "ES_DESCRIPCION";
+            this.ES_DESCRIPCION.Name = "ES_DESCRIPCION";
+            // 
+            // idcomuna
+            // 
+            this.idcomuna.DataPropertyName = "id_comuna";
+            this.idcomuna.HeaderText = "id_comuna";
+            this.idcomuna.Name = "idcomuna";
+            // 
+            // cdescripcion
+            // 
+            this.cdescripcion.DataPropertyName = "c_descripcion";
+            this.cdescripcion.HeaderText = "c_descripcion";
+            this.cdescripcion.Name = "cdescripcion";
+            // 
+            // iDREGION
+            // 
+            this.iDREGION.DataPropertyName = "IDREGION";
+            this.iDREGION.HeaderText = "IDREGION";
+            this.iDREGION.Name = "iDREGION";
+            // 
+            // rEDESCRIPCION
+            // 
+            this.rEDESCRIPCION.DataPropertyName = "RE_DESCRIPCION";
+            this.rEDESCRIPCION.HeaderText = "RE_DESCRIPCION";
+            this.rEDESCRIPCION.Name = "rEDESCRIPCION";
+            // 
             // EditarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,6 +607,7 @@ namespace CapaPresentacion
             this.Name = "EditarEmpleado";
             this.Text = "EditarEmpleado";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEEmpleadoDireccionBindingSource)).EndInit();
             this.groupBoxVehiculo.ResumeLayout(false);
             this.groupBoxVehiculo.PerformLayout();
             this.ResumeLayout(false);
@@ -483,9 +630,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblNumDireccion;
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.TextBox txtDIRECCION;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtPW;
         private System.Windows.Forms.TextBox txtAMATERNO;
         private System.Windows.Forms.TextBox txtAPATERNO;
         private System.Windows.Forms.Label label8;
@@ -508,5 +653,33 @@ namespace CapaPresentacion
         private System.Windows.Forms.ComboBox cbComuna;
         private System.Windows.Forms.Label lblComuna;
         private System.Windows.Forms.Label lblRegion;
+        private System.Windows.Forms.TextBox txtPW;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.BindingSource cEEmpleadoDireccionBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eMRUT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eMDV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eMAPATERNODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eMEMAILDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDEMPRESADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDireccionDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dedireccionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn denumeroDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idcomunaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDEMPLEADO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDIRECCION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eMNOMBRE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eMAPATERNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eMAMATERNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eMCONTRASEÑA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn de_direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn de_numero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDTIPOEMPLEADO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TP_DESCRIPCION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDESTADO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ES_DESCRIPCION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idcomuna;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cdescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDREGION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rEDESCRIPCION;
     }
 }

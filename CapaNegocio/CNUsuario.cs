@@ -19,10 +19,10 @@ namespace CapaNegocio
             cDUsuario.PruebaConexion();
         }
 
-        public List<CEUsuario> ObtenerDatos()
+        public List<CEUSER_ESTADO> ObtenerDatos()
         {
-            List<CEUsuario> LISTA_USUARIO = new List<CEUsuario>();
-            LISTA_USUARIO = cDUsuario.LISTAR_USUARIO();
+            List<CEUSER_ESTADO> LISTA_USUARIO = new List<CEUSER_ESTADO>();
+            LISTA_USUARIO = cDUsuario.LISTAR_USUARIO_();
             return LISTA_USUARIO;
         }
 

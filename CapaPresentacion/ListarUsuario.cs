@@ -20,7 +20,7 @@ namespace CapaPresentacion
 
             CNUsuario lista = new CNUsuario();
             dgvUSER.DataSource = lista.ObtenerDatos();
-            dgvUSER.Columns["IDTIPOUSUARIO"].Visible = false;
+            //dgvUSER.Columns["IDTIPOUSUARIO"].Visible = false;
         }
 
         private void btnListar_Click(object sender, EventArgs e)

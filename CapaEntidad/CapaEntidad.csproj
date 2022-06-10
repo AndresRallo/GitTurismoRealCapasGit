@@ -56,6 +56,7 @@
     <Compile Include="CEDeptoListaJoin.cs" />
     <Compile Include="CEDireccion.cs" />
     <Compile Include="CEEmpleado.cs" />
+    <Compile Include="CEEmpleado_Direccion.cs" />
     <Compile Include="CEMantencion.cs" />
     <Compile Include="CEMulta.cs" />
     <Compile Include="CERegion.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="CESYS_TipoComentario.cs" />
     <Compile Include="CETemporada.cs" />
     <Compile Include="CETipoDepartamento.cs" />
+    <Compile Include="CEUSER_ESTADO.cs" />
     <Compile Include="CEUsuario.cs" />
     <Compile Include="CEVehiculo.cs" />
     <Compile Include="CE_ESTADO.cs" />
@@ -74,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CEEmpleado_Direccion.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

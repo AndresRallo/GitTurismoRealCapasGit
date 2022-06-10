@@ -399,6 +399,9 @@
     </EmbeddedResource>
     <None Include="CapaEntidad.CEDeptoListaJoin1.datasource" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CapaEntidad.CEEmpleado_Direccion.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEUSER_ESTADO.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEUsuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
