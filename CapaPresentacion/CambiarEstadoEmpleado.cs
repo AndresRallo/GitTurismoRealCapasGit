@@ -34,12 +34,12 @@ namespace CapaPresentacion
 
         private void cleanDGVEmpleados()
         {
-            dataGridViewEmpleados.Columns["direccion"].Visible = false;
-            dataGridViewEmpleados.Columns["vehiculo"].Visible = false;
-            dataGridViewEmpleados.Columns["region"].Visible = false;
-            dataGridViewEmpleados.Columns["comuna"].Visible = false;
-            dataGridViewEmpleados.Columns["tipoempleado"].Visible = false;
-            dataGridViewEmpleados.Columns["estado"].Visible = false;
+            //dataGridViewEmpleados.Columns["direccion"].Visible = false;
+            //dataGridViewEmpleados.Columns["vehiculo"].Visible = false;
+            //dataGridViewEmpleados.Columns["region"].Visible = false;
+            //dataGridViewEmpleados.Columns["comuna"].Visible = false;
+            //dataGridViewEmpleados.Columns["tipoempleado"].Visible = false;
+            //dataGridViewEmpleados.Columns["estado"].Visible = false;
         }
         private void btnListarEmpleados_Click(object sender, EventArgs e)
         {
@@ -108,6 +108,14 @@ namespace CapaPresentacion
                 MessageBox.Show("Error combo estado empleado" + ex);
             }
         }
+
+        private void cargarDATOS()
+        {
+            txtIDEmpleado.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDEMPLEADODataGridViewTextBoxColumn"].Value);
+            cbESTADO.SelectedValue = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDESTADODataGridViewTextBoxColumn"].Value);
+            cbESTADO.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["eSDESCRIPCIONDataGridViewTextBoxColumn"].Value);
+        }
+
         private void dataGridViewEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -126,6 +134,19 @@ namespace CapaPresentacion
         private void lblEliminarEmpleado_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridViewEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewEmpleados.Rows.Count != 0)
+            {
+                cargarDATOS();
+            }
+        }
+
+        private void dataGridViewEmpleados_KeyUp(object sender, KeyEventArgs e)
+        {
+            cargarDATOS();
         }
     }
 }

@@ -29,6 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnProbarConexion = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnListarUsuario = new System.Windows.Forms.Button();
@@ -39,7 +40,20 @@ namespace CapaPresentacion
             this.lblEliminarEmpleado = new System.Windows.Forms.Label();
             this.cbESTADO = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.iDUSUARIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uSRUTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uSDVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uSNOMBREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uSAPATERNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uSAMATERNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uSTELEFONODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uSEMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uSCONTRASEÑADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDESTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eSDESCRIPCIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cEUSERESTADOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUSER)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEUSERESTADOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnProbarConexion
@@ -74,11 +88,27 @@ namespace CapaPresentacion
             // 
             // dgvUSER
             // 
+            this.dgvUSER.AutoGenerateColumns = false;
             this.dgvUSER.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUSER.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDUSUARIODataGridViewTextBoxColumn,
+            this.uSRUTDataGridViewTextBoxColumn,
+            this.uSDVDataGridViewTextBoxColumn,
+            this.uSNOMBREDataGridViewTextBoxColumn,
+            this.uSAPATERNODataGridViewTextBoxColumn,
+            this.uSAMATERNODataGridViewTextBoxColumn,
+            this.uSTELEFONODataGridViewTextBoxColumn,
+            this.uSEMAILDataGridViewTextBoxColumn,
+            this.uSCONTRASEÑADataGridViewTextBoxColumn,
+            this.iDESTADODataGridViewTextBoxColumn,
+            this.eSDESCRIPCIONDataGridViewTextBoxColumn});
+            this.dgvUSER.DataSource = this.cEUSERESTADOBindingSource;
             this.dgvUSER.Location = new System.Drawing.Point(24, 109);
             this.dgvUSER.Name = "dgvUSER";
             this.dgvUSER.Size = new System.Drawing.Size(764, 329);
             this.dgvUSER.TabIndex = 12;
+            this.dgvUSER.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUSER_CellClick);
+            this.dgvUSER.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvUSER_KeyUp);
             // 
             // btnEliminar
             // 
@@ -92,6 +122,7 @@ namespace CapaPresentacion
             // 
             // txtIDUsuario
             // 
+            this.txtIDUsuario.Enabled = false;
             this.txtIDUsuario.Location = new System.Drawing.Point(69, 83);
             this.txtIDUsuario.Name = "txtIDUsuario";
             this.txtIDUsuario.Size = new System.Drawing.Size(21, 20);
@@ -140,6 +171,76 @@ namespace CapaPresentacion
             this.label1.TabIndex = 39;
             this.label1.Text = "ID";
             // 
+            // iDUSUARIODataGridViewTextBoxColumn
+            // 
+            this.iDUSUARIODataGridViewTextBoxColumn.DataPropertyName = "IDUSUARIO";
+            this.iDUSUARIODataGridViewTextBoxColumn.HeaderText = "IDUSUARIO";
+            this.iDUSUARIODataGridViewTextBoxColumn.Name = "iDUSUARIODataGridViewTextBoxColumn";
+            // 
+            // uSRUTDataGridViewTextBoxColumn
+            // 
+            this.uSRUTDataGridViewTextBoxColumn.DataPropertyName = "US_RUT";
+            this.uSRUTDataGridViewTextBoxColumn.HeaderText = "US_RUT";
+            this.uSRUTDataGridViewTextBoxColumn.Name = "uSRUTDataGridViewTextBoxColumn";
+            // 
+            // uSDVDataGridViewTextBoxColumn
+            // 
+            this.uSDVDataGridViewTextBoxColumn.DataPropertyName = "US_DV";
+            this.uSDVDataGridViewTextBoxColumn.HeaderText = "US_DV";
+            this.uSDVDataGridViewTextBoxColumn.Name = "uSDVDataGridViewTextBoxColumn";
+            // 
+            // uSNOMBREDataGridViewTextBoxColumn
+            // 
+            this.uSNOMBREDataGridViewTextBoxColumn.DataPropertyName = "US_NOMBRE";
+            this.uSNOMBREDataGridViewTextBoxColumn.HeaderText = "US_NOMBRE";
+            this.uSNOMBREDataGridViewTextBoxColumn.Name = "uSNOMBREDataGridViewTextBoxColumn";
+            // 
+            // uSAPATERNODataGridViewTextBoxColumn
+            // 
+            this.uSAPATERNODataGridViewTextBoxColumn.DataPropertyName = "US_APATERNO";
+            this.uSAPATERNODataGridViewTextBoxColumn.HeaderText = "US_APATERNO";
+            this.uSAPATERNODataGridViewTextBoxColumn.Name = "uSAPATERNODataGridViewTextBoxColumn";
+            // 
+            // uSAMATERNODataGridViewTextBoxColumn
+            // 
+            this.uSAMATERNODataGridViewTextBoxColumn.DataPropertyName = "US_AMATERNO";
+            this.uSAMATERNODataGridViewTextBoxColumn.HeaderText = "US_AMATERNO";
+            this.uSAMATERNODataGridViewTextBoxColumn.Name = "uSAMATERNODataGridViewTextBoxColumn";
+            // 
+            // uSTELEFONODataGridViewTextBoxColumn
+            // 
+            this.uSTELEFONODataGridViewTextBoxColumn.DataPropertyName = "US_TELEFONO";
+            this.uSTELEFONODataGridViewTextBoxColumn.HeaderText = "US_TELEFONO";
+            this.uSTELEFONODataGridViewTextBoxColumn.Name = "uSTELEFONODataGridViewTextBoxColumn";
+            // 
+            // uSEMAILDataGridViewTextBoxColumn
+            // 
+            this.uSEMAILDataGridViewTextBoxColumn.DataPropertyName = "US_EMAIL";
+            this.uSEMAILDataGridViewTextBoxColumn.HeaderText = "US_EMAIL";
+            this.uSEMAILDataGridViewTextBoxColumn.Name = "uSEMAILDataGridViewTextBoxColumn";
+            // 
+            // uSCONTRASEÑADataGridViewTextBoxColumn
+            // 
+            this.uSCONTRASEÑADataGridViewTextBoxColumn.DataPropertyName = "US_CONTRASEÑA";
+            this.uSCONTRASEÑADataGridViewTextBoxColumn.HeaderText = "US_CONTRASEÑA";
+            this.uSCONTRASEÑADataGridViewTextBoxColumn.Name = "uSCONTRASEÑADataGridViewTextBoxColumn";
+            // 
+            // iDESTADODataGridViewTextBoxColumn
+            // 
+            this.iDESTADODataGridViewTextBoxColumn.DataPropertyName = "IDESTADO";
+            this.iDESTADODataGridViewTextBoxColumn.HeaderText = "IDESTADO";
+            this.iDESTADODataGridViewTextBoxColumn.Name = "iDESTADODataGridViewTextBoxColumn";
+            // 
+            // eSDESCRIPCIONDataGridViewTextBoxColumn
+            // 
+            this.eSDESCRIPCIONDataGridViewTextBoxColumn.DataPropertyName = "ES_DESCRIPCION";
+            this.eSDESCRIPCIONDataGridViewTextBoxColumn.HeaderText = "ES_DESCRIPCION";
+            this.eSDESCRIPCIONDataGridViewTextBoxColumn.Name = "eSDESCRIPCIONDataGridViewTextBoxColumn";
+            // 
+            // cEUSERESTADOBindingSource
+            // 
+            this.cEUSERESTADOBindingSource.DataSource = typeof(CapaEntidad.CEUSER_ESTADO);
+            // 
             // CambiarEstadoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,6 +259,7 @@ namespace CapaPresentacion
             this.Name = "CambiarEstadoUsuario";
             this.Text = "EliminarUsuario";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUSER)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEUSERESTADOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,5 +277,17 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblEliminarEmpleado;
         private System.Windows.Forms.ComboBox cbESTADO;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDUSUARIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uSRUTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uSDVDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uSNOMBREDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uSAPATERNODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uSAMATERNODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uSTELEFONODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uSEMAILDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uSCONTRASEÑADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDESTADODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eSDESCRIPCIONDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource cEUSERESTADOBindingSource;
     }
 }
