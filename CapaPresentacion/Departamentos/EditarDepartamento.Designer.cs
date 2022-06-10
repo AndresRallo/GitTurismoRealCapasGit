@@ -32,6 +32,31 @@ namespace CapaPresentacion.Departamentos
             this.components = new System.ComponentModel.Container();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvDepartamentos = new System.Windows.Forms.DataGridView();
+            this.idDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCaracteristica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idRegion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_comuna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idTipoDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEstadoDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.de_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadEstrellas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.region = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comuna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.de_direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.de_numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_NumDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_CantHabitaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_CantCamas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_CantBaño = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_CapPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cEDeptoListaJoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.gbxCarDepto = new System.Windows.Forms.GroupBox();
@@ -78,39 +103,14 @@ namespace CapaPresentacion.Departamentos
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.btnListar = new System.Windows.Forms.Button();
-            this.cEDeptoListaJoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cEDeptoListaJoinBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cEDepartamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cEDepartamentoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.idDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdCaracteristica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idRegion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_comuna = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idTipoDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idEstadoDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.de_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadEstrellas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.region = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comuna = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.de_direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.de_numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ca_NumDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ca_CantHabitaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ca_CantCamas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ca_CantBaño = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ca_CapPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ca_CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ca_CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEDeptoListaJoinBindingSource)).BeginInit();
             this.gbxCarDepto.SuspendLayout();
             this.gbxDepto.SuspendLayout();
             this.gbxDireccion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cEDeptoListaJoinBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cEDeptoListaJoinBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cEDepartamentoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cEDepartamentoBindingSource1)).BeginInit();
@@ -164,8 +164,155 @@ namespace CapaPresentacion.Departamentos
             this.dgvDepartamentos.Size = new System.Drawing.Size(660, 374);
             this.dgvDepartamentos.TabIndex = 34;
             this.dgvDepartamentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartamentos_CellClick);
-            this.dgvDepartamentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartamentos_CellContentClick);
             this.dgvDepartamentos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvDepartamentos_KeyUp);
+            // 
+            // idDepto
+            // 
+            this.idDepto.DataPropertyName = "idDepto";
+            this.idDepto.HeaderText = "id Depto";
+            this.idDepto.Name = "idDepto";
+            // 
+            // idDireccion
+            // 
+            this.idDireccion.DataPropertyName = "idDireccion";
+            this.idDireccion.HeaderText = "idDireccion";
+            this.idDireccion.Name = "idDireccion";
+            // 
+            // IdCaracteristica
+            // 
+            this.IdCaracteristica.DataPropertyName = "IdCaracteristica";
+            this.IdCaracteristica.HeaderText = "IdCaracteristica";
+            this.IdCaracteristica.Name = "IdCaracteristica";
+            // 
+            // idRegion
+            // 
+            this.idRegion.DataPropertyName = "idRegion";
+            this.idRegion.HeaderText = "idRegion";
+            this.idRegion.Name = "idRegion";
+            // 
+            // id_comuna
+            // 
+            this.id_comuna.DataPropertyName = "id_comuna";
+            this.id_comuna.HeaderText = "id_comuna";
+            this.id_comuna.Name = "id_comuna";
+            // 
+            // idTipoDepto
+            // 
+            this.idTipoDepto.DataPropertyName = "idTipoDepto";
+            this.idTipoDepto.HeaderText = "idTipoDepto";
+            this.idTipoDepto.Name = "idTipoDepto";
+            // 
+            // idEstadoDepto
+            // 
+            this.idEstadoDepto.DataPropertyName = "idEstadoDepto";
+            this.idEstadoDepto.HeaderText = "idEstadoDepto";
+            this.idEstadoDepto.Name = "idEstadoDepto";
+            // 
+            // de_nombre
+            // 
+            this.de_nombre.DataPropertyName = "de_nombre";
+            this.de_nombre.HeaderText = "Nombre";
+            this.de_nombre.Name = "de_nombre";
+            // 
+            // descripcionDepto
+            // 
+            this.descripcionDepto.DataPropertyName = "descripcionDepto";
+            this.descripcionDepto.HeaderText = "Descripción Departamento";
+            this.descripcionDepto.Name = "descripcionDepto";
+            // 
+            // precioDepto
+            // 
+            this.precioDepto.DataPropertyName = "precioDepto";
+            this.precioDepto.HeaderText = "Precio en $";
+            this.precioDepto.Name = "precioDepto";
+            // 
+            // cantidadEstrellas
+            // 
+            this.cantidadEstrellas.DataPropertyName = "de_start";
+            this.cantidadEstrellas.HeaderText = "Cantidad de Estrellas";
+            this.cantidadEstrellas.Name = "cantidadEstrellas";
+            // 
+            // tipoDepto
+            // 
+            this.tipoDepto.DataPropertyName = "tipoDepto";
+            this.tipoDepto.HeaderText = "Tipo Departamento";
+            this.tipoDepto.Name = "tipoDepto";
+            // 
+            // estadoDepto
+            // 
+            this.estadoDepto.DataPropertyName = "estadoDepto";
+            this.estadoDepto.HeaderText = "Estado Departamento";
+            this.estadoDepto.Name = "estadoDepto";
+            // 
+            // region
+            // 
+            this.region.DataPropertyName = "region";
+            this.region.HeaderText = "Region";
+            this.region.Name = "region";
+            // 
+            // comuna
+            // 
+            this.comuna.DataPropertyName = "comuna";
+            this.comuna.HeaderText = "Comuna";
+            this.comuna.Name = "comuna";
+            // 
+            // de_direccion
+            // 
+            this.de_direccion.DataPropertyName = "de_direccion";
+            this.de_direccion.HeaderText = "Dirección";
+            this.de_direccion.Name = "de_direccion";
+            // 
+            // de_numero
+            // 
+            this.de_numero.DataPropertyName = "de_numero";
+            this.de_numero.HeaderText = "Número";
+            this.de_numero.Name = "de_numero";
+            // 
+            // Ca_NumDepto
+            // 
+            this.Ca_NumDepto.DataPropertyName = "Ca_NumDepto";
+            this.Ca_NumDepto.HeaderText = "Número del Departamento";
+            this.Ca_NumDepto.Name = "Ca_NumDepto";
+            // 
+            // Ca_CantHabitaciones
+            // 
+            this.Ca_CantHabitaciones.DataPropertyName = "Ca_CantHabitaciones";
+            this.Ca_CantHabitaciones.HeaderText = "Cantidad de Habitaciones";
+            this.Ca_CantHabitaciones.Name = "Ca_CantHabitaciones";
+            // 
+            // Ca_CantCamas
+            // 
+            this.Ca_CantCamas.DataPropertyName = "Ca_CantCamas";
+            this.Ca_CantCamas.HeaderText = "Cantidad de Camas";
+            this.Ca_CantCamas.Name = "Ca_CantCamas";
+            // 
+            // Ca_CantBaño
+            // 
+            this.Ca_CantBaño.DataPropertyName = "Ca_CantBaño";
+            this.Ca_CantBaño.HeaderText = "Cantidad de Baños";
+            this.Ca_CantBaño.Name = "Ca_CantBaño";
+            // 
+            // Ca_CapPersonas
+            // 
+            this.Ca_CapPersonas.DataPropertyName = "Ca_CapPersonas";
+            this.Ca_CapPersonas.HeaderText = "Cantidad de Personas";
+            this.Ca_CapPersonas.Name = "Ca_CapPersonas";
+            // 
+            // Ca_CheckIn
+            // 
+            this.Ca_CheckIn.DataPropertyName = "Ca_CheckIn";
+            this.Ca_CheckIn.HeaderText = "Check In";
+            this.Ca_CheckIn.Name = "Ca_CheckIn";
+            // 
+            // Ca_CheckOut
+            // 
+            this.Ca_CheckOut.DataPropertyName = "Ca_CheckOut";
+            this.Ca_CheckOut.HeaderText = "Check Out";
+            this.Ca_CheckOut.Name = "Ca_CheckOut";
+            // 
+            // cEDeptoListaJoinBindingSource
+            // 
+            this.cEDeptoListaJoinBindingSource.DataSource = typeof(CapaEntidad.CEDeptoListaJoin);
             // 
             // label1
             // 
@@ -215,6 +362,8 @@ namespace CapaPresentacion.Departamentos
             this.txtNumDepto.Name = "txtNumDepto";
             this.txtNumDepto.Size = new System.Drawing.Size(65, 20);
             this.txtNumDepto.TabIndex = 74;
+            this.txtNumDepto.TextChanged += new System.EventHandler(this.txtNumDepto_TextChanged);
+            this.txtNumDepto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumDepto_KeyPress);
             // 
             // lblNumDepto
             // 
@@ -231,6 +380,8 @@ namespace CapaPresentacion.Departamentos
             this.txtCantHabitaciones.Name = "txtCantHabitaciones";
             this.txtCantHabitaciones.Size = new System.Drawing.Size(63, 20);
             this.txtCantHabitaciones.TabIndex = 72;
+            this.txtCantHabitaciones.TextChanged += new System.EventHandler(this.txtCantHabitaciones_TextChanged);
+            this.txtCantHabitaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantHabitaciones_KeyPress);
             // 
             // lblHabitaciones
             // 
@@ -247,6 +398,8 @@ namespace CapaPresentacion.Departamentos
             this.txtCheckOut.Name = "txtCheckOut";
             this.txtCheckOut.Size = new System.Drawing.Size(63, 20);
             this.txtCheckOut.TabIndex = 70;
+            this.txtCheckOut.TextChanged += new System.EventHandler(this.txtCheckOut_TextChanged);
+            this.txtCheckOut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCheckOut_KeyPress);
             // 
             // lblCheckOut
             // 
@@ -263,6 +416,8 @@ namespace CapaPresentacion.Departamentos
             this.txtCheckIn.Name = "txtCheckIn";
             this.txtCheckIn.Size = new System.Drawing.Size(63, 20);
             this.txtCheckIn.TabIndex = 68;
+            this.txtCheckIn.TextChanged += new System.EventHandler(this.txtCheckIn_TextChanged);
+            this.txtCheckIn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCheckIn_KeyPress);
             // 
             // lblCheckIn
             // 
@@ -279,6 +434,8 @@ namespace CapaPresentacion.Departamentos
             this.txtCanPersonas.Name = "txtCanPersonas";
             this.txtCanPersonas.Size = new System.Drawing.Size(63, 20);
             this.txtCanPersonas.TabIndex = 66;
+            this.txtCanPersonas.TextChanged += new System.EventHandler(this.txtCanPersonas_TextChanged);
+            this.txtCanPersonas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCanPersonas_KeyPress);
             // 
             // lblCantPersonas
             // 
@@ -295,6 +452,8 @@ namespace CapaPresentacion.Departamentos
             this.txtCantBanos.Name = "txtCantBanos";
             this.txtCantBanos.Size = new System.Drawing.Size(63, 20);
             this.txtCantBanos.TabIndex = 64;
+            this.txtCantBanos.TextChanged += new System.EventHandler(this.txtCantBanos_TextChanged);
+            this.txtCantBanos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantBanos_KeyPress);
             // 
             // lblCantBanos
             // 
@@ -311,6 +470,8 @@ namespace CapaPresentacion.Departamentos
             this.txtCanCamas.Name = "txtCanCamas";
             this.txtCanCamas.Size = new System.Drawing.Size(63, 20);
             this.txtCanCamas.TabIndex = 62;
+            this.txtCanCamas.TextChanged += new System.EventHandler(this.txtCanCamas_TextChanged);
+            this.txtCanCamas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCanCamas_KeyPress);
             // 
             // lblCantCamas
             // 
@@ -375,6 +536,7 @@ namespace CapaPresentacion.Departamentos
             this.txtDescDepto.Name = "txtDescDepto";
             this.txtDescDepto.Size = new System.Drawing.Size(185, 20);
             this.txtDescDepto.TabIndex = 44;
+            this.txtDescDepto.TextChanged += new System.EventHandler(this.txtDescDepto_TextChanged);
             // 
             // txtNombre
             // 
@@ -382,6 +544,7 @@ namespace CapaPresentacion.Departamentos
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(185, 20);
             this.txtNombre.TabIndex = 59;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // txtPrecio
             // 
@@ -389,6 +552,8 @@ namespace CapaPresentacion.Departamentos
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(185, 20);
             this.txtPrecio.TabIndex = 45;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // txtEstrellas
             // 
@@ -396,6 +561,8 @@ namespace CapaPresentacion.Departamentos
             this.txtEstrellas.Name = "txtEstrellas";
             this.txtEstrellas.Size = new System.Drawing.Size(51, 20);
             this.txtEstrellas.TabIndex = 58;
+            this.txtEstrellas.TextChanged += new System.EventHandler(this.txtEstrellas_TextChanged);
+            this.txtEstrellas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstrellas_KeyPress);
             // 
             // lblDesDepto
             // 
@@ -546,6 +713,8 @@ namespace CapaPresentacion.Departamentos
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(78, 20);
             this.txtNumero.TabIndex = 62;
+            this.txtNumero.TextChanged += new System.EventHandler(this.txtNumero_TextChanged);
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
             // 
             // cbxComuna
             // 
@@ -570,6 +739,7 @@ namespace CapaPresentacion.Departamentos
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(219, 20);
             this.txtDireccion.TabIndex = 61;
+            this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
             // 
             // lblDireccion
             // 
@@ -590,10 +760,6 @@ namespace CapaPresentacion.Departamentos
             this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
-            // cEDeptoListaJoinBindingSource
-            // 
-            this.cEDeptoListaJoinBindingSource.DataSource = typeof(CapaEntidad.CEDeptoListaJoin);
-            // 
             // cEDeptoListaJoinBindingSource1
             // 
             this.cEDeptoListaJoinBindingSource1.DataSource = typeof(CapaEntidad.CEDeptoListaJoin);
@@ -605,150 +771,6 @@ namespace CapaPresentacion.Departamentos
             // cEDepartamentoBindingSource1
             // 
             this.cEDepartamentoBindingSource1.DataSource = typeof(CapaEntidad.CEDepartamento);
-            // 
-            // idDepto
-            // 
-            this.idDepto.DataPropertyName = "idDepto";
-            this.idDepto.HeaderText = "id Depto";
-            this.idDepto.Name = "idDepto";
-            // 
-            // idDireccion
-            // 
-            this.idDireccion.DataPropertyName = "idDireccion";
-            this.idDireccion.HeaderText = "idDireccion";
-            this.idDireccion.Name = "idDireccion";
-            // 
-            // IdCaracteristica
-            // 
-            this.IdCaracteristica.DataPropertyName = "IdCaracteristica";
-            this.IdCaracteristica.HeaderText = "IdCaracteristica";
-            this.IdCaracteristica.Name = "IdCaracteristica";
-            // 
-            // idRegion
-            // 
-            this.idRegion.DataPropertyName = "idRegion";
-            this.idRegion.HeaderText = "idRegion";
-            this.idRegion.Name = "idRegion";
-            // 
-            // id_comuna
-            // 
-            this.id_comuna.DataPropertyName = "id_comuna";
-            this.id_comuna.HeaderText = "id_comuna";
-            this.id_comuna.Name = "id_comuna";
-            // 
-            // idTipoDepto
-            // 
-            this.idTipoDepto.DataPropertyName = "idTipoDepto";
-            this.idTipoDepto.HeaderText = "idTipoDepto";
-            this.idTipoDepto.Name = "idTipoDepto";
-            // 
-            // idEstadoDepto
-            // 
-            this.idEstadoDepto.DataPropertyName = "idEstadoDepto";
-            this.idEstadoDepto.HeaderText = "idEstadoDepto";
-            this.idEstadoDepto.Name = "idEstadoDepto";
-            // 
-            // de_nombre
-            // 
-            this.de_nombre.DataPropertyName = "de_nombre";
-            this.de_nombre.HeaderText = "Nombre";
-            this.de_nombre.Name = "de_nombre";
-            // 
-            // descripcionDepto
-            // 
-            this.descripcionDepto.DataPropertyName = "descripcionDepto";
-            this.descripcionDepto.HeaderText = "Descripción Departamento";
-            this.descripcionDepto.Name = "descripcionDepto";
-            // 
-            // precioDepto
-            // 
-            this.precioDepto.DataPropertyName = "precioDepto";
-            this.precioDepto.HeaderText = "Precio en $";
-            this.precioDepto.Name = "precioDepto";
-            // 
-            // cantidadEstrellas
-            // 
-            this.cantidadEstrellas.DataPropertyName = "de_start";
-            this.cantidadEstrellas.HeaderText = "Cantidad de Estrellas";
-            this.cantidadEstrellas.Name = "cantidadEstrellas";
-            // 
-            // tipoDepto
-            // 
-            this.tipoDepto.DataPropertyName = "tipoDepto";
-            this.tipoDepto.HeaderText = "Tipo Departamento";
-            this.tipoDepto.Name = "tipoDepto";
-            // 
-            // estadoDepto
-            // 
-            this.estadoDepto.DataPropertyName = "estadoDepto";
-            this.estadoDepto.HeaderText = "Estado Departamento";
-            this.estadoDepto.Name = "estadoDepto";
-            // 
-            // region
-            // 
-            this.region.DataPropertyName = "region";
-            this.region.HeaderText = "Region";
-            this.region.Name = "region";
-            // 
-            // comuna
-            // 
-            this.comuna.DataPropertyName = "comuna";
-            this.comuna.HeaderText = "Comuna";
-            this.comuna.Name = "comuna";
-            // 
-            // de_direccion
-            // 
-            this.de_direccion.DataPropertyName = "de_direccion";
-            this.de_direccion.HeaderText = "Dirección";
-            this.de_direccion.Name = "de_direccion";
-            // 
-            // de_numero
-            // 
-            this.de_numero.DataPropertyName = "de_numero";
-            this.de_numero.HeaderText = "Número";
-            this.de_numero.Name = "de_numero";
-            // 
-            // Ca_NumDepto
-            // 
-            this.Ca_NumDepto.DataPropertyName = "Ca_NumDepto";
-            this.Ca_NumDepto.HeaderText = "Número del Departamento";
-            this.Ca_NumDepto.Name = "Ca_NumDepto";
-            // 
-            // Ca_CantHabitaciones
-            // 
-            this.Ca_CantHabitaciones.DataPropertyName = "Ca_CantHabitaciones";
-            this.Ca_CantHabitaciones.HeaderText = "Cantidad de Habitaciones";
-            this.Ca_CantHabitaciones.Name = "Ca_CantHabitaciones";
-            // 
-            // Ca_CantCamas
-            // 
-            this.Ca_CantCamas.DataPropertyName = "Ca_CantCamas";
-            this.Ca_CantCamas.HeaderText = "Cantidad de Camas";
-            this.Ca_CantCamas.Name = "Ca_CantCamas";
-            // 
-            // Ca_CantBaño
-            // 
-            this.Ca_CantBaño.DataPropertyName = "Ca_CantBaño";
-            this.Ca_CantBaño.HeaderText = "Cantidad de Baños";
-            this.Ca_CantBaño.Name = "Ca_CantBaño";
-            // 
-            // Ca_CapPersonas
-            // 
-            this.Ca_CapPersonas.DataPropertyName = "Ca_CapPersonas";
-            this.Ca_CapPersonas.HeaderText = "Cantidad de Personas";
-            this.Ca_CapPersonas.Name = "Ca_CapPersonas";
-            // 
-            // Ca_CheckIn
-            // 
-            this.Ca_CheckIn.DataPropertyName = "Ca_CheckIn";
-            this.Ca_CheckIn.HeaderText = "Check In";
-            this.Ca_CheckIn.Name = "Ca_CheckIn";
-            // 
-            // Ca_CheckOut
-            // 
-            this.Ca_CheckOut.DataPropertyName = "Ca_CheckOut";
-            this.Ca_CheckOut.HeaderText = "Check Out";
-            this.Ca_CheckOut.Name = "Ca_CheckOut";
             // 
             // EditarDepartamento
             // 
@@ -766,13 +788,13 @@ namespace CapaPresentacion.Departamentos
             this.Name = "EditarDepartamento";
             this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEDeptoListaJoinBindingSource)).EndInit();
             this.gbxCarDepto.ResumeLayout(false);
             this.gbxCarDepto.PerformLayout();
             this.gbxDepto.ResumeLayout(false);
             this.gbxDepto.PerformLayout();
             this.gbxDireccion.ResumeLayout(false);
             this.gbxDireccion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cEDeptoListaJoinBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cEDeptoListaJoinBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cEDepartamentoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cEDepartamentoBindingSource1)).EndInit();

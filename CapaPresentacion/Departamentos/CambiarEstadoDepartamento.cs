@@ -16,11 +16,28 @@ namespace CapaPresentacion.Departamentos
     {
         CNDepartamento cNDepartamento = new CNDepartamento();
         CEDepartamento cEDepartamento = new CEDepartamento();
-      
+
         public CambiarEstadoDepartamento()
         {
             InitializeComponent();
             LoadComboEstadoDepto();
+            Listar();
+            CLEAN_DGV_DEPTO();
+        }
+
+        private void CLEAN_DGV_DEPTO()
+        {
+
+            dgvDepartamentos.Columns[0].Visible = false;
+            dgvDepartamentos.Columns[1].Visible = false;
+            dgvDepartamentos.Columns[2].Visible = false;
+
+            dgvDepartamentos.Columns[3].Visible = false;
+            dgvDepartamentos.Columns[4].Visible = false;
+
+            dgvDepartamentos.Columns[5].Visible = false;
+            dgvDepartamentos.Columns[6].Visible = false;
+
         }
 
         private void btnListarDepartamentos_Click(object sender, EventArgs e)
@@ -42,7 +59,7 @@ namespace CapaPresentacion.Departamentos
         private void Listar()
         {
             CNDepartamento lista = new CNDepartamento();
-            dataGridViewDepartamentos.DataSource = lista.ObtenerDatos();
+            dgvDepartamentos.DataSource = lista.ObtenerDatosJoinCaracteristicas();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -57,7 +74,7 @@ namespace CapaPresentacion.Departamentos
             try
             {
                 CEDepartamento departamento = new CEDepartamento();
-                departamento.idDepto = Convert.ToInt32(txtIDepartamento.Text);
+                departamento.idDepto = Convert.ToInt32(txtIdDepto.Text);
                 departamento.idEstadoDepto = Convert.ToInt32(cbxEstadoDepa.SelectedValue);
 
 
@@ -67,10 +84,11 @@ namespace CapaPresentacion.Departamentos
                     MessageBox.Show("CAMBIO DE ESTADO EXITOSO");
                 }
 
-                else {
-                    MessageBox.Show("CAMBIO DE ESTADO NO EXITOSO"); 
+                else
+                {
+                    MessageBox.Show("CAMBIO DE ESTADO NO EXITOSO");
                 }
-                    
+
             }
             catch (Exception ex)
             {
@@ -96,5 +114,25 @@ namespace CapaPresentacion.Departamentos
 
         }
 
+        private void dgvDepartamentos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDepartamentos.Rows.Count != 0)
+            {
+                GetDepartamento();
+            }
+        }
+
+        private void dgvDepartamentos_KeyUp(object sender, KeyEventArgs e)
+        {
+            GetDepartamento();
+        }
+
+
+        public void GetDepartamento()
+        {
+            txtIdDepto.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["idDepto"].Value);
+            cbxEstadoDepa.SelectedValue = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["idEstadoDepto"].Value);
+            cbxEstadoDepa.Text = Convert.ToString(dgvDepartamentos.CurrentRow.Cells["estadoDepto"].Value);
+        }
     }
 }
