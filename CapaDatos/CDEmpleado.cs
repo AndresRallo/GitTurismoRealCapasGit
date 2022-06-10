@@ -306,6 +306,60 @@ namespace CapaDatos
                 throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
         }
+
+        public List<CEEmpleado_Direccion> Empleado_()
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CEEmpleado_Direccion> LISTA_EMPLEADO = new List<CEEmpleado_Direccion>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_EMPLEADO_JOIN_DIRECCION", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        LISTA_EMPLEADO.Add(new CEEmpleado_Direccion
+                        {
+                            IDEMPLEADO = Convert.ToInt32(mostrarTabla["IDEMPLEADO"]),
+                            IDDIRECCION = Convert.ToInt32(mostrarTabla["IDDIRECCION"]),
+                            EM_NOMBRE = Convert.ToString(mostrarTabla["EM_NOMBRE"].ToString()),
+                            EM_APATERNO = Convert.ToString(mostrarTabla["EM_APATERNO"].ToString()),
+                            EM_AMATERNO = Convert.ToString(mostrarTabla["EM_AMATERNO"].ToString()),
+                            EM_RUT = Convert.ToString(mostrarTabla["EM_RUT"].ToString()),
+                            EM_DV = Convert.ToString(mostrarTabla["EM_DV"].ToString()),
+                            EM_EMAIL = Convert.ToString(mostrarTabla["EM_EMAIL"].ToString()),
+                            
+                            EM_CONTRASEÑA = Convert.ToString(mostrarTabla["EM_CONTRASEÑA"].ToString()),
+                            IDEMPRESA = Convert.ToInt32(mostrarTabla["IDEMPRESA"]),
+                            IDTIPOEMPLEADO = Convert.ToInt32(mostrarTabla["IDTIPOEMPLEADO"]),
+                            IDESTADO = Convert.ToInt32(mostrarTabla["IDESTADO"]),
+                            TP_DESCRIPCION = Convert.ToString(mostrarTabla["TP_DESCRIPCION"]),
+                            ES_DESCRIPCION = Convert.ToString(mostrarTabla["ES_DESCRIPCION"]),
+                            IDREGION = Convert.ToInt32(mostrarTabla["IDREGION"]),
+                            id_comuna = Convert.ToInt32(mostrarTabla["IDCOMUNA"]),
+                            de_direccion = Convert.ToString(mostrarTabla["DE_DIRECCION"]),
+                            de_numero = Convert.ToString(mostrarTabla["DE_NUMERO"]),
+                            
+                            c_descripcion = Convert.ToString(mostrarTabla["C_DESCRIPCION"]),
+                            RE_DESCRIPCION = Convert.ToString(mostrarTabla["RE_DESCRIPCION"])
+
+
+                        }) ;
+                    }
+                    conn.Close();
+                }
+                return LISTA_EMPLEADO;
+            }
+            catch (OracleException oex)
+            {
+
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
+        }
         public List<CERegion> Region()
         {
             try

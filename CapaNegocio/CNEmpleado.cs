@@ -31,6 +31,7 @@ namespace CapaNegocio
             return cDEmpleado.AgregarEmpleado(cE);
         }
 
+
         
         public bool EditarEmpleado(CEEmpleado cE) 
         {
@@ -50,10 +51,10 @@ namespace CapaNegocio
             return lista;
         } */
 
-        public List<CEEmpleado> ObtenerEmpleados()
+        public List<CEEmpleado_Direccion> ObtenerEmpleados()
         {
-            List<CEEmpleado> LISTA_EMPLEADO = new List<CEEmpleado>();
-            LISTA_EMPLEADO = cDEmpleado.Empleado();
+            List<CEEmpleado_Direccion> LISTA_EMPLEADO = new List<CEEmpleado_Direccion>();
+            LISTA_EMPLEADO = cDEmpleado.Empleado_();
             return LISTA_EMPLEADO;
         }
 

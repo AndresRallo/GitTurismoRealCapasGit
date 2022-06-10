@@ -37,12 +37,12 @@ namespace CapaPresentacion
         }
         private void cleanDGVEmpleados()
         {
-            dataGridViewEmpleados.Columns["direccion"].Visible = false;
-            dataGridViewEmpleados.Columns["vehiculo"].Visible = false;
-            dataGridViewEmpleados.Columns["region"].Visible = false;
-            dataGridViewEmpleados.Columns["comuna"].Visible = false;
-            dataGridViewEmpleados.Columns["tipoempleado"].Visible = false;
-            dataGridViewEmpleados.Columns["estado"].Visible = false;
+            //dataGridViewEmpleados.Columns["direccion"].Visible = false;
+            //dataGridViewEmpleados.Columns["vehiculo"].Visible = false;
+            //dataGridViewEmpleados.Columns["region"].Visible = false;
+            //dataGridViewEmpleados.Columns["comuna"].Visible = false;
+            //dataGridViewEmpleados.Columns["tipoempleado"].Visible = false;
+            //dataGridViewEmpleados.Columns["estado"].Visible = false;
         }
 
         private void btnListar_Click(object sender, EventArgs e)

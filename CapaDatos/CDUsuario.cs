@@ -196,6 +196,48 @@ namespace CapaDatos
             }
         }
 
+        public List<CEUSER_ESTADO> LISTAR_USUARIO_()
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CEUSER_ESTADO> LISTA_USUARIO = new List<CEUSER_ESTADO>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_USER_BY_ESTADO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        LISTA_USUARIO.Add(new CEUSER_ESTADO
+                        {
+                            IDUSUARIO = Convert.ToInt32(mostrarTabla["IDUSUARIO"]),
+                            US_RUT = Convert.ToString(mostrarTabla["US_RUT"].ToString()),
+                            US_DV = Convert.ToString(mostrarTabla["US_DV"].ToString()),
+                            US_NOMBRE = Convert.ToString(mostrarTabla["US_NOMBRE"].ToString()),
+                            US_APATERNO = Convert.ToString(mostrarTabla["US_APATERNO"].ToString()),
+                            US_AMATERNO = Convert.ToString(mostrarTabla["US_AMATERNO"].ToString()),
+                            US_TELEFONO = Convert.ToString(mostrarTabla["US_TELEFONO"].ToString()),
+                            US_EMAIL = Convert.ToString(mostrarTabla["US_EMAIL"].ToString()),
+                            US_CONTRASEÑA = Convert.ToString(mostrarTabla["US_CONTRASEÑA"].ToString()),
+                            IDESTADO = Convert.ToInt32(mostrarTabla["IDESTADO"]),
+                            ES_DESCRIPCION = Convert.ToString(mostrarTabla["ES_DESCRIPCION"].ToString())
+                            //  IDTIPOUSUARIO = Convert.ToString(mostrarTabla["IDUSUARIO"].ToString())
+
+                        });
+                    }
+                    conn.Close();
+                }
+                return LISTA_USUARIO;
+            }
+            catch (OracleException oex)
+            {
+
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
+        }
         public List<CE_ESTADO> ESTADO()
         {
             try

@@ -23,7 +23,7 @@ namespace CapaPresentacion
 
             CNUsuario lista = new CNUsuario();
             dgvUSER.DataSource = lista.ObtenerDatos();
-            dgvUSER.Columns["IDTIPOUSUARIO"].Visible = false;
+            //dgvUSER.Columns["IDTIPOUSUARIO"].Visible = false;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -88,6 +88,27 @@ namespace CapaPresentacion
 
                 MessageBox.Show("Error combo estado empleado" + ex);
             }
+        }
+
+        private void dgvUSER_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvUSER.Rows.Count != 0)
+            {
+                cargarID();
+            }
+        }
+
+        private void cargarID()
+        {
+            txtIDUsuario.Text = Convert.ToString(dgvUSER.CurrentRow.Cells["iDUSUARIODataGridViewTextBoxColumn"].Value);
+
+            cbESTADO.SelectedValue = Convert.ToString(dgvUSER.CurrentRow.Cells["iDESTADODataGridViewTextBoxColumn"].Value);
+            cbESTADO.Text = Convert.ToString(dgvUSER.CurrentRow.Cells["eSDESCRIPCIONDataGridViewTextBoxColumn"].Value);
+        }
+
+        private void dgvUSER_KeyUp(object sender, KeyEventArgs e)
+        {
+            cargarID();
         }
     }
 }
