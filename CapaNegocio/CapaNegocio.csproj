@@ -52,6 +52,8 @@
     <Compile Include="CNDepartamento.cs" />
     <Compile Include="CNEmpleado.cs" />
     <Compile Include="CNLogin.cs" />
+    <Compile Include="CNReserva.cs" />
+    <Compile Include="CNReservaDpto.cs" />
     <Compile Include="CNService.cs" />
     <Compile Include="CNUsuario.cs" />
     <Compile Include="Library\Encrypt.cs" />

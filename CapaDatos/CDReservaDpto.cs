@@ -12,12 +12,12 @@ using TurismoRealExceptions;
 
 namespace CapaDatos
 {
-    public class CDService
+    public class CDReservaDpto
     {
         string conexion = ConfigurationManager.AppSettings["conn"];
 
-        #region Add service
-        public bool AddService(CEService service)
+        #region Add reserva
+        public bool AddReserva(CEReservaDpto service)
         {
             try
             {
@@ -25,17 +25,21 @@ namespace CapaDatos
                 using (OracleConnection conn = new OracleConnection(conexion))
                 {
                     conn.Open();
-                    OracleCommand command = new OracleCommand("SP_SET_ADD_SERVICIOS", conn);
+
+                    //-> cambiar name sp y probar
+                    OracleCommand command = new OracleCommand("SP_SET_ADD_RESERVA", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add("NOM", OracleType.VarChar).Value = service.NameService;
-                    command.Parameters.Add("DESCRIPCIONS", OracleType.VarChar).Value = service.Descripcion;
-                    command.Parameters.Add("PRECIOS", OracleType.Int32).Value = service.Precio;
-                    command.Parameters.Add("IVAS", OracleType.Int32).Value = service.Iva;
-                    command.Parameters.Add("DIRECCION", OracleType.VarChar).Value = service.DireccionSucursal;
-                    command.Parameters.Add("NUMDIREC", OracleType.VarChar).Value = service.NumeroDireccion;
-                    command.Parameters.Add("IDCOMUNADIREC", OracleType.Int32).Value = service.IdComuna;
-                    command.Parameters.Add("IDESTADOS", OracleType.Int32).Value = service.Estado;
-                    command.Parameters.Add("IDTIPO", OracleType.Int32).Value = service.TipoServicio;
+                    command.Parameters.Add("FECHAEN", OracleType.DateTime).Value = service.FECHAEN;
+                    command.Parameters.Add("FECHASA", OracleType.DateTime).Value = service.FECHASA;
+                    command.Parameters.Add("ABONO", OracleType.Int32).Value = service.ABONO;
+                    command.Parameters.Add("TOTAL", OracleType.Int32).Value = service.TOTAL;
+                    command.Parameters.Add("CANTADULTOS", OracleType.VarChar).Value = service.CANTADULTOS;
+                    command.Parameters.Add("CANTNINIOS", OracleType.VarChar).Value = service.CANTNINIOS;
+                    command.Parameters.Add("IDUSUARIO", OracleType.Int32).Value = service.IDUSUARIO;
+                    command.Parameters.Add("IDDEPTO", OracleType.Int32).Value = service.IDDEPTO;
+                    command.Parameters.Add("ESTADORESERVA", OracleType.Int32).Value = service.ESTADORESERVA;
+                    command.Parameters.Add("IDEMPLEADO", OracleType.Int32).Value = service.IDEMPLEADO;
+                    command.Parameters.Add("IDTEMPORADA", OracleType.Int32).Value = service.IDTEMPORADA;
                     OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
                     par.Direction = ParameterDirection.Output;
                     par.Size = 250;
@@ -61,8 +65,8 @@ namespace CapaDatos
         }
         #endregion
 
-        #region DeleteService
-        public bool DeleteService(CEService cE)
+        #region Delete Reserva
+        public bool DeleteReserva(CEReservaDpto reserva)
         {
             try
             {
@@ -70,14 +74,14 @@ namespace CapaDatos
                 using (OracleConnection conn = new OracleConnection(conexion))
                 {
                     DialogResult result;
-                    result = MessageBox.Show("¿Esta seguro de eliminar el servicio?", "Eliminar Servicio", MessageBoxButtons.YesNo);
+                    result = MessageBox.Show("¿Esta seguro de eliminar la reserva?", "Eliminar Reserva", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
                         conn.Open();
                         //-->cambiar name de sp y parametros 
-                        OracleCommand command = new OracleCommand("SP_SET_STATUS_CHANGE_SERVICE", conn);
+                        OracleCommand command = new OracleCommand("SP_SET_STATUS_CHANGE_RESERVA", conn);
                         command.CommandType = System.Data.CommandType.StoredProcedure;
-                        command.Parameters.Add("IDSERVICIO", OracleType.Number).Value = cE.IdService;
+                        command.Parameters.Add("IdReserva", OracleType.Number).Value = reserva.IDRESERVA;
                         command.Parameters.Add("IDESTADO", OracleType.Number).Value = 1;
 
                         OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
@@ -106,8 +110,8 @@ namespace CapaDatos
 
         #endregion
 
-        #region UpdateService
-        public bool UpdateService(CEService service)
+        #region UpdateReserva
+        public bool UpdateReserva(CEReservaDpto reserva)
         {
             try
             {
@@ -116,20 +120,20 @@ namespace CapaDatos
                 {
                     conn.Open();
                     //--->cambiar name de sp y verificar los nombres de las variables
-                    OracleCommand command = new OracleCommand("SP_UPDATE_SERVICIO", conn);
+                    OracleCommand command = new OracleCommand("SP_UPDATE_RESERVA", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add("IDSER", OracleType.Int32).Value = service.IdService;
-                    command.Parameters.Add("NOM", OracleType.VarChar).Value = service.NameService;
-                    command.Parameters.Add("DESCRIPCION", OracleType.VarChar).Value = service.Descripcion;
-                    command.Parameters.Add("PRECIOS", OracleType.Int32).Value = service.Precio;
-                    command.Parameters.Add("IVAS", OracleType.Int32).Value = service.Iva;
-                    command.Parameters.Add("IDDIREC", OracleType.Int32).Value = service.DireccionSucursal;
-                    //Posible error aqui?
-                    command.Parameters.Add("DIRECCION", OracleType.VarChar).Value = service.DireccionSucursal;
-                    command.Parameters.Add("NUMDIREC", OracleType.VarChar).Value = service.NumeroDireccion;
-                    command.Parameters.Add("IDCOMUNADIREC", OracleType.Int32).Value = service.IdComuna;
-                    command.Parameters.Add("IDESTADOS", OracleType.Int32).Value = service.Estado;
-                    command.Parameters.Add("IDTIPO", OracleType.Int32).Value = service.TipoServicio;
+                    command.Parameters.Add("IDRESERVA", OracleType.Number).Value = reserva.IDRESERVA;
+                    command.Parameters.Add("FECHAEN", OracleType.DateTime).Value = reserva.FECHAEN;
+                    command.Parameters.Add("FECHASA", OracleType.DateTime).Value = reserva.FECHASA;
+                    command.Parameters.Add("ABONO", OracleType.Int32).Value = reserva.ABONO;
+                    command.Parameters.Add("TOTAL", OracleType.Int32).Value = reserva.TOTAL;
+                    command.Parameters.Add("CANTADULTOS", OracleType.VarChar).Value = reserva.CANTADULTOS;
+                    command.Parameters.Add("CANTNINIOS", OracleType.VarChar).Value = reserva.CANTNINIOS;
+                    command.Parameters.Add("IDUSUARIO", OracleType.Int32).Value = reserva.IDUSUARIO;
+                    command.Parameters.Add("IDDEPTO", OracleType.Int32).Value = reserva.IDDEPTO;
+                    command.Parameters.Add("ESTADORESERVA", OracleType.Int32).Value = reserva.ESTADORESERVA;
+                    command.Parameters.Add("IDEMPLEADO", OracleType.Int32).Value = reserva.IDEMPLEADO;
+                    command.Parameters.Add("IDTEMPORADA", OracleType.Int32).Value = reserva.IDTEMPORADA;
                     OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
                     par.Direction = ParameterDirection.Output;
                     par.Size = 250;
@@ -155,40 +159,41 @@ namespace CapaDatos
         }
         #endregion
 
-        #region ListService
-        public List<CEService> ListALLService()
+        #region ListReserva
+        public List<CEReservaDpto> ListALLReserva()
         {
             try
             {
                 OracleDataReader mostrarTabla;
-                List<CEService> Services = new List<CEService>();
+                List<CEReservaDpto> reservas = new List<CEReservaDpto>();
                 using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
                 {
                     conn.Open();
-                    OracleCommand command = new OracleCommand("SP_GET_ALL_SERVICIOS", conn);
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_Reserva", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
                     mostrarTabla = command.ExecuteReader();
                     while (mostrarTabla.Read())
                     {
-                        Services.Add(new CEService
+                        reservas.Add(new CEReservaDpto
                         {
-                            IdService = Convert.ToInt32(mostrarTabla["IDSERVICIO"]),
-                            NameService = mostrarTabla["SE_NOMBRE"].ToString(),
-                            Precio = Convert.ToInt32(mostrarTabla["SE_PRECIO"]),
-                            Iva = Convert.ToInt32(mostrarTabla["SE_IVA"]),
-                            ValorTotal = Convert.ToInt32(mostrarTabla["SE_PRECIO"])+ Convert.ToInt32(mostrarTabla["SE_IVA"]),
-                            DireccionSucursal = mostrarTabla["DIRECCION_NAME"].ToString(),
-                            NumeroDireccion = Convert.ToInt32(mostrarTabla["IDREGION"]),
-                            IdComuna = Convert.ToInt32(mostrarTabla["IDREGION"]),
-                            Estado = Convert.ToInt32(mostrarTabla["IDESTADO"]),
-                            TipoServicio = Convert.ToInt32(mostrarTabla["IDTIPOS"]),
-                            Descripcion = mostrarTabla["SE_DESCRIPCION"].ToString(),
+                            IDRESERVA = int.Parse(mostrarTabla["IDRESERVA"].ToString()),
+                            FECHAEN = DateTime.Parse(mostrarTabla["FECHAEN"].ToString()),
+                            FECHASA = DateTime.Parse(mostrarTabla["FECHASA"].ToString()),
+                            ABONO = int.Parse(mostrarTabla["ABONO"].ToString()),
+                            TOTAL = int.Parse(mostrarTabla["TOTAL"].ToString()),
+                            CANTADULTOS = int.Parse(mostrarTabla["CANTADULTOS"].ToString()),
+                            CANTNINIOS = int.Parse(mostrarTabla["CANTNINIOS"].ToString()),
+                            IDUSUARIO = int.Parse(mostrarTabla["IDUSUARIO"].ToString()),
+                            IDDEPTO = int.Parse(mostrarTabla["IDDEPTO"].ToString()),
+                            ESTADORESERVA = int.Parse(mostrarTabla["ESTADORESERVA"].ToString()),
+                            IDEMPLEADO = int.Parse(mostrarTabla["IDEMPLEADO"].ToString()),
+                            IDTEMPORADA = int.Parse(mostrarTabla["IDTEMPORADA"].ToString()),
                         });
                     }
                     conn.Close();
                 }
-                return Services;
+                return reservas;
 
             }
             catch (OracleException)
