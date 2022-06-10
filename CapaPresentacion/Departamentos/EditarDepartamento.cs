@@ -320,7 +320,7 @@ namespace CapaPresentacion.Departamentos
             GetDepartamento();
         }
 
-        private int _IdCaracteristica = 0;
+        
 
         public void GetDepartamento()
         {
