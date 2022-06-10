@@ -274,5 +274,10 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void Reserva_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

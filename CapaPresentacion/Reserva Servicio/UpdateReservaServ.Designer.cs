@@ -45,109 +45,122 @@ namespace CapaPresentacion.Reserva_Servicio
             // 
             // btnUpdateResServ
             // 
-            this.btnUpdateResServ.Location = new System.Drawing.Point(69, 298);
+            this.btnUpdateResServ.Location = new System.Drawing.Point(92, 367);
+            this.btnUpdateResServ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdateResServ.Name = "btnUpdateResServ";
-            this.btnUpdateResServ.Size = new System.Drawing.Size(103, 23);
+            this.btnUpdateResServ.Size = new System.Drawing.Size(137, 28);
             this.btnUpdateResServ.TabIndex = 53;
             this.btnUpdateResServ.Text = "Actualizar Servicio";
             this.btnUpdateResServ.UseVisualStyleBackColor = true;
+            this.btnUpdateResServ.Click += new System.EventHandler(this.btnUpdateResServ_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(65, 57);
+            this.label1.Location = new System.Drawing.Point(87, 70);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 23);
+            this.label1.Size = new System.Drawing.Size(329, 30);
             this.label1.TabIndex = 48;
             this.label1.Text = "Actualizar Reserva de Servicio";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(182, 211);
+            this.textBox1.Location = new System.Drawing.Point(243, 260);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(132, 26);
             this.textBox1.TabIndex = 63;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(66, 221);
+            this.label3.Location = new System.Drawing.Point(88, 272);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.Size = new System.Drawing.Size(46, 20);
             this.label3.TabIndex = 62;
             this.label3.Text = "Hora";
             // 
             // comboBoxTipoServ
             // 
             this.comboBoxTipoServ.FormattingEnabled = true;
-            this.comboBoxTipoServ.Location = new System.Drawing.Point(182, 142);
+            this.comboBoxTipoServ.Location = new System.Drawing.Point(243, 175);
+            this.comboBoxTipoServ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxTipoServ.Name = "comboBoxTipoServ";
-            this.comboBoxTipoServ.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTipoServ.Size = new System.Drawing.Size(160, 24);
             this.comboBoxTipoServ.TabIndex = 61;
             // 
             // dateTimeFechaServ
             // 
-            this.dateTimeFechaServ.Location = new System.Drawing.Point(182, 178);
+            this.dateTimeFechaServ.Location = new System.Drawing.Point(243, 219);
+            this.dateTimeFechaServ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimeFechaServ.Name = "dateTimeFechaServ";
-            this.dateTimeFechaServ.Size = new System.Drawing.Size(200, 20);
+            this.dateTimeFechaServ.Size = new System.Drawing.Size(265, 26);
             this.dateTimeFechaServ.TabIndex = 60;
             // 
             // txtEmpleado
             // 
-            this.txtEmpleado.Location = new System.Drawing.Point(182, 253);
+            this.txtEmpleado.Location = new System.Drawing.Point(243, 311);
+            this.txtEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmpleado.Name = "txtEmpleado";
-            this.txtEmpleado.Size = new System.Drawing.Size(100, 20);
+            this.txtEmpleado.Size = new System.Drawing.Size(132, 26);
             this.txtEmpleado.TabIndex = 59;
             // 
             // txtIdReservaDpto
             // 
-            this.txtIdReservaDpto.Location = new System.Drawing.Point(182, 107);
+            this.txtIdReservaDpto.Location = new System.Drawing.Point(243, 132);
+            this.txtIdReservaDpto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdReservaDpto.Name = "txtIdReservaDpto";
-            this.txtIdReservaDpto.Size = new System.Drawing.Size(100, 20);
+            this.txtIdReservaDpto.Size = new System.Drawing.Size(132, 26);
             this.txtIdReservaDpto.TabIndex = 58;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(66, 151);
+            this.label10.Location = new System.Drawing.Point(88, 186);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 13);
+            this.label10.Size = new System.Drawing.Size(129, 20);
             this.label10.TabIndex = 57;
             this.label10.Text = "Tipo de Servicio";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(66, 111);
+            this.label8.Location = new System.Drawing.Point(88, 137);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 13);
+            this.label8.Size = new System.Drawing.Size(166, 20);
             this.label8.TabIndex = 56;
             this.label8.Text = "ID de Reserva Depto";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(66, 260);
+            this.label6.Location = new System.Drawing.Point(88, 320);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.Size = new System.Drawing.Size(83, 20);
             this.label6.TabIndex = 55;
             this.label6.Text = "Empleado";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(66, 185);
+            this.label2.Location = new System.Drawing.Point(88, 228);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.Size = new System.Drawing.Size(55, 20);
             this.label2.TabIndex = 54;
             this.label2.Text = "Fecha";
             // 
             // UpdateReservaServ
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBoxTipoServ);
@@ -160,6 +173,7 @@ namespace CapaPresentacion.Reserva_Servicio
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnUpdateResServ);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UpdateReservaServ";
             this.Text = "UpdateReservaServ";
             this.ResumeLayout(false);
