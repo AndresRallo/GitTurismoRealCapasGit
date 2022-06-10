@@ -32,7 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,12 +53,14 @@
     <Compile Include="CEComentarios_Departamentos.cs" />
     <Compile Include="CEComuna.cs" />
     <Compile Include="CEDepartamento.cs" />
+    <Compile Include="CEDeptoListaJoin.cs" />
     <Compile Include="CEDireccion.cs" />
     <Compile Include="CEEmpleado.cs" />
     <Compile Include="CEMantencion.cs" />
     <Compile Include="CEMulta.cs" />
     <Compile Include="CERegion.cs" />
     <Compile Include="CEReserva_Departamento.cs" />
+    <Compile Include="CEService.cs" />
     <Compile Include="CESYS_TipoComentario.cs" />
     <Compile Include="CETemporada.cs" />
     <Compile Include="CETipoDepartamento.cs" />
@@ -63,6 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CESysEstadoDepto.cs" />
     <Compile Include="SYS_TIPOUSUARIO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

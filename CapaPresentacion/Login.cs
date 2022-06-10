@@ -32,7 +32,7 @@ namespace CapaPresentacion
         CEEmpleado objEuser = new CEEmpleado();
         CNLogin objNuser = new CNLogin();
         CNLogin objNMail = new CNLogin();
-        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        
 
         public static string usuario_nombre;
         public static string area;
@@ -55,7 +55,7 @@ namespace CapaPresentacion
             }
         }
 
-        void Logeo()
+        void Logeo(string name)
         {
 
             DataTable dt = new DataTable();
@@ -79,6 +79,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
+                    MenuPrincipal menuPrincipal = new MenuPrincipal(txtMail.Text);
                     this.Hide();
                     menuPrincipal.Show();
                     txtMail.Clear();
@@ -168,7 +169,7 @@ namespace CapaPresentacion
             else if (librarys.textBoxEvent.ComprobarFormatoEmail(txtMail.Text))
             {
 
-                Logeo();
+                Logeo(txtMail.Text.ToString());
             }
             else
             {
@@ -221,8 +222,28 @@ namespace CapaPresentacion
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            MenuPrincipal menu = new MenuPrincipal();
+            MenuPrincipal menu = new MenuPrincipal("");
             menu.Show();
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

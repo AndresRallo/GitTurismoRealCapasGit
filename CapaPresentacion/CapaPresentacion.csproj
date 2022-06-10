@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -33,13 +35,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.4.3.0\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
     <Reference Include="CryptSharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CryptSharpOfficial.2.1.0.0\lib\CryptSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +63,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgregarEmpleado.cs">
@@ -177,11 +194,59 @@
     <Compile Include="MantenedorReservas.Designer.cs">
       <DependentUpon>MantenedorReservas.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateServiceBooking.cs">
+    <Compile Include="Reserva Depto\CrearReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateServiceBooking.Designer.cs">
-      <DependentUpon>CreateServiceBooking.cs</DependentUpon>
+    <Compile Include="Reserva Depto\CrearReserva.Designer.cs">
+      <DependentUpon>CrearReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva Depto\EliminarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserva Depto\EliminarReserva.Designer.cs">
+      <DependentUpon>EliminarReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva Depto\UpdateReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserva Depto\UpdateReserva.Designer.cs">
+      <DependentUpon>UpdateReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva Depto\VerReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserva Depto\VerReserva.Designer.cs">
+      <DependentUpon>VerReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva Servicio\CrearReservaServ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserva Servicio\CrearReservaServ.Designer.cs">
+      <DependentUpon>CrearReservaServ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva Servicio\EliminarReservaServ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserva Servicio\EliminarReservaServ.Designer.cs">
+      <DependentUpon>EliminarReservaServ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva Servicio\ListarReservaServ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserva Servicio\ListarReservaServ.Designer.cs">
+      <DependentUpon>ListarReservaServ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva Servicio\UpdateReservaServ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserva Servicio\UpdateReservaServ.Designer.cs">
+      <DependentUpon>UpdateReservaServ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\AddService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\AddService.Designer.cs">
+      <DependentUpon>AddService.cs</DependentUpon>
     </Compile>
     <Compile Include="MantenedorUsuario.cs">
       <SubType>Form</SubType>
@@ -202,6 +267,24 @@
     </Compile>
     <Compile Include="Reportes\ContrRepDepto.Designer.cs">
       <DependentUpon>ContrRepDepto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\DeleteService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\DeleteService.Designer.cs">
+      <DependentUpon>DeleteService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\ListService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\ListService.Designer.cs">
+      <DependentUpon>ListService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\updateService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\updateService.Designer.cs">
+      <DependentUpon>updateService.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AgregarEmpleado.resx">
       <DependentUpon>AgregarEmpleado.cs</DependentUpon>
@@ -263,8 +346,32 @@
     <EmbeddedResource Include="MantenedorReservas.resx">
       <DependentUpon>MantenedorReservas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateServiceBooking.resx">
-      <DependentUpon>CreateServiceBooking.cs</DependentUpon>
+    <EmbeddedResource Include="Reserva Depto\CrearReserva.resx">
+      <DependentUpon>CrearReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserva Depto\EliminarReserva.resx">
+      <DependentUpon>EliminarReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserva Depto\UpdateReserva.resx">
+      <DependentUpon>UpdateReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserva Depto\VerReserva.resx">
+      <DependentUpon>VerReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserva Servicio\CrearReservaServ.resx">
+      <DependentUpon>CrearReservaServ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserva Servicio\EliminarReservaServ.resx">
+      <DependentUpon>EliminarReservaServ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserva Servicio\ListarReservaServ.resx">
+      <DependentUpon>ListarReservaServ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserva Servicio\UpdateReservaServ.resx">
+      <DependentUpon>UpdateReservaServ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\AddService.resx">
+      <DependentUpon>AddService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenedorUsuario.resx">
       <DependentUpon>MantenedorUsuario.cs</DependentUpon>
@@ -281,6 +388,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Servicios\DeleteService.resx">
+      <DependentUpon>DeleteService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\ListService.resx">
+      <DependentUpon>ListService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\updateService.resx">
+      <DependentUpon>updateService.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -296,6 +412,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{23F8D4D2-F823-4457-A438-BD40523140CC}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
       <Project>{7E554079-9D59-4326-B772-4B61D5E37994}</Project>
       <Name>CapaEntidad</Name>

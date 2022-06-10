@@ -29,6 +29,7 @@ namespace CapaPresentacion.Departamentos
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvDepartamentos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -77,10 +78,42 @@ namespace CapaPresentacion.Departamentos
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.btnListar = new System.Windows.Forms.Button();
+            this.cEDeptoListaJoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cEDeptoListaJoinBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cEDepartamentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cEDepartamentoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.idDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCaracteristica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idRegion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_comuna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idTipoDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEstadoDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.de_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadEstrellas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.region = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comuna = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.de_direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.de_numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_NumDepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_CantHabitaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_CantCamas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_CantBaño = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_CapPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ca_CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).BeginInit();
             this.gbxCarDepto.SuspendLayout();
             this.gbxDepto.SuspendLayout();
             this.gbxDireccion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cEDeptoListaJoinBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEDeptoListaJoinBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEDepartamentoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEDepartamentoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEditar
@@ -95,12 +128,43 @@ namespace CapaPresentacion.Departamentos
             // 
             // dgvDepartamentos
             // 
+            this.dgvDepartamentos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDepartamentos.AutoGenerateColumns = false;
             this.dgvDepartamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDepartamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDepto,
+            this.idDireccion,
+            this.IdCaracteristica,
+            this.idRegion,
+            this.id_comuna,
+            this.idTipoDepto,
+            this.idEstadoDepto,
+            this.de_nombre,
+            this.descripcionDepto,
+            this.precioDepto,
+            this.cantidadEstrellas,
+            this.tipoDepto,
+            this.estadoDepto,
+            this.region,
+            this.comuna,
+            this.de_direccion,
+            this.de_numero,
+            this.Ca_NumDepto,
+            this.Ca_CantHabitaciones,
+            this.Ca_CantCamas,
+            this.Ca_CantBaño,
+            this.Ca_CapPersonas,
+            this.Ca_CheckIn,
+            this.Ca_CheckOut});
+            this.dgvDepartamentos.DataSource = this.cEDeptoListaJoinBindingSource;
             this.dgvDepartamentos.Location = new System.Drawing.Point(216, 204);
             this.dgvDepartamentos.Name = "dgvDepartamentos";
-            this.dgvDepartamentos.Size = new System.Drawing.Size(572, 234);
+            this.dgvDepartamentos.Size = new System.Drawing.Size(660, 374);
             this.dgvDepartamentos.TabIndex = 34;
             this.dgvDepartamentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartamentos_CellClick);
+            this.dgvDepartamentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartamentos_CellContentClick);
             this.dgvDepartamentos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvDepartamentos_KeyUp);
             // 
             // label1
@@ -281,6 +345,7 @@ namespace CapaPresentacion.Departamentos
             // 
             // txtIdDepto
             // 
+            this.txtIdDepto.Enabled = false;
             this.txtIdDepto.Location = new System.Drawing.Point(146, 11);
             this.txtIdDepto.Name = "txtIdDepto";
             this.txtIdDepto.Size = new System.Drawing.Size(51, 20);
@@ -415,6 +480,7 @@ namespace CapaPresentacion.Departamentos
             // 
             // txtIdCaract
             // 
+            this.txtIdCaract.Enabled = false;
             this.txtIdCaract.Location = new System.Drawing.Point(285, 16);
             this.txtIdCaract.Name = "txtIdCaract";
             this.txtIdCaract.Size = new System.Drawing.Size(47, 20);
@@ -431,6 +497,7 @@ namespace CapaPresentacion.Departamentos
             // 
             // txtIdDirc
             // 
+            this.txtIdDirc.Enabled = false;
             this.txtIdDirc.Location = new System.Drawing.Point(81, 16);
             this.txtIdDirc.Name = "txtIdDirc";
             this.txtIdDirc.Size = new System.Drawing.Size(47, 20);
@@ -523,11 +590,171 @@ namespace CapaPresentacion.Departamentos
             this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
+            // cEDeptoListaJoinBindingSource
+            // 
+            this.cEDeptoListaJoinBindingSource.DataSource = typeof(CapaEntidad.CEDeptoListaJoin);
+            // 
+            // cEDeptoListaJoinBindingSource1
+            // 
+            this.cEDeptoListaJoinBindingSource1.DataSource = typeof(CapaEntidad.CEDeptoListaJoin);
+            // 
+            // cEDepartamentoBindingSource
+            // 
+            this.cEDepartamentoBindingSource.DataSource = typeof(CapaEntidad.CEDepartamento);
+            // 
+            // cEDepartamentoBindingSource1
+            // 
+            this.cEDepartamentoBindingSource1.DataSource = typeof(CapaEntidad.CEDepartamento);
+            // 
+            // idDepto
+            // 
+            this.idDepto.DataPropertyName = "idDepto";
+            this.idDepto.HeaderText = "id Depto";
+            this.idDepto.Name = "idDepto";
+            // 
+            // idDireccion
+            // 
+            this.idDireccion.DataPropertyName = "idDireccion";
+            this.idDireccion.HeaderText = "idDireccion";
+            this.idDireccion.Name = "idDireccion";
+            // 
+            // IdCaracteristica
+            // 
+            this.IdCaracteristica.DataPropertyName = "IdCaracteristica";
+            this.IdCaracteristica.HeaderText = "IdCaracteristica";
+            this.IdCaracteristica.Name = "IdCaracteristica";
+            // 
+            // idRegion
+            // 
+            this.idRegion.DataPropertyName = "idRegion";
+            this.idRegion.HeaderText = "idRegion";
+            this.idRegion.Name = "idRegion";
+            // 
+            // id_comuna
+            // 
+            this.id_comuna.DataPropertyName = "id_comuna";
+            this.id_comuna.HeaderText = "id_comuna";
+            this.id_comuna.Name = "id_comuna";
+            // 
+            // idTipoDepto
+            // 
+            this.idTipoDepto.DataPropertyName = "idTipoDepto";
+            this.idTipoDepto.HeaderText = "idTipoDepto";
+            this.idTipoDepto.Name = "idTipoDepto";
+            // 
+            // idEstadoDepto
+            // 
+            this.idEstadoDepto.DataPropertyName = "idEstadoDepto";
+            this.idEstadoDepto.HeaderText = "idEstadoDepto";
+            this.idEstadoDepto.Name = "idEstadoDepto";
+            // 
+            // de_nombre
+            // 
+            this.de_nombre.DataPropertyName = "de_nombre";
+            this.de_nombre.HeaderText = "Nombre";
+            this.de_nombre.Name = "de_nombre";
+            // 
+            // descripcionDepto
+            // 
+            this.descripcionDepto.DataPropertyName = "descripcionDepto";
+            this.descripcionDepto.HeaderText = "Descripción Departamento";
+            this.descripcionDepto.Name = "descripcionDepto";
+            // 
+            // precioDepto
+            // 
+            this.precioDepto.DataPropertyName = "precioDepto";
+            this.precioDepto.HeaderText = "Precio en $";
+            this.precioDepto.Name = "precioDepto";
+            // 
+            // cantidadEstrellas
+            // 
+            this.cantidadEstrellas.DataPropertyName = "de_start";
+            this.cantidadEstrellas.HeaderText = "Cantidad de Estrellas";
+            this.cantidadEstrellas.Name = "cantidadEstrellas";
+            // 
+            // tipoDepto
+            // 
+            this.tipoDepto.DataPropertyName = "tipoDepto";
+            this.tipoDepto.HeaderText = "Tipo Departamento";
+            this.tipoDepto.Name = "tipoDepto";
+            // 
+            // estadoDepto
+            // 
+            this.estadoDepto.DataPropertyName = "estadoDepto";
+            this.estadoDepto.HeaderText = "Estado Departamento";
+            this.estadoDepto.Name = "estadoDepto";
+            // 
+            // region
+            // 
+            this.region.DataPropertyName = "region";
+            this.region.HeaderText = "Region";
+            this.region.Name = "region";
+            // 
+            // comuna
+            // 
+            this.comuna.DataPropertyName = "comuna";
+            this.comuna.HeaderText = "Comuna";
+            this.comuna.Name = "comuna";
+            // 
+            // de_direccion
+            // 
+            this.de_direccion.DataPropertyName = "de_direccion";
+            this.de_direccion.HeaderText = "Dirección";
+            this.de_direccion.Name = "de_direccion";
+            // 
+            // de_numero
+            // 
+            this.de_numero.DataPropertyName = "de_numero";
+            this.de_numero.HeaderText = "Número";
+            this.de_numero.Name = "de_numero";
+            // 
+            // Ca_NumDepto
+            // 
+            this.Ca_NumDepto.DataPropertyName = "Ca_NumDepto";
+            this.Ca_NumDepto.HeaderText = "Número del Departamento";
+            this.Ca_NumDepto.Name = "Ca_NumDepto";
+            // 
+            // Ca_CantHabitaciones
+            // 
+            this.Ca_CantHabitaciones.DataPropertyName = "Ca_CantHabitaciones";
+            this.Ca_CantHabitaciones.HeaderText = "Cantidad de Habitaciones";
+            this.Ca_CantHabitaciones.Name = "Ca_CantHabitaciones";
+            // 
+            // Ca_CantCamas
+            // 
+            this.Ca_CantCamas.DataPropertyName = "Ca_CantCamas";
+            this.Ca_CantCamas.HeaderText = "Cantidad de Camas";
+            this.Ca_CantCamas.Name = "Ca_CantCamas";
+            // 
+            // Ca_CantBaño
+            // 
+            this.Ca_CantBaño.DataPropertyName = "Ca_CantBaño";
+            this.Ca_CantBaño.HeaderText = "Cantidad de Baños";
+            this.Ca_CantBaño.Name = "Ca_CantBaño";
+            // 
+            // Ca_CapPersonas
+            // 
+            this.Ca_CapPersonas.DataPropertyName = "Ca_CapPersonas";
+            this.Ca_CapPersonas.HeaderText = "Cantidad de Personas";
+            this.Ca_CapPersonas.Name = "Ca_CapPersonas";
+            // 
+            // Ca_CheckIn
+            // 
+            this.Ca_CheckIn.DataPropertyName = "Ca_CheckIn";
+            this.Ca_CheckIn.HeaderText = "Check In";
+            this.Ca_CheckIn.Name = "Ca_CheckIn";
+            // 
+            // Ca_CheckOut
+            // 
+            this.Ca_CheckOut.DataPropertyName = "Ca_CheckOut";
+            this.Ca_CheckOut.HeaderText = "Check Out";
+            this.Ca_CheckOut.Name = "Ca_CheckOut";
+            // 
             // EditarDepartamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(888, 590);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.gbxDireccion);
             this.Controls.Add(this.gbxCarDepto);
@@ -545,6 +772,10 @@ namespace CapaPresentacion.Departamentos
             this.gbxDepto.PerformLayout();
             this.gbxDireccion.ResumeLayout(false);
             this.gbxDireccion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cEDeptoListaJoinBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEDeptoListaJoinBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEDepartamentoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEDepartamentoBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -600,5 +831,36 @@ namespace CapaPresentacion.Departamentos
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.TextBox txtNumDepto;
         private System.Windows.Forms.Label lblNumDepto;
+        private System.Windows.Forms.BindingSource cEDepartamentoBindingSource;
+        private System.Windows.Forms.BindingSource cEDepartamentoBindingSource1;
+        private System.Windows.Forms.BindingSource cEDeptoListaJoinBindingSource;
+        private System.Windows.Forms.BindingSource cEDeptoListaJoinBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDeptoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDireccionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEstadoDeptoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDepto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDireccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdCaracteristica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idRegion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_comuna;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idTipoDepto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEstadoDepto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn de_nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDepto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioDepto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadEstrellas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDepto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDepto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn region;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comuna;
+        private System.Windows.Forms.DataGridViewTextBoxColumn de_direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn de_numero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ca_NumDepto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ca_CantHabitaciones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ca_CantCamas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ca_CantBaño;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ca_CapPersonas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ca_CheckIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ca_CheckOut;
     }
 }

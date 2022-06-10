@@ -47,7 +47,7 @@ namespace CapaPresentacion.Departamentos
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            MenuPrincipal menuPrincipal = new MenuPrincipal();
+            MenuPrincipal menuPrincipal = new MenuPrincipal("");
             menuPrincipal.Show();
             this.Close();
         }
