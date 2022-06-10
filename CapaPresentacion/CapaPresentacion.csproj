@@ -194,29 +194,29 @@
     <Compile Include="MantenedorReservas.Designer.cs">
       <DependentUpon>MantenedorReservas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reserva Depto\CrearReserva.cs">
+    <Compile Include="ReservaDepto\CrearReservadepto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reserva Depto\CrearReserva.Designer.cs">
-      <DependentUpon>CrearReserva.cs</DependentUpon>
+    <Compile Include="ReservaDepto\CrearReservadepto.Designer.cs">
+      <DependentUpon>CrearReservadepto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reserva Depto\EliminarReserva.cs">
+    <Compile Include="ReservaDepto\EliminarReservadepto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reserva Depto\EliminarReserva.Designer.cs">
-      <DependentUpon>EliminarReserva.cs</DependentUpon>
+    <Compile Include="ReservaDepto\EliminarReservadepto.Designer.cs">
+      <DependentUpon>EliminarReservadepto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reserva Depto\UpdateReserva.cs">
+    <Compile Include="ReservaDepto\UpdateReservadepto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reserva Depto\UpdateReserva.Designer.cs">
-      <DependentUpon>UpdateReserva.cs</DependentUpon>
+    <Compile Include="ReservaDepto\UpdateReservadepto.Designer.cs">
+      <DependentUpon>UpdateReservadepto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reserva Depto\VerReserva.cs">
+    <Compile Include="ReservaDepto\VerReservadepto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reserva Depto\VerReserva.Designer.cs">
-      <DependentUpon>VerReserva.cs</DependentUpon>
+    <Compile Include="ReservaDepto\VerReservadepto.Designer.cs">
+      <DependentUpon>VerReservadepto.cs</DependentUpon>
     </Compile>
     <Compile Include="Reserva Servicio\CrearReservaServ.cs">
       <SubType>Form</SubType>
@@ -346,17 +346,17 @@
     <EmbeddedResource Include="MantenedorReservas.resx">
       <DependentUpon>MantenedorReservas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reserva Depto\CrearReserva.resx">
-      <DependentUpon>CrearReserva.cs</DependentUpon>
+    <EmbeddedResource Include="ReservaDepto\CrearReservadepto.resx">
+      <DependentUpon>CrearReservadepto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reserva Depto\EliminarReserva.resx">
-      <DependentUpon>EliminarReserva.cs</DependentUpon>
+    <EmbeddedResource Include="ReservaDepto\EliminarReservadepto.resx">
+      <DependentUpon>EliminarReservadepto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reserva Depto\UpdateReserva.resx">
-      <DependentUpon>UpdateReserva.cs</DependentUpon>
+    <EmbeddedResource Include="ReservaDepto\UpdateReservadepto.resx">
+      <DependentUpon>UpdateReservadepto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reserva Depto\VerReserva.resx">
-      <DependentUpon>VerReserva.cs</DependentUpon>
+    <EmbeddedResource Include="ReservaDepto\VerReservadepto.resx">
+      <DependentUpon>VerReservadepto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reserva Servicio\CrearReservaServ.resx">
       <DependentUpon>CrearReservaServ.cs</DependentUpon>

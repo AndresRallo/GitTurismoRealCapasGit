@@ -1,5 +1,7 @@
 ﻿using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.Reserva;
+using CapaPresentacion.Reserva_Servicio;
 using CapaPresentacion.Servicios;
 using System;
 using System.Collections.Generic;
@@ -256,16 +258,22 @@ namespace CapaPresentacion
 
         }
 
+        #region list reserva
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
-
+            ListarReservaServ listarReservaServ = new ListarReservaServ();
+            listarReservaServ.Show();
+            this.Close();
         }
-
+        #endregion
+        #region add reserva
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
         {
-
+            CrearReservaServ crearReservaServ = new CrearReservaServ();
+            crearReservaServ.Show();
+            this.Show();
         }
-
+        #endregion
         private void contextMenuStrip5_Opening(object sender, CancelEventArgs e)
         {
 
@@ -275,5 +283,59 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void Reserva_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+        #region edit reserva
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            UpdateReservaServ updateReservaServ = new UpdateReservaServ();
+            updateReservaServ.Show();
+            this.Close();
+        }
+        #endregion
+        #region delete reserva
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            EliminarReservaServ eliminarReservaServ = new EliminarReservaServ();
+            eliminarReservaServ.Show();
+            this.Close();
+        }
+        #endregion
+
+        #region list reservadepto
+        private void toolStripMenuItem17_Click(object sender, EventArgs e)
+        {
+            VerReservadepto verReserva = new VerReservadepto();
+            verReserva.Show();
+            this.Close();
+        }
+        #endregion
+        #region add reservadepto
+        private void toolStripMenuItem18_Click(object sender, EventArgs e)
+        {
+            CrearReservadepto crearReserva = new CrearReservadepto();
+            crearReserva.Show();
+            this.Close();
+        }
+        #endregion
+        #region edit reservadepto
+        private void toolStripMenuItem19_Click(object sender, EventArgs e)
+        {
+            UpdateReservadepto updateReserva = new UpdateReservadepto();
+            updateReserva.Show();
+            this.Close();
+        }
+        #endregion
+        #region delete reservadepto
+        private void toolStripMenuItem20_Click(object sender, EventArgs e)
+        {
+            EliminarReservadepto eliminarReserva = new EliminarReservadepto();
+            eliminarReserva.Show();
+            this.Close();
+        }
+        #endregion        
     }
 }
