@@ -38,11 +38,12 @@ namespace CapaPresentacion.Reserva_Servicio
         private void btnReservarServ_Click(object sender, EventArgs e)
         {
             CEReserva cEReserva = new CEReserva();
-            cEReserva.FECHAS = DateTime.Parse(dateTimeFechaServ.Text);
+            cEReserva.RS_FECHAINGRESO = DateTime.Parse(dateTimeFechaServ.Text);
             cEReserva.IDRESERVA = int.Parse(txtIdReservaDpto.Text);
             cEReserva.IDSERVICIO = int.Parse(comboBoxTipoServ.Text);
-            cEReserva.Hora = textHora.Text;
-            cEReserva.idempleado = int.Parse(txtEmpleado.Text);
+            cEReserva.RS_HORA = textHora.Text;
+            cEReserva.IDEMPLEADO = int.Parse(txtEmpleado.Text);
+            cEReserva.IDESTADORESERVASERVICIO = int.Parse(txtEmpleado.Text);
             CNReserva reserva = new CNReserva();
             if (reserva.CreateReserva(cEReserva))
                 MessageBox.Show("Servicio agregado");

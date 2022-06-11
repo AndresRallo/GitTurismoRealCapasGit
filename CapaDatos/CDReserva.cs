@@ -27,13 +27,14 @@ namespace CapaDatos
                     conn.Open();
 
                     //-> cambiar name sp y probar
-                    OracleCommand command = new OracleCommand("SP_SET_ADD_RESERVA", conn);
+                    OracleCommand command = new OracleCommand("SP_SET_ADD_RESERVA_SERVICIO", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add("FECHAS", OracleType.DateTime).Value = reserva.FECHAS;
-                    command.Parameters.Add("Hora", OracleType.DateTime).Value = reserva.Hora;
-                    command.Parameters.Add("idempleado", OracleType.Int32).Value = reserva.idempleado;
+                    command.Parameters.Add("FECHAS", OracleType.DateTime).Value = reserva.RS_FECHAINGRESO;
                     command.Parameters.Add("IDRESERVA", OracleType.Int32).Value = reserva.IDRESERVA;
-                    command.Parameters.Add("IDSERVICIO", OracleType.VarChar).Value = reserva.IDSERVICIO;
+                    command.Parameters.Add("IDSERVICIO", OracleType.Int32).Value = reserva.IDSERVICIO;
+                    command.Parameters.Add("ID_EMPLEADO", OracleType.Int32).Value = reserva.IDEMPLEADO;
+                    command.Parameters.Add("HORA", OracleType.VarChar).Value = reserva.RS_HORA;
+                    command.Parameters.Add("IDESTADORESERVASERVICIO", OracleType.Int32).Value = reserva.IDESTADORESERVASERVICIO;
                     OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
                     par.Direction = ParameterDirection.Output;
                     par.Size = 250;
@@ -73,10 +74,10 @@ namespace CapaDatos
                     {
                         conn.Open();
                         //-->cambiar name de sp y parametros 
-                        OracleCommand command = new OracleCommand("SP_SET_STATUS_CHANGE_RESERVA", conn);
+                        OracleCommand command = new OracleCommand("SP_SET_STATUS_CHANGE_RESERVA_SERVICIO", conn);
                         command.CommandType = System.Data.CommandType.StoredProcedure;
-                        command.Parameters.Add("IdReserva", OracleType.Number).Value = reserva.IDRESERVA;
-                        command.Parameters.Add("IDESTADO", OracleType.Number).Value = 1;
+                        command.Parameters.Add("IDRESERVASERVICIO", OracleType.Int32).Value = reserva.IDRESERVA;
+                        command.Parameters.Add("IDESTADORESERVASERVICIO", OracleType.Int32).Value = 1;
 
                         OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
                         par.Direction = ParameterDirection.Output;
@@ -116,12 +117,13 @@ namespace CapaDatos
                     //--->cambiar name de sp y verificar los nombres de las variables
                     OracleCommand command = new OracleCommand("SP_UPDATE_RESERVA", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add("IdReserva", OracleType.Number).Value = reserva.IDRESERVA;
-                    command.Parameters.Add("FECHAS", OracleType.DateTime).Value = reserva.FECHAS;
-                    command.Parameters.Add("Hora", OracleType.DateTime).Value = reserva.Hora;
-                    command.Parameters.Add("idempleado", OracleType.Int32).Value = reserva.idempleado;
+                    command.Parameters.Add("IdReserva", OracleType.Int32).Value = reserva.IDRESERVA;
+                    command.Parameters.Add("FECHAS", OracleType.DateTime).Value = reserva.RS_FECHAINGRESO;
+                    command.Parameters.Add("idempleado", OracleType.Int32).Value = reserva.IDEMPLEADO;
                     command.Parameters.Add("IDRESERVA", OracleType.Int32).Value = reserva.IDRESERVA;
-                    command.Parameters.Add("IDSERVICIO", OracleType.VarChar).Value = reserva.IDSERVICIO;
+                    command.Parameters.Add("IDSERVICIO", OracleType.Int32).Value = reserva.IDSERVICIO;
+                    command.Parameters.Add("Hora", OracleType.DateTime).Value = reserva.RS_HORA;
+                    command.Parameters.Add("IDESTADORESERVASERVICIO", OracleType.Int32).Value = reserva.IDESTADORESERVASERVICIO;
                     OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
                     par.Direction = ParameterDirection.Output;
                     par.Size = 250;
@@ -157,7 +159,7 @@ namespace CapaDatos
                 using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
                 {
                     conn.Open();
-                    OracleCommand command = new OracleCommand("SP_GET_ALL_Reserva", conn);
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_RESERVA_SERVICIOS", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
                     mostrarTabla = command.ExecuteReader();
@@ -165,12 +167,12 @@ namespace CapaDatos
                     {
                         reservas.Add(new CEReserva
                         {
-                            FECHAS = DateTime.Parse(mostrarTabla["FECHAS"].ToString()),
-                            Hora = mostrarTabla["Hora"].ToString(),
-                            idempleado = int.Parse(mostrarTabla["idempleado"].ToString()),
+                            RS_FECHAINGRESO = DateTime.Parse(mostrarTabla["RS_FECHAINGRESO"].ToString()),
                             IDRESERVA = int.Parse(mostrarTabla["IDRESERVA"].ToString()),
                             IDSERVICIO = int.Parse(mostrarTabla["IDSERVICIO"].ToString()),
-
+                            IDEMPLEADO = int.Parse(mostrarTabla["IDEMPLEADO"].ToString()),
+                            RS_HORA = mostrarTabla["RS_HORA"].ToString(),
+                            IDESTADORESERVASERVICIO = int.Parse(mostrarTabla["IDESTADORESERVASERVICIO"].ToString())
                         });
                     }
                     conn.Close();

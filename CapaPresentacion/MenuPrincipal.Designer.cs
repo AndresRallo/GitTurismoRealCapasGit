@@ -32,6 +32,8 @@ namespace CapaPresentacion
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -99,9 +101,13 @@ namespace CapaPresentacion
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.btnCambioPass = new System.Windows.Forms.Button();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.RESERVADEPTO = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -116,7 +122,7 @@ namespace CapaPresentacion
             this.Employee.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.RESERVADEPTO.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -146,6 +152,29 @@ namespace CapaPresentacion
             this.panel1.Size = new System.Drawing.Size(316, 754);
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(48, 535);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(45, 42);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 26;
+            this.pictureBox9.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ContextMenuStrip = this.Reserva;
+            this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.label12.Location = new System.Drawing.Point(114, 549);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(145, 30);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Reservas Srv";
             // 
             // pictureBox7
             // 
@@ -228,7 +257,7 @@ namespace CapaPresentacion
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.ContextMenuStrip = this.Reserva;
+            this.label7.ContextMenuStrip = this.RESERVADEPTO;
             this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.label7.Location = new System.Drawing.Point(114, 485);
@@ -246,34 +275,36 @@ namespace CapaPresentacion
             this.toolStripMenuItem11,
             this.toolStripMenuItem12});
             this.Reserva.Name = "contextMenuStrip1";
-            this.Reserva.Size = new System.Drawing.Size(211, 128);
+            this.Reserva.Size = new System.Drawing.Size(133, 100);
             this.Reserva.Opening += new System.ComponentModel.CancelEventHandler(this.Reserva_Opening);
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(132, 24);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItem9.Text = "Listar";
             this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(132, 24);
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItem10.Text = "Agregar";
             this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
             // 
             // toolStripMenuItem11
             // 
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(132, 24);
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItem11.Text = "Editar";
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(132, 24);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItem12.Text = "Eliminar";
+            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
             // lblName
             // 
@@ -281,7 +312,7 @@ namespace CapaPresentacion
             this.lblName.Location = new System.Drawing.Point(93, 48);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 20);
+            this.lblName.Size = new System.Drawing.Size(0, 17);
             this.lblName.TabIndex = 16;
             // 
             // label8
@@ -687,7 +718,7 @@ namespace CapaPresentacion
             this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.ReadOnly = true;
-            this.txtApellido.Size = new System.Drawing.Size(518, 26);
+            this.txtApellido.Size = new System.Drawing.Size(518, 22);
             this.txtApellido.TabIndex = 31;
             // 
             // txtRut
@@ -696,7 +727,7 @@ namespace CapaPresentacion
             this.txtRut.Margin = new System.Windows.Forms.Padding(4);
             this.txtRut.Name = "txtRut";
             this.txtRut.ReadOnly = true;
-            this.txtRut.Size = new System.Drawing.Size(518, 26);
+            this.txtRut.Size = new System.Drawing.Size(518, 22);
             this.txtRut.TabIndex = 32;
             // 
             // txtRol
@@ -705,7 +736,7 @@ namespace CapaPresentacion
             this.txtRol.Margin = new System.Windows.Forms.Padding(4);
             this.txtRol.Name = "txtRol";
             this.txtRol.ReadOnly = true;
-            this.txtRol.Size = new System.Drawing.Size(518, 26);
+            this.txtRol.Size = new System.Drawing.Size(518, 22);
             this.txtRol.TabIndex = 33;
             // 
             // txtNombre
@@ -714,7 +745,7 @@ namespace CapaPresentacion
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(518, 26);
+            this.txtNombre.Size = new System.Drawing.Size(518, 22);
             this.txtNombre.TabIndex = 34;
             // 
             // txtCorreo
@@ -723,7 +754,7 @@ namespace CapaPresentacion
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.ReadOnly = true;
-            this.txtCorreo.Size = new System.Drawing.Size(518, 26);
+            this.txtCorreo.Size = new System.Drawing.Size(518, 22);
             this.txtCorreo.TabIndex = 35;
             // 
             // label14
@@ -744,7 +775,7 @@ namespace CapaPresentacion
             this.txtPassAntigua.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassAntigua.Name = "txtPassAntigua";
             this.txtPassAntigua.ReadOnly = true;
-            this.txtPassAntigua.Size = new System.Drawing.Size(383, 26);
+            this.txtPassAntigua.Size = new System.Drawing.Size(383, 22);
             this.txtPassAntigua.TabIndex = 42;
             // 
             // txtPassNuevaConfirmar
@@ -753,7 +784,7 @@ namespace CapaPresentacion
             this.txtPassNuevaConfirmar.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassNuevaConfirmar.Name = "txtPassNuevaConfirmar";
             this.txtPassNuevaConfirmar.ReadOnly = true;
-            this.txtPassNuevaConfirmar.Size = new System.Drawing.Size(383, 26);
+            this.txtPassNuevaConfirmar.Size = new System.Drawing.Size(383, 22);
             this.txtPassNuevaConfirmar.TabIndex = 41;
             // 
             // txtPassNueva
@@ -762,7 +793,7 @@ namespace CapaPresentacion
             this.txtPassNueva.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassNueva.Name = "txtPassNueva";
             this.txtPassNueva.ReadOnly = true;
-            this.txtPassNueva.Size = new System.Drawing.Size(383, 26);
+            this.txtPassNueva.Size = new System.Drawing.Size(383, 22);
             this.txtPassNueva.TabIndex = 40;
             // 
             // label15
@@ -812,27 +843,44 @@ namespace CapaPresentacion
             this.btnCambioPass.Text = "Cambiar contraseña";
             this.btnCambioPass.UseVisualStyleBackColor = true;
             // 
-            // pictureBox9
+            // RESERVADEPTO
             // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(48, 535);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(45, 42);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 26;
-            this.pictureBox9.TabStop = false;
+            this.RESERVADEPTO.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.RESERVADEPTO.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem17,
+            this.toolStripMenuItem18,
+            this.toolStripMenuItem19,
+            this.toolStripMenuItem20});
+            this.RESERVADEPTO.Name = "contextMenuStrip1";
+            this.RESERVADEPTO.Size = new System.Drawing.Size(211, 128);
             // 
-            // label12
+            // toolStripMenuItem17
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.label12.Location = new System.Drawing.Point(114, 549);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(145, 30);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Reservas Srv";
+            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
+            this.toolStripMenuItem17.Size = new System.Drawing.Size(210, 24);
+            this.toolStripMenuItem17.Text = "Listar";
+            this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripMenuItem17_Click);
+            // 
+            // toolStripMenuItem18
+            // 
+            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
+            this.toolStripMenuItem18.Size = new System.Drawing.Size(210, 24);
+            this.toolStripMenuItem18.Text = "Agregar";
+            this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
+            // 
+            // toolStripMenuItem19
+            // 
+            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
+            this.toolStripMenuItem19.Size = new System.Drawing.Size(210, 24);
+            this.toolStripMenuItem19.Text = "Editar";
+            this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
+            // 
+            // toolStripMenuItem20
+            // 
+            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
+            this.toolStripMenuItem20.Size = new System.Drawing.Size(210, 24);
+            this.toolStripMenuItem20.Text = "Eliminar";
+            this.toolStripMenuItem20.Click += new System.EventHandler(this.toolStripMenuItem20_Click);
             // 
             // MenuPrincipal
             // 
@@ -868,6 +916,7 @@ namespace CapaPresentacion
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -883,7 +932,7 @@ namespace CapaPresentacion
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.RESERVADEPTO.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -960,5 +1009,10 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnCambioPass;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ContextMenuStrip RESERVADEPTO;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem19;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem20;
     }
 }

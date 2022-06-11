@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using CapaPresentacion.Reserva;
 using CapaPresentacion.Servicios;
 using System;
 using System.Collections.Generic;
@@ -255,16 +256,18 @@ namespace CapaPresentacion
 
         }
 
+        #region list reserva
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
 
         }
-
+        #endregion
+        #region add reserva
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
         {
 
         }
-
+        #endregion
         private void contextMenuStrip5_Opening(object sender, CancelEventArgs e)
         {
 
@@ -279,5 +282,50 @@ namespace CapaPresentacion
         {
 
         }
+        #region edit reserva
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+        #region delete reserva
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region list reservadepto
+        private void toolStripMenuItem17_Click(object sender, EventArgs e)
+        {
+            VerReservadepto verReserva = new VerReservadepto();
+            verReserva.Show();
+            this.Close();
+        }
+        #endregion
+        #region add reservadepto
+        private void toolStripMenuItem18_Click(object sender, EventArgs e)
+        {
+            CrearReservadepto crearReserva = new CrearReservadepto();
+            crearReserva.Show();
+            this.Close();
+        }
+        #endregion
+        #region edit reservadepto
+        private void toolStripMenuItem19_Click(object sender, EventArgs e)
+        {
+            UpdateReservadepto updateReserva = new UpdateReservadepto();
+            updateReserva.Show();
+            this.Close();
+        }
+        #endregion
+        #region delete reservadepto
+        private void toolStripMenuItem20_Click(object sender, EventArgs e)
+        {
+            EliminarReservadepto eliminarReserva = new EliminarReservadepto();
+            eliminarReserva.Show();
+            this.Close();
+        }
+        #endregion        
     }
 }

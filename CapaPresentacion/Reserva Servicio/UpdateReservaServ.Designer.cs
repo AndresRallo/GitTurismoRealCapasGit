@@ -31,7 +31,7 @@ namespace CapaPresentacion.Reserva_Servicio
         {
             this.btnUpdateResServ = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtHora = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxTipoServ = new System.Windows.Forms.ComboBox();
             this.dateTimeFechaServ = new System.Windows.Forms.DateTimePicker();
@@ -46,7 +46,7 @@ namespace CapaPresentacion.Reserva_Servicio
             // btnUpdateResServ
             // 
             this.btnUpdateResServ.Location = new System.Drawing.Point(92, 367);
-            this.btnUpdateResServ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateResServ.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateResServ.Name = "btnUpdateResServ";
             this.btnUpdateResServ.Size = new System.Drawing.Size(137, 28);
             this.btnUpdateResServ.TabIndex = 53;
@@ -65,13 +65,13 @@ namespace CapaPresentacion.Reserva_Servicio
             this.label1.TabIndex = 48;
             this.label1.Text = "Actualizar Reserva de Servicio";
             // 
-            // textBox1
+            // txtHora
             // 
-            this.textBox1.Location = new System.Drawing.Point(243, 260);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 26);
-            this.textBox1.TabIndex = 63;
+            this.txtHora.Location = new System.Drawing.Point(243, 260);
+            this.txtHora.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHora.Name = "txtHora";
+            this.txtHora.Size = new System.Drawing.Size(132, 22);
+            this.txtHora.TabIndex = 63;
             // 
             // label3
             // 
@@ -79,7 +79,7 @@ namespace CapaPresentacion.Reserva_Servicio
             this.label3.Location = new System.Drawing.Point(88, 272);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 20);
+            this.label3.Size = new System.Drawing.Size(39, 17);
             this.label3.TabIndex = 62;
             this.label3.Text = "Hora";
             // 
@@ -87,7 +87,7 @@ namespace CapaPresentacion.Reserva_Servicio
             // 
             this.comboBoxTipoServ.FormattingEnabled = true;
             this.comboBoxTipoServ.Location = new System.Drawing.Point(243, 175);
-            this.comboBoxTipoServ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxTipoServ.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxTipoServ.Name = "comboBoxTipoServ";
             this.comboBoxTipoServ.Size = new System.Drawing.Size(160, 24);
             this.comboBoxTipoServ.TabIndex = 61;
@@ -95,25 +95,25 @@ namespace CapaPresentacion.Reserva_Servicio
             // dateTimeFechaServ
             // 
             this.dateTimeFechaServ.Location = new System.Drawing.Point(243, 219);
-            this.dateTimeFechaServ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimeFechaServ.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimeFechaServ.Name = "dateTimeFechaServ";
-            this.dateTimeFechaServ.Size = new System.Drawing.Size(265, 26);
+            this.dateTimeFechaServ.Size = new System.Drawing.Size(265, 22);
             this.dateTimeFechaServ.TabIndex = 60;
             // 
             // txtEmpleado
             // 
             this.txtEmpleado.Location = new System.Drawing.Point(243, 311);
-            this.txtEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmpleado.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpleado.Name = "txtEmpleado";
-            this.txtEmpleado.Size = new System.Drawing.Size(132, 26);
+            this.txtEmpleado.Size = new System.Drawing.Size(132, 22);
             this.txtEmpleado.TabIndex = 59;
             // 
             // txtIdReservaDpto
             // 
             this.txtIdReservaDpto.Location = new System.Drawing.Point(243, 132);
-            this.txtIdReservaDpto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdReservaDpto.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdReservaDpto.Name = "txtIdReservaDpto";
-            this.txtIdReservaDpto.Size = new System.Drawing.Size(132, 26);
+            this.txtIdReservaDpto.Size = new System.Drawing.Size(132, 22);
             this.txtIdReservaDpto.TabIndex = 58;
             // 
             // label10
@@ -122,7 +122,7 @@ namespace CapaPresentacion.Reserva_Servicio
             this.label10.Location = new System.Drawing.Point(88, 186);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(129, 20);
+            this.label10.Size = new System.Drawing.Size(110, 17);
             this.label10.TabIndex = 57;
             this.label10.Text = "Tipo de Servicio";
             // 
@@ -132,7 +132,7 @@ namespace CapaPresentacion.Reserva_Servicio
             this.label8.Location = new System.Drawing.Point(88, 137);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(166, 20);
+            this.label8.Size = new System.Drawing.Size(140, 17);
             this.label8.TabIndex = 56;
             this.label8.Text = "ID de Reserva Depto";
             // 
@@ -142,7 +142,7 @@ namespace CapaPresentacion.Reserva_Servicio
             this.label6.Location = new System.Drawing.Point(88, 320);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 20);
+            this.label6.Size = new System.Drawing.Size(71, 17);
             this.label6.TabIndex = 55;
             this.label6.Text = "Empleado";
             // 
@@ -152,7 +152,7 @@ namespace CapaPresentacion.Reserva_Servicio
             this.label2.Location = new System.Drawing.Point(88, 228);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.Size = new System.Drawing.Size(47, 17);
             this.label2.TabIndex = 54;
             this.label2.Text = "Fecha";
             // 
@@ -161,7 +161,7 @@ namespace CapaPresentacion.Reserva_Servicio
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtHora);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBoxTipoServ);
             this.Controls.Add(this.dateTimeFechaServ);
@@ -173,7 +173,7 @@ namespace CapaPresentacion.Reserva_Servicio
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnUpdateResServ);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UpdateReservaServ";
             this.Text = "UpdateReservaServ";
             this.ResumeLayout(false);
@@ -184,7 +184,7 @@ namespace CapaPresentacion.Reserva_Servicio
         #endregion
         private System.Windows.Forms.Button btnUpdateResServ;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtHora;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxTipoServ;
         private System.Windows.Forms.DateTimePicker dateTimeFechaServ;
