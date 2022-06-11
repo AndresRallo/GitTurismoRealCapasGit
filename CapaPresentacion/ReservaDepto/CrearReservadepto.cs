@@ -1,6 +1,7 @@
 ﻿using CapaEntidad;
 using CapaNegocio;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace CapaPresentacion.Reserva
@@ -10,6 +11,58 @@ namespace CapaPresentacion.Reserva
         public CrearReservadepto()
         {
             InitializeComponent();
+            LoadCombo();
+            LoadComboN();
+
+        }
+       
+        private void LoadComboN()
+        {
+            try
+            {
+                List<CENumeros> cENumeros = new List<CENumeros>();
+
+                for (int i = 1; i < 11; i++)
+                {
+                    CENumeros cENumero = new CENumeros();
+                    cENumero.Id = i;
+                    cENumero.value = i;
+                    cENumeros.Add(cENumero);
+                }
+
+                comboBoxNinos.DataSource = cENumeros;
+                comboBoxNinos.ValueMember = "ID";
+                comboBoxNinos.DisplayMember = "value";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error combo estado empleado" + ex);
+            }
+        }
+        private void LoadCombo()
+        {
+            try
+            {
+                List<CENumeros> cENumeros = new List<CENumeros>();
+
+                for (int i = 1; i < 11; i++)
+                {
+                    CENumeros cENumero = new CENumeros();
+                    cENumero.Id = i;
+                    cENumero.value = i;
+                    cENumeros.Add(cENumero);
+                }
+
+                comboBoxAdultos.DataSource = cENumeros;
+                comboBoxAdultos.ValueMember = "ID";
+                comboBoxAdultos.DisplayMember = "value";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error combo estado empleado" + ex);
+            }
         }
 
         private void btnReservarDepto_Click(object sender, EventArgs e)

@@ -15,6 +15,7 @@ namespace CapaPresentacion.Reserva_Servicio
         public ListarReservaServ()
         {
             InitializeComponent();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -11,6 +11,13 @@ namespace CapaNegocio
     public class CNReservaDpto
     {
         CDReservaDpto cDReserva = new CDReservaDpto();
+        public List<CE_ESTADO> ObtenerEstado()
+        {
+            List<CE_ESTADO> LISTA_ESTADO = new List<CE_ESTADO>();
+            LISTA_ESTADO = cDReserva.ESTADO();
+            return LISTA_ESTADO;
+        }
+
 
         #region CreateReserva
         public bool CreateReserva(CEReservaDpto reserva)

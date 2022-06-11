@@ -35,7 +35,7 @@ namespace CapaDatos
                     command.Parameters.Add("CANTNINIOS_", OracleType.Number).Value = service.CANTNINIOS;
                     command.Parameters.Add("IDUSUARIO_", OracleType.Number).Value = service.IDUSUARIO;
                     command.Parameters.Add("IDDEPTO_", OracleType.Number).Value = service.IDDEPTO;
-                    command.Parameters.Add("ESTADORESERVA_", OracleType.Number).Value = service.ESTADORESERVA;
+                    command.Parameters.Add("ESTADORESERVA_", OracleType.Number).Value = 1;
                     command.Parameters.Add("IDEMPLEADO_", OracleType.Number).Value = service.IDEMPLEADO;
                     command.Parameters.Add("IDTEMPORADA_", OracleType.Number).Value = service.IDTEMPORADA;
                     OracleParameter par = new OracleParameter("V_ID", OracleType.Number);
@@ -175,15 +175,15 @@ namespace CapaDatos
                         reservas.Add(new CEReservaDpto
                         {
                             IDRESERVA = int.Parse(mostrarTabla["IDRESERVA"].ToString()),
-                            FECHAEN = DateTime.Parse(mostrarTabla["FECHAEN"].ToString()),
-                            FECHASA = DateTime.Parse(mostrarTabla["FECHASA"].ToString()),
-                            ABONO = int.Parse(mostrarTabla["ABONO"].ToString()),
-                            TOTAL = int.Parse(mostrarTabla["TOTAL"].ToString()),
-                            CANTADULTOS = int.Parse(mostrarTabla["CANTADULTOS"].ToString()),
-                            CANTNINIOS = int.Parse(mostrarTabla["CANTNINIOS"].ToString()),
+                            FECHAEN = DateTime.Parse(mostrarTabla["rd_fechaentrada"].ToString()),
+                            FECHASA = DateTime.Parse(mostrarTabla["rd_fechasalida"].ToString()),
+                            ABONO = int.Parse(mostrarTabla["rd_abono"].ToString()),
+                            TOTAL = int.Parse(mostrarTabla["rd_pagototal"].ToString()),
+                            CANTADULTOS = int.Parse(mostrarTabla["rd_cantadultos"].ToString()),
+                            CANTNINIOS = int.Parse(mostrarTabla["rd_cantninios"].ToString()),
                             IDUSUARIO = int.Parse(mostrarTabla["IDUSUARIO"].ToString()),
-                            IDDEPTO = int.Parse(mostrarTabla["IDDEPTO"].ToString()),
-                            ESTADORESERVA = int.Parse(mostrarTabla["ESTADORESERVA"].ToString()),
+                            IDDEPTO = int.Parse(mostrarTabla["iddepartamento"].ToString()),
+                            ESTADORESERVA = int.Parse(mostrarTabla["idestadoreserva"].ToString()),
                             IDEMPLEADO = int.Parse(mostrarTabla["IDEMPLEADO"].ToString()),
                             IDTEMPORADA = int.Parse(mostrarTabla["IDTEMPORADA"].ToString()),
                         });
@@ -199,5 +199,37 @@ namespace CapaDatos
             }
         }
         #endregion
+
+        public List<CE_ESTADO> ESTADO()
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CE_ESTADO> LISTA_ESTADO = new List<CE_ESTADO>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_SYS_ESTADORESERVAS", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        LISTA_ESTADO.Add(new CE_ESTADO
+                        {
+                            IDESTADO = Convert.ToInt32(mostrarTabla["IDESTADO"]),
+                            ES_DESCRIPCION = Convert.ToString(mostrarTabla["ES_DESCRIPCION"].ToString())
+                        });
+                    }
+                    conn.Close();
+                }
+                return LISTA_ESTADO;
+            }
+            catch (OracleException oex)
+            {
+
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
+        }
     }
 }

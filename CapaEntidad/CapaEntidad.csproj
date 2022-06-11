@@ -59,6 +59,7 @@
     <Compile Include="CEEmpleado_Direccion.cs" />
     <Compile Include="CEMantencion.cs" />
     <Compile Include="CEMulta.cs" />
+    <Compile Include="CENumeros.cs" />
     <Compile Include="CERegion.cs" />
     <Compile Include="CEReservaDpto.cs" />
     <Compile Include="CEReserva.cs" />
