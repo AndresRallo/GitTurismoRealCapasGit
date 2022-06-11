@@ -234,15 +234,44 @@ namespace CapaDatos
                     conn.Close();
                 }
                 return listarEstadoDepto;
-
             }
             catch (OracleException oex)
             {
 
                 throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
+        }
+        public List<CE_ESTADO> Estado()
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CE_ESTADO> listarEstado = new List<CE_ESTADO>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_SYS_ESTADO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        listarEstado.Add(new CE_ESTADO
+                        {
+                            IDESTADO = Convert.ToInt32(mostrarTabla["IDESTADO"]),
+                            ES_DESCRIPCION = Convert.ToString(mostrarTabla["ES_DESCRIPCION"].ToString())
+                        });
 
+                    }
+                    conn.Close();
+                }
+                return listarEstado;
+            }
+            catch (OracleException oex)
+            {
 
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
         }
 
         public bool CrearDepartamento(CEDepartamento depto)

@@ -57,29 +57,6 @@ namespace CapaPresentacion.Departamentos
             this.Ca_CapPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ca_CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ca_CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDeptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDireccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCaracteristicasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.denombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDeptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioDeptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.destartDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idTipoDeptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idEstadoDeptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoDeptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoDeptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dedireccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.denumeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idRegionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comunaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caNumDeptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caCantHabitacionesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caCantCamasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caCantBañoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caCapPersonasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caCheckInDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caCheckOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cEDeptoListaJoinBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -151,30 +128,7 @@ namespace CapaPresentacion.Departamentos
             this.Ca_CantBaño,
             this.Ca_CapPersonas,
             this.Ca_CheckIn,
-            this.Ca_CheckOut,
-            this.idDeptoDataGridViewTextBoxColumn,
-            this.idDireccionDataGridViewTextBoxColumn,
-            this.idCaracteristicasDataGridViewTextBoxColumn,
-            this.denombreDataGridViewTextBoxColumn,
-            this.descripcionDeptoDataGridViewTextBoxColumn,
-            this.precioDeptoDataGridViewTextBoxColumn,
-            this.destartDataGridViewTextBoxColumn,
-            this.idTipoDeptoDataGridViewTextBoxColumn,
-            this.idEstadoDeptoDataGridViewTextBoxColumn,
-            this.tipoDeptoDataGridViewTextBoxColumn,
-            this.estadoDeptoDataGridViewTextBoxColumn,
-            this.dedireccionDataGridViewTextBoxColumn,
-            this.denumeroDataGridViewTextBoxColumn,
-            this.idRegionDataGridViewTextBoxColumn,
-            this.regionDataGridViewTextBoxColumn,
-            this.comunaDataGridViewTextBoxColumn,
-            this.caNumDeptoDataGridViewTextBoxColumn,
-            this.caCantHabitacionesDataGridViewTextBoxColumn,
-            this.caCantCamasDataGridViewTextBoxColumn,
-            this.caCantBañoDataGridViewTextBoxColumn,
-            this.caCapPersonasDataGridViewTextBoxColumn,
-            this.caCheckInDataGridViewTextBoxColumn,
-            this.caCheckOutDataGridViewTextBoxColumn});
+            this.Ca_CheckOut});
             this.dgvDepartamentos.DataSource = this.cEDeptoListaJoinBindingSource;
             this.dgvDepartamentos.Location = new System.Drawing.Point(12, 95);
             this.dgvDepartamentos.Name = "dgvDepartamentos";
@@ -311,144 +265,6 @@ namespace CapaPresentacion.Departamentos
             this.Ca_CheckOut.HeaderText = "Check Out";
             this.Ca_CheckOut.Name = "Ca_CheckOut";
             // 
-            // idDeptoDataGridViewTextBoxColumn
-            // 
-            this.idDeptoDataGridViewTextBoxColumn.DataPropertyName = "idDepto";
-            this.idDeptoDataGridViewTextBoxColumn.HeaderText = "idDepto";
-            this.idDeptoDataGridViewTextBoxColumn.Name = "idDeptoDataGridViewTextBoxColumn";
-            // 
-            // idDireccionDataGridViewTextBoxColumn
-            // 
-            this.idDireccionDataGridViewTextBoxColumn.DataPropertyName = "idDireccion";
-            this.idDireccionDataGridViewTextBoxColumn.HeaderText = "idDireccion";
-            this.idDireccionDataGridViewTextBoxColumn.Name = "idDireccionDataGridViewTextBoxColumn";
-            // 
-            // idCaracteristicasDataGridViewTextBoxColumn
-            // 
-            this.idCaracteristicasDataGridViewTextBoxColumn.DataPropertyName = "idCaracteristicas";
-            this.idCaracteristicasDataGridViewTextBoxColumn.HeaderText = "idCaracteristicas";
-            this.idCaracteristicasDataGridViewTextBoxColumn.Name = "idCaracteristicasDataGridViewTextBoxColumn";
-            // 
-            // denombreDataGridViewTextBoxColumn
-            // 
-            this.denombreDataGridViewTextBoxColumn.DataPropertyName = "de_nombre";
-            this.denombreDataGridViewTextBoxColumn.HeaderText = "de_nombre";
-            this.denombreDataGridViewTextBoxColumn.Name = "denombreDataGridViewTextBoxColumn";
-            // 
-            // descripcionDeptoDataGridViewTextBoxColumn
-            // 
-            this.descripcionDeptoDataGridViewTextBoxColumn.DataPropertyName = "descripcionDepto";
-            this.descripcionDeptoDataGridViewTextBoxColumn.HeaderText = "descripcionDepto";
-            this.descripcionDeptoDataGridViewTextBoxColumn.Name = "descripcionDeptoDataGridViewTextBoxColumn";
-            // 
-            // precioDeptoDataGridViewTextBoxColumn
-            // 
-            this.precioDeptoDataGridViewTextBoxColumn.DataPropertyName = "precioDepto";
-            this.precioDeptoDataGridViewTextBoxColumn.HeaderText = "precioDepto";
-            this.precioDeptoDataGridViewTextBoxColumn.Name = "precioDeptoDataGridViewTextBoxColumn";
-            // 
-            // destartDataGridViewTextBoxColumn
-            // 
-            this.destartDataGridViewTextBoxColumn.DataPropertyName = "de_start";
-            this.destartDataGridViewTextBoxColumn.HeaderText = "de_start";
-            this.destartDataGridViewTextBoxColumn.Name = "destartDataGridViewTextBoxColumn";
-            // 
-            // idTipoDeptoDataGridViewTextBoxColumn
-            // 
-            this.idTipoDeptoDataGridViewTextBoxColumn.DataPropertyName = "idTipoDepto";
-            this.idTipoDeptoDataGridViewTextBoxColumn.HeaderText = "idTipoDepto";
-            this.idTipoDeptoDataGridViewTextBoxColumn.Name = "idTipoDeptoDataGridViewTextBoxColumn";
-            // 
-            // idEstadoDeptoDataGridViewTextBoxColumn
-            // 
-            this.idEstadoDeptoDataGridViewTextBoxColumn.DataPropertyName = "idEstadoDepto";
-            this.idEstadoDeptoDataGridViewTextBoxColumn.HeaderText = "idEstadoDepto";
-            this.idEstadoDeptoDataGridViewTextBoxColumn.Name = "idEstadoDeptoDataGridViewTextBoxColumn";
-            // 
-            // tipoDeptoDataGridViewTextBoxColumn
-            // 
-            this.tipoDeptoDataGridViewTextBoxColumn.DataPropertyName = "tipoDepto";
-            this.tipoDeptoDataGridViewTextBoxColumn.HeaderText = "tipoDepto";
-            this.tipoDeptoDataGridViewTextBoxColumn.Name = "tipoDeptoDataGridViewTextBoxColumn";
-            // 
-            // estadoDeptoDataGridViewTextBoxColumn
-            // 
-            this.estadoDeptoDataGridViewTextBoxColumn.DataPropertyName = "estadoDepto";
-            this.estadoDeptoDataGridViewTextBoxColumn.HeaderText = "estadoDepto";
-            this.estadoDeptoDataGridViewTextBoxColumn.Name = "estadoDeptoDataGridViewTextBoxColumn";
-            // 
-            // dedireccionDataGridViewTextBoxColumn
-            // 
-            this.dedireccionDataGridViewTextBoxColumn.DataPropertyName = "de_direccion";
-            this.dedireccionDataGridViewTextBoxColumn.HeaderText = "de_direccion";
-            this.dedireccionDataGridViewTextBoxColumn.Name = "dedireccionDataGridViewTextBoxColumn";
-            // 
-            // denumeroDataGridViewTextBoxColumn
-            // 
-            this.denumeroDataGridViewTextBoxColumn.DataPropertyName = "de_numero";
-            this.denumeroDataGridViewTextBoxColumn.HeaderText = "de_numero";
-            this.denumeroDataGridViewTextBoxColumn.Name = "denumeroDataGridViewTextBoxColumn";
-            // 
-            // idRegionDataGridViewTextBoxColumn
-            // 
-            this.idRegionDataGridViewTextBoxColumn.DataPropertyName = "idRegion";
-            this.idRegionDataGridViewTextBoxColumn.HeaderText = "idRegion";
-            this.idRegionDataGridViewTextBoxColumn.Name = "idRegionDataGridViewTextBoxColumn";
-            // 
-            // regionDataGridViewTextBoxColumn
-            // 
-            this.regionDataGridViewTextBoxColumn.DataPropertyName = "region";
-            this.regionDataGridViewTextBoxColumn.HeaderText = "region";
-            this.regionDataGridViewTextBoxColumn.Name = "regionDataGridViewTextBoxColumn";
-            // 
-            // comunaDataGridViewTextBoxColumn
-            // 
-            this.comunaDataGridViewTextBoxColumn.DataPropertyName = "comuna";
-            this.comunaDataGridViewTextBoxColumn.HeaderText = "comuna";
-            this.comunaDataGridViewTextBoxColumn.Name = "comunaDataGridViewTextBoxColumn";
-            // 
-            // caNumDeptoDataGridViewTextBoxColumn
-            // 
-            this.caNumDeptoDataGridViewTextBoxColumn.DataPropertyName = "Ca_NumDepto";
-            this.caNumDeptoDataGridViewTextBoxColumn.HeaderText = "Ca_NumDepto";
-            this.caNumDeptoDataGridViewTextBoxColumn.Name = "caNumDeptoDataGridViewTextBoxColumn";
-            // 
-            // caCantHabitacionesDataGridViewTextBoxColumn
-            // 
-            this.caCantHabitacionesDataGridViewTextBoxColumn.DataPropertyName = "Ca_CantHabitaciones";
-            this.caCantHabitacionesDataGridViewTextBoxColumn.HeaderText = "Ca_CantHabitaciones";
-            this.caCantHabitacionesDataGridViewTextBoxColumn.Name = "caCantHabitacionesDataGridViewTextBoxColumn";
-            // 
-            // caCantCamasDataGridViewTextBoxColumn
-            // 
-            this.caCantCamasDataGridViewTextBoxColumn.DataPropertyName = "Ca_CantCamas";
-            this.caCantCamasDataGridViewTextBoxColumn.HeaderText = "Ca_CantCamas";
-            this.caCantCamasDataGridViewTextBoxColumn.Name = "caCantCamasDataGridViewTextBoxColumn";
-            // 
-            // caCantBañoDataGridViewTextBoxColumn
-            // 
-            this.caCantBañoDataGridViewTextBoxColumn.DataPropertyName = "Ca_CantBaño";
-            this.caCantBañoDataGridViewTextBoxColumn.HeaderText = "Ca_CantBaño";
-            this.caCantBañoDataGridViewTextBoxColumn.Name = "caCantBañoDataGridViewTextBoxColumn";
-            // 
-            // caCapPersonasDataGridViewTextBoxColumn
-            // 
-            this.caCapPersonasDataGridViewTextBoxColumn.DataPropertyName = "Ca_CapPersonas";
-            this.caCapPersonasDataGridViewTextBoxColumn.HeaderText = "Ca_CapPersonas";
-            this.caCapPersonasDataGridViewTextBoxColumn.Name = "caCapPersonasDataGridViewTextBoxColumn";
-            // 
-            // caCheckInDataGridViewTextBoxColumn
-            // 
-            this.caCheckInDataGridViewTextBoxColumn.DataPropertyName = "Ca_CheckIn";
-            this.caCheckInDataGridViewTextBoxColumn.HeaderText = "Ca_CheckIn";
-            this.caCheckInDataGridViewTextBoxColumn.Name = "caCheckInDataGridViewTextBoxColumn";
-            // 
-            // caCheckOutDataGridViewTextBoxColumn
-            // 
-            this.caCheckOutDataGridViewTextBoxColumn.DataPropertyName = "Ca_CheckOut";
-            this.caCheckOutDataGridViewTextBoxColumn.HeaderText = "Ca_CheckOut";
-            this.caCheckOutDataGridViewTextBoxColumn.Name = "caCheckOutDataGridViewTextBoxColumn";
-            // 
             // ListarDepartamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,28 +313,5 @@ namespace CapaPresentacion.Departamentos
         private System.Windows.Forms.DataGridViewTextBoxColumn Ca_CapPersonas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ca_CheckIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ca_CheckOut;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDeptoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDireccionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCaracteristicasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn denombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDeptoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioDeptoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn destartDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idTipoDeptoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEstadoDeptoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDeptoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDeptoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dedireccionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn denumeroDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idRegionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn regionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comunaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn caNumDeptoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn caCantHabitacionesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn caCantCamasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn caCantBañoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn caCapPersonasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn caCheckInDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn caCheckOutDataGridViewTextBoxColumn;
     }
 }

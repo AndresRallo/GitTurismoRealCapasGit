@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CEAdjunto.cs" />
+    <Compile Include="CEAdjuntos.cs" />
     <Compile Include="CECaracteristicas_Departamento.cs" />
     <Compile Include="CEComentarios.cs" />
     <Compile Include="CEComentarios_Departamentos.cs" />
