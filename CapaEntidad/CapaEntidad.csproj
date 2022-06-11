@@ -61,6 +61,8 @@
     <Compile Include="CEMantencion.cs" />
     <Compile Include="CEMulta.cs" />
     <Compile Include="CERegion.cs" />
+    <Compile Include="CEReservaDpto.cs" />
+    <Compile Include="CEReserva.cs" />
     <Compile Include="CEReserva_Departamento.cs" />
     <Compile Include="CEService.cs" />
     <Compile Include="CESYS_TipoComentario.cs" />

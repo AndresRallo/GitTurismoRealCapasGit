@@ -8,7 +8,7 @@ namespace CapaEntidad
 {
     public class CEService
     {
-        public int? IdService { get; set; }
+        public int IdService { get; set; }
         public string NameService { get; set; }
         public int Precio { get; set; }
         public int Iva { get; set; }
