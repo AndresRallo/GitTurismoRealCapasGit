@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Reserva
 {
-    public partial class CrearReserva : Form
+    public partial class UpdateReservadepto : Form
     {
-        public CrearReserva()
+        public UpdateReservadepto()
         {
             InitializeComponent();
         }
 
-        private void btnReservarDepto_Click(object sender, EventArgs e)
+        private void btnUpdateResDepto_Click(object sender, EventArgs e)
         {
 
         }

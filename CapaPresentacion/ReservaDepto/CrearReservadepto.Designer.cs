@@ -1,7 +1,7 @@
 ﻿
 namespace CapaPresentacion.Reserva
 {
-    partial class CrearReserva
+    partial class CrearReservadepto
     {
         /// <summary>
         /// Required designer variable.
