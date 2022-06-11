@@ -50,11 +50,11 @@ namespace CapaDatos
                 else
                     return false;
             }
-            catch (OracleException)
+            catch (OracleException E)
             {
                 return false;
             }
-            catch (Exception)
+            catch (Exception E)
             {
                 return false;
             }

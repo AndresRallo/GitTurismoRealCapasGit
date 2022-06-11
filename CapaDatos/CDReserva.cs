@@ -30,12 +30,11 @@ namespace CapaDatos
                     OracleCommand command = new OracleCommand("SP_SET_ADD_RESERVA_SERVICIO", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add("FECHAS", OracleType.DateTime).Value = reserva.RS_FECHAINGRESO;
-                    command.Parameters.Add("IDRESERVA", OracleType.Int32).Value = reserva.IDRESERVA;
-                    command.Parameters.Add("IDSERVICIO", OracleType.Int32).Value = reserva.IDSERVICIO;
-                    command.Parameters.Add("ID_EMPLEADO", OracleType.Int32).Value = reserva.IDEMPLEADO;
-                    command.Parameters.Add("HORA", OracleType.VarChar).Value = reserva.RS_HORA;
-                    command.Parameters.Add("IDESTADORESERVASERVICIO", OracleType.Int32).Value = reserva.IDESTADORESERVASERVICIO;
-                    OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
+                    command.Parameters.Add("IDRESERVA", OracleType.Number).Value = reserva.IDRESERVA;
+                    command.Parameters.Add("IDSERVICIO", OracleType.Number).Value = reserva.IDSERVICIO;
+                    command.Parameters.Add("ID_EMPLEADO", OracleType.Number).Value = reserva.IDEMPLEADO;
+                    command.Parameters.Add("HORA", OracleType.LongVarChar).Value = reserva.RS_HORA;
+                    OracleParameter par = new OracleParameter("V_DETALLE", OracleType.LongVarChar);
                     par.Direction = ParameterDirection.Output;
                     par.Size = 250;
                     command.Parameters.Add(par);
@@ -49,11 +48,11 @@ namespace CapaDatos
                 else
                     return false;
             }
-            catch (OracleException)
+            catch (OracleException e)
             {
                 return false;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
