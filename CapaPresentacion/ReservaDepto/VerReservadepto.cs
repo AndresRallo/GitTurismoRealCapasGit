@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Reserva
 {
-    public partial class VerReserva : Form
+    public partial class VerReservadepto : Form
     {
-        public VerReserva()
+        public VerReservadepto()
         {
             InitializeComponent();
+        }
+
+        private void VerReserva_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
