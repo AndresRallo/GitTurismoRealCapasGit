@@ -380,7 +380,6 @@ namespace CapaDatos
                     {
                         CEDeptoListaJoin departamento = new CEDeptoListaJoin
                         {
-
                             idDepto = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
                             de_nombre = Convert.ToString(mostrarTabla["DE_NOMBRE"].ToString()),
                             descripcionDepto = Convert.ToString(mostrarTabla["DE_DESCRIPCION"].ToString()),

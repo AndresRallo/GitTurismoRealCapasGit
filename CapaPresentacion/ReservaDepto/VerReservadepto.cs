@@ -18,11 +18,15 @@ namespace CapaPresentacion.Reserva
         public VerReservadepto()
         {
             InitializeComponent();
-            CNReservaDpto cNReserva = new CNReservaDpto();
-            dataGridView1.DataSource = cNReserva.ListALLReserva();
+            listar();
 
         }
 
+        public void listar()
+        {
+            CNReservaDpto cNReserva = new CNReservaDpto();
+            dvgReservaDepto.DataSource = cNReserva.ListALLReserva();
+        }
         private void VerReserva_Load(object sender, EventArgs e)
         {
 
@@ -31,6 +35,11 @@ namespace CapaPresentacion.Reserva
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listar();
         }
     }
 }

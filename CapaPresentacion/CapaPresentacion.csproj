@@ -399,9 +399,40 @@
     </EmbeddedResource>
     <None Include="CapaEntidad.CEDeptoListaJoin1.datasource" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CapaDatos.CDDepartamento.datasource" />
+    <None Include="Properties\DataSources\CapaDatos.CDEmpleado.datasource" />
+    <None Include="Properties\DataSources\CapaDatos.CDLogin.datasource" />
+    <None Include="Properties\DataSources\CapaDatos.CDReserva.datasource" />
+    <None Include="Properties\DataSources\CapaDatos.CDReservaDpto.datasource" />
+    <None Include="Properties\DataSources\CapaDatos.CDService.datasource" />
+    <None Include="Properties\DataSources\CapaDatos.CDUsuario.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEAdjunto.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CECaracteristicas_Departamento.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEComentarios.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEComentarios_Departamentos.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEComuna.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEDepartamento.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEDireccion.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEEmpleado.datasource" />
     <None Include="Properties\DataSources\CapaEntidad.CEEmpleado_Direccion.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEMantencion.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEMulta.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CENumeros.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CERegion.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEReserva.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEReservaDpto.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEReserva_Departamento.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEService.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CESysEstadoDepto.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CESYS_TipoComentario.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CETemporada.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CETipoDepartamento.datasource" />
     <None Include="Properties\DataSources\CapaEntidad.CEUSER_ESTADO.datasource" />
     <None Include="Properties\DataSources\CapaEntidad.CEUsuario.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEVehiculo.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CE_ESTADO.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CE_TIPOEMPLEADO.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.SYS_TIPOUSUARIO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

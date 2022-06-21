@@ -64,7 +64,30 @@ namespace CapaPresentacion.Reserva
                 MessageBox.Show("Error combo estado empleado" + ex);
             }
         }
+        private void LoadComboDepto()
+        {
+            try
+            {
+                List<CENumeros> cENumeros = new List<CENumeros>();
 
+                for (int i = 1; i < 11; i++)
+                {
+                    CENumeros cENumero = new CENumeros();
+                    cENumero.Id = i;
+                    cENumero.value = i;
+                    cENumeros.Add(cENumero);
+                }
+
+                comboBoxAdultos.DataSource = cENumeros;
+                comboBoxAdultos.ValueMember = "ID";
+                comboBoxAdultos.DisplayMember = "value";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error combo estado empleado" + ex);
+            }
+        }
         private void btnReservarDepto_Click(object sender, EventArgs e)
         {
             CEReservaDpto cEReserva = new CEReservaDpto();
@@ -85,6 +108,11 @@ namespace CapaPresentacion.Reserva
                 MessageBox.Show("Reserva agregado");
             else
                 MessageBox.Show("Reserva no agregada");
+        }
+
+        private void comboBoxDepto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
