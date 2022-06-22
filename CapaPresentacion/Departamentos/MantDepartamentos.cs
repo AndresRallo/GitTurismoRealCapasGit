@@ -56,5 +56,13 @@ namespace CapaPresentacion.Departamentos
         {
             Application.Exit();
         }
+
+        private void btnAdjuntos_Click(object sender, EventArgs e)
+        {
+            Adjunto adjunto = new Adjunto();
+
+            adjunto.Show();
+            this.Close();
+        }
     }
 }

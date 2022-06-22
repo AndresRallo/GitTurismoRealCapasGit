@@ -98,6 +98,12 @@
     <Compile Include="Check\CheckOut.Designer.cs">
       <DependentUpon>CheckOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Departamentos\Adjunto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departamentos\Adjunto.Designer.cs">
+      <DependentUpon>Adjunto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Departamentos\AgregarDepartamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +307,9 @@
     <EmbeddedResource Include="Check\CheckOut.resx">
       <DependentUpon>CheckOut.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Departamentos\Adjunto.resx">
+      <DependentUpon>Adjunto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Departamentos\AgregarDepartamento.resx">
       <DependentUpon>AgregarDepartamento.cs</DependentUpon>
     </EmbeddedResource>
@@ -387,6 +396,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Servicios\DeleteService.resx">
       <DependentUpon>DeleteService.cs</DependentUpon>
@@ -399,21 +409,8 @@
     </EmbeddedResource>
     <None Include="CapaEntidad.CEDeptoListaJoin1.datasource" />
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\CapaDatos.CDDepartamento.datasource" />
-    <None Include="Properties\DataSources\CapaDatos.CDEmpleado.datasource" />
-    <None Include="Properties\DataSources\CapaDatos.CDLogin.datasource" />
-    <None Include="Properties\DataSources\CapaDatos.CDReserva.datasource" />
-    <None Include="Properties\DataSources\CapaDatos.CDReservaDpto.datasource" />
-    <None Include="Properties\DataSources\CapaDatos.CDService.datasource" />
-    <None Include="Properties\DataSources\CapaDatos.CDUsuario.datasource" />
-    <None Include="Properties\DataSources\CapaEntidad.CEAdjunto.datasource" />
-    <None Include="Properties\DataSources\CapaEntidad.CECaracteristicas_Departamento.datasource" />
-    <None Include="Properties\DataSources\CapaEntidad.CEComentarios.datasource" />
-    <None Include="Properties\DataSources\CapaEntidad.CEComentarios_Departamentos.datasource" />
-    <None Include="Properties\DataSources\CapaEntidad.CEComuna.datasource" />
+    <None Include="Properties\DataSources\CapaEntidad.CEAdjuntos.datasource" />
     <None Include="Properties\DataSources\CapaEntidad.CEDepartamento.datasource" />
-    <None Include="Properties\DataSources\CapaEntidad.CEDireccion.datasource" />
-    <None Include="Properties\DataSources\CapaEntidad.CEEmpleado.datasource" />
     <None Include="Properties\DataSources\CapaEntidad.CEEmpleado_Direccion.datasource" />
     <None Include="Properties\DataSources\CapaEntidad.CEMantencion.datasource" />
     <None Include="Properties\DataSources\CapaEntidad.CEMulta.datasource" />
@@ -464,6 +461,11 @@
       <Name>TurismoRealExceptions</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\deptoDibujo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deptoDibujo1.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

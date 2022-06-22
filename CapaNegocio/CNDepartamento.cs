@@ -32,8 +32,6 @@ namespace CapaNegocio
             return listaDepto;
         }
 
-        
-
         public void EliminarDepartamento(CEDepartamento departamento)
         {
             cDDepartamento.EliminarDepartamento(departamento);
@@ -66,6 +64,12 @@ namespace CapaNegocio
             List<CESysEstadoDepto> listarEstadoDepto = new List<CESysEstadoDepto>();
             listarEstadoDepto = cDDepartamento.SysEstDepto();
             return listarEstadoDepto;
+        }
+        public List<CE_ESTADO> ObtenerEstado()
+        {
+            List<CE_ESTADO> listaEstado = new List<CE_ESTADO>();
+            listaEstado = cDDepartamento.Estado();
+            return listaEstado;
         }
 
         public List<CEComuna> ObtenerComunas(int idregion)

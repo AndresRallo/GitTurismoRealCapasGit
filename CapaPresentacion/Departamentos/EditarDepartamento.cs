@@ -16,7 +16,6 @@ namespace CapaPresentacion.Departamentos
 {
     public partial class EditarDepartamento : Form
     {
-        private string _accion = "insert";
 
         Librarys librarys = new Librarys();
         CNDepartamento cNDepartamento = new CNDepartamento();

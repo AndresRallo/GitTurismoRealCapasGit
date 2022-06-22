@@ -56,7 +56,6 @@ namespace CapaPresentacion
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnEditar
             // 
@@ -82,7 +81,7 @@ namespace CapaPresentacion
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(135, 23);
             this.btnEliminar.TabIndex = 4;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = "Cambiar Estado";
             this.btnEliminar.UseVisualStyleBackColor = true;
             // 
             // btnVolver

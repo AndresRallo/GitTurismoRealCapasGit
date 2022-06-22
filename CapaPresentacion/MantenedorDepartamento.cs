@@ -30,10 +30,5 @@ namespace CapaPresentacion
             menuPrincipal.Show();
             this.Close();
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
