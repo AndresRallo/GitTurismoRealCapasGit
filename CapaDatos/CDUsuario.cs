@@ -224,7 +224,6 @@ namespace CapaDatos
                             US_CONTRASEÑA = Convert.ToString(mostrarTabla["US_CONTRASEÑA"].ToString()),
                             IDESTADO = Convert.ToInt32(mostrarTabla["IDESTADO"]),
                             ES_DESCRIPCION = Convert.ToString(mostrarTabla["ES_DESCRIPCION"].ToString())
-                            //  IDTIPOUSUARIO = Convert.ToString(mostrarTabla["IDUSUARIO"].ToString())
 
                         });
                     }
