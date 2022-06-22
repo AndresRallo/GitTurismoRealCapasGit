@@ -461,6 +461,7 @@ namespace CapaDatos
             }
         }
         #endregion
+
         #region ListarDepartamento
 
         public List<CEDepartamento> ListarDepartamento()

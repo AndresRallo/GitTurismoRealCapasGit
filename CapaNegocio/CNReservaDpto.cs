@@ -27,7 +27,7 @@ namespace CapaNegocio
         #endregion
 
         #region DeleteReserva
-        public bool DeleteReserva(CEReservaDpto reserva)
+        public bool DeleteReserva(int reserva)
         {
             return cDReserva.DeleteReserva(reserva);
         }

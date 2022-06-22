@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,23 +25,13 @@ namespace CapaPresentacion.Reserva
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string idService = txtIdReserva.Text;
-
-            if (false)
+            CNReservaDpto reserva = new CNReservaDpto();
+            if (reserva.DeleteReserva(int.Parse(txtIdReserva.Text)).Equals(true))
             {
-                btnEliminarDepto.Visible = true;
-                dateTimeEntrada.Visible = true;
-                dateTimeSalida.Visible = true;
-                comboBoxAdultos.Visible = true;
-                comboBoxNinos.Visible = true;
-                comboBoxDepto.Visible = true;
-                comboBoxTemporada.Visible = true;
-                txtCliente.Visible = true;
-                txtAbono.Visible = true;
-                txtValor.Visible = true;
+                MessageBox.Show($"Reserva eliminada con el ID :{txtIdReserva.Text}");
             }
             else
-                MessageBox.Show($"Servicio no encontrado con el ID :{idService}");
+                MessageBox.Show($"Reserva no encontrada con el ID :{txtIdReserva.Text}");
         }
     }
 }

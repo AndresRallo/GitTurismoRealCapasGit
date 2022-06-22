@@ -17,8 +17,26 @@ namespace CapaPresentacion
         public CreateServiceBooking()
         {
             InitializeComponent();
+            LoadComboService();
         }
 
+        private void LoadComboService()
+        {
+            try
+            {
+                CNService ListALLService = new CNService();
+                List<CEService> services = ListALLService.ListALLService();
+
+                comboBoxTipoServicio.DataSource = services;
+                comboBoxTipoServicio.ValueMember = "IdService";
+                comboBoxTipoServicio.DisplayMember = "NameService";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error combo servicio" + ex);
+            }
+        }
         private void MantenedorServicioReserva_Load(object sender, EventArgs e)
         {
 

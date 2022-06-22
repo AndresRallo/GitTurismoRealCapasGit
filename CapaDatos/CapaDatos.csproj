@@ -48,6 +48,7 @@
     <Compile Include="CDEmpleado.cs" />
     <Compile Include="CDLogin.cs" />
     <Compile Include="CDReserva.cs" />
+    <Compile Include="CDTemporada.cs" />
     <Compile Include="CDReservaDpto.cs" />
     <Compile Include="CDService.cs" />
     <Compile Include="CDUsuario.cs" />
