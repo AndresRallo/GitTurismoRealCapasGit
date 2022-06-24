@@ -1,8 +1,10 @@
 ﻿using CapaDatos;
+using CapaEntidad;
 using CapaNegocio;
 using CapaPresentacion.Reserva;
 using CapaPresentacion.Reserva_Servicio;
 using CapaPresentacion.Servicios;
+using CryptSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using TurismoRealExceptions;
 
 namespace CapaPresentacion
 {
@@ -29,7 +31,12 @@ namespace CapaPresentacion
         {
             lblNameUser.Text = (name != "") ? name : "Invitado";
             lblNameUser.ForeColor = Color.Black;
-            
+            CEEmpleado user = CNEmpleado.getUserByEmail(name);
+            txtNombre.Text = user.EM_NOMBRE;
+            txtApellido.Text = user.EM_APATERNO + " " + user.EM_APATERNO;
+            txtCorreo.Text = name;
+            txtRut.Text = user.EM_RUT + "-" + user.EM_DV;
+            txtRol.Text = Sys_TipoRolEntity.GetStrRolById(user.IDTIPOEMPLEADO);
         }
         private void btnCerrarAplicacion_Click(object sender, EventArgs e)
         {
@@ -336,6 +343,54 @@ namespace CapaPresentacion
             eliminarReserva.Show();
             this.Close();
         }
-        #endregion        
+        #endregion
+
+        private void btnCambioPass_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool valid = true;
+                if (String.IsNullOrEmpty(txtPassAntigua.Text))
+                {
+                    MessageBox.Show("El campo contraseña antigua no puede esta vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                CEEmpleado user = CNEmpleado.getUserByEmail(txtCorreo.Text);
+                if (!Crypter.CheckPassword(txtPassAntigua.Text, user.EM_CONTRASEÑA))
+                {
+                    MessageBox.Show("El campo contraseña antigua no coincide con la contraseña actual", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (String.IsNullOrEmpty(txtPassNueva.Text))
+                {
+                    MessageBox.Show("El campo contraseña antigua no puede esta vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (String.IsNullOrEmpty(txtPassNuevaConfirmar.Text))
+                {
+                    MessageBox.Show("El campo contraseña antigua no puede esta vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (txtPassNuevaConfirmar.Text != txtPassNueva.Text)
+                {
+                    MessageBox.Show("El campo contraseña antigua no puede esta vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (valid)
+                {
+                    CNEmpleado.SetChangePasword(txtCorreo.Text, txtPassNueva.Text);
+                    MessageBox.Show("La contraseña fue actualizada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtPassNuevaConfirmar.Text = string.Empty;
+                    txtPassNueva.Text = string.Empty;
+                    txtPassAntigua.Text = string.Empty;
+                }
+            }
+            catch (BusinessException bex)
+            {
+                MessageBox.Show(bex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

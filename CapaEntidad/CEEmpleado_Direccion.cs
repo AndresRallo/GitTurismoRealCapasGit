@@ -29,5 +29,9 @@ namespace CapaEntidad
         public string RE_DESCRIPCION { get; set; }
         public string TP_DESCRIPCION { get; set; }
         public string ES_DESCRIPCION { get; set; }
+        public string VE_MARCA { get; set; }
+        public string VE_ANIO { get; set; }
+        public string VE_PATENTE { get; set; }
+
     }
 }

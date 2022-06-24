@@ -108,5 +108,23 @@ namespace CapaNegocio
                 throw new BusinessException("Estimado usuario, no es posible obtener el usuario, por favor contactarse con el administrador"); 
             }
         }
+
+        public static void SetChangePasword(string emailUser, string pwsUser)
+        {
+            try
+            {
+                string encryp = Crypter.Blowfish.Crypt(pwsUser);
+                CDEmpleado.SetChangePasword(emailUser, encryp);
+            }
+            catch (TechnicalException)
+            {
+                throw new BusinessException("No es posible actualizar la contraseña, por favor contactarse con el administrador");
+            }
+            catch(Exception e)
+            {
+                new TechnicalException("Error al encriptar contraseña y guardarla", e);
+                throw new BusinessException("No es posible actualizar la contraseña, por favor contactarse con el administrador");
+            }
+        }
     }
 }

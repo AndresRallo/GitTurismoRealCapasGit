@@ -274,30 +274,36 @@ namespace CapaPresentacion
 
         private void getEMPLEADOS()
         {
-            txtIDEmpleado.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["IDEMPLEADO"].Value);
-            txtIDDireccion.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDDIRECCION"].Value);
-            txtNOMBRE.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["eMNOMBRE"].Value);
-            txtAPATERNO.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["eMAPATERNO"].Value);
-            txtAMATERNO.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["eMAMATERNO"].Value);
-            txtDIRECCION.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["de_direccion"].Value);
-            txtNUM_DIRECCION.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["de_numero"].Value);
-            cbIDTipo.SelectedValue = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDTIPOEMPLEADO"].Value);
-            cbIDTipo.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["TP_DESCRIPCION"].Value);
-            cbESTADO.SelectedValue = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDESTADO"].Value);
-            cbESTADO.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["ES_DESCRIPCION"].Value);
-            cbRegion.SelectedValue = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDREGION"].Value);
-            cbRegion.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["rEDESCRIPCION"].Value);
-            cbComuna.SelectedValue  = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["idcomuna"].Value);
-            cbComuna.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["cdescripcion"].Value);
-            
-          /*
-            if (cbIDTipo.Text == "CHÓFER")
+            try
             {
-                txtMarcaVe.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells[""].Value);
-                txtPatenteVe.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells[""].Value);
-                txtAnioVe.Text  = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells[""].Value);
-                //cNEmpleado.CrearVehiculo(vehiculo);
-            } */
+                txtIDEmpleado.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["IDEMPLEADO"].Value);
+                txtIDDireccion.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDDIRECCION"].Value);
+                txtNOMBRE.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["eMNOMBRE"].Value);
+                txtAPATERNO.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["eMAPATERNO"].Value);
+                txtAMATERNO.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["eMAMATERNO"].Value);
+                txtDIRECCION.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["de_direccion"].Value);
+                txtNUM_DIRECCION.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["de_numero"].Value);
+                cbIDTipo.SelectedValue = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDTIPOEMPLEADO"].Value);
+                cbIDTipo.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["TP_DESCRIPCION"].Value);
+                cbESTADO.SelectedValue = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDESTADO"].Value);
+                cbESTADO.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["ES_DESCRIPCION"].Value);
+                cbRegion.SelectedValue = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["iDREGION"].Value);
+                cbRegion.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["rEDESCRIPCION"].Value);
+                cbComuna.SelectedValue = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["idcomuna"].Value);
+                cbComuna.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["cdescripcion"].Value);
+
+
+                if (cbIDTipo.Text == "CHÓFER")
+                {
+                    txtMarcaVe.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["VE_MARCA"].Value);
+                    txtPatenteVe.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["VE_PATENTE"].Value);
+                    txtAnioVe.Text = Convert.ToString(dataGridViewEmpleados.CurrentRow.Cells["VE_ANIO"].Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No es posible mostrar la informacion del empleado");
+            }
             
         }
 

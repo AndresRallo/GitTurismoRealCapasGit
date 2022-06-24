@@ -70,6 +70,9 @@ namespace CapaPresentacion
             this.txtPW = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.IDEMPLEADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VE_MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VE_ANIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VE_PATENTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDIRECCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eMNOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eMAPATERNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,6 +121,9 @@ namespace CapaPresentacion
             this.dataGridViewEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDEMPLEADO,
+            this.VE_MARCA,
+            this.VE_ANIO,
+            this.VE_PATENTE,
             this.iDDIRECCION,
             this.eMNOMBRE,
             this.eMAPATERNO,
@@ -477,28 +483,50 @@ namespace CapaPresentacion
             this.IDEMPLEADO.HeaderText = "IDEMPLEADO";
             this.IDEMPLEADO.Name = "IDEMPLEADO";
             // 
+            // VE_MARCA
+            // 
+            this.VE_MARCA.DataPropertyName = "VE_MARCA";
+            this.VE_MARCA.HeaderText = "VE_MARCA";
+            this.VE_MARCA.Name = "VE_MARCA";
+            this.VE_MARCA.Visible = false;
+            // 
+            // VE_ANIO
+            // 
+            this.VE_ANIO.DataPropertyName = "VE_ANIO";
+            this.VE_ANIO.HeaderText = "VE_ANIO";
+            this.VE_ANIO.Name = "VE_ANIO";
+            this.VE_ANIO.Visible = false;
+            // 
+            // VE_PATENTE
+            // 
+            this.VE_PATENTE.DataPropertyName = "VE_PATENTE";
+            this.VE_PATENTE.HeaderText = "VE_PATENTE";
+            this.VE_PATENTE.Name = "VE_PATENTE";
+            this.VE_PATENTE.Visible = false;
+            // 
             // iDDIRECCION
             // 
             this.iDDIRECCION.DataPropertyName = "IDDIRECCION";
             this.iDDIRECCION.HeaderText = "IDDIRECCION";
             this.iDDIRECCION.Name = "iDDIRECCION";
+            this.iDDIRECCION.Visible = false;
             // 
             // eMNOMBRE
             // 
             this.eMNOMBRE.DataPropertyName = "EM_NOMBRE";
-            this.eMNOMBRE.HeaderText = "EM_NOMBRE";
+            this.eMNOMBRE.HeaderText = "NOMBRE";
             this.eMNOMBRE.Name = "eMNOMBRE";
             // 
             // eMAPATERNO
             // 
             this.eMAPATERNO.DataPropertyName = "EM_APATERNO";
-            this.eMAPATERNO.HeaderText = "EM_APATERNO";
+            this.eMAPATERNO.HeaderText = "APELLIDO PATERNO";
             this.eMAPATERNO.Name = "eMAPATERNO";
             // 
             // eMAMATERNO
             // 
             this.eMAMATERNO.DataPropertyName = "EM_AMATERNO";
-            this.eMAMATERNO.HeaderText = "EM_AMATERNO";
+            this.eMAMATERNO.HeaderText = "APELLIDO MATERNO";
             this.eMAMATERNO.Name = "eMAMATERNO";
             // 
             // eMCONTRASEÑA
@@ -506,17 +534,18 @@ namespace CapaPresentacion
             this.eMCONTRASEÑA.DataPropertyName = "EM_CONTRASEÑA";
             this.eMCONTRASEÑA.HeaderText = "EM_CONTRASEÑA";
             this.eMCONTRASEÑA.Name = "eMCONTRASEÑA";
+            this.eMCONTRASEÑA.Visible = false;
             // 
             // de_direccion
             // 
             this.de_direccion.DataPropertyName = "de_direccion";
-            this.de_direccion.HeaderText = "de_direccion";
+            this.de_direccion.HeaderText = "DIRECCIÓN";
             this.de_direccion.Name = "de_direccion";
             // 
             // de_numero
             // 
             this.de_numero.DataPropertyName = "de_numero";
-            this.de_numero.HeaderText = "de_numero";
+            this.de_numero.HeaderText = "NÚMERO";
             this.de_numero.Name = "de_numero";
             // 
             // iDTIPOEMPLEADO
@@ -524,11 +553,12 @@ namespace CapaPresentacion
             this.iDTIPOEMPLEADO.DataPropertyName = "IDTIPOEMPLEADO";
             this.iDTIPOEMPLEADO.HeaderText = "IDTIPOEMPLEADO";
             this.iDTIPOEMPLEADO.Name = "iDTIPOEMPLEADO";
+            this.iDTIPOEMPLEADO.Visible = false;
             // 
             // TP_DESCRIPCION
             // 
             this.TP_DESCRIPCION.DataPropertyName = "TP_DESCRIPCION";
-            this.TP_DESCRIPCION.HeaderText = "TP_DESCRIPCION";
+            this.TP_DESCRIPCION.HeaderText = "TIPO EMPLEADO";
             this.TP_DESCRIPCION.Name = "TP_DESCRIPCION";
             // 
             // iDESTADO
@@ -536,11 +566,12 @@ namespace CapaPresentacion
             this.iDESTADO.DataPropertyName = "IDESTADO";
             this.iDESTADO.HeaderText = "IDESTADO";
             this.iDESTADO.Name = "iDESTADO";
+            this.iDESTADO.Visible = false;
             // 
             // ES_DESCRIPCION
             // 
             this.ES_DESCRIPCION.DataPropertyName = "ES_DESCRIPCION";
-            this.ES_DESCRIPCION.HeaderText = "ES_DESCRIPCION";
+            this.ES_DESCRIPCION.HeaderText = "ESTADO";
             this.ES_DESCRIPCION.Name = "ES_DESCRIPCION";
             // 
             // idcomuna
@@ -548,11 +579,12 @@ namespace CapaPresentacion
             this.idcomuna.DataPropertyName = "id_comuna";
             this.idcomuna.HeaderText = "id_comuna";
             this.idcomuna.Name = "idcomuna";
+            this.idcomuna.Visible = false;
             // 
             // cdescripcion
             // 
             this.cdescripcion.DataPropertyName = "c_descripcion";
-            this.cdescripcion.HeaderText = "c_descripcion";
+            this.cdescripcion.HeaderText = "COMUNA";
             this.cdescripcion.Name = "cdescripcion";
             // 
             // iDREGION
@@ -560,11 +592,12 @@ namespace CapaPresentacion
             this.iDREGION.DataPropertyName = "IDREGION";
             this.iDREGION.HeaderText = "IDREGION";
             this.iDREGION.Name = "iDREGION";
+            this.iDREGION.Visible = false;
             // 
             // rEDESCRIPCION
             // 
             this.rEDESCRIPCION.DataPropertyName = "RE_DESCRIPCION";
-            this.rEDESCRIPCION.HeaderText = "RE_DESCRIPCION";
+            this.rEDESCRIPCION.HeaderText = "REGIÓN";
             this.rEDESCRIPCION.Name = "rEDESCRIPCION";
             // 
             // EditarEmpleado
@@ -666,6 +699,9 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn denumeroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcomunaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDEMPLEADO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VE_MARCA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VE_ANIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VE_PATENTE;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDIRECCION;
         private System.Windows.Forms.DataGridViewTextBoxColumn eMNOMBRE;
         private System.Windows.Forms.DataGridViewTextBoxColumn eMAPATERNO;

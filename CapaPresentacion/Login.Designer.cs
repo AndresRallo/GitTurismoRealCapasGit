@@ -107,6 +107,7 @@ namespace CapaPresentacion
             this.btnProbarConexion.TabIndex = 6;
             this.btnProbarConexion.Text = "Probar Conexion";
             this.btnProbarConexion.UseVisualStyleBackColor = true;
+            this.btnProbarConexion.Visible = false;
             this.btnProbarConexion.Click += new System.EventHandler(this.btnProbarConexion_Click);
             // 
             // btnNext
@@ -117,6 +118,7 @@ namespace CapaPresentacion
             this.btnNext.TabIndex = 7;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Visible = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // label2

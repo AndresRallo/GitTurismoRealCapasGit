@@ -76,6 +76,7 @@
     <Compile Include="CE_TIPOEMPLEADO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CESysEstadoDepto.cs" />
+    <Compile Include="Sys_TipoRolEntity.cs" />
     <Compile Include="SYS_TIPOUSUARIO.cs" />
   </ItemGroup>
   <ItemGroup>

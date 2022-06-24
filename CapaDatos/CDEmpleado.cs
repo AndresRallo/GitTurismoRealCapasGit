@@ -118,6 +118,36 @@ namespace CapaDatos
             }
         }
 
+        public static void SetChangePasword(string emailUser, string pws)
+        {
+            try
+            {
+                string salida = string.Empty;
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_SET_UPDATE_PWS_EMPLEADO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("EMAIL", OracleType.NVarChar).Value = emailUser;
+                    command.Parameters.Add("PWS", OracleType.NVarChar).Value = pws;
+                    command.Parameters.Add("V_DETALLE", OracleType.NVarChar).Value = ParameterDirection.Output;
+                    command.ExecuteNonQuery();
+                    salida = command.Parameters["V_DETALLE"].SourceColumn.ToString();
+                    conn.Close();
+                }
+                if(!string.IsNullOrEmpty(salida))
+                    throw new TechnicalException("No es posible actualizar la contraseña del usuario, Procedimeinto almacenado: SP_SET_UPDATE_PWS_EMPLEADO -> detalle: " + salida);
+            }
+            catch(TechnicalException tex)
+            {
+                throw tex;
+            }
+            catch (Exception ex)
+            {
+                throw new TechnicalException("No es posible actualizar la contraseña del usuario, email: " + emailUser, ex);
+            }
+        }
+
         public void PruebaConexion()
         {
             OracleConnection conn = new OracleConnection(conexion);
@@ -343,11 +373,12 @@ namespace CapaDatos
                             id_comuna = Convert.ToInt32(mostrarTabla["IDCOMUNA"]),
                             de_direccion = Convert.ToString(mostrarTabla["DE_DIRECCION"]),
                             de_numero = Convert.ToString(mostrarTabla["DE_NUMERO"]),
-                            
                             c_descripcion = Convert.ToString(mostrarTabla["C_DESCRIPCION"]),
-                            RE_DESCRIPCION = Convert.ToString(mostrarTabla["RE_DESCRIPCION"])
-
-
+                            RE_DESCRIPCION = Convert.ToString(mostrarTabla["RE_DESCRIPCION"]),
+                            
+                            VE_ANIO = Convert.ToString(mostrarTabla["VE_ANIO"]),
+                            VE_MARCA = Convert.ToString(mostrarTabla["VE_MARCA"]),
+                            VE_PATENTE = Convert.ToString(mostrarTabla["VE_PATENTE"])
                         }) ;
                     }
                     conn.Close();
