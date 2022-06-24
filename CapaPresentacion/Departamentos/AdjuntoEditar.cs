@@ -62,30 +62,36 @@ namespace CapaPresentacion.Departamentos
 
         private void btnEliminarAdjunto_Click(object sender, EventArgs e)
         {
-            try
+            if (txtIdAdjunto.Text != String.Empty)
             {
-                CEAdjunto adjunto = new CEAdjunto();
-                adjunto.IDADJUNTOHABITACION = Convert.ToInt32(txtIdAdjunto.Text);
-
-                if (cNDepartamento.EliminarAdjunto(adjunto))
+                try
                 {
-                    MessageBox.Show("Adjunto Eliminado");
-                    ListarAdjuntoIdDepto(txtIdDepto.Text);
-                    txtIdAdjunto.Text = String.Empty;
+                    CEAdjunto adjunto = new CEAdjunto();
+                    adjunto.IDADJUNTOHABITACION = Convert.ToInt32(txtIdAdjunto.Text);
+
+
+                    if (cNDepartamento.EliminarAdjunto(adjunto))
+                    {
+                        MessageBox.Show("Adjunto Eliminado");
+                        ListarAdjuntoIdDepto(txtIdDepto.Text);
+                        txtIdAdjunto.Text = String.Empty;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Adjunto no Eliminado");
+                    }
                 }
-                else
-                { 
-                    MessageBox.Show("Adjunto no Eliminado");
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Adjunto no eliminado" + ex);
                 }
             }
-            catch (Exception ex)
+            else
             {
-
-                MessageBox.Show("Adjunto no eliminado" + ex);
+                MessageBox.Show("Seleccione un Adjunto en la grilla");
             }
-
         }
-
         
         public void ListarAdjuntoIdDepto(string idDepto)
         {
