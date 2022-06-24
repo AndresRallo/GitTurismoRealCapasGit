@@ -61,5 +61,10 @@ namespace CapaPresentacion.Departamentos
             mantenedorDepartamento.Show();
             this.Close();
         }
+
+        private void dgvDepartamentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

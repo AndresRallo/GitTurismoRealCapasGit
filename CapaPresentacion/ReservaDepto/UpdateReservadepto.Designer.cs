@@ -36,7 +36,6 @@ namespace CapaPresentacion.Reserva
             this.dateTimeSalida = new System.Windows.Forms.DateTimePicker();
             this.dateTimeEntrada = new System.Windows.Forms.DateTimePicker();
             this.txtEmpleado = new System.Windows.Forms.TextBox();
-            this.txtCliente = new System.Windows.Forms.TextBox();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.txtAbono = new System.Windows.Forms.TextBox();
             this.btnUpdateResDepto = new System.Windows.Forms.Button();
@@ -53,13 +52,14 @@ namespace CapaPresentacion.Reserva
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdReserva = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.cmbUsers = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // comboBoxDepto
             // 
             this.comboBoxDepto.FormattingEnabled = true;
             this.comboBoxDepto.Location = new System.Drawing.Point(228, 327);
-            this.comboBoxDepto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDepto.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDepto.Name = "comboBoxDepto";
             this.comboBoxDepto.Size = new System.Drawing.Size(160, 24);
             this.comboBoxDepto.TabIndex = 50;
@@ -68,7 +68,7 @@ namespace CapaPresentacion.Reserva
             // 
             this.comboBoxTemporada.FormattingEnabled = true;
             this.comboBoxTemporada.Location = new System.Drawing.Point(228, 362);
-            this.comboBoxTemporada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxTemporada.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxTemporada.Name = "comboBoxTemporada";
             this.comboBoxTemporada.Size = new System.Drawing.Size(160, 24);
             this.comboBoxTemporada.TabIndex = 49;
@@ -77,7 +77,7 @@ namespace CapaPresentacion.Reserva
             // 
             this.comboBoxNinos.FormattingEnabled = true;
             this.comboBoxNinos.Location = new System.Drawing.Point(229, 290);
-            this.comboBoxNinos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxNinos.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxNinos.Name = "comboBoxNinos";
             this.comboBoxNinos.Size = new System.Drawing.Size(160, 24);
             this.comboBoxNinos.TabIndex = 48;
@@ -86,7 +86,7 @@ namespace CapaPresentacion.Reserva
             // 
             this.comboBoxAdultos.FormattingEnabled = true;
             this.comboBoxAdultos.Location = new System.Drawing.Point(228, 257);
-            this.comboBoxAdultos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxAdultos.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxAdultos.Name = "comboBoxAdultos";
             this.comboBoxAdultos.Size = new System.Drawing.Size(160, 24);
             this.comboBoxAdultos.TabIndex = 47;
@@ -94,7 +94,7 @@ namespace CapaPresentacion.Reserva
             // dateTimeSalida
             // 
             this.dateTimeSalida.Location = new System.Drawing.Point(228, 156);
-            this.dateTimeSalida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimeSalida.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimeSalida.Name = "dateTimeSalida";
             this.dateTimeSalida.Size = new System.Drawing.Size(265, 22);
             this.dateTimeSalida.TabIndex = 46;
@@ -102,7 +102,7 @@ namespace CapaPresentacion.Reserva
             // dateTimeEntrada
             // 
             this.dateTimeEntrada.Location = new System.Drawing.Point(228, 121);
-            this.dateTimeEntrada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimeEntrada.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimeEntrada.Name = "dateTimeEntrada";
             this.dateTimeEntrada.Size = new System.Drawing.Size(265, 22);
             this.dateTimeEntrada.TabIndex = 45;
@@ -110,23 +110,15 @@ namespace CapaPresentacion.Reserva
             // txtEmpleado
             // 
             this.txtEmpleado.Location = new System.Drawing.Point(228, 432);
-            this.txtEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmpleado.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpleado.Name = "txtEmpleado";
             this.txtEmpleado.Size = new System.Drawing.Size(132, 22);
             this.txtEmpleado.TabIndex = 44;
             // 
-            // txtCliente
-            // 
-            this.txtCliente.Location = new System.Drawing.Point(228, 396);
-            this.txtCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(132, 22);
-            this.txtCliente.TabIndex = 43;
-            // 
             // txtValor
             // 
             this.txtValor.Location = new System.Drawing.Point(228, 224);
-            this.txtValor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtValor.Margin = new System.Windows.Forms.Padding(4);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(132, 22);
             this.txtValor.TabIndex = 42;
@@ -134,7 +126,7 @@ namespace CapaPresentacion.Reserva
             // txtAbono
             // 
             this.txtAbono.Location = new System.Drawing.Point(228, 192);
-            this.txtAbono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAbono.Margin = new System.Windows.Forms.Padding(4);
             this.txtAbono.Name = "txtAbono";
             this.txtAbono.Size = new System.Drawing.Size(132, 22);
             this.txtAbono.TabIndex = 41;
@@ -142,7 +134,7 @@ namespace CapaPresentacion.Reserva
             // btnUpdateResDepto
             // 
             this.btnUpdateResDepto.Location = new System.Drawing.Point(95, 484);
-            this.btnUpdateResDepto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateResDepto.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateResDepto.Name = "btnUpdateResDepto";
             this.btnUpdateResDepto.Size = new System.Drawing.Size(215, 28);
             this.btnUpdateResDepto.TabIndex = 40;
@@ -264,7 +256,7 @@ namespace CapaPresentacion.Reserva
             // txtIdReserva
             // 
             this.txtIdReserva.Location = new System.Drawing.Point(227, 86);
-            this.txtIdReserva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdReserva.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdReserva.Name = "txtIdReserva";
             this.txtIdReserva.Size = new System.Drawing.Size(132, 22);
             this.txtIdReserva.TabIndex = 52;
@@ -279,11 +271,21 @@ namespace CapaPresentacion.Reserva
             this.label5.TabIndex = 51;
             this.label5.Text = "ID Reserva Dpto";
             // 
+            // cmbUsers
+            // 
+            this.cmbUsers.FormattingEnabled = true;
+            this.cmbUsers.Location = new System.Drawing.Point(229, 402);
+            this.cmbUsers.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbUsers.Name = "cmbUsers";
+            this.cmbUsers.Size = new System.Drawing.Size(160, 24);
+            this.cmbUsers.TabIndex = 53;
+            // 
             // UpdateReservadepto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.cmbUsers);
             this.Controls.Add(this.txtIdReserva);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBoxDepto);
@@ -293,7 +295,6 @@ namespace CapaPresentacion.Reserva
             this.Controls.Add(this.dateTimeSalida);
             this.Controls.Add(this.dateTimeEntrada);
             this.Controls.Add(this.txtEmpleado);
-            this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.txtAbono);
             this.Controls.Add(this.btnUpdateResDepto);
@@ -308,7 +309,7 @@ namespace CapaPresentacion.Reserva
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UpdateReservadepto";
             this.Text = "UpdateReserva";
             this.ResumeLayout(false);
@@ -325,7 +326,6 @@ namespace CapaPresentacion.Reserva
         private System.Windows.Forms.DateTimePicker dateTimeSalida;
         private System.Windows.Forms.DateTimePicker dateTimeEntrada;
         private System.Windows.Forms.TextBox txtEmpleado;
-        private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.TextBox txtAbono;
         private System.Windows.Forms.Button btnUpdateResDepto;
@@ -342,5 +342,6 @@ namespace CapaPresentacion.Reserva
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIdReserva;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbUsers;
     }
 }

@@ -12,9 +12,5 @@ namespace CapaEntidad
         public string TE_DESCRIPCION { get; set; }
         public int TE_VALORAGREGADO { get; set; }
 
-        public CETemporada()
-        {
-
-        }
     }
 }

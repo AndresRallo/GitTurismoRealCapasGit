@@ -18,6 +18,25 @@ namespace CapaPresentacion.Reserva_Servicio
         public CrearReservaServ()
         {
             InitializeComponent();
+            LoadComboService();
+        }
+
+        private void LoadComboService()
+        {
+            try
+            {
+                CNService ListALLService = new CNService();
+               List<CEService> services = ListALLService.ListALLService();
+
+                comboBoxTipoServ.DataSource = services;
+                comboBoxTipoServ.ValueMember = "IdService";
+                comboBoxTipoServ.DisplayMember = "NameService";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error combo servicio" + ex);
+            }
         }
 
         private void dateTimeEntrada_ValueChanged(object sender, EventArgs e)
