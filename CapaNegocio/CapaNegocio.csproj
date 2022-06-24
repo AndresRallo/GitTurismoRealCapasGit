@@ -53,6 +53,7 @@
     <Compile Include="CNEmpleado.cs" />
     <Compile Include="CNLogin.cs" />
     <Compile Include="CNReserva.cs" />
+    <Compile Include="CNComuna.cs" />
     <Compile Include="CNTemporada.cs" />
     <Compile Include="CNReservaDpto.cs" />
     <Compile Include="CNService.cs" />

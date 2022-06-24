@@ -27,16 +27,16 @@ namespace CapaDatos
                     conn.Open();
                     OracleCommand command = new OracleCommand("SP_SET_ADD_SERVICIOS", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add("NOM", OracleType.VarChar).Value = service.NameService;
-                    command.Parameters.Add("DESCRIPCIONS", OracleType.VarChar).Value = service.Descripcion;
-                    command.Parameters.Add("PRECIOS", OracleType.Int32).Value = service.Precio;
-                    command.Parameters.Add("IVAS", OracleType.Int32).Value = service.Iva;
-                    command.Parameters.Add("DIRECCION", OracleType.VarChar).Value = service.DireccionSucursal;
-                    command.Parameters.Add("NUMDIREC", OracleType.VarChar).Value = service.NumeroDireccion;
-                    command.Parameters.Add("IDCOMUNADIREC", OracleType.Int32).Value = service.IdComuna;
-                    command.Parameters.Add("IDESTADOS", OracleType.Int32).Value = service.Estado;
-                    command.Parameters.Add("IDTIPO", OracleType.Int32).Value = service.TipoServicio;
-                    OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
+                    command.Parameters.Add("NOM", OracleType.NVarChar).Value = service.NameService;
+                    command.Parameters.Add("DESCRIPCIONS", OracleType.NVarChar).Value = service.Descripcion;
+                    command.Parameters.Add("PRECIOS", OracleType.Number).Value = service.Precio;
+                    command.Parameters.Add("IVAS", OracleType.Number).Value = service.Iva;
+                    command.Parameters.Add("DIRECCION", OracleType.NVarChar).Value = service.DireccionSucursal;
+                    command.Parameters.Add("NUMDIREC", OracleType.NVarChar).Value = service.NumeroDireccion.ToString();
+                    command.Parameters.Add("IDCOMUNADIREC", OracleType.Number).Value = service.IdComuna;
+                    command.Parameters.Add("IDESTADOS", OracleType.Number).Value = service.Estado;
+                    command.Parameters.Add("IDTIPO", OracleType.Number).Value = service.TipoServicio;
+                    OracleParameter par = new OracleParameter("V_DETALLE", OracleType.NVarChar);
                     par.Direction = ParameterDirection.Output;
                     par.Size = 250;
                     command.Parameters.Add(par);
@@ -78,7 +78,7 @@ namespace CapaDatos
                         OracleCommand command = new OracleCommand("SP_SET_STATUS_CHANGE_SERVICE", conn);
                         command.CommandType = System.Data.CommandType.StoredProcedure;
                         command.Parameters.Add("IDSERVICIO", OracleType.Number).Value = cE.IdService;
-                        command.Parameters.Add("IDESTADO", OracleType.Number).Value = 1;
+                        command.Parameters.Add("IDESTADO", OracleType.Number).Value = ((int)Estados.Inactivo);
 
                         OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
                         par.Direction = ParameterDirection.Output;
@@ -177,13 +177,13 @@ namespace CapaDatos
                             NameService = mostrarTabla["SE_NOMBRE"].ToString(),
                             Precio = Convert.ToInt32(mostrarTabla["SE_PRECIO"]),
                             Iva = Convert.ToInt32(mostrarTabla["SE_IVA"]),
-                            ValorTotal = Convert.ToInt32(mostrarTabla["SE_PRECIO"])+ Convert.ToInt32(mostrarTabla["SE_IVA"]),
-                            DireccionSucursal = mostrarTabla["DIRECCION_NAME"].ToString(),
-                            NumeroDireccion = Convert.ToInt32(mostrarTabla["IDREGION"]),
-                            IdComuna = Convert.ToInt32(mostrarTabla["IDREGION"]),
-                            Estado = Convert.ToInt32(mostrarTabla["IDESTADO"]),
-                            TipoServicio = Convert.ToInt32(mostrarTabla["IDTIPOS"]),
-                            Descripcion = mostrarTabla["SE_DESCRIPCION"].ToString(),
+                            ValorTotal = Convert.ToInt32(mostrarTabla["SE_PRECIO"]) + Convert.ToInt32(mostrarTabla["SE_IVA"]),
+                            //DireccionSucursal = mostrarTabla["DIRECCION_NAME"].ToString(),
+                           // NumeroDireccion = Convert.ToInt32(mostrarTabla["IDREGION"]),
+                            //IdComuna = Convert.ToInt32(mostrarTabla["IDREGION"]),
+                            //Estado = Convert.ToInt32(mostrarTabla["IDESTADO"]),
+                            //TipoServicio = Convert.ToInt32(mostrarTabla["IDTIPOS"]),
+                            //Descripcion = mostrarTabla["SE_DESCRIPCION"].ToString(),
                         });
                     }
                     conn.Close();
@@ -191,7 +191,41 @@ namespace CapaDatos
                 return Services;
 
             }
-            catch (OracleException)
+            catch (OracleException ex)
+            {
+                throw new TechnicalException("LISTA NO ENCONTRADA, CONTACTAR CON AREA DE SOPORTE");
+            }
+        }
+        #endregion
+
+        #region ListService
+        public List<CETipoServicio> ListALLSys_TIPOSERVICIO()
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CETipoServicio> Services = new List<CETipoServicio>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_GET_ALL_SYS_TIPOSERVICIO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        Services.Add(new CETipoServicio
+                        {
+                            idtiposervicio = Convert.ToInt32(mostrarTabla["idtiposervicio"]),
+                            ts_descripcion = mostrarTabla["ts_descripcion"].ToString(),
+                        });
+                    }
+                    conn.Close();
+                }
+                return Services;
+
+            }
+            catch (OracleException ex)
             {
                 throw new TechnicalException("LISTA NO ENCONTRADA, CONTACTAR CON AREA DE SOPORTE");
             }

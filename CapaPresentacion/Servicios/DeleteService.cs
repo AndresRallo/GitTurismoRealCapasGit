@@ -17,6 +17,7 @@ namespace CapaPresentacion.Servicios
         public DeleteService()
         {
             InitializeComponent();
+            btnEliminarResServicio.Visible = true;
         }
 
         private void btnEliminarResServicio_Click(object sender, EventArgs e)
@@ -30,20 +31,11 @@ namespace CapaPresentacion.Servicios
                 MessageBox.Show("Servicio no eliminado");
 
         }
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
         private void button1_Click(object sender, EventArgs e)
         {
             string idService = txtIdServicio.Text;
 
-            if (false)
-            {
-                btnEliminarResServicio.Visible = true;
-                txtNombreServicio.Visible = true;
-                txtNombreServicio.Text = "La picadura";
-                lblNameService.Visible = true;
-            }
-            else
-                MessageBox.Show($"Servicio no encontrado con el ID :{idService}");
         }
     }
 }

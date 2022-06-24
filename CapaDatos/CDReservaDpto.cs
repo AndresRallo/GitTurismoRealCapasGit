@@ -35,7 +35,7 @@ namespace CapaDatos
                     command.Parameters.Add("CANTNINIOS_", OracleType.Number).Value = service.CANTNINIOS;
                     command.Parameters.Add("IDUSUARIO_", OracleType.Number).Value = service.IDUSUARIO;
                     command.Parameters.Add("IDDEPTO_", OracleType.Number).Value = service.IDDEPTO;
-                    command.Parameters.Add("ESTADORESERVA_", OracleType.Number).Value = 1;
+                    command.Parameters.Add("ESTADORESERVA_", OracleType.Number).Value = ((int)Estados.Activo); 
                     command.Parameters.Add("IDEMPLEADO_", OracleType.Number).Value = service.IDEMPLEADO;
                     command.Parameters.Add("IDTEMPORADA_", OracleType.Number).Value = service.IDTEMPORADA;
                     OracleParameter par = new OracleParameter("V_ID", OracleType.Number);
@@ -116,7 +116,6 @@ namespace CapaDatos
                 using (OracleConnection conn = new OracleConnection(conexion))
                 {
                     conn.Open();
-                    //--->cambiar name de sp y verificar los nombres de las variables
                     OracleCommand command = new OracleCommand("SP_SET_UPDATE_RESERVA_DEPTO", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add("IDRESERVA", OracleType.Number).Value = reserva.IDRESERVA;
@@ -128,7 +127,7 @@ namespace CapaDatos
                     command.Parameters.Add("CANTNINIOS_", OracleType.Number).Value = reserva.CANTNINIOS;
                     command.Parameters.Add("IDUSUARIO_", OracleType.Number).Value = reserva.IDUSUARIO;
                     command.Parameters.Add("IDDEPTO_", OracleType.Number).Value = reserva.IDDEPTO;
-                    command.Parameters.Add("ESTADORESERVA_", OracleType.Number).Value = 1;
+                    command.Parameters.Add("ESTADORESERVA_", OracleType.Number).Value = ((int)Estados.Activo);
                     command.Parameters.Add("IDEMPLEADO_", OracleType.Number).Value = reserva.IDEMPLEADO;
                     command.Parameters.Add("IDTEMPORADA_", OracleType.Number).Value = reserva.IDTEMPORADA;
                     OracleParameter par = new OracleParameter("V_ID", OracleType.VarChar);

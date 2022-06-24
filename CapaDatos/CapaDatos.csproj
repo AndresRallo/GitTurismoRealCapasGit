@@ -47,6 +47,7 @@
     <Compile Include="CDDepartamento.cs" />
     <Compile Include="CDEmpleado.cs" />
     <Compile Include="CDLogin.cs" />
+    <Compile Include="CDComuna.cs" />
     <Compile Include="CDReserva.cs" />
     <Compile Include="CDTemporada.cs" />
     <Compile Include="CDReservaDpto.cs" />

@@ -40,5 +40,14 @@ namespace CapaNegocio
             return cDService.ListALLService();
         }
         #endregion
+
+        #region ListTipeService
+        public List<CETipoServicio> ListALLtipeService()
+        {
+            return cDService.ListALLSys_TIPOSERVICIO();
+        }
+        #endregion
+
+        
     }
 }

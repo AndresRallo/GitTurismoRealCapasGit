@@ -29,152 +29,184 @@ namespace CapaPresentacion.Servicios
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridServicios = new System.Windows.Forms.DataGridView();
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.idServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comuna = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridServicios = new System.Windows.Forms.DataGridView();
+            this.cEServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idServiceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameServiceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ivaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccionSucursalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroDireccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idComunaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoServicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridServicios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEServiceBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gridServicios
-            // 
-            this.gridServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridServicios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idServicio,
-            this.nombreServicio,
-            this.precio,
-            this.iva,
-            this.valorTotal,
-            this.direccion,
-            this.numDireccion,
-            this.comuna,
-            this.tipoServicio,
-            this.descripcion});
-            this.gridServicios.Location = new System.Drawing.Point(36, 143);
-            this.gridServicios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gridServicios.Name = "gridServicios";
-            this.gridServicios.RowHeadersWidth = 51;
-            this.gridServicios.Size = new System.Drawing.Size(1146, 445);
-            this.gridServicios.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 83);
+            this.label1.Location = new System.Drawing.Point(27, 66);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(222, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "Listado de Servicios";
             // 
-            // idServicio
+            // gridServicios
             // 
-            this.idServicio.HeaderText = "ID";
-            this.idServicio.MinimumWidth = 6;
-            this.idServicio.Name = "idServicio";
-            this.idServicio.Width = 125;
+            this.gridServicios.AutoGenerateColumns = false;
+            this.gridServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridServicios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idServiceDataGridViewTextBoxColumn,
+            this.nameServiceDataGridViewTextBoxColumn,
+            this.precioDataGridViewTextBoxColumn,
+            this.ivaDataGridViewTextBoxColumn,
+            this.valorTotalDataGridViewTextBoxColumn,
+            this.direccionSucursalDataGridViewTextBoxColumn,
+            this.numeroDireccionDataGridViewTextBoxColumn,
+            this.idComunaDataGridViewTextBoxColumn,
+            this.estadoDataGridViewTextBoxColumn,
+            this.tipoServicioDataGridViewTextBoxColumn,
+            this.descripcionDataGridViewTextBoxColumn});
+            this.gridServicios.DataSource = this.cEServiceBindingSource;
+            this.gridServicios.Location = new System.Drawing.Point(32, 114);
+            this.gridServicios.Margin = new System.Windows.Forms.Padding(4);
+            this.gridServicios.Name = "gridServicios";
+            this.gridServicios.RowHeadersWidth = 51;
+            this.gridServicios.Size = new System.Drawing.Size(1019, 356);
+            this.gridServicios.TabIndex = 0;
+            this.gridServicios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridServicios_CellContentClick);
             // 
-            // nombreServicio
+            // cEServiceBindingSource
             // 
-            this.nombreServicio.HeaderText = "Nombre";
-            this.nombreServicio.MinimumWidth = 6;
-            this.nombreServicio.Name = "nombreServicio";
-            this.nombreServicio.Width = 125;
+            this.cEServiceBindingSource.DataSource = typeof(CapaEntidad.CEService);
             // 
-            // precio
+            // idServiceDataGridViewTextBoxColumn
             // 
-            this.precio.HeaderText = "Precio";
-            this.precio.MinimumWidth = 6;
-            this.precio.Name = "precio";
-            this.precio.Width = 125;
+            this.idServiceDataGridViewTextBoxColumn.DataPropertyName = "IdService";
+            this.idServiceDataGridViewTextBoxColumn.HeaderText = "IdService";
+            this.idServiceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idServiceDataGridViewTextBoxColumn.Name = "idServiceDataGridViewTextBoxColumn";
+            this.idServiceDataGridViewTextBoxColumn.Width = 125;
             // 
-            // iva
+            // nameServiceDataGridViewTextBoxColumn
             // 
-            this.iva.HeaderText = "IVA";
-            this.iva.MinimumWidth = 6;
-            this.iva.Name = "iva";
-            this.iva.Width = 125;
+            this.nameServiceDataGridViewTextBoxColumn.DataPropertyName = "NameService";
+            this.nameServiceDataGridViewTextBoxColumn.HeaderText = "NameService";
+            this.nameServiceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameServiceDataGridViewTextBoxColumn.Name = "nameServiceDataGridViewTextBoxColumn";
+            this.nameServiceDataGridViewTextBoxColumn.Width = 125;
             // 
-            // valorTotal
+            // precioDataGridViewTextBoxColumn
             // 
-            this.valorTotal.HeaderText = "Total";
-            this.valorTotal.MinimumWidth = 6;
-            this.valorTotal.Name = "valorTotal";
-            this.valorTotal.Width = 125;
+            this.precioDataGridViewTextBoxColumn.DataPropertyName = "Precio";
+            this.precioDataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.precioDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            this.precioDataGridViewTextBoxColumn.Width = 125;
             // 
-            // direccion
+            // ivaDataGridViewTextBoxColumn
             // 
-            this.direccion.HeaderText = "Direccion";
-            this.direccion.MinimumWidth = 6;
-            this.direccion.Name = "direccion";
-            this.direccion.Width = 125;
+            this.ivaDataGridViewTextBoxColumn.DataPropertyName = "Iva";
+            this.ivaDataGridViewTextBoxColumn.HeaderText = "Iva";
+            this.ivaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.ivaDataGridViewTextBoxColumn.Name = "ivaDataGridViewTextBoxColumn";
+            this.ivaDataGridViewTextBoxColumn.Width = 125;
             // 
-            // numDireccion
+            // valorTotalDataGridViewTextBoxColumn
             // 
-            this.numDireccion.HeaderText = "Numero Direccion";
-            this.numDireccion.MinimumWidth = 6;
-            this.numDireccion.Name = "numDireccion";
-            this.numDireccion.Width = 125;
+            this.valorTotalDataGridViewTextBoxColumn.DataPropertyName = "ValorTotal";
+            this.valorTotalDataGridViewTextBoxColumn.HeaderText = "ValorTotal";
+            this.valorTotalDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.valorTotalDataGridViewTextBoxColumn.Name = "valorTotalDataGridViewTextBoxColumn";
+            this.valorTotalDataGridViewTextBoxColumn.Width = 125;
             // 
-            // comuna
+            // direccionSucursalDataGridViewTextBoxColumn
             // 
-            this.comuna.HeaderText = "Comuna";
-            this.comuna.MinimumWidth = 6;
-            this.comuna.Name = "comuna";
-            this.comuna.Width = 125;
+            this.direccionSucursalDataGridViewTextBoxColumn.DataPropertyName = "DireccionSucursal";
+            this.direccionSucursalDataGridViewTextBoxColumn.HeaderText = "DireccionSucursal";
+            this.direccionSucursalDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.direccionSucursalDataGridViewTextBoxColumn.Name = "direccionSucursalDataGridViewTextBoxColumn";
+            this.direccionSucursalDataGridViewTextBoxColumn.Width = 125;
             // 
-            // tipoServicio
+            // numeroDireccionDataGridViewTextBoxColumn
             // 
-            this.tipoServicio.HeaderText = "Tipo de Servicio";
-            this.tipoServicio.MinimumWidth = 6;
-            this.tipoServicio.Name = "tipoServicio";
-            this.tipoServicio.Width = 125;
+            this.numeroDireccionDataGridViewTextBoxColumn.DataPropertyName = "NumeroDireccion";
+            this.numeroDireccionDataGridViewTextBoxColumn.HeaderText = "NumeroDireccion";
+            this.numeroDireccionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.numeroDireccionDataGridViewTextBoxColumn.Name = "numeroDireccionDataGridViewTextBoxColumn";
+            this.numeroDireccionDataGridViewTextBoxColumn.Width = 125;
             // 
-            // descripcion
+            // idComunaDataGridViewTextBoxColumn
             // 
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.MinimumWidth = 6;
-            this.descripcion.Name = "descripcion";
-            this.descripcion.Width = 125;
+            this.idComunaDataGridViewTextBoxColumn.DataPropertyName = "IdComuna";
+            this.idComunaDataGridViewTextBoxColumn.HeaderText = "IdComuna";
+            this.idComunaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idComunaDataGridViewTextBoxColumn.Name = "idComunaDataGridViewTextBoxColumn";
+            this.idComunaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "Estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
+            this.estadoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // tipoServicioDataGridViewTextBoxColumn
+            // 
+            this.tipoServicioDataGridViewTextBoxColumn.DataPropertyName = "TipoServicio";
+            this.tipoServicioDataGridViewTextBoxColumn.HeaderText = "TipoServicio";
+            this.tipoServicioDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tipoServicioDataGridViewTextBoxColumn.Name = "tipoServicioDataGridViewTextBoxColumn";
+            this.tipoServicioDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.Width = 125;
             // 
             // ListService
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gridServicios);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ListService";
             this.Text = "ListService";
             ((System.ComponentModel.ISupportInitialize)(this.gridServicios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEServiceBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView gridServicios;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idServicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreServicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iva;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numDireccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comuna;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoServicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridView gridServicios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idServiceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameServiceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ivaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorTotalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccionSucursalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroDireccionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idComunaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoServicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource cEServiceBindingSource;
     }
 }

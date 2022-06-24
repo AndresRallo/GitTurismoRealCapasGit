@@ -14,10 +14,12 @@ namespace CapaPresentacion
 {
     public partial class CreateServiceBooking : Form
     {
+        
         public CreateServiceBooking()
         {
             InitializeComponent();
             LoadComboService();
+            LoadComboComuna();
         }
 
         private void LoadComboService()
@@ -25,11 +27,29 @@ namespace CapaPresentacion
             try
             {
                 CNService ListALLService = new CNService();
-                List<CEService> services = ListALLService.ListALLService();
+                List<CETipoServicio> services = ListALLService.ListALLtipeService();
 
                 comboBoxTipoServicio.DataSource = services;
-                comboBoxTipoServicio.ValueMember = "IdService";
-                comboBoxTipoServicio.DisplayMember = "NameService";
+                comboBoxTipoServicio.ValueMember = "idtiposervicio";
+                comboBoxTipoServicio.DisplayMember = "ts_descripcion";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error combo servicio" + ex);
+            }
+        }
+
+        private void LoadComboComuna()
+        {
+            try
+            {
+                CNComuna ListALLComuna = new CNComuna();
+                List<CEComuna> services = ListALLComuna.ListALLcomuna();
+
+                comboBoxComuna.DataSource = services;
+                comboBoxComuna.ValueMember = "idcomuna";
+                comboBoxComuna.DisplayMember = "c_descripcion";
             }
             catch (Exception ex)
             {
@@ -199,18 +219,18 @@ namespace CapaPresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             CEService service = new CEService();
+             
             service.NameService = (txtNombreServicio.Text != "") ? txtNombreServicio.Text : null;
             service.Precio = (txtPrecio.Text != "") ? int.Parse(txtPrecio.Text) : 0;
             service.Iva = (txtIVA.Text != "") ? int.Parse(txtIVA.Text) : 0;
             service.ValorTotal = (txtTotal.Text != "") ? int.Parse(txtTotal.Text) : 0;
-            service.DireccionSucursal = (comboBoxSucursal.Text != "") ? comboBoxSucursal.Text : null;
-            service.Estado = (txtEstado.Text != "") ? int.Parse(txtEstado.Text) : 0;
-            service.TipoServicio = (comboBoxTipoServicio.Text != "") ? int.Parse(comboBoxTipoServicio.Text) : 0;
-            service.Descripcion = (txtDescripcion.Text != "") ? txtDescripcion.Text : null;
-            //falta agregar estos campos al front
-            service.NumeroDireccion = 0;
-            service.IdComuna = 0;
-            //
+            service.DireccionSucursal = (textDireccionSucursal.Text != "") ? textDireccionSucursal.Text : null;
+            service.Estado = ((int)Estados.Activo);
+            service.TipoServicio = (comboBoxTipoServicio.SelectedValue.ToString() != "") ? int.Parse(comboBoxTipoServicio.SelectedValue.ToString()) : 0;
+            service.NumeroDireccion = (txtNumDireccion.Text != "") ? int.Parse(txtNumDireccion.Text) : 0;
+            service.IdComuna = (comboBoxComuna.SelectedValue.ToString() != "") ? int.Parse(comboBoxComuna.SelectedValue.ToString()) : 0;
+            service.Descripcion = (txtDescripcion.Text != "") ? txtDescripcion.Text : "";
+
             CNService cNService = new CNService();
             if (cNService.CreateService(service))
 
@@ -222,6 +242,11 @@ namespace CapaPresentacion
         #endregion
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxTipoServicio_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

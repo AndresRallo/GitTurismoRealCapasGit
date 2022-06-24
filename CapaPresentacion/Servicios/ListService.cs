@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace CapaPresentacion.Servicios
         public ListService()
         {
             InitializeComponent();
+            listar();
+        }
+        public void listar()
+        {
+            CNService cNService = new CNService();
+            gridServicios.DataSource = cNService.ListALLService();
+        }
+        private void gridServicios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
