@@ -104,6 +104,12 @@
     <Compile Include="Departamentos\Adjunto.Designer.cs">
       <DependentUpon>Adjunto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Departamentos\AdjuntoEditar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departamentos\AdjuntoEditar.Designer.cs">
+      <DependentUpon>AdjuntoEditar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Departamentos\AgregarDepartamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Departamentos\Adjunto.resx">
       <DependentUpon>Adjunto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departamentos\AdjuntoEditar.resx">
+      <DependentUpon>AdjuntoEditar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Departamentos\AgregarDepartamento.resx">
       <DependentUpon>AgregarDepartamento.cs</DependentUpon>

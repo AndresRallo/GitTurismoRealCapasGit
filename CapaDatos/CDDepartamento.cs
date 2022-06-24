@@ -64,7 +64,7 @@ namespace CapaDatos
             }
         }
 
-
+        
 
         public bool CAMBIAR_ESTADO_DEPARTAMENTO(CEDepartamento cE)
         {
@@ -273,7 +273,44 @@ namespace CapaDatos
                 throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
             }
         }
+        public bool CrearAdjunto(CEAdjunto adjunto)
+        {
+            try
+            {
+                string salida = string.Empty;
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+                    OracleCommand command = new OracleCommand("SP_SET_ADD_ADJUNTO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("NOMBRE", OracleType.NVarChar).Value = adjunto.AD_NOMBRE;
+                    command.Parameters.Add("FECHA", OracleType.DateTime).Value = adjunto.AD_FECHACREACION;
+                    command.Parameters.Add("IDDEPTO", OracleType.Number).Value = Convert.ToInt32(adjunto.IDDEPARTAMENTO);
+                    command.Parameters.Add("IDESTADO", OracleType.Number).Value = Convert.ToInt32(adjunto.IDESTADO);
 
+                    OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
+                    par.Direction = ParameterDirection.Output;
+                    par.Size = 250;
+                    command.Parameters.Add(par);
+                    command.ExecuteNonQuery();
+                    salida = command.Parameters["V_DETALLE"].Value.ToString();
+
+
+                    conn.Close();
+                }
+                 if(string.IsNullOrEmpty(salida))
+
+                    return true;
+                else
+
+                    return false;
+            }
+            catch (OracleException oex)
+            {
+
+                throw new TechnicalException("No se creó el adjunto" + oex.Message);
+            }
+        }
         public bool CrearDepartamento(CEDepartamento depto)
         {
             try
@@ -392,6 +429,8 @@ namespace CapaDatos
 
         #region ListaCaracteristicasDeptoJoin()
 
+        
+
         public List<CEDeptoListaJoin> ListaCaracteristicasDeptoJoin()
         {
             try
@@ -459,6 +498,149 @@ namespace CapaDatos
             catch (Exception ex)
             {
                 throw new TechnicalException("Error al obtener listado de departamentos", ex);
+            }
+        }
+
+
+        public List<CEAdjuntos> ListarAdjuntosJoin()
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CEAdjuntos> LISTA_ADJUNTOS = new List<CEAdjuntos>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+
+                    OracleCommand command = new OracleCommand("SP_GET_ADJUNTO_BY_DEPTO_VER_EDITAR", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        CEAdjuntos departamentoAdjuntos = new CEAdjuntos
+                        {
+                            //depto
+                            IDDEPARTAMENTO = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
+                            nombreDepto = Convert.ToString(mostrarTabla["DE_NOMBRE"].ToString()),
+                            //adjunto
+                            IDADJUNTOHABITACION = Convert.ToInt32(mostrarTabla["IDADJUNTOHABITACION"]),
+                            AD_NOMBRE = Convert.ToString(mostrarTabla["AD_NOMBRE"].ToString()),
+                            AD_FECHACREACION = Convert.ToDateTime(mostrarTabla["AD_FECHACREACION"]),
+                            AD_TIPOARCHIVO = Convert.ToString(mostrarTabla["AD_NOMBRE"].ToString()),
+                            //sys_estado
+                            IDESTADO = Convert.ToInt32(mostrarTabla["IDESTADO"]),
+                            estado = Convert.ToString(mostrarTabla["ES_DESCRIPCION"].ToString())
+                        };
+                        LISTA_ADJUNTOS.Add(departamentoAdjuntos);
+                    }
+                    conn.Close();
+                }
+                return LISTA_ADJUNTOS;
+            }
+            catch (OracleException oex)
+            {
+
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new TechnicalException("Error al obtener listado de adjuntoos", ex);
+            }
+        }
+
+        public bool EliminarAdjuntoPorId(CEAdjunto adjunto)
+        {
+
+            try
+            {
+                string salida = string.Empty;
+                using (OracleConnection conn = new OracleConnection(conexion))
+                {
+                    DialogResult result;
+                    result = MessageBox.Show("¿Esta seguro de eliminar adjunto?", "Cambiar Adjunto", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        conn.Open();
+                        OracleCommand command = new OracleCommand("SP_SET_DELETE_ADJUNTO", conn);
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+                        command.Parameters.Add("IDADJ", OracleType.Number).Value = Convert.ToInt32(adjunto.IDADJUNTOHABITACION);
+
+                        OracleParameter par = new OracleParameter("V_DETALLE", OracleType.VarChar);
+                        par.Direction = ParameterDirection.Output;
+                        par.Size = 250;
+                        command.Parameters.Add(par);
+                        command.ExecuteNonQuery();
+                        salida = command.Parameters["V_DETALLE"].Value.ToString();
+                        conn.Close();
+                    }
+                }
+                if (string.IsNullOrEmpty(salida))
+                    return true;
+                else
+                    return false;
+            }
+            catch (OracleException orex)
+            {
+                return false;
+            }
+            catch (Exception ex)
+            {
+                //ex.Message;
+                //ex.StackTrace;
+                //agregar ex al Log
+                return false;
+            }
+
+        }
+
+        public List<CEAdjuntos> ListarAdjuntosJoinPorIdDepto(string idDepto)
+        {
+            try
+            {
+                OracleDataReader mostrarTabla;
+                List<CEAdjuntos> LISTA_ADJUNTOS = new List<CEAdjuntos>();
+                using (OracleConnection conn = new OracleConnection(ConfigurationManager.AppSettings["conn"]))
+                {
+                    conn.Open();
+
+                    OracleCommand command = new OracleCommand("SP_GET_ADJUNTO_BY_DEPTO_VER_EDITAR_BY_IDDEPTO", conn);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("V_RESULT", OracleType.Cursor).Direction = ParameterDirection.Output;
+                    command.Parameters.Add("IDDEPTO", OracleType.NVarChar).Value = idDepto;
+                    mostrarTabla = command.ExecuteReader();
+                    while (mostrarTabla.Read())
+                    {
+                        
+                        CEAdjuntos departamentoAdjuntos = new CEAdjuntos
+                        {
+                            
+                            //depto
+                            IDDEPARTAMENTO = Convert.ToInt32(mostrarTabla["IDDEPARTAMENTO"]),
+                            nombreDepto = Convert.ToString(mostrarTabla["DE_NOMBRE"].ToString()),
+                            //adjunto
+                            IDADJUNTOHABITACION = Convert.ToInt32(mostrarTabla["IDADJUNTOHABITACION"]),
+                            AD_NOMBRE = Convert.ToString(mostrarTabla["AD_NOMBRE"].ToString()),
+                            AD_FECHACREACION = Convert.ToDateTime(mostrarTabla["AD_FECHACREACION"]),
+                            AD_TIPOARCHIVO = Convert.ToString(mostrarTabla["AD_NOMBRE"].ToString()),
+                            //sys_estado
+                            IDESTADO = Convert.ToInt32(mostrarTabla["IDESTADO"]),
+                            estado = Convert.ToString(mostrarTabla["ES_DESCRIPCION"].ToString())
+                        };
+                        LISTA_ADJUNTOS.Add(departamentoAdjuntos);
+                    }
+                    conn.Close();     
+                }
+                return LISTA_ADJUNTOS;
+            }
+            catch (OracleException oex)
+            {
+
+                throw new TechnicalException("LISTA NO ENCONTRADA" + oex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new TechnicalException("Error al obtener listado de adjuntoos", ex);
             }
         }
         #endregion

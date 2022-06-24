@@ -37,6 +37,7 @@ namespace CapaPresentacion.Departamentos
             this.lblMantenedorEmpleado = new System.Windows.Forms.Label();
             this.btnConexion = new System.Windows.Forms.Button();
             this.btnAdjuntos = new System.Windows.Forms.Button();
+            this.btnAdjuntosLisEli = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVolver
@@ -111,19 +112,30 @@ namespace CapaPresentacion.Departamentos
             // 
             // btnAdjuntos
             // 
-            this.btnAdjuntos.Location = new System.Drawing.Point(313, 294);
+            this.btnAdjuntos.Location = new System.Drawing.Point(132, 293);
             this.btnAdjuntos.Name = "btnAdjuntos";
             this.btnAdjuntos.Size = new System.Drawing.Size(135, 23);
             this.btnAdjuntos.TabIndex = 14;
-            this.btnAdjuntos.Text = "Adjuntos";
+            this.btnAdjuntos.Text = "Adjuntos Agregar";
             this.btnAdjuntos.UseVisualStyleBackColor = true;
             this.btnAdjuntos.Click += new System.EventHandler(this.btnAdjuntos_Click);
+            // 
+            // btnAdjuntosLisEli
+            // 
+            this.btnAdjuntosLisEli.Location = new System.Drawing.Point(304, 293);
+            this.btnAdjuntosLisEli.Name = "btnAdjuntosLisEli";
+            this.btnAdjuntosLisEli.Size = new System.Drawing.Size(135, 23);
+            this.btnAdjuntosLisEli.TabIndex = 15;
+            this.btnAdjuntosLisEli.Text = "Adjuntos Listar Eliminar";
+            this.btnAdjuntosLisEli.UseVisualStyleBackColor = true;
+            this.btnAdjuntosLisEli.Click += new System.EventHandler(this.btnAdjuntosLisEli_Click);
             // 
             // MantDepartamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAdjuntosLisEli);
             this.Controls.Add(this.btnAdjuntos);
             this.Controls.Add(this.btnConexion);
             this.Controls.Add(this.btnVolver);
@@ -148,5 +160,6 @@ namespace CapaPresentacion.Departamentos
         private System.Windows.Forms.Label lblMantenedorEmpleado;
         private System.Windows.Forms.Button btnConexion;
         private System.Windows.Forms.Button btnAdjuntos;
+        private System.Windows.Forms.Button btnAdjuntosLisEli;
     }
 }

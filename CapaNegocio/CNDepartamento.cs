@@ -32,14 +32,40 @@ namespace CapaNegocio
             return listaDepto;
         }
 
+        public List<CEAdjuntos> ListarAdjuntosJoin()
+        {
+            List<CEAdjuntos> listaAdjuntos = new List<CEAdjuntos>();
+            listaAdjuntos = cDDepartamento.ListarAdjuntosJoin();
+            return listaAdjuntos;
+        }
+
+        public List<CEAdjuntos> ListarAdjuntosPorIdDepto(string idDepto)
+        {
+            //ListarAdjuntosJoinPorIdDepto
+            List<CEAdjuntos> listaAdjuntosIdDepto = new List<CEAdjuntos>();
+            return listaAdjuntosIdDepto = cDDepartamento.ListarAdjuntosJoinPorIdDepto(idDepto);
+        }
+
         public void EliminarDepartamento(CEDepartamento departamento)
         {
             cDDepartamento.EliminarDepartamento(departamento);
         }
 
+        
+
         public bool CrearDepartamento(CEDepartamento depto)
         {
             return cDDepartamento.CrearDepartamento(depto);
+        }
+        public bool CrearAdjunto(CEAdjunto adjunto)
+        {
+            return cDDepartamento.CrearAdjunto(adjunto);
+        }
+
+        public bool EliminarAdjunto(CEAdjunto adjunto)
+        {
+
+            return cDDepartamento.EliminarAdjuntoPorId(adjunto);
         }
 
         public bool ActualizarDepartamento(CEDepartamento depto)
@@ -53,6 +79,8 @@ namespace CapaNegocio
             listaTDDepartamento = cDDepartamento.TipoDepto();
             return listaTDDepartamento;
         }
+
+        
 
         public bool CAMBIAR_ESTADO_DEPARTAMENTO(CEDepartamento cE)
         {

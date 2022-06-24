@@ -64,5 +64,13 @@ namespace CapaPresentacion.Departamentos
             adjunto.Show();
             this.Close();
         }
+
+        private void btnAdjuntosLisEli_Click(object sender, EventArgs e)
+        {
+            AdjuntoEditar adjuntoLisEdit = new AdjuntoEditar();
+
+            adjuntoLisEdit.Show();
+            this.Close();
+        }
     }
 }
