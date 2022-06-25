@@ -19,7 +19,7 @@ namespace CapaPresentacion
     public partial class EditarEmpleado : Form
     {
         CNEmpleado cNEmpleado = new CNEmpleado();
-
+        Librarys librarys = new Librarys();
 
 
         public EditarEmpleado()
@@ -162,6 +162,62 @@ namespace CapaPresentacion
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (txtNOMBRE.Text == "")
+            {
+                lblNombre.Text = "Falta Nombre";
+                lblNombre.ForeColor = Color.Red;
+            }
+            if (txtAPATERNO.Text == "")
+            {
+                lblAPaterno.Text = "Falta Ap. Paterno";
+                lblAPaterno.ForeColor = Color.Red;
+            }
+            if (txtAMATERNO.Text == "")
+            {
+                lblAMaterno.Text = "Falta Ap. Materno";
+                lblAMaterno.ForeColor = Color.Red;
+            }
+            
+            if (txtPW.Text == "")
+            {
+                lblContrasenia.Text = "Falta Contraseña";
+                lblContrasenia.ForeColor = Color.Red;
+            }
+            
+            if (txtDIRECCION.Text == "")
+            {
+                lblDireccion.Text = "Falta Dirección";
+                lblDireccion.ForeColor = Color.Red;
+
+            }
+            if (txtNUM_DIRECCION.Text == "")
+            {
+                lblNumDireccion.Text = "Falta Número";
+                lblNumDireccion.ForeColor = Color.Red;
+            }
+            if(txtPatenteVe.Text == "")
+            {
+                lblPatenteVe.Text = "Falta Patente";
+                lblPatenteVe.ForeColor = Color.Red;
+            }
+            if(txtMarcaVe.Text == "")
+            {
+                lblMarcaVe.Text = "Falta Marca";
+                lblMarcaVe.ForeColor = Color.Red;
+            }
+            if(txtAnioVe.Text == "")
+            {
+                lblAnioVe.Text = "Falta Anio";
+                lblAnioVe.ForeColor = Color.Red;
+            }
+            else
+            {
+                ActualizarEmpleado();
+            }
+        }
+
+        private void ActualizarEmpleado()
         {
             try
             {
@@ -318,6 +374,101 @@ namespace CapaPresentacion
         private void dataGridViewEmpleados_KeyUp(object sender, KeyEventArgs e)
         {
             getEMPLEADOS();
+        }
+
+        private void lblNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNOMBRE_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNOMBRE.Text.Equals(""))
+            {
+                lblNombre.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblNombre.ForeColor = Color.ForestGreen;
+                lblNombre.Text = "Nombre";
+            }
+        }
+
+        private void txtNOMBRE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloTextoSinSaltoNiEspacioNiNumeros(e);
+        }
+
+        private void txtAPATERNO_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAPATERNO.Text.Equals(""))
+            {
+                lblAPaterno.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblAPaterno.ForeColor = Color.ForestGreen;
+                lblAPaterno.Text = "Apellido Paterno";
+            }
+        }
+
+        private void txtAPATERNO_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloTextoSinSaltoNiEspacioNiNumeros(e);
+        }
+
+        private void txtAMATERNO_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAMATERNO.Text.Equals(""))
+            {
+                lblAMaterno.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblAMaterno.ForeColor = Color.ForestGreen;
+                lblAMaterno.Text = "Apellido Materno";
+            }
+        }
+
+        private void txtAMATERNO_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloTextoSinSaltoNiEspacioNiNumeros(e);
+        }
+
+        private void txtDIRECCION_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDIRECCION.Text.Equals(""))
+            {
+                lblDireccion.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblDireccion.ForeColor = Color.ForestGreen;
+                lblDireccion.Text = "Dirección";
+            }
+        }
+
+        private void txtDIRECCION_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtNUM_DIRECCION_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNUM_DIRECCION.Text.Equals(""))
+            {
+                lblNumDireccion.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblNumDireccion.ForeColor = Color.ForestGreen;
+                lblNumDireccion.Text = "Número";
+            }
+        }
+
+        private void txtNUM_DIRECCION_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloNumerosSinEspacios(e);
         }
     }
 }

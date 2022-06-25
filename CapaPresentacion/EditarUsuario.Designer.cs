@@ -45,11 +45,6 @@ namespace CapaPresentacion
             this.btnListar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.dgvUSER = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbESTADO = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ES_DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDUSUARIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uSRUTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uSDVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +55,12 @@ namespace CapaPresentacion
             this.uSEMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uSCONTRASEÑADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDESTADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ES_DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cEUSERESTADOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbESTADO = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.cEUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUSER)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cEUSERESTADOBindingSource)).BeginInit();
@@ -91,6 +91,8 @@ namespace CapaPresentacion
             this.txtAMaterno.Name = "txtAMaterno";
             this.txtAMaterno.Size = new System.Drawing.Size(100, 20);
             this.txtAMaterno.TabIndex = 55;
+            this.txtAMaterno.TextChanged += new System.EventHandler(this.txtAMaterno_TextChanged);
+            this.txtAMaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAMaterno_KeyPress);
             // 
             // txtAPaterno
             // 
@@ -98,6 +100,8 @@ namespace CapaPresentacion
             this.txtAPaterno.Name = "txtAPaterno";
             this.txtAPaterno.Size = new System.Drawing.Size(100, 20);
             this.txtAPaterno.TabIndex = 54;
+            this.txtAPaterno.TextChanged += new System.EventHandler(this.txtAPaterno_TextChanged);
+            this.txtAPaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAPaterno_KeyPress);
             // 
             // txtNom
             // 
@@ -105,6 +109,8 @@ namespace CapaPresentacion
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(100, 20);
             this.txtNom.TabIndex = 53;
+            this.txtNom.TextChanged += new System.EventHandler(this.txtNom_TextChanged);
+            this.txtNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNom_KeyPress);
             // 
             // lblContrasenia
             // 
@@ -213,54 +219,6 @@ namespace CapaPresentacion
             this.dgvUSER.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUSER_CellClick);
             this.dgvUSER.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvUSER_KeyUp);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(246, 13);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "* Para editar usuario ingrese su ID correspondiente";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(273, 46);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Editar Usuario";
-            // 
-            // cbESTADO
-            // 
-            this.cbESTADO.AutoCompleteCustomSource.AddRange(new string[] {
-            "",
-            "1. Administrador",
-            "2. Recepcionista",
-            "3. Chofer",
-            "4. Guia Turistico"});
-            this.cbESTADO.FormattingEnabled = true;
-            this.cbESTADO.Location = new System.Drawing.Point(111, 245);
-            this.cbESTADO.Name = "cbESTADO";
-            this.cbESTADO.Size = new System.Drawing.Size(100, 21);
-            this.cbESTADO.TabIndex = 63;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 253);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
-            this.label3.TabIndex = 64;
-            this.label3.Text = "ID Estado";
-            // 
-            // ES_DESCRIPCION
-            // 
-            this.ES_DESCRIPCION.DataPropertyName = "ES_DESCRIPCION";
-            this.ES_DESCRIPCION.HeaderText = "ES_DESCRIPCION";
-            this.ES_DESCRIPCION.Name = "ES_DESCRIPCION";
-            // 
             // iDUSUARIODataGridViewTextBoxColumn
             // 
             this.iDUSUARIODataGridViewTextBoxColumn.DataPropertyName = "IDUSUARIO";
@@ -321,9 +279,57 @@ namespace CapaPresentacion
             this.iDESTADODataGridViewTextBoxColumn.HeaderText = "IDESTADO";
             this.iDESTADODataGridViewTextBoxColumn.Name = "iDESTADODataGridViewTextBoxColumn";
             // 
+            // ES_DESCRIPCION
+            // 
+            this.ES_DESCRIPCION.DataPropertyName = "ES_DESCRIPCION";
+            this.ES_DESCRIPCION.HeaderText = "ES_DESCRIPCION";
+            this.ES_DESCRIPCION.Name = "ES_DESCRIPCION";
+            // 
             // cEUSERESTADOBindingSource
             // 
             this.cEUSERESTADOBindingSource.DataSource = typeof(CapaEntidad.CEUSER_ESTADO);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(246, 13);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "* Para editar usuario ingrese su ID correspondiente";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(273, 46);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Editar Usuario";
+            // 
+            // cbESTADO
+            // 
+            this.cbESTADO.AutoCompleteCustomSource.AddRange(new string[] {
+            "",
+            "1. Administrador",
+            "2. Recepcionista",
+            "3. Chofer",
+            "4. Guia Turistico"});
+            this.cbESTADO.FormattingEnabled = true;
+            this.cbESTADO.Location = new System.Drawing.Point(111, 245);
+            this.cbESTADO.Name = "cbESTADO";
+            this.cbESTADO.Size = new System.Drawing.Size(100, 21);
+            this.cbESTADO.TabIndex = 63;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 253);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.TabIndex = 64;
+            this.label3.Text = "ID Estado";
             // 
             // cEUsuarioBindingSource
             // 

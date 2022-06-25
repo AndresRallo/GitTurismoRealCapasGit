@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaNegocio;
+using CapaNegocio.Library;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace CapaPresentacion
     public partial class EditarUsuario : Form
     {
         CNUsuario cNUsuario = new CNUsuario();
+        Librarys librarys = new Librarys();
         public EditarUsuario()
         {
             InitializeComponent();
@@ -28,15 +30,38 @@ namespace CapaPresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if(txtNom.Text == "")
+            {
+                lblNombre.Text = "Falta Nombre";
+                lblNombre.ForeColor = Color.Red;
+            }
+            if(txtAPaterno.Text == "")
+            {
+                lblAPaterno.Text = "Falta Apellido Paterno";
+                lblAPaterno.ForeColor = Color.Red;
+            }
+            if(txtAMaterno.Text == "")
+            {
+                lblAMaterno.Text = "Falta Apellido Materno";
+                lblAMaterno.ForeColor = Color.Red;
+            }
+            else
+            {
+                ActualizarUsuario();
+            }
+        }
+
+        private void ActualizarUsuario()
+        {
             try
             {
                 CEUsuario usuario = new CEUsuario();
                 usuario.IDUSUARIO = Convert.ToInt32(txtIDUsuario.Text);
-                
+
                 usuario.US_NOMBRE = txtNom.Text;
                 usuario.US_APATERNO = txtAPaterno.Text;
                 usuario.US_AMATERNO = txtAMaterno.Text;
-                
+
                 usuario.US_CONTRASEÑA = txtContrasenia.Text;
                 usuario.IDESTADO = Convert.ToInt32(cbESTADO.SelectedValue);
 
@@ -49,7 +74,7 @@ namespace CapaPresentacion
             catch (Exception ex)
             {
 
-                MessageBox.Show("Usuadio No Editado"+ex);
+                MessageBox.Show("Usuadio No Editado" + ex);
             }
         }
 
@@ -116,6 +141,60 @@ namespace CapaPresentacion
         private void dgvUSER_KeyUp(object sender, KeyEventArgs e)
         {
             getUSER();
+        }
+
+        private void txtNom_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNom.Text.Equals(""))
+            {
+                lblNombre.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblNombre.ForeColor = Color.ForestGreen;
+                lblNombre.Text = "Nombre";
+            }
+        }
+
+        private void txtNom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloTextoSinSaltoNiEspacioNiNumeros(e);
+        }
+
+        private void txtAPaterno_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAPaterno.Text.Equals(""))
+            {
+                lblAPaterno.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblAPaterno.ForeColor = Color.ForestGreen;
+                lblAPaterno.Text = "Nombre";
+            }
+        }
+
+        private void txtAPaterno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloTextoSinSaltoNiEspacioNiNumeros(e);
+        }
+
+        private void txtAMaterno_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAMaterno.Text.Equals(""))
+            {
+                lblAMaterno.ForeColor = Color.DarkOrange;
+            }
+            else
+            {
+                lblAMaterno.ForeColor = Color.ForestGreen;
+                lblAMaterno.Text = "Nombre";
+            }
+        }
+
+        private void txtAMaterno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            librarys.textBoxEvent.SoloTextoSinSaltoNiEspacioNiNumeros(e);
         }
     }
 }

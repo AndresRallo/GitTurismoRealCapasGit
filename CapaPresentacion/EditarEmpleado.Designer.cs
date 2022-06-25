@@ -33,42 +33,6 @@ namespace CapaPresentacion
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewEmpleados = new System.Windows.Forms.DataGridView();
-            this.cEEmpleadoDireccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnVolver = new System.Windows.Forms.Button();
-            this.btnListar = new System.Windows.Forms.Button();
-            this.btnProbarConexion = new System.Windows.Forms.Button();
-            this.lblIDEmpleado = new System.Windows.Forms.Label();
-            this.txtIDEmpleado = new System.Windows.Forms.TextBox();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.txtNUM_DIRECCION = new System.Windows.Forms.TextBox();
-            this.lblNumDireccion = new System.Windows.Forms.Label();
-            this.lblDireccion = new System.Windows.Forms.Label();
-            this.txtDIRECCION = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtAMATERNO = new System.Windows.Forms.TextBox();
-            this.txtAPATERNO = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtNOMBRE = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtIDDireccion = new System.Windows.Forms.TextBox();
-            this.cbIDTipo = new System.Windows.Forms.ComboBox();
-            this.lblIDTipo = new System.Windows.Forms.Label();
-            this.groupBoxVehiculo = new System.Windows.Forms.GroupBox();
-            this.txtAnioVe = new System.Windows.Forms.TextBox();
-            this.lblAnioVe = new System.Windows.Forms.Label();
-            this.txtMarcaVe = new System.Windows.Forms.TextBox();
-            this.lblMarcaVe = new System.Windows.Forms.Label();
-            this.txtPatenteVe = new System.Windows.Forms.TextBox();
-            this.lblPatenteVe = new System.Windows.Forms.Label();
-            this.cbESTADO = new System.Windows.Forms.ComboBox();
-            this.lblIDEstado = new System.Windows.Forms.Label();
-            this.cbRegion = new System.Windows.Forms.ComboBox();
-            this.cbComuna = new System.Windows.Forms.ComboBox();
-            this.lblComuna = new System.Windows.Forms.Label();
-            this.lblRegion = new System.Windows.Forms.Label();
-            this.txtPW = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.IDEMPLEADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VE_MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VE_ANIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,6 +52,42 @@ namespace CapaPresentacion
             this.cdescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDREGION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rEDESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cEEmpleadoDireccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnProbarConexion = new System.Windows.Forms.Button();
+            this.lblIDEmpleado = new System.Windows.Forms.Label();
+            this.txtIDEmpleado = new System.Windows.Forms.TextBox();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.txtNUM_DIRECCION = new System.Windows.Forms.TextBox();
+            this.lblNumDireccion = new System.Windows.Forms.Label();
+            this.lblDireccion = new System.Windows.Forms.Label();
+            this.txtDIRECCION = new System.Windows.Forms.TextBox();
+            this.lblAMaterno = new System.Windows.Forms.Label();
+            this.txtAMATERNO = new System.Windows.Forms.TextBox();
+            this.txtAPATERNO = new System.Windows.Forms.TextBox();
+            this.lblAPaterno = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtNOMBRE = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtIDDireccion = new System.Windows.Forms.TextBox();
+            this.cbIDTipo = new System.Windows.Forms.ComboBox();
+            this.lblIDTipo = new System.Windows.Forms.Label();
+            this.groupBoxVehiculo = new System.Windows.Forms.GroupBox();
+            this.txtAnioVe = new System.Windows.Forms.TextBox();
+            this.lblAnioVe = new System.Windows.Forms.Label();
+            this.txtMarcaVe = new System.Windows.Forms.TextBox();
+            this.lblMarcaVe = new System.Windows.Forms.Label();
+            this.txtPatenteVe = new System.Windows.Forms.TextBox();
+            this.lblPatenteVe = new System.Windows.Forms.Label();
+            this.cbESTADO = new System.Windows.Forms.ComboBox();
+            this.lblIDEstado = new System.Windows.Forms.Label();
+            this.cbRegion = new System.Windows.Forms.ComboBox();
+            this.cbComuna = new System.Windows.Forms.ComboBox();
+            this.lblComuna = new System.Windows.Forms.Label();
+            this.lblRegion = new System.Windows.Forms.Label();
+            this.txtPW = new System.Windows.Forms.TextBox();
+            this.lblContrasenia = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cEEmpleadoDireccionBindingSource)).BeginInit();
             this.groupBoxVehiculo.SuspendLayout();
@@ -147,6 +147,129 @@ namespace CapaPresentacion
             this.dataGridViewEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmpleados_CellClick);
             this.dataGridViewEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmpleados_CellDoubleClick);
             this.dataGridViewEmpleados.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridViewEmpleados_KeyUp);
+            // 
+            // IDEMPLEADO
+            // 
+            this.IDEMPLEADO.DataPropertyName = "IDEMPLEADO";
+            this.IDEMPLEADO.HeaderText = "IDEMPLEADO";
+            this.IDEMPLEADO.Name = "IDEMPLEADO";
+            // 
+            // VE_MARCA
+            // 
+            this.VE_MARCA.DataPropertyName = "VE_MARCA";
+            this.VE_MARCA.HeaderText = "VE_MARCA";
+            this.VE_MARCA.Name = "VE_MARCA";
+            this.VE_MARCA.Visible = false;
+            // 
+            // VE_ANIO
+            // 
+            this.VE_ANIO.DataPropertyName = "VE_ANIO";
+            this.VE_ANIO.HeaderText = "VE_ANIO";
+            this.VE_ANIO.Name = "VE_ANIO";
+            this.VE_ANIO.Visible = false;
+            // 
+            // VE_PATENTE
+            // 
+            this.VE_PATENTE.DataPropertyName = "VE_PATENTE";
+            this.VE_PATENTE.HeaderText = "VE_PATENTE";
+            this.VE_PATENTE.Name = "VE_PATENTE";
+            this.VE_PATENTE.Visible = false;
+            // 
+            // iDDIRECCION
+            // 
+            this.iDDIRECCION.DataPropertyName = "IDDIRECCION";
+            this.iDDIRECCION.HeaderText = "IDDIRECCION";
+            this.iDDIRECCION.Name = "iDDIRECCION";
+            this.iDDIRECCION.Visible = false;
+            // 
+            // eMNOMBRE
+            // 
+            this.eMNOMBRE.DataPropertyName = "EM_NOMBRE";
+            this.eMNOMBRE.HeaderText = "NOMBRE";
+            this.eMNOMBRE.Name = "eMNOMBRE";
+            // 
+            // eMAPATERNO
+            // 
+            this.eMAPATERNO.DataPropertyName = "EM_APATERNO";
+            this.eMAPATERNO.HeaderText = "APELLIDO PATERNO";
+            this.eMAPATERNO.Name = "eMAPATERNO";
+            // 
+            // eMAMATERNO
+            // 
+            this.eMAMATERNO.DataPropertyName = "EM_AMATERNO";
+            this.eMAMATERNO.HeaderText = "APELLIDO MATERNO";
+            this.eMAMATERNO.Name = "eMAMATERNO";
+            // 
+            // eMCONTRASEÑA
+            // 
+            this.eMCONTRASEÑA.DataPropertyName = "EM_CONTRASEÑA";
+            this.eMCONTRASEÑA.HeaderText = "EM_CONTRASEÑA";
+            this.eMCONTRASEÑA.Name = "eMCONTRASEÑA";
+            this.eMCONTRASEÑA.Visible = false;
+            // 
+            // de_direccion
+            // 
+            this.de_direccion.DataPropertyName = "de_direccion";
+            this.de_direccion.HeaderText = "DIRECCIÓN";
+            this.de_direccion.Name = "de_direccion";
+            // 
+            // de_numero
+            // 
+            this.de_numero.DataPropertyName = "de_numero";
+            this.de_numero.HeaderText = "NÚMERO";
+            this.de_numero.Name = "de_numero";
+            // 
+            // iDTIPOEMPLEADO
+            // 
+            this.iDTIPOEMPLEADO.DataPropertyName = "IDTIPOEMPLEADO";
+            this.iDTIPOEMPLEADO.HeaderText = "IDTIPOEMPLEADO";
+            this.iDTIPOEMPLEADO.Name = "iDTIPOEMPLEADO";
+            this.iDTIPOEMPLEADO.Visible = false;
+            // 
+            // TP_DESCRIPCION
+            // 
+            this.TP_DESCRIPCION.DataPropertyName = "TP_DESCRIPCION";
+            this.TP_DESCRIPCION.HeaderText = "TIPO EMPLEADO";
+            this.TP_DESCRIPCION.Name = "TP_DESCRIPCION";
+            // 
+            // iDESTADO
+            // 
+            this.iDESTADO.DataPropertyName = "IDESTADO";
+            this.iDESTADO.HeaderText = "IDESTADO";
+            this.iDESTADO.Name = "iDESTADO";
+            this.iDESTADO.Visible = false;
+            // 
+            // ES_DESCRIPCION
+            // 
+            this.ES_DESCRIPCION.DataPropertyName = "ES_DESCRIPCION";
+            this.ES_DESCRIPCION.HeaderText = "ESTADO";
+            this.ES_DESCRIPCION.Name = "ES_DESCRIPCION";
+            // 
+            // idcomuna
+            // 
+            this.idcomuna.DataPropertyName = "id_comuna";
+            this.idcomuna.HeaderText = "id_comuna";
+            this.idcomuna.Name = "idcomuna";
+            this.idcomuna.Visible = false;
+            // 
+            // cdescripcion
+            // 
+            this.cdescripcion.DataPropertyName = "c_descripcion";
+            this.cdescripcion.HeaderText = "COMUNA";
+            this.cdescripcion.Name = "cdescripcion";
+            // 
+            // iDREGION
+            // 
+            this.iDREGION.DataPropertyName = "IDREGION";
+            this.iDREGION.HeaderText = "IDREGION";
+            this.iDREGION.Name = "iDREGION";
+            this.iDREGION.Visible = false;
+            // 
+            // rEDESCRIPCION
+            // 
+            this.rEDESCRIPCION.DataPropertyName = "RE_DESCRIPCION";
+            this.rEDESCRIPCION.HeaderText = "REGIÓN";
+            this.rEDESCRIPCION.Name = "rEDESCRIPCION";
             // 
             // cEEmpleadoDireccionBindingSource
             // 
@@ -215,6 +338,8 @@ namespace CapaPresentacion
             this.txtNUM_DIRECCION.Name = "txtNUM_DIRECCION";
             this.txtNUM_DIRECCION.Size = new System.Drawing.Size(146, 20);
             this.txtNUM_DIRECCION.TabIndex = 57;
+            this.txtNUM_DIRECCION.TextChanged += new System.EventHandler(this.txtNUM_DIRECCION_TextChanged);
+            this.txtNUM_DIRECCION.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNUM_DIRECCION_KeyPress);
             // 
             // lblNumDireccion
             // 
@@ -240,15 +365,17 @@ namespace CapaPresentacion
             this.txtDIRECCION.Name = "txtDIRECCION";
             this.txtDIRECCION.Size = new System.Drawing.Size(146, 20);
             this.txtDIRECCION.TabIndex = 52;
+            this.txtDIRECCION.TextChanged += new System.EventHandler(this.txtDIRECCION_TextChanged);
+            this.txtDIRECCION.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDIRECCION_KeyPress);
             // 
-            // label7
+            // lblAMaterno
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 170);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 13);
-            this.label7.TabIndex = 48;
-            this.label7.Text = "Apellido Materno";
+            this.lblAMaterno.AutoSize = true;
+            this.lblAMaterno.Location = new System.Drawing.Point(21, 170);
+            this.lblAMaterno.Name = "lblAMaterno";
+            this.lblAMaterno.Size = new System.Drawing.Size(86, 13);
+            this.lblAMaterno.TabIndex = 48;
+            this.lblAMaterno.Text = "Apellido Materno";
             // 
             // txtAMATERNO
             // 
@@ -256,6 +383,8 @@ namespace CapaPresentacion
             this.txtAMATERNO.Name = "txtAMATERNO";
             this.txtAMATERNO.Size = new System.Drawing.Size(146, 20);
             this.txtAMATERNO.TabIndex = 45;
+            this.txtAMATERNO.TextChanged += new System.EventHandler(this.txtAMATERNO_TextChanged);
+            this.txtAMATERNO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAMATERNO_KeyPress);
             // 
             // txtAPATERNO
             // 
@@ -263,24 +392,27 @@ namespace CapaPresentacion
             this.txtAPATERNO.Name = "txtAPATERNO";
             this.txtAPATERNO.Size = new System.Drawing.Size(146, 20);
             this.txtAPATERNO.TabIndex = 44;
+            this.txtAPATERNO.TextChanged += new System.EventHandler(this.txtAPATERNO_TextChanged);
+            this.txtAPATERNO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAPATERNO_KeyPress);
             // 
-            // label8
+            // lblAPaterno
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 144);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 13);
-            this.label8.TabIndex = 43;
-            this.label8.Text = "Apellido Paterno";
+            this.lblAPaterno.AutoSize = true;
+            this.lblAPaterno.Location = new System.Drawing.Point(21, 144);
+            this.lblAPaterno.Name = "lblAPaterno";
+            this.lblAPaterno.Size = new System.Drawing.Size(84, 13);
+            this.lblAPaterno.TabIndex = 43;
+            this.lblAPaterno.Text = "Apellido Paterno";
             // 
-            // label9
+            // lblNombre
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 118);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 13);
-            this.label9.TabIndex = 42;
-            this.label9.Text = "Nombre";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(21, 118);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.TabIndex = 42;
+            this.lblNombre.Text = "Nombre";
+            this.lblNombre.TextChanged += new System.EventHandler(this.lblNombre_TextChanged);
             // 
             // txtNOMBRE
             // 
@@ -288,6 +420,8 @@ namespace CapaPresentacion
             this.txtNOMBRE.Name = "txtNOMBRE";
             this.txtNOMBRE.Size = new System.Drawing.Size(146, 20);
             this.txtNOMBRE.TabIndex = 41;
+            this.txtNOMBRE.TextChanged += new System.EventHandler(this.txtNOMBRE_TextChanged);
+            this.txtNOMBRE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNOMBRE_KeyPress);
             // 
             // label12
             // 
@@ -468,137 +602,14 @@ namespace CapaPresentacion
             this.txtPW.TabIndex = 47;
             this.txtPW.TextChanged += new System.EventHandler(this.txtPW_TextChanged);
             // 
-            // label5
+            // lblContrasenia
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 196);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 50;
-            this.label5.Text = "Contraseña";
-            // 
-            // IDEMPLEADO
-            // 
-            this.IDEMPLEADO.DataPropertyName = "IDEMPLEADO";
-            this.IDEMPLEADO.HeaderText = "IDEMPLEADO";
-            this.IDEMPLEADO.Name = "IDEMPLEADO";
-            // 
-            // VE_MARCA
-            // 
-            this.VE_MARCA.DataPropertyName = "VE_MARCA";
-            this.VE_MARCA.HeaderText = "VE_MARCA";
-            this.VE_MARCA.Name = "VE_MARCA";
-            this.VE_MARCA.Visible = false;
-            // 
-            // VE_ANIO
-            // 
-            this.VE_ANIO.DataPropertyName = "VE_ANIO";
-            this.VE_ANIO.HeaderText = "VE_ANIO";
-            this.VE_ANIO.Name = "VE_ANIO";
-            this.VE_ANIO.Visible = false;
-            // 
-            // VE_PATENTE
-            // 
-            this.VE_PATENTE.DataPropertyName = "VE_PATENTE";
-            this.VE_PATENTE.HeaderText = "VE_PATENTE";
-            this.VE_PATENTE.Name = "VE_PATENTE";
-            this.VE_PATENTE.Visible = false;
-            // 
-            // iDDIRECCION
-            // 
-            this.iDDIRECCION.DataPropertyName = "IDDIRECCION";
-            this.iDDIRECCION.HeaderText = "IDDIRECCION";
-            this.iDDIRECCION.Name = "iDDIRECCION";
-            this.iDDIRECCION.Visible = false;
-            // 
-            // eMNOMBRE
-            // 
-            this.eMNOMBRE.DataPropertyName = "EM_NOMBRE";
-            this.eMNOMBRE.HeaderText = "NOMBRE";
-            this.eMNOMBRE.Name = "eMNOMBRE";
-            // 
-            // eMAPATERNO
-            // 
-            this.eMAPATERNO.DataPropertyName = "EM_APATERNO";
-            this.eMAPATERNO.HeaderText = "APELLIDO PATERNO";
-            this.eMAPATERNO.Name = "eMAPATERNO";
-            // 
-            // eMAMATERNO
-            // 
-            this.eMAMATERNO.DataPropertyName = "EM_AMATERNO";
-            this.eMAMATERNO.HeaderText = "APELLIDO MATERNO";
-            this.eMAMATERNO.Name = "eMAMATERNO";
-            // 
-            // eMCONTRASEÑA
-            // 
-            this.eMCONTRASEÑA.DataPropertyName = "EM_CONTRASEÑA";
-            this.eMCONTRASEÑA.HeaderText = "EM_CONTRASEÑA";
-            this.eMCONTRASEÑA.Name = "eMCONTRASEÑA";
-            this.eMCONTRASEÑA.Visible = false;
-            // 
-            // de_direccion
-            // 
-            this.de_direccion.DataPropertyName = "de_direccion";
-            this.de_direccion.HeaderText = "DIRECCIÓN";
-            this.de_direccion.Name = "de_direccion";
-            // 
-            // de_numero
-            // 
-            this.de_numero.DataPropertyName = "de_numero";
-            this.de_numero.HeaderText = "NÚMERO";
-            this.de_numero.Name = "de_numero";
-            // 
-            // iDTIPOEMPLEADO
-            // 
-            this.iDTIPOEMPLEADO.DataPropertyName = "IDTIPOEMPLEADO";
-            this.iDTIPOEMPLEADO.HeaderText = "IDTIPOEMPLEADO";
-            this.iDTIPOEMPLEADO.Name = "iDTIPOEMPLEADO";
-            this.iDTIPOEMPLEADO.Visible = false;
-            // 
-            // TP_DESCRIPCION
-            // 
-            this.TP_DESCRIPCION.DataPropertyName = "TP_DESCRIPCION";
-            this.TP_DESCRIPCION.HeaderText = "TIPO EMPLEADO";
-            this.TP_DESCRIPCION.Name = "TP_DESCRIPCION";
-            // 
-            // iDESTADO
-            // 
-            this.iDESTADO.DataPropertyName = "IDESTADO";
-            this.iDESTADO.HeaderText = "IDESTADO";
-            this.iDESTADO.Name = "iDESTADO";
-            this.iDESTADO.Visible = false;
-            // 
-            // ES_DESCRIPCION
-            // 
-            this.ES_DESCRIPCION.DataPropertyName = "ES_DESCRIPCION";
-            this.ES_DESCRIPCION.HeaderText = "ESTADO";
-            this.ES_DESCRIPCION.Name = "ES_DESCRIPCION";
-            // 
-            // idcomuna
-            // 
-            this.idcomuna.DataPropertyName = "id_comuna";
-            this.idcomuna.HeaderText = "id_comuna";
-            this.idcomuna.Name = "idcomuna";
-            this.idcomuna.Visible = false;
-            // 
-            // cdescripcion
-            // 
-            this.cdescripcion.DataPropertyName = "c_descripcion";
-            this.cdescripcion.HeaderText = "COMUNA";
-            this.cdescripcion.Name = "cdescripcion";
-            // 
-            // iDREGION
-            // 
-            this.iDREGION.DataPropertyName = "IDREGION";
-            this.iDREGION.HeaderText = "IDREGION";
-            this.iDREGION.Name = "iDREGION";
-            this.iDREGION.Visible = false;
-            // 
-            // rEDESCRIPCION
-            // 
-            this.rEDESCRIPCION.DataPropertyName = "RE_DESCRIPCION";
-            this.rEDESCRIPCION.HeaderText = "REGIÓN";
-            this.rEDESCRIPCION.Name = "rEDESCRIPCION";
+            this.lblContrasenia.AutoSize = true;
+            this.lblContrasenia.Location = new System.Drawing.Point(21, 196);
+            this.lblContrasenia.Name = "lblContrasenia";
+            this.lblContrasenia.Size = new System.Drawing.Size(61, 13);
+            this.lblContrasenia.TabIndex = 50;
+            this.lblContrasenia.Text = "Contraseña";
             // 
             // EditarEmpleado
             // 
@@ -620,13 +631,13 @@ namespace CapaPresentacion
             this.Controls.Add(this.lblNumDireccion);
             this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.txtDIRECCION);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblContrasenia);
+            this.Controls.Add(this.lblAMaterno);
             this.Controls.Add(this.txtPW);
             this.Controls.Add(this.txtAMATERNO);
             this.Controls.Add(this.txtAPATERNO);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblAPaterno);
+            this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtNOMBRE);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.txtIDEmpleado);
@@ -663,11 +674,11 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblNumDireccion;
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.TextBox txtDIRECCION;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblAMaterno;
         private System.Windows.Forms.TextBox txtAMATERNO;
         private System.Windows.Forms.TextBox txtAPATERNO;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblAPaterno;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtNOMBRE;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtIDDireccion;
@@ -687,7 +698,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblComuna;
         private System.Windows.Forms.Label lblRegion;
         private System.Windows.Forms.TextBox txtPW;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblContrasenia;
         private System.Windows.Forms.BindingSource cEEmpleadoDireccionBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn eMRUT;
         private System.Windows.Forms.DataGridViewTextBoxColumn eMDV;
