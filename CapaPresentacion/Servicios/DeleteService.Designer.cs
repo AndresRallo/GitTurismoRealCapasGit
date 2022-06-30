@@ -33,6 +33,7 @@ namespace CapaPresentacion.Servicios
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdServicio = new System.Windows.Forms.TextBox();
             this.btnEliminarResServicio = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -59,7 +60,7 @@ namespace CapaPresentacion.Servicios
             // txtIdServicio
             // 
             this.txtIdServicio.Location = new System.Drawing.Point(279, 149);
-            this.txtIdServicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdServicio.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdServicio.Name = "txtIdServicio";
             this.txtIdServicio.Size = new System.Drawing.Size(132, 22);
             this.txtIdServicio.TabIndex = 3;
@@ -67,7 +68,7 @@ namespace CapaPresentacion.Servicios
             // btnEliminarResServicio
             // 
             this.btnEliminarResServicio.Location = new System.Drawing.Point(164, 235);
-            this.btnEliminarResServicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminarResServicio.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminarResServicio.Name = "btnEliminarResServicio";
             this.btnEliminarResServicio.Size = new System.Drawing.Size(130, 28);
             this.btnEliminarResServicio.TabIndex = 5;
@@ -76,16 +77,27 @@ namespace CapaPresentacion.Servicios
             this.btnEliminarResServicio.Visible = false;
             this.btnEliminarResServicio.Click += new System.EventHandler(this.btnEliminarResServicio_Click);
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(12, 514);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(114, 28);
+            this.btnVolver.TabIndex = 47;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // DeleteService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 554);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEliminarResServicio);
             this.Controls.Add(this.txtIdServicio);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DeleteService";
             this.Text = "DeleteService";
             this.ResumeLayout(false);
@@ -99,5 +111,6 @@ namespace CapaPresentacion.Servicios
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIdServicio;
         private System.Windows.Forms.Button btnEliminarResServicio;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

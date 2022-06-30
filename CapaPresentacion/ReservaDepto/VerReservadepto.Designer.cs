@@ -32,7 +32,6 @@ namespace CapaPresentacion.Reserva
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dvgReservaDepto = new System.Windows.Forms.DataGridView();
-            this.cEReservaDptoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.IDRESERVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHAEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHASA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +43,20 @@ namespace CapaPresentacion.Reserva
             this.IDDEPTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ESTADORESERVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDTEMPORADA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cEReservaDptoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iDRESERVADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fECHAENDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fECHASADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aBONODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tOTALDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cANTADULTOSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cANTNINIOSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDUSUARIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDEPTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eSTADORESERVADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDEMPLEADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDTEMPORADADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgReservaDepto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cEReservaDptoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -74,19 +87,27 @@ namespace CapaPresentacion.Reserva
             this.IDUSUARIO,
             this.IDDEPTO,
             this.ESTADORESERVA,
-            this.IDTEMPORADA});
+            this.IDTEMPORADA,
+            this.iDRESERVADataGridViewTextBoxColumn,
+            this.fECHAENDataGridViewTextBoxColumn,
+            this.fECHASADataGridViewTextBoxColumn,
+            this.aBONODataGridViewTextBoxColumn,
+            this.tOTALDataGridViewTextBoxColumn,
+            this.cANTADULTOSDataGridViewTextBoxColumn,
+            this.cANTNINIOSDataGridViewTextBoxColumn,
+            this.iDUSUARIODataGridViewTextBoxColumn,
+            this.iDDEPTODataGridViewTextBoxColumn,
+            this.eSTADORESERVADataGridViewTextBoxColumn,
+            this.iDEMPLEADODataGridViewTextBoxColumn,
+            this.iDTEMPORADADataGridViewTextBoxColumn});
             this.dvgReservaDepto.DataSource = this.cEReservaDptoBindingSource;
             this.dvgReservaDepto.Location = new System.Drawing.Point(63, 110);
-            this.dvgReservaDepto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dvgReservaDepto.Margin = new System.Windows.Forms.Padding(4);
             this.dvgReservaDepto.Name = "dvgReservaDepto";
             this.dvgReservaDepto.RowHeadersWidth = 51;
             this.dvgReservaDepto.Size = new System.Drawing.Size(964, 388);
             this.dvgReservaDepto.TabIndex = 2;
             this.dvgReservaDepto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // cEReservaDptoBindingSource
-            // 
-            this.cEReservaDptoBindingSource.DataSource = typeof(CapaEntidad.CEReservaDpto);
             // 
             // IDRESERVA
             // 
@@ -176,14 +197,125 @@ namespace CapaPresentacion.Reserva
             this.IDTEMPORADA.Name = "IDTEMPORADA";
             this.IDTEMPORADA.Width = 125;
             // 
+            // cEReservaDptoBindingSource
+            // 
+            this.cEReservaDptoBindingSource.DataSource = typeof(CapaEntidad.CEReservaDpto);
+            // 
+            // iDRESERVADataGridViewTextBoxColumn
+            // 
+            this.iDRESERVADataGridViewTextBoxColumn.DataPropertyName = "IDRESERVA";
+            this.iDRESERVADataGridViewTextBoxColumn.HeaderText = "IDRESERVA";
+            this.iDRESERVADataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDRESERVADataGridViewTextBoxColumn.Name = "iDRESERVADataGridViewTextBoxColumn";
+            this.iDRESERVADataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fECHAENDataGridViewTextBoxColumn
+            // 
+            this.fECHAENDataGridViewTextBoxColumn.DataPropertyName = "FECHAEN";
+            this.fECHAENDataGridViewTextBoxColumn.HeaderText = "FECHAEN";
+            this.fECHAENDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fECHAENDataGridViewTextBoxColumn.Name = "fECHAENDataGridViewTextBoxColumn";
+            this.fECHAENDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fECHASADataGridViewTextBoxColumn
+            // 
+            this.fECHASADataGridViewTextBoxColumn.DataPropertyName = "FECHASA";
+            this.fECHASADataGridViewTextBoxColumn.HeaderText = "FECHASA";
+            this.fECHASADataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fECHASADataGridViewTextBoxColumn.Name = "fECHASADataGridViewTextBoxColumn";
+            this.fECHASADataGridViewTextBoxColumn.Width = 125;
+            // 
+            // aBONODataGridViewTextBoxColumn
+            // 
+            this.aBONODataGridViewTextBoxColumn.DataPropertyName = "ABONO";
+            this.aBONODataGridViewTextBoxColumn.HeaderText = "ABONO";
+            this.aBONODataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.aBONODataGridViewTextBoxColumn.Name = "aBONODataGridViewTextBoxColumn";
+            this.aBONODataGridViewTextBoxColumn.Width = 125;
+            // 
+            // tOTALDataGridViewTextBoxColumn
+            // 
+            this.tOTALDataGridViewTextBoxColumn.DataPropertyName = "TOTAL";
+            this.tOTALDataGridViewTextBoxColumn.HeaderText = "TOTAL";
+            this.tOTALDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tOTALDataGridViewTextBoxColumn.Name = "tOTALDataGridViewTextBoxColumn";
+            this.tOTALDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // cANTADULTOSDataGridViewTextBoxColumn
+            // 
+            this.cANTADULTOSDataGridViewTextBoxColumn.DataPropertyName = "CANTADULTOS";
+            this.cANTADULTOSDataGridViewTextBoxColumn.HeaderText = "CANTADULTOS";
+            this.cANTADULTOSDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cANTADULTOSDataGridViewTextBoxColumn.Name = "cANTADULTOSDataGridViewTextBoxColumn";
+            this.cANTADULTOSDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // cANTNINIOSDataGridViewTextBoxColumn
+            // 
+            this.cANTNINIOSDataGridViewTextBoxColumn.DataPropertyName = "CANTNINIOS";
+            this.cANTNINIOSDataGridViewTextBoxColumn.HeaderText = "CANTNINIOS";
+            this.cANTNINIOSDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cANTNINIOSDataGridViewTextBoxColumn.Name = "cANTNINIOSDataGridViewTextBoxColumn";
+            this.cANTNINIOSDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // iDUSUARIODataGridViewTextBoxColumn
+            // 
+            this.iDUSUARIODataGridViewTextBoxColumn.DataPropertyName = "IDUSUARIO";
+            this.iDUSUARIODataGridViewTextBoxColumn.HeaderText = "IDUSUARIO";
+            this.iDUSUARIODataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDUSUARIODataGridViewTextBoxColumn.Name = "iDUSUARIODataGridViewTextBoxColumn";
+            this.iDUSUARIODataGridViewTextBoxColumn.Width = 125;
+            // 
+            // iDDEPTODataGridViewTextBoxColumn
+            // 
+            this.iDDEPTODataGridViewTextBoxColumn.DataPropertyName = "IDDEPTO";
+            this.iDDEPTODataGridViewTextBoxColumn.HeaderText = "IDDEPTO";
+            this.iDDEPTODataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDDEPTODataGridViewTextBoxColumn.Name = "iDDEPTODataGridViewTextBoxColumn";
+            this.iDDEPTODataGridViewTextBoxColumn.Width = 125;
+            // 
+            // eSTADORESERVADataGridViewTextBoxColumn
+            // 
+            this.eSTADORESERVADataGridViewTextBoxColumn.DataPropertyName = "ESTADORESERVA";
+            this.eSTADORESERVADataGridViewTextBoxColumn.HeaderText = "ESTADORESERVA";
+            this.eSTADORESERVADataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.eSTADORESERVADataGridViewTextBoxColumn.Name = "eSTADORESERVADataGridViewTextBoxColumn";
+            this.eSTADORESERVADataGridViewTextBoxColumn.Width = 125;
+            // 
+            // iDEMPLEADODataGridViewTextBoxColumn
+            // 
+            this.iDEMPLEADODataGridViewTextBoxColumn.DataPropertyName = "IDEMPLEADO";
+            this.iDEMPLEADODataGridViewTextBoxColumn.HeaderText = "IDEMPLEADO";
+            this.iDEMPLEADODataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDEMPLEADODataGridViewTextBoxColumn.Name = "iDEMPLEADODataGridViewTextBoxColumn";
+            this.iDEMPLEADODataGridViewTextBoxColumn.Width = 125;
+            // 
+            // iDTEMPORADADataGridViewTextBoxColumn
+            // 
+            this.iDTEMPORADADataGridViewTextBoxColumn.DataPropertyName = "IDTEMPORADA";
+            this.iDTEMPORADADataGridViewTextBoxColumn.HeaderText = "IDTEMPORADA";
+            this.iDTEMPORADADataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDTEMPORADADataGridViewTextBoxColumn.Name = "iDTEMPORADADataGridViewTextBoxColumn";
+            this.iDTEMPORADADataGridViewTextBoxColumn.Width = 125;
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(63, 531);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(114, 28);
+            this.btnVolver.TabIndex = 55;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // VerReservadepto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(1067, 571);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.dvgReservaDepto);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VerReservadepto";
             this.Text = "VerReserva";
             this.Load += new System.EventHandler(this.VerReserva_Load);
@@ -210,5 +342,18 @@ namespace CapaPresentacion.Reserva
         private System.Windows.Forms.DataGridViewTextBoxColumn IDDEPTO;
         private System.Windows.Forms.DataGridViewTextBoxColumn ESTADORESERVA;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDTEMPORADA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDRESERVADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fECHAENDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fECHASADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aBONODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tOTALDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cANTADULTOSDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cANTNINIOSDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDUSUARIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDEPTODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eSTADORESERVADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDEMPLEADODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDTEMPORADADataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

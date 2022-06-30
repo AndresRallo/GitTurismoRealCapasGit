@@ -53,6 +53,7 @@ namespace CapaPresentacion.Reserva
             this.txtIdReserva = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbUsers = new System.Windows.Forms.ComboBox();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxDepto
@@ -133,7 +134,7 @@ namespace CapaPresentacion.Reserva
             // 
             // btnUpdateResDepto
             // 
-            this.btnUpdateResDepto.Location = new System.Drawing.Point(95, 484);
+            this.btnUpdateResDepto.Location = new System.Drawing.Point(278, 501);
             this.btnUpdateResDepto.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateResDepto.Name = "btnUpdateResDepto";
             this.btnUpdateResDepto.Size = new System.Drawing.Size(215, 28);
@@ -280,11 +281,22 @@ namespace CapaPresentacion.Reserva
             this.cmbUsers.Size = new System.Drawing.Size(160, 24);
             this.cmbUsers.TabIndex = 53;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(96, 501);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(114, 28);
+            this.btnVolver.TabIndex = 54;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // UpdateReservadepto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.cmbUsers);
             this.Controls.Add(this.txtIdReserva);
             this.Controls.Add(this.label5);
@@ -343,5 +355,6 @@ namespace CapaPresentacion.Reserva
         private System.Windows.Forms.TextBox txtIdReserva;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbUsers;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

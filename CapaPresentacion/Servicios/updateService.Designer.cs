@@ -54,6 +54,7 @@ namespace CapaPresentacion.Servicios
             this.txtNumDireccion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.RichTextBox();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -160,7 +161,7 @@ namespace CapaPresentacion.Servicios
             // txtIdServicio
             // 
             this.txtIdServicio.Location = new System.Drawing.Point(254, 108);
-            this.txtIdServicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdServicio.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdServicio.Name = "txtIdServicio";
             this.txtIdServicio.Size = new System.Drawing.Size(132, 22);
             this.txtIdServicio.TabIndex = 10;
@@ -168,7 +169,7 @@ namespace CapaPresentacion.Servicios
             // txtNombreServicio
             // 
             this.txtNombreServicio.Location = new System.Drawing.Point(254, 153);
-            this.txtNombreServicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombreServicio.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreServicio.Name = "txtNombreServicio";
             this.txtNombreServicio.Size = new System.Drawing.Size(132, 22);
             this.txtNombreServicio.TabIndex = 11;
@@ -176,7 +177,7 @@ namespace CapaPresentacion.Servicios
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(254, 196);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(132, 22);
             this.txtPrecio.TabIndex = 12;
@@ -184,7 +185,7 @@ namespace CapaPresentacion.Servicios
             // txtIVA
             // 
             this.txtIVA.Location = new System.Drawing.Point(254, 238);
-            this.txtIVA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIVA.Margin = new System.Windows.Forms.Padding(4);
             this.txtIVA.Name = "txtIVA";
             this.txtIVA.Size = new System.Drawing.Size(132, 22);
             this.txtIVA.TabIndex = 13;
@@ -192,7 +193,7 @@ namespace CapaPresentacion.Servicios
             // txtTotal
             // 
             this.txtTotal.Location = new System.Drawing.Point(254, 283);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(132, 22);
             this.txtTotal.TabIndex = 14;
@@ -200,7 +201,7 @@ namespace CapaPresentacion.Servicios
             // txtEstado
             // 
             this.txtEstado.Location = new System.Drawing.Point(654, 99);
-            this.txtEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEstado.Margin = new System.Windows.Forms.Padding(4);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(160, 22);
             this.txtEstado.TabIndex = 15;
@@ -208,7 +209,7 @@ namespace CapaPresentacion.Servicios
             // btnActualizarServicio
             // 
             this.btnActualizarServicio.Location = new System.Drawing.Point(667, 455);
-            this.btnActualizarServicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizarServicio.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizarServicio.Name = "btnActualizarServicio";
             this.btnActualizarServicio.Size = new System.Drawing.Size(147, 28);
             this.btnActualizarServicio.TabIndex = 20;
@@ -230,7 +231,7 @@ namespace CapaPresentacion.Servicios
             // 
             this.comboBoxSucursal.FormattingEnabled = true;
             this.comboBoxSucursal.Location = new System.Drawing.Point(254, 324);
-            this.comboBoxSucursal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxSucursal.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSucursal.Name = "comboBoxSucursal";
             this.comboBoxSucursal.Size = new System.Drawing.Size(160, 24);
             this.comboBoxSucursal.TabIndex = 41;
@@ -239,7 +240,7 @@ namespace CapaPresentacion.Servicios
             // 
             this.comboBoxTipoServicio.FormattingEnabled = true;
             this.comboBoxTipoServicio.Location = new System.Drawing.Point(654, 146);
-            this.comboBoxTipoServicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxTipoServicio.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxTipoServicio.Name = "comboBoxTipoServicio";
             this.comboBoxTipoServicio.Size = new System.Drawing.Size(160, 24);
             this.comboBoxTipoServicio.TabIndex = 40;
@@ -248,7 +249,7 @@ namespace CapaPresentacion.Servicios
             // 
             this.comboBoxComuna.FormattingEnabled = true;
             this.comboBoxComuna.Location = new System.Drawing.Point(254, 405);
-            this.comboBoxComuna.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxComuna.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxComuna.Name = "comboBoxComuna";
             this.comboBoxComuna.Size = new System.Drawing.Size(160, 24);
             this.comboBoxComuna.TabIndex = 47;
@@ -266,7 +267,7 @@ namespace CapaPresentacion.Servicios
             // txtNumDireccion
             // 
             this.txtNumDireccion.Location = new System.Drawing.Point(258, 364);
-            this.txtNumDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumDireccion.Name = "txtNumDireccion";
             this.txtNumDireccion.Size = new System.Drawing.Size(132, 22);
             this.txtNumDireccion.TabIndex = 45;
@@ -290,11 +291,22 @@ namespace CapaPresentacion.Servicios
             this.txtDescripcion.TabIndex = 48;
             this.txtDescripcion.Text = "";
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(701, 514);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(114, 28);
+            this.btnVolver.TabIndex = 49;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // updateService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.comboBoxComuna);
             this.Controls.Add(this.label16);
@@ -320,7 +332,7 @@ namespace CapaPresentacion.Servicios
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "updateService";
             this.Text = "updateService";
             this.ResumeLayout(false);
@@ -355,5 +367,6 @@ namespace CapaPresentacion.Servicios
         private System.Windows.Forms.TextBox txtNumDireccion;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.RichTextBox txtDescripcion;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

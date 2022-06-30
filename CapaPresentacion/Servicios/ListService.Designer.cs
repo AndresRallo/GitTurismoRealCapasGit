@@ -32,7 +32,6 @@ namespace CapaPresentacion.Servicios
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.gridServicios = new System.Windows.Forms.DataGridView();
-            this.cEServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idServiceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameServiceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +43,8 @@ namespace CapaPresentacion.Servicios
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoServicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cEServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridServicios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cEServiceBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -83,10 +84,6 @@ namespace CapaPresentacion.Servicios
             this.gridServicios.Size = new System.Drawing.Size(1019, 356);
             this.gridServicios.TabIndex = 0;
             this.gridServicios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridServicios_CellContentClick);
-            // 
-            // cEServiceBindingSource
-            // 
-            this.cEServiceBindingSource.DataSource = typeof(CapaEntidad.CEService);
             // 
             // idServiceDataGridViewTextBoxColumn
             // 
@@ -176,14 +173,29 @@ namespace CapaPresentacion.Servicios
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
             this.descripcionDataGridViewTextBoxColumn.Width = 125;
             // 
+            // cEServiceBindingSource
+            // 
+            this.cEServiceBindingSource.DataSource = typeof(CapaEntidad.CEService);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(32, 514);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(114, 28);
+            this.btnVolver.TabIndex = 47;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // ListService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gridServicios);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ListService";
             this.Text = "ListService";
             ((System.ComponentModel.ISupportInitialize)(this.gridServicios)).EndInit();
@@ -208,5 +220,6 @@ namespace CapaPresentacion.Servicios
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoServicioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource cEServiceBindingSource;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

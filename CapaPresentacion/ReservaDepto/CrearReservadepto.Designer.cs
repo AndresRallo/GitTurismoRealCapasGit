@@ -52,6 +52,7 @@ namespace CapaPresentacion.Reserva
             this.comboBoxDepto = new System.Windows.Forms.ComboBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.cmbUsers = new System.Windows.Forms.ComboBox();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -167,7 +168,7 @@ namespace CapaPresentacion.Reserva
             // 
             // btnReservarDepto
             // 
-            this.btnReservarDepto.Location = new System.Drawing.Point(82, 480);
+            this.btnReservarDepto.Location = new System.Drawing.Point(586, 487);
             this.btnReservarDepto.Margin = new System.Windows.Forms.Padding(4);
             this.btnReservarDepto.Name = "btnReservarDepto";
             this.btnReservarDepto.Size = new System.Drawing.Size(137, 28);
@@ -262,11 +263,22 @@ namespace CapaPresentacion.Reserva
             this.cmbUsers.Size = new System.Drawing.Size(160, 24);
             this.cmbUsers.TabIndex = 29;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(81, 487);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(114, 28);
+            this.btnVolver.TabIndex = 48;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // CrearReservadepto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.cmbUsers);
             this.Controls.Add(this.comboBoxDepto);
             this.Controls.Add(this.comboBoxTemporada);
@@ -323,5 +335,6 @@ namespace CapaPresentacion.Reserva
         private System.Windows.Forms.ComboBox comboBoxDepto;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ComboBox cmbUsers;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

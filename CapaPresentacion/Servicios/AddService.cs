@@ -250,5 +250,19 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal menuPrincipal = new MenuPrincipal("");
+            menuPrincipal.Show();
+            this.Close();
+        }
+
+        private void btnVolver_Click_1(object sender, EventArgs e)
+        {
+            MenuPrincipal menuPrincipal = new MenuPrincipal("");
+            menuPrincipal.Show();
+            this.Close();
+        }
     }
 }
